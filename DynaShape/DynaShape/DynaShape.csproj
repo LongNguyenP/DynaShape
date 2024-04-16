@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.0.3.7597" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.3.7597" />
+    <PackageReference Include="HelixToolkit.SharpDX.Core.Wpf" Version="2.24.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MeshToolkit">
+      <HintPath>..\packages-static\MeshToolkit\MeshToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="&#xA;Copy &quot;$(TargetDir)\$(TargetName).dll&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).dll&quot;&#xA;Copy &quot;$(TargetDir)\$(TargetName).xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\pkg.json&quot; &quot;$(SolutionDir)\dist\DynaShape\pkg.json&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\DynaShape_DynamoCustomization.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\DynaShape_DynamoCustomization.xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\DynaShape_ViewExtensionDefinition.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\extra\DynaShape_ViewExtensionDefinition.xml&quot;&#xA;" />
+  </Target>
+
+</Project>

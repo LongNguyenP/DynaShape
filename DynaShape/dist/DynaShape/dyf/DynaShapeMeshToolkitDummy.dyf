@@ -1,0 +1,133 @@
+{
+  "Uuid": "799b0370-4056-4801-b45a-f8c93bf3dbb2",
+  "IsCustomNode": true,
+  "Category": "MeshToolkit.Mesh",
+  "Description": "Do not use this node. It exists only because of technical reasons.",
+  "Name": "DynaShapeMeshToolkitDummy",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "128784c3c85d4829a4a5a8de1b5699d5",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "51674bd4fa2a48deb59152af17717889",
+          "Name": "origin",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a05747d5038242909453fea9e163b558",
+          "Name": "xWidth",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a96752ae93114788880adc16d15602dd",
+          "Name": "yWidth",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f6adfe80d25c4e3d99658e0fe3839a98",
+          "Name": "xDivisions",
+          "Description": "int\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c9f4e586930b487a9f32acb3d95250a8",
+          "Name": "yDivisions",
+          "Description": "int\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cc305f4c2ba5434580b07ee579768dfb",
+          "Name": "mesh",
+          "Description": "mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Plane@Autodesk.DesignScript.Geometry.Point,double,double,int,int",
+      "Replication": "Auto",
+      "Description": "Create a mesh plane based on the current settings.\n\nMesh.Plane (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), xWidth: double = 1, yWidth: double = 1, xDivisions: int = 0, yDivisions: int = 0): Mesh"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "MeshToolkit",
+      "Version": "5.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "128784c3c85d4829a4a5a8de1b5699d5"
+      ]
+    }
+  ],
+  "Author": "None provided",
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "3.0.3.7597",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "128784c3c85d4829a4a5a8de1b5699d5",
+        "Name": "Mesh.Plane",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 692.2857142857143,
+        "Y": 423.42857142857144
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}
