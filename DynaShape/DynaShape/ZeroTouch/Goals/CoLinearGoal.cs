@@ -5,7 +5,7 @@ using Dynamo.Graph.Nodes;
 namespace DynaShape.ZeroTouch.Goals
 {
     /// <summary>
-    /// 
+    /// CoLinear goal.
     /// </summary>
     public  class CoLinearGoal
     {
