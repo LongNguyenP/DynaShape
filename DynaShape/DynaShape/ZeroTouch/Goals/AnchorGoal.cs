@@ -11,18 +11,14 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private AnchorGoal(){}
 
-        //==================================================================
-        // Anchor
-        //==================================================================
-
         /// <summary>
-        /// Keep a node an the specified anchor point.
-        /// By default the weight for this goal is set very high to ensure the node really "sticks" to the anchor.
+        /// Creates an AnchorGoal to attempt to keep a node on a specified point
+        /// By default the weight for this goal is set very high to ensure the node really "sticks" to the anchor
         /// </summary>
-        /// <param name="startPosition">The starting position for this anchor goal.</param>
+        /// <param name="startPosition">The starting position for this AnchorGoal</param>
         /// <param name="anchor">The resting position for this anchor goal.</param>
         /// <param name="weight">Weight controls how strict the goal is.</param>
-        /// <returns name="anchorGoal">A new anchor goal.</returns>
+        /// <returns name="anchorGoal">A newly defined AnchorGoal.</returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.AnchorGoal Create(
             Point startPosition,
@@ -37,12 +33,12 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the anchor goal's parameters while the solver is running.
+        /// Modifies the AngleGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal">The created anchor goal</param>
-        /// <param name="anchor"></param>
-        /// <param name="weight"></param>
-        /// <returns name="anchorGoal">The modified anchor goal.</returns>
+        /// <param name="goal">An AnchorGoal to modify with the given parameters.</param>
+        /// <param name="anchor">The new anchor for the given AnchorGoal</param>
+        /// <param name="weight">An optional new weight for the given AnchorGoal</param>
+        /// <returns name="anchorGoal">The modified AnchorGoal</returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.AnchorGoal Change(
             DynaShape.Goals.AnchorGoal goal,
