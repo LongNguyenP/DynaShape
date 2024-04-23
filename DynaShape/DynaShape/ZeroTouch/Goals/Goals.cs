@@ -29,76 +29,7 @@ public static class Goals
     // ConstantPressure
     //==================================================================
 
-    /// <summary>
-    /// Applying a force perpendicular to a triangular surface, with magnitude proportional to the surface area.
-    /// </summary>
-    /// <param name="startPosition1"></param>
-    /// <param name="startPosition2"></param>
-    /// <param name="startPosition3"></param>
-    /// <param name="pressure">The pressure being applied on the triangle</param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static ConstantPressureGoal ConstantPressureGoal_Create(
-        Point startPosition1,
-        Point startPosition2,
-        Point startPosition3,
-        [DefaultArgument("0.1")] float pressure,
-        [DefaultArgument("1.0")] float weight)
-    {
-        return new ConstantPressureGoal(startPosition1.ToTriple(), startPosition2.ToTriple(), startPosition3.ToTriple(), pressure, weight);
-    }
-
-
-    /// <summary>
-    /// Applying forces perpendicular to each triangular face of a mesh, with magnitude proportional to the surface area of the triangle
-    /// </summary>
-    /// <param name="mesh"></param>
-    /// <param name="pressure"></param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static List<ConstantPressureGoal> ConstantPressureGoal_Create(
-        Mesh mesh,
-        [DefaultArgument("0.1")] float pressure,
-        [DefaultArgument("1.0")] float weight)
-    {
-        List<ConstantPressureGoal> pressureGoals = new List<ConstantPressureGoal>();
-
-        List<double> vertices = mesh.TrianglesAsNineNumbers.ToList();
-
-        int faceCount = vertices.Count / 9;
-
-        for (int i = 0; i < faceCount; i++)
-        {
-            int j = i * 9;
-            pressureGoals.Add(
-                new ConstantPressureGoal(
-                    new Triple(vertices[j + 0], vertices[j + 1], vertices[j + 2]),
-                    new Triple(vertices[j + 3], vertices[j + 4], vertices[j + 5]),
-                    new Triple(vertices[j + 6], vertices[j + 7], vertices[j + 8]),
-                    pressure,
-                    weight));
-        }
-
-        return pressureGoals;
-    }
-
-
-    /// <summary>
-    /// Adjust the goal's parameters while the solver is running.
-    /// </summary>
-    /// <param name="goal"></param>
-    /// <param name="pressure"></param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static ConstantPressureGoal ConstantPressureGoal_Change(
-        ConstantPressureGoal goal,
-        [DefaultArgument("-1.0")] float pressure,
-        [DefaultArgument("-1.0")] float weight)
-    {
-        if (pressure >= 0.0) goal.Pressure = pressure;
-        if (weight >= 0.0) goal.Weight = weight;
-        return goal;
-    }
+    
 
 
     //==================================================================

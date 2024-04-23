@@ -60,7 +60,7 @@ namespace DynaShape.ZeroTouch.Goals
         }
 
         /// <summary>
-        /// Modifies the AngleGoal's parameters while the solver is running
+        /// Modifies the AngleGoal's parameters while the solver is running.
         /// </summary>
         /// <param name="angleGoal">An AngleGoal to modify with the given parameters</param>
         /// <param name="targetAngle">The new target angle for the AngleGoal</param>
