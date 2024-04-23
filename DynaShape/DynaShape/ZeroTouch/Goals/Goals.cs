@@ -25,46 +25,6 @@ public static class Goals
     }
 
 
-    
-    //==================================================================
-    // Constant
-    //==================================================================
-
-    /// <summary>
-    /// Apply a constant directional offset to the specified nodes.
-    /// For example, this is useful to simulate gravity
-    /// </summary>
-    /// <param name="startPositions"></param>
-    /// <param name="constant"></param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static ConstantGoal ConstantGoal_Create(
-        List<Point> startPositions,
-        [DefaultArgument("Vector.ByCoordinates(0, 0, -0.1)")] Vector constant,
-        [DefaultArgument("1.0")] float weight)
-    {
-        return new ConstantGoal(startPositions.ToTriples(), constant.ToTriple(), weight);
-    }
-
-    /// <summary>
-    /// Adjust the goal's parameters while the solver is running.
-    /// </summary>
-    /// <param name="goal"></param>
-    /// <param name="constant"></param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static ConstantGoal ConstantGoal_Change(
-        ConstantGoal goal,
-        [DefaultArgument("null")] Vector constant,
-        [DefaultArgument("-1.0")] float weight)
-    {
-        if (constant != null) goal.Move = constant.ToTriple();
-        if (weight >= 0.0) goal.Weight = weight;
-        return goal;
-    }
-
-
-
     //==================================================================
     // ConstantPressure
     //==================================================================
