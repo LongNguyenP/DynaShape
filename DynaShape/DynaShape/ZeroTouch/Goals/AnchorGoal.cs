@@ -12,8 +12,8 @@ namespace DynaShape.ZeroTouch.Goals
         private AnchorGoal(){}
 
         /// <summary>
-        /// Creates an AnchorGoal to attempt to keep a node on a specified point
-        /// By default the weight for this goal is set very high to ensure the node really "sticks" to the anchor
+        /// Creates an AnchorGoal to attempt to keep a node on a specified point.
+        /// By default the weight for this goal is set very high to ensure the node really "sticks" to the anchor.
         /// </summary>
         /// <param name="startPosition">The starting position for this AnchorGoal</param>
         /// <param name="anchor">The resting position for this anchor goal</param>

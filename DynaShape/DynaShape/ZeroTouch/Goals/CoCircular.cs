@@ -12,7 +12,7 @@ namespace DynaShape.ZeroTouch.Goals
         private CoCircularGoal(){}
 
         /// <summary>
-        /// Creates a CoCircularGoal that attempts to force a set of nodes to lie on a common circular arc
+        /// Creates a CoCircularGoal that attempts to force a set of nodes to lie on a common circular arc.
         /// </summary>
         /// <param name="startPositions">The starting points for the CoCircularGoal</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
@@ -27,7 +27,7 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Modifies the  the CoCircularGoal's parameters while the solver is running.
+        /// Modifies the CoCircularGoal's parameters while the solver is running.
         /// </summary>
         /// <param name="coCircularGoal">A CoCircular goal to modify with the given parameters</param>
         /// <param name="weight">An optional new weight for the AngleGoal</param>

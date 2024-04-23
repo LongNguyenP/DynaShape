@@ -25,49 +25,7 @@ public static class Goals
     }
 
 
-   
-
-
-   
-
-
-
-
-    //==================================================================
-    // CoLinear
-    //==================================================================
-
-    /// <summary>
-    /// Force a set of nodes to lie on a common line.
-    /// The line position and orientation are computed based on the current node positions.
-    /// This is different from the OnLine goal, where the target line is fixed and defined in advance.
-    /// </summary>
-    /// <param name="startPositions"></param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static CoLinearGoal CoLinearGoal_Create(
-        List<Point> startPositions,
-        [DefaultArgument("1000.0")] float weight)
-    {
-        return new CoLinearGoal(startPositions.ToTriples(), weight);
-    }
-
-
-    /// <summary>
-    /// Adjust the goal's parameters while the solver is running.
-    /// </summary>
-    /// <param name="goal"></param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static CoLinearGoal CoLinearGoal_Change(
-        CoLinearGoal goal,
-        [DefaultArgument("-1.0")] float weight)
-    {
-        if (weight >= 0.0) goal.Weight = weight;
-        return goal;
-    }
-
-
+    
     //==================================================================
     // Constant
     //==================================================================

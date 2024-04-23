@@ -12,7 +12,7 @@ namespace DynaShape.ZeroTouch.Goals
         private AngleGoal(){}
 
         /// <summary>
-        /// Creates an Angle Goal that attempts to keep the angle formed by three nodes at a target value
+        /// Creates an Angle Goal that attempts to keep the angle formed by three nodes at a target value.
         /// </summary>
         /// <param name="a">The first node to maintain</param>
         /// <param name="b">The second node to maintain</param>
