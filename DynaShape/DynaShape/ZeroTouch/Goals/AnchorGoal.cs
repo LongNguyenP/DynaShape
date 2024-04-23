@@ -1,9 +1,4 @@
 ﻿using Autodesk.DesignScript.Runtime;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.DesignScript.Geometry;
 using Dynamo.Graph.Nodes;
 
@@ -24,10 +19,10 @@ namespace DynaShape.ZeroTouch.Goals
         /// Keep a node an the specified anchor point.
         /// By default the weight for this goal is set very high to ensure the node really "sticks" to the anchor.
         /// </summary>
-        /// <param name="startPosition"></param>
-        /// <param name="anchor"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPosition">The starting position for this anchor goal.</param>
+        /// <param name="anchor">The resting position for this anchor goal.</param>
+        /// <param name="weight">Weight controls how strict the goal is.</param>
+        /// <returns name="anchorGoal">A new anchor goal.</returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.AnchorGoal Create(
             Point startPosition,
@@ -44,10 +39,10 @@ namespace DynaShape.ZeroTouch.Goals
         /// <summary>
         /// Adjust the anchor goal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
+        /// <param name="goal">The created anchor goal</param>
         /// <param name="anchor"></param>
         /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <returns name="anchorGoal">The modified anchor goal.</returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.AnchorGoal Change(
             DynaShape.Goals.AnchorGoal goal,
