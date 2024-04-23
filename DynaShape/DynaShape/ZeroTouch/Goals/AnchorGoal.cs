@@ -16,9 +16,9 @@ namespace DynaShape.ZeroTouch.Goals
         /// By default the weight for this goal is set very high to ensure the node really "sticks" to the anchor
         /// </summary>
         /// <param name="startPosition">The starting position for this AnchorGoal</param>
-        /// <param name="anchor">The resting position for this anchor goal.</param>
-        /// <param name="weight">Weight controls how strict the goal is.</param>
-        /// <returns name="anchorGoal">A newly defined AnchorGoal.</returns>
+        /// <param name="anchor">The resting position for this anchor goal</param>
+        /// <param name="weight">The goal's weight/impact on the solver</param>
+        /// <returns name="AnchorGoal">A newly defined AnchorGoal.</returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.AnchorGoal Create(
             Point startPosition,
@@ -38,7 +38,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="goal">An AnchorGoal to modify with the given parameters.</param>
         /// <param name="anchor">The new anchor for the given AnchorGoal</param>
         /// <param name="weight">An optional new weight for the given AnchorGoal</param>
-        /// <returns name="anchorGoal">The modified AnchorGoal</returns>
+        /// <returns name="AnchorGoal">The modified AnchorGoal</returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.AnchorGoal Change(
             DynaShape.Goals.AnchorGoal goal,

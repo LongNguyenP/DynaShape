@@ -1,10 +1,4 @@
 ﻿using Autodesk.DesignScript.Runtime;
-using DynaShape.Goals;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.DesignScript.Geometry;
 using Dynamo.Graph.Nodes;
 
@@ -18,13 +12,13 @@ namespace DynaShape.ZeroTouch.Goals
         private CoCircularGoal(){}
 
         /// <summary>
-        /// Force a set of nodes to lie on a common circular arc
+        /// Creates a CoCircularGoal that attempts to force a set of nodes to lie on a common circular arc
         /// </summary>
-        /// <param name="startPositions"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The starting points for the CoCircularGoal</param>
+        /// <param name="weight">The goal's weight/impact on the solver</param>
+        /// <returns name="CoCircularGoal">A newly defined CoCircularGoal</returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.CoCircularGoal CoCircularGoal_Create(
+        public static DynaShape.Goals.CoCircularGoal Create(
             List<Point> startPositions,
             [DefaultArgument("1.0")] float weight)
         {
@@ -33,18 +27,18 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the  the CoCircularGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="coCircularGoal">A CoCircular goal to modify with the given parameters</param>
+        /// <param name="weight">An optional new weight for the AngleGoal</param>
+        /// <returns name="CoCircularGoal">The modified CoCircular goal</returns>
         [NodeCategory("Actions")]
-        public static DynaShape.Goals.CoCircularGoal CoCircularGoal_Change(
-            DynaShape.Goals.CoCircularGoal goal,
+        public static DynaShape.Goals.CoCircularGoal Change(
+            DynaShape.Goals.CoCircularGoal coCircularGoal,
             [DefaultArgument("-1.0")] float weight)
         {
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (weight >= 0.0) coCircularGoal.Weight = weight;
+            return coCircularGoal;
         }
     }
 }

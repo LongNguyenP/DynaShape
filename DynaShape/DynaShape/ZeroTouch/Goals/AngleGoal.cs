@@ -19,7 +19,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="c">The third node to maintain</param>
         /// <param name="targetAngle">The angle to attempt to maintain</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
-        /// <returns name="angleGoal">A newly defined AngleGoal</returns>
+        /// <returns name="AngleGoal">A newly defined AngleGoal</returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.AngleGoal Create(
             Point a,
@@ -44,7 +44,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="b">The second node to maintain</param>
         /// <param name="c">The third node to maintain</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
-        /// <returns name="angleGoal">A newly defined AngleGoal</returns>
+        /// <returns name="AngleGoal">A newly defined AngleGoal</returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.AngleGoal Create(
             Point a,
@@ -60,7 +60,7 @@ namespace DynaShape.ZeroTouch.Goals
         }
 
         /// <summary>
-        /// Modifies the AngleGoal's parameters while the solver is running.
+        /// Modifies the AngleGoal's parameters while the solver is running
         /// </summary>
         /// <param name="angleGoal">An AngleGoal to modify with the given parameters</param>
         /// <param name="targetAngle">The new target angle for the AngleGoal</param>
