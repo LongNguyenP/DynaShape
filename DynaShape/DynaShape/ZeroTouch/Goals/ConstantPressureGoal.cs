@@ -1,6 +1,7 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
 using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -20,6 +21,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="pressure">The pressure being applied on the triangle</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
         /// <returns name="ConstantPressureGoal"></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.ConstantPressureGoal Create(
             Point startPosition1,
             Point startPosition2,
@@ -38,6 +40,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="pressure">The pressure being applied on the mesh's triangles</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
         /// <returns name="ConstantPressureGoal"></returns>
+        [NodeCategory("Create")]
         public static List<DynaShape.Goals.ConstantPressureGoal> Create(
             Mesh mesh,
             [DefaultArgument("0.1")] float pressure,
@@ -72,6 +75,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="pressure">An optional new pressure to apply to the ConstantPressureGoal</param>
         /// <param name="weight">An optional new weight for the AngleGoal</param>
         /// <returns name="ConstantPressureGoal"></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.ConstantPressureGoal Change(
             DynaShape.Goals.ConstantPressureGoal constantPressureGoal,
             [DefaultArgument("-1.0")] float pressure,
