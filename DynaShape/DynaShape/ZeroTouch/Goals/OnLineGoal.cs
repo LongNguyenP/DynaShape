@@ -19,7 +19,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLineDirection"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnLineGoal OnLineGoal_Create(
+        public static DynaShape.Goals.OnLineGoal Create(
             List<Point> startPosition,
             [DefaultArgument("Point.Origin()")] Point targetLineOrigin,
             [DefaultArgument("Vector.XAxis()")] Vector targetLineDirection,
@@ -41,7 +41,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLine"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnLineGoal OnLineGoal_Create(
+        public static DynaShape.Goals.OnLineGoal Create(
             List<Point> startPositions,
             [DefaultArgument("Line.ByStartPointEndPoint(Point.Origin(), Point.ByCoordinates(1.0, 0.0, 0.0))")] Line
                 targetLine,
@@ -59,7 +59,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLineDirection"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnLineGoal OnLineGoal_Change(
+        public static DynaShape.Goals.OnLineGoal Change(
             DynaShape.Goals.OnLineGoal goal,
             [DefaultArgument("null")] Point targetLineOrigin,
             [DefaultArgument("null")] Vector targetLineDirection,
@@ -79,7 +79,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLine"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnLineGoal OnLineGoal_Change(
+        public static DynaShape.Goals.OnLineGoal Change(
             DynaShape.Goals.OnLineGoal goal,
             [DefaultArgument("null")] Line targetLine,
             [DefaultArgument("-1.0")] float weight)

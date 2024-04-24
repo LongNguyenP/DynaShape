@@ -1,4 +1,4 @@
-﻿using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
 using DynaShape.Goals;
 using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
@@ -18,7 +18,7 @@ public static class Goals
     /// <param name="goal"></param>
     /// <param name="weight"></param>
     /// <returns></returns>
-    public static Goal Goal_ChangeWeight(Goal goal, float weight)
+    public static Goal ChangeWeight(Goal goal, float weight)
     {
         goal.Weight = weight;
         return goal;

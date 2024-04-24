@@ -22,7 +22,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetSurface"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnSurfaceGoal OnSurfaceGoal_Create(
+        public static DynaShape.Goals.OnSurfaceGoal Create(
             List<Point> startPositions,
             Surface targetSurface,
             [DefaultArgument("1.0")] float weight)
@@ -38,7 +38,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetSurface"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnSurfaceGoal OnSurfaceGoal_Change(
+        public static DynaShape.Goals.OnSurfaceGoal Change(
             DynaShape.Goals.OnSurfaceGoal goal,
             [DefaultArgument("null")] Surface targetSurface,
             float weight)

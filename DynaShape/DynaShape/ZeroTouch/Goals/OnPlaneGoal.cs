@@ -19,7 +19,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetPlaneNormal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnPlaneGoal OnPlaneGoal_Create(
+        public static DynaShape.Goals.OnPlaneGoal Create(
             List<Point> startPositions,
             [DefaultArgument("Point.Origin()")] Point targetPlaneOrigin,
             [DefaultArgument("Vector.ZAxis()")] Vector targetPlaneNormal,
@@ -40,7 +40,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetPlane"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnPlaneGoal OnPlaneGoal_Create(
+        public static DynaShape.Goals.OnPlaneGoal Create(
             List<Point> startPositions,
             [DefaultArgument("Plane.ByOriginNormal(Point.Origin(), Vector.ZAxis())")] Plane targetPlane,
             [DefaultArgument("1.0")] float weight)
@@ -58,7 +58,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetPlaneNormal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnPlaneGoal OnPlaneGoal_Change(
+        public static DynaShape.Goals.OnPlaneGoal Change(
            DynaShape.Goals.OnPlaneGoal goal,
             [DefaultArgument("null")] Point targetPlaneOrigin,
             [DefaultArgument("null")] Vector targetPlaneNormal,
@@ -78,7 +78,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetPlane"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnPlaneGoal OnPlaneGoal_Change(
+        public static DynaShape.Goals.OnPlaneGoal Change(
             DynaShape.Goals.OnPlaneGoal goal,
             [DefaultArgument("null")] Plane targetPlane,
             [DefaultArgument("-1.0")] float weight)

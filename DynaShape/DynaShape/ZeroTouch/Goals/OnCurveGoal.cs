@@ -17,7 +17,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetCurve"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnCurveGoal OnCurveGoal_Create(
+        public static DynaShape.Goals.OnCurveGoal Create(
             List<Point> startPositions,
             Curve targetCurve,
             [DefaultArgument("1.0")] float weight)
@@ -33,7 +33,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetCurve"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.OnCurveGoal OnCurveGoal_Change(
+        public static DynaShape.Goals.OnCurveGoal Change(
             DynaShape.Goals.OnCurveGoal goal,
             [DefaultArgument("null")] Curve targetCurve,
             float weight)

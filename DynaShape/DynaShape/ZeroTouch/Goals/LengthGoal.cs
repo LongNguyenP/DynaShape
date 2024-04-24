@@ -18,7 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLength">If unspecified, the target length will be the distance between the starting node positions</param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.LengthGoal LengthGoal_Create(
+        public static DynaShape.Goals.LengthGoal Create(
             Point startPosition1,
             Point startPosition2,
             [DefaultArgument("-1.0")] float targetLength,
@@ -41,7 +41,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLength">If unspecified, the target length will be the distance between the starting node positions</param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.LengthGoal LengthGoal_Create(
+        public static DynaShape.Goals.LengthGoal Create(
             Line line,
             [DefaultArgument("-1.0")] float targetLength,
             [DefaultArgument("1.0")] float weight)
@@ -61,7 +61,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLength"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.LengthGoal LengthGoal_Change(
+        public static DynaShape.Goals.LengthGoal Change(
             DynaShape.Goals.LengthGoal goal,
             [DefaultArgument("-1.0")] float targetLength,
             [DefaultArgument("-1.0")] float weight)

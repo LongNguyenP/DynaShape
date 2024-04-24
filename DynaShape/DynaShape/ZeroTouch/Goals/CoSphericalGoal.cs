@@ -17,7 +17,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPositions"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.CoSphericalGoal CoSphericalGoal_Create(
+        public static DynaShape.Goals.CoSphericalGoal Create(
             List<Point> startPositions,
             [DefaultArgument("1.0")] float weight)
         {
@@ -31,7 +31,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="goal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.CoSphericalGoal CoSphericalGoal_Change(
+        public static DynaShape.Goals.CoSphericalGoal Change(
             DynaShape.Goals.CoSphericalGoal goal,
             [DefaultArgument("-1.0")] float weight)
         {

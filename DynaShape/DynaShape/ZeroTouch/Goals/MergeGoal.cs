@@ -18,7 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPositions"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.MergeGoal MergeGoal_Create(
+        public static DynaShape.Goals.MergeGoal Create(
             List<Point> startPositions,
             [DefaultArgument("1000.0")] float weight)
         {
@@ -32,7 +32,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="goal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.MergeGoal MergeGoal_Change(
+        public static DynaShape.Goals.MergeGoal Change(
             DynaShape.Goals.MergeGoal goal,
             [DefaultArgument("-1.0")] float weight)
         {

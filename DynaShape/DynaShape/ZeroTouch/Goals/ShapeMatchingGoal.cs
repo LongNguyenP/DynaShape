@@ -19,7 +19,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="allowScaling"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.ShapeMatchingGoal ShapeMatchingGoal_Create(
+        public static DynaShape.Goals.ShapeMatchingGoal Create(
             List<Point> startPositions,
             [DefaultArgument("null")] List<Point> targetShapePoints,
             [DefaultArgument("false")] bool allowScaling,
@@ -40,7 +40,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="allowScaling"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.ShapeMatchingGoal ShapeMatchingGoal_Change(
+        public static DynaShape.Goals.ShapeMatchingGoal Change(
             DynaShape.Goals.ShapeMatchingGoal goal,
             [DefaultArgument("null")] List<Point> targetShapePoints,
             [DefaultArgument("false")] bool? allowScaling,

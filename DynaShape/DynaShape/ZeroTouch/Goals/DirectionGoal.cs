@@ -23,7 +23,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetDirection"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.DirectionGoal DirectionGoal_Create(
+        public static DynaShape.Goals.DirectionGoal Create(
             Point startPosition1,
             Point startPosition2,
             [DefaultArgument("null")] Vector targetDirection,
@@ -44,7 +44,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetDirection"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.DirectionGoal DirectionGoal_Change(
+        public static DynaShape.Goals.DirectionGoal Change(
             DynaShape.Goals.DirectionGoal goal,
             [DefaultArgument("null")] Vector targetDirection,
             [DefaultArgument("-1.0")] float weight)

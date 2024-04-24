@@ -18,7 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPositions"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.CoPlanarGoal CoPlanarGoal_Create(
+        public static DynaShape.Goals.CoPlanarGoal Create(
             List<Point> startPositions,
             [DefaultArgument("1.0")] float weight)
         {
@@ -32,7 +32,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="goal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.CoPlanarGoal CoPlanarGoal_Change(
+        public static DynaShape.Goals.CoPlanarGoal Change(
             DynaShape.Goals.CoPlanarGoal goal,
             [DefaultArgument("-1.0")] float weight)
         {

@@ -23,7 +23,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="windVector"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.DirectionalWindGoal DirectionalWindGoal_Create(
+        public static DynaShape.Goals.DirectionalWindGoal Create(
             Point startPosition1,
             Point startPosition2,
             Point startPosition3,
@@ -49,7 +49,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="windVector"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static List<DynaShape.Goals.DirectionalWindGoal> DirectionalWindGoal_Create(
+        public static List<DynaShape.Goals.DirectionalWindGoal> Create(
             Mesh mesh,
             [DefaultArgument("Vector.ByCoordinates(1.0, 0, 0)")] Vector windVector,
             [DefaultArgument("1.0")] float weight)
@@ -83,7 +83,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="windVector"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.DirectionalWindGoal DirectionalWindGoal_Change(
+        public static DynaShape.Goals.DirectionalWindGoal Change(
             DynaShape.Goals.DirectionalWindGoal goal,
             [DefaultArgument("null")] Vector windVector,
             [DefaultArgument("-1.0")] float weight)

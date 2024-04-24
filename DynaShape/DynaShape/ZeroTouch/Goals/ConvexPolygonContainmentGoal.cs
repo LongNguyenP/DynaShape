@@ -18,7 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="polygonVertices"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.ConvexPolygonContainmentGoal ConvexPolygonContainmentGoal_Create(
+        public static DynaShape.Goals.ConvexPolygonContainmentGoal Create(
             List<Point> centers,
             List<float> radii,
             [DefaultArgument("null")] List<Point> polygonVertices,
@@ -41,7 +41,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="polygonVertices"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.ConvexPolygonContainmentGoal ConvexPolygonContainmentGoal_Change(
+        public static DynaShape.Goals.ConvexPolygonContainmentGoal Change(
             DynaShape.Goals.ConvexPolygonContainmentGoal goal,
             [DefaultArgument("null")] List<float> radii,
             [DefaultArgument("null")] List<Point> polygonVertices,

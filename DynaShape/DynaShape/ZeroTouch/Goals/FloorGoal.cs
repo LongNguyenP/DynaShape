@@ -17,7 +17,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="floorHeight"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.FloorGoal FloorGoal_Create(
+        public static DynaShape.Goals.FloorGoal Create(
             List<Point> startPositions,
             [DefaultArgument("0.0")] float floorHeight,
             [DefaultArgument("1000.0")] float weight)
@@ -33,7 +33,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="floorHeight"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.FloorGoal FloorGoal_Change(
+        public static DynaShape.Goals.FloorGoal Change(
             DynaShape.Goals.FloorGoal goal,
             [DefaultArgument("0.0")] float floorHeight,
             [DefaultArgument("-1.0")] float weight)

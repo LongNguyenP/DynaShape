@@ -16,7 +16,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPositions"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.EqualLengthsGoal EqualLengthsGoal_Create(
+        public static DynaShape.Goals.EqualLengthsGoal Create(
             List<Point> startPositions,
             [DefaultArgument("1.0")] float weight)
         {
@@ -41,7 +41,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="lineEnds"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.EqualLengthsGoal EqualLengthsGoal_Create(
+        public static DynaShape.Goals.EqualLengthsGoal Create(
             List<Point> lineStarts,
             List<Point> lineEnds,
             [DefaultArgument("1.0")] float weight)
@@ -66,7 +66,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="lines"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.EqualLengthsGoal EqualLengthsGoal_Create(
+        public static DynaShape.Goals.EqualLengthsGoal Create(
             List<Line> lines,
             [DefaultArgument("1.0")] float weight)
         {
@@ -86,7 +86,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="goal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.EqualLengthsGoal EqualLengthsGoal_Change(
+        public static DynaShape.Goals.EqualLengthsGoal Change(
             DynaShape.Goals.EqualLengthsGoal goal,
             [DefaultArgument("-1.0")] float weight)
         {

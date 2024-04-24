@@ -17,7 +17,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="radii"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.SphereCollisionGoal SphereCollisionGoal_Create(
+        public static DynaShape.Goals.SphereCollisionGoal Create(
             List<Point> centers,
             List<float> radii,
             [DefaultArgument("1.0")] float weight)
@@ -36,7 +36,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="radii"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
-        public static DynaShape.Goals.SphereCollisionGoal SphereCollisionGoal_Change(
+        public static DynaShape.Goals.SphereCollisionGoal Change(
             DynaShape.Goals.SphereCollisionGoal goal,
             [DefaultArgument("null")] List<float> radii,
             [DefaultArgument("-1.0")] float weight)
