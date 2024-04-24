@@ -1,6 +1,7 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
 using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -23,6 +24,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="windVector"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.DirectionalWindGoal Create(
             Point startPosition1,
             Point startPosition2,
@@ -49,6 +51,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="windVector"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static List<DynaShape.Goals.DirectionalWindGoal> Create(
             Mesh mesh,
             [DefaultArgument("Vector.ByCoordinates(1.0, 0, 0)")] Vector windVector,
@@ -83,6 +86,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="windVector"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.DirectionalWindGoal Change(
             DynaShape.Goals.DirectionalWindGoal goal,
             [DefaultArgument("null")] Vector windVector,

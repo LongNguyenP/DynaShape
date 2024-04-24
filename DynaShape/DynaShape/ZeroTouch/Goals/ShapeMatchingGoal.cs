@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -19,6 +20,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="allowScaling"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.ShapeMatchingGoal Create(
             List<Point> startPositions,
             [DefaultArgument("null")] List<Point> targetShapePoints,
@@ -40,6 +42,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="allowScaling"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.ShapeMatchingGoal Change(
             DynaShape.Goals.ShapeMatchingGoal goal,
             [DefaultArgument("null")] List<Point> targetShapePoints,

@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -19,6 +20,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetPlaneNormal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.OnPlaneGoal Create(
             List<Point> startPositions,
             [DefaultArgument("Point.Origin()")] Point targetPlaneOrigin,
@@ -40,6 +42,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetPlane"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.OnPlaneGoal Create(
             List<Point> startPositions,
             [DefaultArgument("Plane.ByOriginNormal(Point.Origin(), Vector.ZAxis())")] Plane targetPlane,
@@ -58,6 +61,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetPlaneNormal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.OnPlaneGoal Change(
            DynaShape.Goals.OnPlaneGoal goal,
             [DefaultArgument("null")] Point targetPlaneOrigin,
@@ -78,6 +82,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetPlane"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.OnPlaneGoal Change(
             DynaShape.Goals.OnPlaneGoal goal,
             [DefaultArgument("null")] Plane targetPlane,

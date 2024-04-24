@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
+using Dynamo.Graph.Nodes;
 using DynaShape.Goals;
 using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
 
@@ -18,6 +19,7 @@ public static class Goals
     /// <param name="goal"></param>
     /// <param name="weight"></param>
     /// <returns></returns>
+    [NodeCategory("Actions")]
     public static Goal ChangeWeight(Goal goal, float weight)
     {
         goal.Weight = weight;

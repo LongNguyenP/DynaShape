@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -17,6 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="radii"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.SphereCollisionGoal Create(
             List<Point> centers,
             List<float> radii,
@@ -36,6 +38,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="radii"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.SphereCollisionGoal Change(
             DynaShape.Goals.SphereCollisionGoal goal,
             [DefaultArgument("null")] List<float> radii,

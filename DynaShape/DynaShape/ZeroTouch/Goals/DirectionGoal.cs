@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -23,6 +24,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetDirection"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.DirectionGoal Create(
             Point startPosition1,
             Point startPosition2,
@@ -44,6 +46,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetDirection"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.DirectionGoal Change(
             DynaShape.Goals.DirectionGoal goal,
             [DefaultArgument("null")] Vector targetDirection,

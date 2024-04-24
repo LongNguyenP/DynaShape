@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -19,6 +20,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLineDirection"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.OnLineGoal Create(
             List<Point> startPosition,
             [DefaultArgument("Point.Origin()")] Point targetLineOrigin,
@@ -41,6 +43,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLine"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.OnLineGoal Create(
             List<Point> startPositions,
             [DefaultArgument("Line.ByStartPointEndPoint(Point.Origin(), Point.ByCoordinates(1.0, 0.0, 0.0))")] Line
@@ -59,6 +62,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLineDirection"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.OnLineGoal Change(
             DynaShape.Goals.OnLineGoal goal,
             [DefaultArgument("null")] Point targetLineOrigin,
@@ -79,6 +83,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLine"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.OnLineGoal Change(
             DynaShape.Goals.OnLineGoal goal,
             [DefaultArgument("null")] Line targetLine,

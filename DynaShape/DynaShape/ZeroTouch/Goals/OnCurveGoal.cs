@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -17,6 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetCurve"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.OnCurveGoal Create(
             List<Point> startPositions,
             Curve targetCurve,
@@ -33,6 +35,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetCurve"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.OnCurveGoal Change(
             DynaShape.Goals.OnCurveGoal goal,
             [DefaultArgument("null")] Curve targetCurve,

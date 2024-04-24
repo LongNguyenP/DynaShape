@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -18,6 +19,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPositions"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.CoPlanarGoal Create(
             List<Point> startPositions,
             [DefaultArgument("1.0")] float weight)
@@ -32,6 +34,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="goal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.CoPlanarGoal Change(
             DynaShape.Goals.CoPlanarGoal goal,
             [DefaultArgument("-1.0")] float weight)

@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -17,6 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="lineEndPoints"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.ParallelLinesGoal Create(
             List<Point> lineStartPoints,
             List<Point> lineEndPoints,
@@ -43,6 +45,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="lines"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.ParallelLinesGoal Create(
             List<Line> lines,
             [DefaultArgument("1.0")] float weight)
@@ -63,6 +66,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="goal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.ParallelLinesGoal Change(
             DynaShape.Goals.ParallelLinesGoal goal,
             [DefaultArgument("-1.0")] float weight)

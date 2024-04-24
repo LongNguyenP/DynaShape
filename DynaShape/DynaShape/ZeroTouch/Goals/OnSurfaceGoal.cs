@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -22,6 +23,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetSurface"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.OnSurfaceGoal Create(
             List<Point> startPositions,
             Surface targetSurface,
@@ -38,6 +40,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetSurface"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.OnSurfaceGoal Change(
             DynaShape.Goals.OnSurfaceGoal goal,
             [DefaultArgument("null")] Surface targetSurface,

@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -18,6 +19,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="polygonVertices"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.ConvexPolygonCollisionGoal Create(
             List<Point> centers,
             List<float> radii,
@@ -41,6 +43,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="polygonVertices"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.ConvexPolygonCollisionGoal Change(
             DynaShape.Goals.ConvexPolygonCollisionGoal goal,
             [DefaultArgument("null")] List<float> radii,

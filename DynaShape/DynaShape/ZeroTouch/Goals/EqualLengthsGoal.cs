@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -16,6 +17,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPositions"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal Create(
             List<Point> startPositions,
             [DefaultArgument("1.0")] float weight)
@@ -41,6 +43,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="lineEnds"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal Create(
             List<Point> lineStarts,
             List<Point> lineEnds,
@@ -66,6 +69,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="lines"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal Create(
             List<Line> lines,
             [DefaultArgument("1.0")] float weight)
@@ -86,6 +90,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="goal"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.EqualLengthsGoal Change(
             DynaShape.Goals.EqualLengthsGoal goal,
             [DefaultArgument("-1.0")] float weight)

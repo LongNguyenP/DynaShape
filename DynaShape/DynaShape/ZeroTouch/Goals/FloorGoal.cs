@@ -1,5 +1,6 @@
 using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -17,6 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="floorHeight"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.FloorGoal Create(
             List<Point> startPositions,
             [DefaultArgument("0.0")] float floorHeight,
@@ -33,6 +35,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="floorHeight"></param>
         /// <param name="weight"></param>
         /// <returns></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.FloorGoal Change(
             DynaShape.Goals.FloorGoal goal,
             [DefaultArgument("0.0")] float floorHeight,
