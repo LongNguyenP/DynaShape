@@ -25,50 +25,6 @@ public static class Goals
     }
 
 
-    //==================================================================
-    // ConstantPressure
-    //==================================================================
-
-    
-
-
-    //==================================================================
-    // ConstantVolumePressure
-    //==================================================================
-
-    /// <summary>
-    /// Simulate pressure trapped inside a closed volume. The pressure decreases as the volume expands (Boyle's law)
-    /// </summary>
-    /// <param name="mesh">A closed mesh</param>
-    /// <param name="volumePressureConstant">The constant that is the product of the pressure and volume. This means that pressure will automatically decrease as the mesh volume increases (and vice versa)</param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static ConstantVolumePressureGoal ConstantVolumePressureGoal_Create(
-        Mesh mesh,
-        [DefaultArgument("0.0")] float volumePressureConstant,
-        [DefaultArgument("1.0")] float weight)
-    {
-        return new ConstantVolumePressureGoal(mesh, volumePressureConstant, weight);
-    }
-
-
-    /// <summary>
-    /// Adjust the goal's parameters while the solver is running.
-    /// </summary>
-    /// <param name="goal"></param>
-    /// <param name="volumePressureConstant"></param>
-    /// <param name="weight"></param>
-    /// <returns></returns>
-    public static ConstantVolumePressureGoal ConstantVolumePressureGoal_Change(
-        ConstantVolumePressureGoal goal,
-        [DefaultArgument("-1.0")] float volumePressureConstant,
-        [DefaultArgument("-1.0")] float weight)
-    {
-        if (volumePressureConstant >= 0.0) goal.VolumePressureConstant = volumePressureConstant;
-        if (weight >= 0.0) goal.Weight = weight;
-        return goal;
-    }
-
 
     //==================================================================
     // ConvexPolygonCollisionGoal

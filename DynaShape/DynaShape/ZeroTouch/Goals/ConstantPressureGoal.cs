@@ -18,8 +18,8 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPosition1"></param>
         /// <param name="startPosition2"></param>
         /// <param name="startPosition3"></param>
-        /// <param name="pressure">The pressure being applied on the triangle</param>
-        /// <param name="weight">The goal's weight/impact on the solver</param>
+        /// <param name="pressure">The pressure being applied on the triangle.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ConstantPressureGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.ConstantPressureGoal Create(
@@ -36,9 +36,9 @@ namespace DynaShape.ZeroTouch.Goals
         /// <summary>
         /// Creates a ConstantPressureGoal which applies a force perpendicular to a triangular surface, with magnitude proportional to the surface area.
         /// </summary>
-        /// <param name="mesh">A mesh to apply the ConstantPressureGoal to</param>
-        /// <param name="pressure">The pressure being applied on the mesh's triangles</param>
-        /// <param name="weight">The goal's weight/impact on the solver</param>
+        /// <param name="mesh">A mesh to apply the ConstantPressureGoal to.</param>
+        /// <param name="pressure">The pressure being applied on the mesh's triangles.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ConstantPressureGoal"></returns>
         [NodeCategory("Create")]
         public static List<DynaShape.Goals.ConstantPressureGoal> Create(
@@ -71,9 +71,9 @@ namespace DynaShape.ZeroTouch.Goals
         /// <summary>
         /// Modifies the ConstantPressureGoal's parameters while the solver is running
         /// </summary>
-        /// <param name="constantPressureGoal">A ConstantPressureGoal to modify with the given parameters</param>
-        /// <param name="pressure">An optional new pressure to apply to the ConstantPressureGoal</param>
-        /// <param name="weight">An optional new weight for the AngleGoal</param>
+        /// <param name="constantPressureGoal">A ConstantPressureGoal to modify with the given parameters.</param>
+        /// <param name="pressure">An optional new pressure to apply to the ConstantPressureGoal.</param>
+        /// <param name="weight">An optional new weight for the AngleGoal.</param>
         /// <returns name="ConstantPressureGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.ConstantPressureGoal Change(

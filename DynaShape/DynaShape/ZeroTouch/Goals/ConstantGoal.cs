@@ -1,9 +1,4 @@
 ﻿using Autodesk.DesignScript.Runtime;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.DesignScript.Geometry;
 using Dynamo.Graph.Nodes;
 
@@ -19,10 +14,10 @@ namespace DynaShape.ZeroTouch.Goals
         /// <summary>
         /// Creates a ConstantGoal that applies a constant directional offset to the specified nodes. This goal is useful for simulating gravity.
         /// </summary>
-        /// <param name="startPositions">The starting points for the ConstantGoal</param>
-        /// <param name="constant">The constant vector to apply to the given nodes</param>
-        /// <param name="weight">The goal's weight/impact on the solver</param>
-        /// <returns name="ConstantGoal">A newly defined ConstantGoal</returns>
+        /// <param name="startPositions">The starting points for the ConstantGoal.</param>
+        /// <param name="constant">The constant vector to apply to the given nodes.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="ConstantGoal">A newly defined ConstantGoal.</returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.ConstantGoal Create(
             List<Point> startPositions,
@@ -35,10 +30,10 @@ namespace DynaShape.ZeroTouch.Goals
         /// <summary>
         /// Modifies the ConstantGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="constantGoal">A ConstantGoal goal to modify with the given parameters</param>
-        /// <param name="constant">The new constant vector to apply to the given nodes</param>
-        /// <param name="weight">An optional new weight for the ConstantGoal</param>
-        /// <returns name="ConstantGoal">The modified ConstantGoal</returns>
+        /// <param name="constantGoal">A ConstantGoal goal to modify with the given parameters.</param>
+        /// <param name="constant">The new constant vector to apply to the given nodes.</param>
+        /// <param name="weight">An optional new weight for the ConstantGoa.l</param>
+        /// <returns name="ConstantGoal">The modified ConstantGoal.</returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.ConstantGoal Change(
             DynaShape.Goals.ConstantGoal constantGoal,
