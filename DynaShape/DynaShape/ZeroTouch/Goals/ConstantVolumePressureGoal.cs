@@ -28,9 +28,9 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Modifies the ConstantVolumePressureGoal's parameters while the solver is running
+        /// Modifies the ConstantVolumePressureGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="constantVolumePressureGoal"></param>
+        /// <param name="constantVolumePressureGoal">A ConstantVolumePressureGoal to modify.</param>
         /// <param name="volumePressureConstant">An optional new constant for the ConstantVolumePressureGoal.</param>
         /// <param name="weight">An optional new weight for the ConstantVolumePressureGoal.</param>
         /// <returns name="ConstantVolumePressureGoal"></returns>
