@@ -12,37 +12,37 @@ namespace DynaShape.ZeroTouch.Goals
         private LengthGoal(){}
 
         /// <summary>
-        /// Force a pair of nodes to maintain the specified distance/length
+        /// Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.
         /// </summary>
-        /// <param name="startPosition1"></param>
-        /// <param name="startPosition2"></param>
-        /// <param name="targetLength">If unspecified, the target length will be the distance between the starting node positions</param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="targetLength">The length to maintain. If unspecified, the length will default to the length between the two nodes.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="LengthGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.LengthGoal Create(
-            Point startPosition1,
-            Point startPosition2,
+            Point start,
+            Point end,
             [DefaultArgument("-1.0")] float targetLength,
             [DefaultArgument("1.0")] float weight)
         {
             return new DynaShape.Goals.LengthGoal(
-                startPosition1.ToTriple(),
-                startPosition2.ToTriple(),
+                start.ToTriple(),
+                end.ToTriple(),
                 targetLength >= 0.0
                     ? targetLength
-                    : (startPosition2.ToTriple() - startPosition1.ToTriple()).Length,
+                    : (end.ToTriple() - start.ToTriple()).Length,
                 weight);
         }
 
 
         /// <summary>
-        /// Maintain the specified distance between two nodes located at the start and end of the given line
+        /// Creates a LengthGoal to maintain the specified distance between two nodes located at the start and end of the given line.
         /// </summary>
-        /// <param name="line">This line will be used to create two nodes located at is start and end point</param>
-        /// <param name="targetLength">If unspecified, the target length will be the distance between the starting node positions</param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="line">A line to extract the start and end points from.</param>
+        /// <param name="targetLength">The length to maintain. If unspecified, the length will default to the length between the two nodes.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="LengthGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.LengthGoal Create(
             Line line,
@@ -58,20 +58,20 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modify the LengthGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="targetLength"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="lengthGoal">The LengthGoal to modify.</param>
+        /// <param name="targetLength">An optional new length for the LengthGoal to maintain.</param>
+        /// <param name="weight">An optional new weight for the LengthGoal.</param>
+        /// <returns name="LengthGoal"></returns>
         public static DynaShape.Goals.LengthGoal Change(
-            DynaShape.Goals.LengthGoal goal,
+            DynaShape.Goals.LengthGoal lengthGoal,
             [DefaultArgument("-1.0")] float targetLength,
             [DefaultArgument("-1.0")] float weight)
         {
-            if (targetLength >= 0.0) goal.TargetLength = targetLength;
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (targetLength >= 0.0) lengthGoal.TargetLength = targetLength;
+            if (weight >= 0.0) lengthGoal.Weight = weight;
+            return lengthGoal;
         }
     }
 }
