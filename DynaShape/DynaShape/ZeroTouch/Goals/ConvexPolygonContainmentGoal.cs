@@ -12,7 +12,7 @@ namespace DynaShape.ZeroTouch.Goals
         private ConvexPolygonContainmentGoal(){}
 
         /// <summary>
-        ///
+        /// Creates a ConvexPolygonContainmentGoal to contain polygons within another polygon.
         /// </summary>
         /// <param name="centers"></param>
         /// <param name="radii"></param>

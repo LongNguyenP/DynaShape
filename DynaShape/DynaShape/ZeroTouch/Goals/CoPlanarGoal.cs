@@ -12,13 +12,13 @@ namespace DynaShape.ZeroTouch.Goals
         private CoPlanarGoal(){}
 
         /// <summary>
-        /// Force a set of nodes to lie on a common plane.
+        /// Creates a CoPlanarGoal that forces a set of nodes to lie on a common plane.
         /// The plane position and orientation are computed based on the current node positions.
         /// This is different from the OnPlane goal, where the target plane is fixed and defined in advance.
         /// </summary>
-        /// <param name="startPositions"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The start positions of the nodes.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="CoPlanarGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.CoPlanarGoal Create(
             List<Point> startPositions,
@@ -29,18 +29,18 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Adjust the CoPlanarGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
+        /// <param name="coPlanarGoal">A CoPlanarGoal to modify.</param>
         /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <returns name="CoPlanarGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.CoPlanarGoal Change(
-            DynaShape.Goals.CoPlanarGoal goal,
+            DynaShape.Goals.CoPlanarGoal coPlanarGoal,
             [DefaultArgument("-1.0")] float weight)
         {
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (weight >= 0.0) coPlanarGoal.Weight = weight;
+            return coPlanarGoal;
         }
     }
 }
