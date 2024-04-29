@@ -12,27 +12,27 @@ namespace DynaShape.ZeroTouch.Goals
         private ParallelLinesGoal(){}
 
         /// <summary>
-        /// Force a set of lines to be parallel.
+        /// Creates a ParallelLinesGoal to force a set of lines to be parallel.
         /// </summary>
-        /// <param name="lineStartPoints"></param>
-        /// <param name="lineEndPoints"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPoints">The start points of the lines.</param>
+        /// <param name="endPoints">The end points of the lines.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="ParallelLinesGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.ParallelLinesGoal Create(
-            List<Point> lineStartPoints,
-            List<Point> lineEndPoints,
+            List<Point> startPoints,
+            List<Point> endPoints,
             [DefaultArgument("1.0")] float weight)
         {
-            if (lineStartPoints.Count != lineEndPoints.Count)
+            if (startPoints.Count != endPoints.Count)
                 throw new Exception("Error: lineStartPoints count is not equal to lineEndPoints count");
 
             List<Triple> pointPairs = new List<Triple>();
 
-            for (int i = 0; i < lineStartPoints.Count; i++)
+            for (int i = 0; i < startPoints.Count; i++)
             {
-                pointPairs.Add(lineStartPoints[i].ToTriple());
-                pointPairs.Add(lineEndPoints[i].ToTriple());
+                pointPairs.Add(startPoints[i].ToTriple());
+                pointPairs.Add(endPoints[i].ToTriple());
             }
 
             return new DynaShape.Goals.ParallelLinesGoal(pointPairs, weight);
@@ -40,11 +40,11 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Force a set of lines to be parallel.
+        /// Creates a ParallelLinesGoal to force a set of lines to be parallel.
         /// </summary>
-        /// <param name="lines"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="lines">The lines to force to be parallel.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="ParallelLinesGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.ParallelLinesGoal Create(
             List<Line> lines,
@@ -61,18 +61,18 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the ParallelLinesGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="parallelLinesGoal">The ParallelLinesGoal to modify.</param>
+        /// <param name="weight">An optional new weight for the ParallelLinesGoal.</param>
+        /// <returns name="ParallelLinesGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.ParallelLinesGoal Change(
-            DynaShape.Goals.ParallelLinesGoal goal,
+            DynaShape.Goals.ParallelLinesGoal parallelLinesGoal,
             [DefaultArgument("-1.0")] float weight)
         {
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (weight >= 0.0) parallelLinesGoal.Weight = weight;
+            return parallelLinesGoal;
         }
     }
 }
