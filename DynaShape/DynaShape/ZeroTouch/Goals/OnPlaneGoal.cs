@@ -12,14 +12,14 @@ namespace DynaShape.ZeroTouch.Goals
         private OnPlaneGoal(){}
 
         /// <summary>
-        /// Force a set of nodes to lie on the specified plane.
-        /// This is different from other CoPlanar goal, where the target plane is computed based on the current node positions rather than being defined and fixed in advance.
+        /// Creates an OnPlaneGoal to force a set of nodes to lie on the specified plane.
+        /// This differs from the CoPlanar goal, where the target plane is computed based on the current node positions rather than being defined and fixed in advance.
         /// </summary>
         /// <param name="startPositions"></param>
-        /// <param name="targetPlaneOrigin"></param>
-        /// <param name="targetPlaneNormal"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="targetPlaneOrigin">The origin of the plane to use.</param>
+        /// <param name="targetPlaneNormal">The normal of the plane to use.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="OnPlaneGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnPlaneGoal Create(
             List<Point> startPositions,
@@ -35,13 +35,13 @@ namespace DynaShape.ZeroTouch.Goals
         }
 
         /// <summary>
-        /// Force a set of nodes to lie on the specified plane.
-        /// This is different from other CoPlanar goal, where the target plane is computed based on the current node positions rather than being defined and fixed in advance.
+        /// Creates an OnPlaneGoal to force a set of nodes to lie on the specified plane.
+        /// This differs from the CoPlanar goal, where the target plane is computed based on the current node positions rather than being defined and fixed in advance.
         /// </summary>
-        /// <param name="startPositions"></param>
-        /// <param name="targetPlane"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The start positions of the nodes.</param>
+        /// <param name="targetPlane">The target plane to use for the nodes.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="OnPlaneGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnPlaneGoal Create(
             List<Point> startPositions,
@@ -54,47 +54,47 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the OnPlaneGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="targetPlaneOrigin"></param>
-        /// <param name="targetPlaneNormal"></param>
-        /// <param name="weight"></param>
+        /// <param name="onPlaneGoal">The OnPlaneGoal to modify.</param>
+        /// <param name="targetPlaneOrigin">An optional new origin of the target plane to use for the OnPlaneGoal.</param>
+        /// <param name="targetPlaneNormal">An optional new normal of the target plane to use for the OnPlaneGoal.</param>
+        /// <param name="weight">An optional new weight for the OnPlaneGoal.</param>
         /// <returns></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.OnPlaneGoal Change(
-           DynaShape.Goals.OnPlaneGoal goal,
+           DynaShape.Goals.OnPlaneGoal onPlaneGoal,
             [DefaultArgument("null")] Point targetPlaneOrigin,
             [DefaultArgument("null")] Vector targetPlaneNormal,
             [DefaultArgument("-1.0")] float weight)
         {
-            if (targetPlaneOrigin != null) goal.TargetPlaneOrigin = targetPlaneOrigin.ToTriple();
-            if (targetPlaneNormal != null) goal.TargetPlaneNormal = targetPlaneNormal.ToTriple();
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (targetPlaneOrigin != null) onPlaneGoal.TargetPlaneOrigin = targetPlaneOrigin.ToTriple();
+            if (targetPlaneNormal != null) onPlaneGoal.TargetPlaneNormal = targetPlaneNormal.ToTriple();
+            if (weight >= 0.0) onPlaneGoal.Weight = weight;
+            return onPlaneGoal;
         }
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the OnPlaneGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="targetPlane"></param>
-        /// <param name="weight"></param>
+        /// <param name="onPlaneGoal">The OnPlaneGoal to modify.</param>
+        /// <param name="targetPlane">An optional new target plane to use for the OnPlaneGoal..</param>
+        /// <param name="weight">An optional new weight for the OnPlaneGoal.</param>
         /// <returns></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.OnPlaneGoal Change(
-            DynaShape.Goals.OnPlaneGoal goal,
+            DynaShape.Goals.OnPlaneGoal onPlaneGoal,
             [DefaultArgument("null")] Plane targetPlane,
             [DefaultArgument("-1.0")] float weight)
         {
             if (targetPlane != null)
             {
-                goal.TargetPlaneOrigin = targetPlane.Origin.ToTriple();
-                goal.TargetPlaneNormal = targetPlane.Normal.ToTriple();
+                onPlaneGoal.TargetPlaneOrigin = targetPlane.Origin.ToTriple();
+                onPlaneGoal.TargetPlaneNormal = targetPlane.Normal.ToTriple();
             }
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (weight >= 0.0) onPlaneGoal.Weight = weight;
+            return onPlaneGoal;
         }
     }
 }
