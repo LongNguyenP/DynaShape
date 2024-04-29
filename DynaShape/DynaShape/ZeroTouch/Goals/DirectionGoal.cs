@@ -17,44 +17,44 @@ namespace DynaShape.ZeroTouch.Goals
         private DirectionGoal(){}
 
         /// <summary>
-        /// Force the line connecting two nodes to be parallel to the specified direction.
+        /// Creates a DirectionGoal to force a line connecting two nodes to be parallel to the specified direction.
         /// </summary>
-        /// <param name="startPosition1"></param>
-        /// <param name="startPosition2"></param>
-        /// <param name="targetDirection"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="start">The start point of the line.</param>
+        /// <param name="end">The end point of the line.</param>
+        /// <param name="targetDirection">The direction to remain parallel to.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="DirectionGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.DirectionGoal Create(
-            Point startPosition1,
-            Point startPosition2,
+            Point start,
+            Point end,
             [DefaultArgument("null")] Vector targetDirection,
             [DefaultArgument("1.0")] float weight)
         {
             return new DynaShape.Goals.DirectionGoal(
-                startPosition1.ToTriple(),
-                startPosition2.ToTriple(),
-                targetDirection?.ToTriple() ?? (startPosition2.ToTriple() - startPosition1.ToTriple()).Normalise(),
+                start.ToTriple(),
+                end.ToTriple(),
+                targetDirection?.ToTriple() ?? (end.ToTriple() - start.ToTriple()).Normalise(),
                 weight);
         }
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Adjust the DirectionGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="targetDirection"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="directionGoal">The DirectionGoal to modify.</param>
+        /// <param name="targetDirection">The direction to remain parallel to.</param>
+        /// <param name="weight">An optional new weight for the DirectionGoal.</param>
+        /// <returns name="DirectionGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.DirectionGoal Change(
-            DynaShape.Goals.DirectionGoal goal,
+            DynaShape.Goals.DirectionGoal directionGoal,
             [DefaultArgument("null")] Vector targetDirection,
             [DefaultArgument("-1.0")] float weight)
         {
-            if (targetDirection != null) goal.TargetDirection = targetDirection.ToTriple();
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (targetDirection != null) directionGoal.TargetDirection = targetDirection.ToTriple();
+            if (weight >= 0.0) directionGoal.Weight = weight;
+            return directionGoal;
         }
     }
 }
