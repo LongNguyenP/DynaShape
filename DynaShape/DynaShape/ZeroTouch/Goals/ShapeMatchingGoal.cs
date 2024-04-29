@@ -13,7 +13,7 @@ namespace DynaShape.ZeroTouch.Goals
 
         /// <summary>
         /// Creates a ShapeMatchingGoal to move a set of nodes to positions that resemble a given target shape.
-        /// The target shape is defined by a sequence of points, in the desired order.
+        /// The target shape is defined by a sequence of points, provided in the desired order.
         /// </summary>
         /// <param name="startPositions">The start positions of the nodes.</param>
         /// <param name="targetShapePoints">The points to move the nodes to.</param>

@@ -12,14 +12,14 @@ namespace DynaShape.ZeroTouch.Goals
         private SphereStaticLineCollisionGoal(){}
 
         /// <summary>
-        /// Move a set of nodes to positions that resemble a target shape.
-        /// The target shape is defined by a sequence of points, in the same order as how the nodes are specified.
+        /// Create a SphereStaticLineCollisionGoal to move a set of nodes to positions that resemble a target shape.
+        /// The target shape is defined by a sequence of points, provided in the desired order.
         /// </summary>
-        /// <param name="centers"></param>
-        /// <param name="radii"></param>
-        /// <param name="lines"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="centers">The centers of the spheres.</param>
+        /// <param name="radii">The radii of the spheres.</param>
+        /// <param name="lines">The lines to extract nodes from to move to positions that resemble a target shape.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="SphereStaticLineCollisionGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.SphereStaticLineCollisionGoal Create(
             List<Point> centers,
@@ -45,41 +45,41 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the SphereStaticLineCollisionGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="radii"></param>
-        /// <param name="lines"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="sphereStaticLineCollisionGoal">The SphereStaticLineCollisionGoal to modify.</param>
+        /// <param name="radii">Optional new radii for the SphereStaticLineCollisionGoal.</param>
+        /// <param name="lines">Optional new lines for the SphereStaticLineCollisionGoal.</param>
+        /// <param name="weight">An optional new weight for the SphereStaticLineCollisionGoal.</param>
+        /// <returns name="SphereStaticLineCollisionGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.SphereStaticLineCollisionGoal Change(
-            DynaShape.Goals.SphereStaticLineCollisionGoal goal,
+            DynaShape.Goals.SphereStaticLineCollisionGoal sphereStaticLineCollisionGoal,
             [DefaultArgument("null")] List<float> radii,
             [DefaultArgument("null")] List<Line> lines,
             [DefaultArgument("-1.0")] float weight)
         {
             if (radii != null)
             {
-                if (goal.NodeCount != radii.Count)
+                if (sphereStaticLineCollisionGoal.NodeCount != radii.Count)
                     throw new Exception("Error: radii count is not equal to node count");
-                goal.Radii = radii.ToArray();
+                sphereStaticLineCollisionGoal.Radii = radii.ToArray();
             }
 
             if (lines != null)
             {
-                goal.LineStarts = new List<Triple>(lines.Count);
-                goal.LineEnds = new List<Triple>(lines.Count);
+                sphereStaticLineCollisionGoal.LineStarts = new List<Triple>(lines.Count);
+                sphereStaticLineCollisionGoal.LineEnds = new List<Triple>(lines.Count);
 
                 for (int i = 0; i < lines.Count; i++)
                 {
-                    goal.LineStarts.Add(lines[i].StartPoint.ToTriple());
-                    goal.LineStarts.Add(lines[i].EndPoint.ToTriple());
+                    sphereStaticLineCollisionGoal.LineStarts.Add(lines[i].StartPoint.ToTriple());
+                    sphereStaticLineCollisionGoal.LineStarts.Add(lines[i].EndPoint.ToTriple());
                 }
             }
 
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (weight >= 0.0) sphereStaticLineCollisionGoal.Weight = weight;
+            return sphereStaticLineCollisionGoal;
         }
     }
 }

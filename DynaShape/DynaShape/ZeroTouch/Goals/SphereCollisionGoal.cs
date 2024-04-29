@@ -12,12 +12,12 @@ namespace DynaShape.ZeroTouch.Goals
         private SphereCollisionGoal(){}
 
         /// <summary>
-        /// Maintain minimum distance between the nodes
+        /// Creates a SphereCollisionGoal that maintains a minimum distance between the nodes.
         /// </summary>
-        /// <param name="centers"></param>
-        /// <param name="radii"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="centers">The centers of the nodes.</param>
+        /// <param name="radii">The radii of the spheres.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="SphereCollisionGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.SphereCollisionGoal Create(
             List<Point> centers,
@@ -32,27 +32,27 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Maintain minimum distance between the nodes and the (static) lines
+        /// Modifies the SphereCollisionGoal.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="radii"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="sphereCollisionGoal">The SphereCollisionGoal to modify.</param>
+        /// <param name="radii">Optional new radii for the given SphereCollisionGoal.</param>
+        /// <param name="weight">An optional new weight for the SphereCollisionGoal.</param>
+        /// <returns name="SphereCollisionGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.SphereCollisionGoal Change(
-            DynaShape.Goals.SphereCollisionGoal goal,
+            DynaShape.Goals.SphereCollisionGoal sphereCollisionGoal,
             [DefaultArgument("null")] List<float> radii,
             [DefaultArgument("-1.0")] float weight)
         {
             if (radii != null)
             {
-                if (goal.NodeCount != radii.Count)
+                if (sphereCollisionGoal.NodeCount != radii.Count)
                     throw new Exception("Error: radii count is not equal to node count");
-                goal.Radii = radii.ToArray();
+                sphereCollisionGoal.Radii = radii.ToArray();
             }
 
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (weight >= 0.0) sphereCollisionGoal.Weight = weight;
+            return sphereCollisionGoal;
         }
     }
 }
