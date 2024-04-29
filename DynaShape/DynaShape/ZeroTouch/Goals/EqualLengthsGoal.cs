@@ -12,11 +12,11 @@ namespace DynaShape.ZeroTouch.Goals
         private EqualLengthsGoal(){}
 
         /// <summary>
-        /// Force a sequence of nodes to maintain equal distances.
+        /// Creates an EqualLengthsGoal to force a sequence of nodes to maintain equal distances.
         /// </summary>
-        /// <param name="startPositions"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The start positions of the nodes.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="EqualLengthsGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal Create(
             List<Point> startPositions,
@@ -37,26 +37,26 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Force a set of line segments to maintain equal lengths.
+        /// Creates an EqualLengthsGoal to force a set of line segments to maintain equal lengths.
         /// </summary>
-        /// <param name="lineStarts"></param>
-        /// <param name="lineEnds"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The start positions of the nodes.</param>
+        /// <param name="endPositions">The end positions of the nodes.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="EqualLengthsGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal Create(
-            List<Point> lineStarts,
-            List<Point> lineEnds,
+            List<Point> startPositions,
+            List<Point> endPositions,
             [DefaultArgument("1.0")] float weight)
         {
             List<Triple> triples = new List<Triple>();
 
-            int n = lineStarts.Count < lineEnds.Count ? lineStarts.Count : lineEnds.Count;
+            int n = startPositions.Count < endPositions.Count ? startPositions.Count : endPositions.Count;
 
             for (int i = 0; i < n; i++)
             {
-                triples.Add(lineStarts[i].ToTriple());
-                triples.Add(lineEnds[i].ToTriple());
+                triples.Add(startPositions[i].ToTriple());
+                triples.Add(endPositions[i].ToTriple());
             }
 
             return new DynaShape.Goals.EqualLengthsGoal(triples, weight);
@@ -64,11 +64,11 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Force a set of line segments to maintain equal lengths.
+        /// Creates a EqualLengthsGoal to force a set of line segments to maintain equal lengths.
         /// </summary>
-        /// <param name="lines"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="lines">A set of lines to apply the EqualLengthsGoal to.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="EqualLengthsGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal Create(
             List<Line> lines,
@@ -85,18 +85,18 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the EqualLengthsGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="equalLengthsGoal">The equalLengthsGoal to modify.</param>
+        /// <param name="weight">An optional new weight for the EqualLengthsGoal.</param>
+        /// <returns name="EqualLengthsGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.EqualLengthsGoal Change(
-            DynaShape.Goals.EqualLengthsGoal goal,
+            DynaShape.Goals.EqualLengthsGoal equalLengthsGoal,
             [DefaultArgument("-1.0")] float weight)
         {
-            if (weight >= 1.0) goal.Weight = weight;
-            return goal;
+            if (weight >= 1.0) equalLengthsGoal.Weight = weight;
+            return equalLengthsGoal;
         }
     }
 }
