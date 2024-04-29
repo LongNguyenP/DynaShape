@@ -17,12 +17,12 @@ namespace DynaShape.ZeroTouch.Goals
         private OnSurfaceGoal(){}
 
         /// <summary>
-        /// Force a set of nodes to lie on the specified surface.
+        /// Creates an OnSurfaceGoal to force a set of nodes to lie on the specified surface.
         /// </summary>
-        /// <param name="startPositions"></param>
-        /// <param name="targetSurface"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The start positions of the nodes.</param>
+        /// <param name="targetSurface">The target surface to force the nodes to lie on.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="OnSurfaceGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnSurfaceGoal Create(
             List<Point> startPositions,
@@ -34,21 +34,21 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the OnSurfaceGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="targetSurface"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="onSurfaceGoal">The OnSurfaceGoal to modify.</param>
+        /// <param name="targetSurface">An optional new target surface to force the nodes to lie on.</param>
+        /// <param name="weight">An optional new weight for the OnSurfaceGoal.</param>
+        /// <returns name="OnSurfaceGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.OnSurfaceGoal Change(
-            DynaShape.Goals.OnSurfaceGoal goal,
+            DynaShape.Goals.OnSurfaceGoal onSurfaceGoal,
             [DefaultArgument("null")] Surface targetSurface,
             float weight)
         {
-            if (targetSurface != null) goal.TargetSurface = targetSurface;
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (targetSurface != null) onSurfaceGoal.TargetSurface = targetSurface;
+            if (weight >= 0.0) onSurfaceGoal.Weight = weight;
+            return onSurfaceGoal;
         }
     }
 }

@@ -81,7 +81,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="onPlaneGoal">The OnPlaneGoal to modify.</param>
         /// <param name="targetPlane">An optional new target plane to use for the OnPlaneGoal..</param>
         /// <param name="weight">An optional new weight for the OnPlaneGoal.</param>
-        /// <returns></returns>
+        /// <returns name="OnPlaneGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.OnPlaneGoal Change(
             DynaShape.Goals.OnPlaneGoal onPlaneGoal,
