@@ -12,12 +12,12 @@ namespace DynaShape.ZeroTouch.Goals
         private OnCurveGoal(){}
 
         /// <summary>
-        /// Force a set of nodes to lie on the specified curve.
+        /// Creates an OnCurveGoal to force a set of nodes to lie on the specified curve.
         /// </summary>
-        /// <param name="startPositions"></param>
-        /// <param name="targetCurve"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The starting positions of the nodes.</param>
+        /// <param name="targetCurve">The curve to try to force the nodes to lie on.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="OnCurveGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnCurveGoal Create(
             List<Point> startPositions,
@@ -29,21 +29,21 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the OnCurveGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="targetCurve"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="onCurveGoal">The OnCurveGoal to modify.</param>
+        /// <param name="targetCurve">An optional new target curve for the OnCurveGoal.</param>
+        /// <param name="weight">An optional new weight for the OnCurveGoal.</param>
+        /// <returns name="OnCurveGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.OnCurveGoal Change(
-            DynaShape.Goals.OnCurveGoal goal,
+            DynaShape.Goals.OnCurveGoal onCurveGoal,
             [DefaultArgument("null")] Curve targetCurve,
             float weight)
         {
-            if (targetCurve != null) goal.TargetCurve = targetCurve;
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (targetCurve != null) onCurveGoal.TargetCurve = targetCurve;
+            if (weight >= 0.0) onCurveGoal.Weight = weight;
+            return onCurveGoal;
         }
     }
 }
