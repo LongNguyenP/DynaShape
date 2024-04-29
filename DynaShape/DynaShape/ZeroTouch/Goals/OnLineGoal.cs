@@ -12,14 +12,14 @@ namespace DynaShape.ZeroTouch.Goals
         private OnLineGoal(){}
 
         /// <summary>
-        /// Force a set of nodes to lie on the specified line.
-        /// This is different from other CoLinear goal, where the target line is computed based on the current node positions rather than being defined and fixed in advance.
+        /// Creates an OnLineGoal to force a set of nodes to lie on the specified line.
+        /// This differs from the CoLinear goal, where the target line is computed based on the current node positions rather than being defined and fixed in advance.
         /// </summary>
-        /// <param name="startPosition"></param>
-        /// <param name="targetLineOrigin"></param>
-        /// <param name="targetLineDirection"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPosition">The start position of the node.</param>
+        /// <param name="targetLineOrigin">The target line's origin.</param>
+        /// <param name="targetLineDirection">The target line's direction.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnLineGoal Create(
             List<Point> startPosition,
@@ -36,13 +36,13 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Force a set of nodes to lie on the specified line.
-        /// This is different from other CoLinear goal, where the target line is computed based on the current node positions rather than being defined and fixed in advance.
+        /// Creates an OnLineGoal to force a set of nodes to lie on the specified line.
+        /// This differs from the CoLinear goal, where the target line is computed based on the current node positions rather than being defined and fixed in advance.
         /// </summary>
-        /// <param name="startPositions"></param>
-        /// <param name="targetLine"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The start positions of the nodes.</param>
+        /// <param name="targetLine">The line to attempt to force the set of nodes to lie on.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnLineGoal Create(
             List<Point> startPositions,
@@ -55,49 +55,49 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the OnLineGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="targetLineOrigin"></param>
-        /// <param name="targetLineDirection"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="onLineGoal">The OnLineGoal to modify.</param>
+        /// <param name="targetLineOrigin">An optional new origin to use.</param>
+        /// <param name="targetLineDirection">An optional new direction to use.</param>
+        /// <param name="weight">An optional new weight for the OnLineGoal.</param>
+        /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.OnLineGoal Change(
-            DynaShape.Goals.OnLineGoal goal,
+            DynaShape.Goals.OnLineGoal onLineGoal,
             [DefaultArgument("null")] Point targetLineOrigin,
             [DefaultArgument("null")] Vector targetLineDirection,
             [DefaultArgument("-1.0")] float weight)
         {
-            if (targetLineOrigin != null) goal.TargetLineOrigin = targetLineOrigin.ToTriple();
-            if (targetLineDirection != null) goal.TargetLineDirection = targetLineDirection.ToTriple();
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (targetLineOrigin != null) onLineGoal.TargetLineOrigin = targetLineOrigin.ToTriple();
+            if (targetLineDirection != null) onLineGoal.TargetLineDirection = targetLineDirection.ToTriple();
+            if (weight >= 0.0) onLineGoal.Weight = weight;
+            return onLineGoal;
         }
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the OnLineGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="targetLine"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="onLineGoal">The OnLineGoal to modify.</param>
+        /// <param name="targetLine">An optional new target line to use.</param>
+        /// <param name="weight">An optional new weight for the OnLineGoal.</param>
+        /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.OnLineGoal Change(
-            DynaShape.Goals.OnLineGoal goal,
+            DynaShape.Goals.OnLineGoal onLineGoal,
             [DefaultArgument("null")] Line targetLine,
             [DefaultArgument("-1.0")] float weight)
         {
             if (targetLine != null)
             {
-                goal.TargetLineOrigin = targetLine.StartPoint.ToTriple();
-                goal.TargetLineDirection =
+                onLineGoal.TargetLineOrigin = targetLine.StartPoint.ToTriple();
+                onLineGoal.TargetLineDirection =
                     (targetLine.EndPoint.ToTriple() - targetLine.StartPoint.ToTriple()).Normalise();
             }
 
-            if (weight >= 0.0) goal.Weight = weight;
-            return goal;
+            if (weight >= 0.0) onLineGoal.Weight = weight;
+            return onLineGoal;
         }
     }
 }
