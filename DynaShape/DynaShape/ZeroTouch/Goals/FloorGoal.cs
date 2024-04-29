@@ -12,12 +12,12 @@ namespace DynaShape.ZeroTouch.Goals
         private FloorGoal(){}
 
         /// <summary>
-        /// Force a set of nodes to stay above a horizontal floor plane.
+        /// Creates a FloorGoal to force a set of nodes to stay above a horizontal floor plane.
         /// </summary>
-        /// <param name="startPositions"></param>
-        /// <param name="floorHeight"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="startPositions">The start positions.</param>
+        /// <param name="floorHeight">The floor height to maintain.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <returns name="FloorGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.FloorGoal Create(
             List<Point> startPositions,
@@ -29,21 +29,21 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Adjust the goal's parameters while the solver is running.
+        /// Modifies the FloorGoal's parameters while the solver is running.
         /// </summary>
-        /// <param name="goal"></param>
-        /// <param name="floorHeight"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="floorGoal">The FloorGoal to modify.</param>
+        /// <param name="floorHeight">An optional new floor height parameter of the FloorGoal.</param>
+        /// <param name="weight">An optional new weight for the EqualLengthsGoal.</param>
+        /// <returns name="FloorGoal"></returns>
         [NodeCategory("Actions")]
         public static DynaShape.Goals.FloorGoal Change(
-            DynaShape.Goals.FloorGoal goal,
+            DynaShape.Goals.FloorGoal floorGoal,
             [DefaultArgument("0.0")] float floorHeight,
             [DefaultArgument("-1.0")] float weight)
         {
-            goal.FloorHeight = floorHeight;
-            if (weight > 0.0) goal.Weight = weight;
-            return goal;
+            floorGoal.FloorHeight = floorHeight;
+            if (weight > 0.0) floorGoal.Weight = weight;
+            return floorGoal;
         }
     }
 }
