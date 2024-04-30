@@ -116,7 +116,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Create",
       "Replication": "Auto",
-      "Description": "Solver.Create ( ): Solver"
+      "Description": "Create a DynaShape solver, which will be input into the Solver.Execute node\n\nSolver.Create ( ): Solver"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -204,8 +204,8 @@
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
-      "WatchWidth": 50.285714285714285,
-      "WatchHeight": 37.714285714285715,
+      "WatchWidth": 49.6,
+      "WatchHeight": 37.6,
       "Id": "acc3bd52fc84460385f4e3ab6110678d",
       "NodeType": "ExtensionNode",
       "Inputs": [
@@ -281,7 +281,7 @@
         {
           "Id": "2d146868fcdf43f7ae9d4cb6807b561e",
           "Name": "solver",
-          "Description": "Solver",
+          "Description": "The solver, which can be obtained from the Solver.Create node\n\nSolver",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -290,7 +290,7 @@
         {
           "Id": "fd5eb908210542cd95b827ff874642fc",
           "Name": "goals",
-          "Description": "Goal[]",
+          "Description": "The goals/constraints that the solver will solve\n\nGoal[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -299,7 +299,7 @@
         {
           "Id": "43eab347d4a94d74b1853415cbb3246f",
           "Name": "geometryBinders",
-          "Description": "GeometryBinder[]\nDefault value : null",
+          "Description": "The geometry binders\n\nGeometryBinder[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -308,7 +308,7 @@
         {
           "Id": "c2a2d3bf15354375a1452f8fea0b32eb",
           "Name": "nodeMergeThreshold",
-          "Description": "double\nDefault value : 0.001",
+          "Description": "Before the solver starts to run, nodes that have identical positions (within this threshold) will be merged into one node\n\ndouble\nDefault value : 0.001",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -317,7 +317,7 @@
         {
           "Id": "43a8dd1345d84d49bb41b10cf23911f2",
           "Name": "iterations",
-          "Description": "int\nDefault value : 0",
+          "Description": "The number of iterations that the solver will execute in the background before display the intermediate result. If set to 0 (the default value), the solver will attempt run as many iterations as possible within approximately 25 milliseconds, which is sufficient for real-time visual feedback. Using a small value (e.g. 1) will make the solver appears to run more slowly and display more intermediate result, allowing us to better observe and understand how the nodes and goals behave\n\nint\nDefault value : 0",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -326,7 +326,7 @@
         {
           "Id": "567b24be51da49fe8635e26d5b4b6426",
           "Name": "reset",
-          "Description": "bool\nDefault value : true",
+          "Description": "Reset the solver to the initial condition. You should set this to True at the beginning of a scenario, then set it to False. If you add, remove goals, you will need to reset for the changes to take effect\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -335,7 +335,7 @@
         {
           "Id": "81122a39975f48179d9aa4c0769fb8b7",
           "Name": "execute",
-          "Description": "bool\nDefault value : true",
+          "Description": "Execute or stop executing the solver\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -344,7 +344,7 @@
         {
           "Id": "f8228c3bd9ae4a4a91bf7acf4ee8261d",
           "Name": "enableMomentum",
-          "Description": "bool\nDefault value : true",
+          "Description": "Apply momentum effect to the movement of the nodes. For simulation of physical motion, this results in more realistic motion. For constraint-based optimization, it often helps the solver to reach the final solution in fewer iteration (i.e. faster), but can sometimes lead to unstable and counter-intuitive solution. In such case, try setting momentum to False\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -362,7 +362,7 @@
         {
           "Id": "2ae7dcf0dcaf438ca6117c6789ce1251",
           "Name": "enableManipulation",
-          "Description": "bool\nDefault value : false",
+          "Description": "Enable manipulation of the nodes in the background view with mouse\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -371,7 +371,7 @@
         {
           "Id": "e98b4a4621e047cd8b79a789551d123e",
           "Name": "dampingFactor",
-          "Description": "double\nDefault value : 0.98",
+          "Description": "When momentum mode is enabled, this value will determine how much the node's velocity is damped at each iteration\n\ndouble\nDefault value : 0.98",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -409,7 +409,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Execute@DynaShape.Solver,DynaShape.Goals.Goal[],DynaShape.GeometryBinders.GeometryBinder[],double,int,bool,bool,bool,bool,bool,double",
       "Replication": "Auto",
-      "Description": "Solver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
+      "Description": "Execute the solver to iteratively solve the input goals/constraints\n\nSolver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -453,8 +453,8 @@
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
-      "WatchWidth": 50.285714285714285,
-      "WatchHeight": 37.714285714285715,
+      "WatchWidth": 49.6,
+      "WatchHeight": 37.6,
       "Id": "03e094d6ada843a388002797797b4e7d",
       "NodeType": "ExtensionNode",
       "Inputs": [
@@ -600,45 +600,6 @@
       "Description": "TestingUtilities.AuxeticRotatingTriangles (xCount: int = 5, yCount: int = 5, thickness: double = 0): var[]..[]"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "9992e967c2584bc591c07b377b2c9f9a",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "36563328723f476ca6a7c499fc5993b5",
-          "Name": "goal",
-          "Description": "MergeGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "c2eaa49a03c24fc890693f5acff8437f",
-          "Name": "weight",
-          "Description": "double\nDefault value : -1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "68b00e844523436c9d1817ad88405361",
-          "Name": "MergeGoal",
-          "Description": "MergeGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.MergeGoal_Change@DynaShape.Goals.MergeGoal,double",
-      "Replication": "Auto",
-      "Description": "Goals.MergeGoal_Change (goal: MergeGoal, weight: double = -1): MergeGoal"
-    },
-    {
       "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
       "NumberType": "Double",
       "Id": "64ab7047ce514fed968e064b000e11e1",
@@ -679,6 +640,45 @@
       "Replication": "Disabled",
       "Description": "Creates a number",
       "InputValue": 0.001
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "1f474ea6d6ae42dc9ef649daedf027a8",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "2e6cb4744b4848a4a1f69c67a59b9609",
+          "Name": "mergeGoal",
+          "Description": "The MergeGoal to modify.\n\nMergeGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "239f75b4df554e209460caa99e762cec",
+          "Name": "weight",
+          "Description": "An optional new weight for the MergeGoal.\n\ndouble\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a799a6d8e29e4f4b9c884a550946a1bb",
+          "Name": "MergeGoal",
+          "Description": "MergeGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.MergeGoal.Change@DynaShape.Goals.MergeGoal,double",
+      "Replication": "Auto",
+      "Description": "Modifies the MergeGoal's parameters while the solver is running.\n\nMergeGoal.Change (mergeGoal: MergeGoal, weight: double = -1): MergeGoal"
     }
   ],
   "Connectors": [
@@ -768,8 +768,8 @@
     },
     {
       "Start": "96a8d8ff56c04782bd849282c6ce1085",
-      "End": "36563328723f476ca6a7c499fc5993b5",
-      "Id": "c98467d8c62c40d09ade93da70f29cf8",
+      "End": "2e6cb4744b4848a4a1f69c67a59b9609",
+      "Id": "e43b349fab2c4ae1825ff4c9296f95c6",
       "IsHidden": "False"
     },
     {
@@ -779,21 +779,21 @@
       "IsHidden": "False"
     },
     {
-      "Start": "68b00e844523436c9d1817ad88405361",
-      "End": "7486408678ab4ecabd0a7f56cb2fd3ed",
-      "Id": "ba6519e6afef4ec69fca5a8e897cfa19",
-      "IsHidden": "False"
-    },
-    {
       "Start": "245e79408dc34cb49aec119e14b3c47f",
-      "End": "c2eaa49a03c24fc890693f5acff8437f",
-      "Id": "fa940ba8d89740e391d42cb923e9af47",
+      "End": "239f75b4df554e209460caa99e762cec",
+      "Id": "66413d8c8b354a3187e2177ed504ee92",
       "IsHidden": "False"
     },
     {
       "Start": "dfea78ac286b4ba3bb6962312df9f7e8",
       "End": "c2a2d3bf15354375a1452f8fea0b32eb",
       "Id": "d073474007544be490b638cb07acdb64",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a799a6d8e29e4f4b9c884a550946a1bb",
+      "End": "7486408678ab4ecabd0a7f56cb2fd3ed",
+      "Id": "d7e8fa4b43ec4b88b3aed8a53879251f",
       "IsHidden": "False"
     }
   ],
@@ -807,7 +807,7 @@
         "dbe7da0a4ef34dc3a6f4ab0fd9ca4b1f",
         "42f2b3a0c8a347da9d1fd1c2f8b8cd00",
         "1a719179f912455eb55d74a1d49e873a",
-        "9992e967c2584bc591c07b377b2c9f9a"
+        "1f474ea6d6ae42dc9ef649daedf027a8"
       ]
     }
   ],
@@ -1000,16 +1000,6 @@
         "Y": -455.3555295744892
       },
       {
-        "Id": "9992e967c2584bc591c07b377b2c9f9a",
-        "Name": "Goals.MergeGoal_Change",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 2413.185640945598,
-        "Y": -324.86583874551945
-      },
-      {
         "Id": "64ab7047ce514fed968e064b000e11e1",
         "Name": "Number",
         "IsSetAsInput": true,
@@ -1028,6 +1018,16 @@
         "ShowGeometry": true,
         "X": 2752.883088851317,
         "Y": -188.15569662548256
+      },
+      {
+        "Id": "1f474ea6d6ae42dc9ef649daedf027a8",
+        "Name": "MergeGoal.Change",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2413.185640945598,
+        "Y": -324.86583874551945
       }
     ],
     "Annotations": [
@@ -1055,14 +1055,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 2742.883088851317,
-        "Top": -1039.2985537683396,
-        "Width": 1031.4285714285716,
-        "Height": 1879.4285714285716,
+        "Top": -1039.184268054054,
+        "Width": 1030.8571428571431,
+        "Height": 1877.8285714285716,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -951.584268054054,
         "InitialHeight": 1803.4285714285716,
-        "TextblockHeight": 77.71428571428571,
+        "TextblockHeight": 77.60000000000001,
         "Background": "#FF48B9FF"
       },
       {
@@ -1086,8 +1086,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -1211.8383140968454,
-    "Y": 485.3594614471307,
-    "Zoom": 0.7551452513105285
+    "X": -781.5633035904145,
+    "Y": 475.5886334298291,
+    "Zoom": 0.6694360454466503
   }
 }

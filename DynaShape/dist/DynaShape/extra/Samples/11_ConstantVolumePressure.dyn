@@ -258,150 +258,6 @@
       "Description": "Converts the Mesh edges to Lines, and returns them\n\nMesh.Edges ( ): Line[]"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "bdc92393032543049c30292733c798df",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "94c1348cb09e4ddb8a8e8b10daeb3e1c",
-          "Name": "line",
-          "Description": "Line",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "90c4d12291b3421e94852c6d26b3fb5f",
-          "Name": "targetLength",
-          "Description": "double\nDefault value : -1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "b2001f7ad72f4d3ea1569d3ef484fe7a",
-          "Name": "weight",
-          "Description": "double\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "1569a8a831124971b44edfe14e458727",
-          "Name": "LengthGoal",
-          "Description": "LengthGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Create@Autodesk.DesignScript.Geometry.Line,double,double",
-      "Replication": "Auto",
-      "Description": "Goals.LengthGoal_Create (line: Line, targetLength: double = -1, weight: double = 1): LengthGoal"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "cde9b33290a6419cb21eb3e954f19588",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "590b50330a2f40f6ad57eb814f5fc9ac",
-          "Name": "mesh",
-          "Description": "Mesh",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "27f9dc0433594d4fad07c87f541c2bbf",
-          "Name": "volumePressureConstant",
-          "Description": "double\nDefault value : 0",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "a9de4fa74c7c4239a6f15c3f737ec189",
-          "Name": "weight",
-          "Description": "double\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "ea63e22968624a529f52929e4674c4cf",
-          "Name": "ConstantVolumePressureGoal",
-          "Description": "ConstantVolumePressureGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantVolumePressureGoal_Create@Autodesk.Dynamo.MeshToolkit.Mesh,double,double",
-      "Replication": "Auto",
-      "Description": "Goals.ConstantVolumePressureGoal_Create (mesh: Mesh, volumePressureConstant: double = 0, weight: double = 1): ConstantVolumePressureGoal"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "593d068ff7904248af7e169dfc1ca319",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "4761890831c84a678b68cf6d613347d2",
-          "Name": "goal",
-          "Description": "ConstantVolumePressureGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "2c958de4aa484fab9a7fee9b31220463",
-          "Name": "volumePressureConstant",
-          "Description": "double\nDefault value : -1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "95e9dcd241c142e1bb7b3ae53b0d92a6",
-          "Name": "weight",
-          "Description": "double\nDefault value : -1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "90cec7eb676f48b8af9f2058017687e7",
-          "Name": "ConstantVolumePressureGoal",
-          "Description": "ConstantVolumePressureGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantVolumePressureGoal_Change@DynaShape.Goals.ConstantVolumePressureGoal,double,double",
-      "Replication": "Auto",
-      "Description": "Goals.ConstantVolumePressureGoal_Change (goal: ConstantVolumePressureGoal, volumePressureConstant: double = -1, weight: double = -1): ConstantVolumePressureGoal"
-    },
-    {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
       "NumberType": "Double",
       "MaximumValue": 30.0,
@@ -566,7 +422,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Create",
       "Replication": "Auto",
-      "Description": "Solver.Create ( ): Solver"
+      "Description": "Create a DynaShape solver, which will be input into the Solver.Execute node\n\nSolver.Create ( ): Solver"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -596,7 +452,7 @@
         {
           "Id": "e26c1df7459b47b4a15dacd1ade9596e",
           "Name": "solver",
-          "Description": "Solver",
+          "Description": "The solver, which can be obtained from the Solver.Create node\n\nSolver",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -605,7 +461,7 @@
         {
           "Id": "41e291f976b242509a7c16aca11c6273",
           "Name": "goals",
-          "Description": "Goal[]",
+          "Description": "The goals/constraints that the solver will solve\n\nGoal[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -614,7 +470,7 @@
         {
           "Id": "d1bb3802b35043849ddc9eafd27655fc",
           "Name": "geometryBinders",
-          "Description": "GeometryBinder[]\nDefault value : null",
+          "Description": "The geometry binders\n\nGeometryBinder[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -623,7 +479,7 @@
         {
           "Id": "d3ed2776044042fb81d01bda2b9f42f5",
           "Name": "nodeMergeThreshold",
-          "Description": "double\nDefault value : 0.001",
+          "Description": "Before the solver starts to run, nodes that have identical positions (within this threshold) will be merged into one node\n\ndouble\nDefault value : 0.001",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -632,7 +488,7 @@
         {
           "Id": "de014fe3b59e41cd88477e2180295421",
           "Name": "iterations",
-          "Description": "int\nDefault value : 0",
+          "Description": "The number of iterations that the solver will execute in the background before display the intermediate result. If set to 0 (the default value), the solver will attempt run as many iterations as possible within approximately 25 milliseconds, which is sufficient for real-time visual feedback. Using a small value (e.g. 1) will make the solver appears to run more slowly and display more intermediate result, allowing us to better observe and understand how the nodes and goals behave\n\nint\nDefault value : 0",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -641,7 +497,7 @@
         {
           "Id": "8a913a13b76b48a8bcf20dd16525c8c8",
           "Name": "reset",
-          "Description": "bool\nDefault value : true",
+          "Description": "Reset the solver to the initial condition. You should set this to True at the beginning of a scenario, then set it to False. If you add, remove goals, you will need to reset for the changes to take effect\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -650,7 +506,7 @@
         {
           "Id": "a948c06142924d02861fce0f12f225e3",
           "Name": "execute",
-          "Description": "bool\nDefault value : true",
+          "Description": "Execute or stop executing the solver\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -659,7 +515,7 @@
         {
           "Id": "5fe65a6aec5c4389993b1687573640be",
           "Name": "enableMomentum",
-          "Description": "bool\nDefault value : true",
+          "Description": "Apply momentum effect to the movement of the nodes. For simulation of physical motion, this results in more realistic motion. For constraint-based optimization, it often helps the solver to reach the final solution in fewer iteration (i.e. faster), but can sometimes lead to unstable and counter-intuitive solution. In such case, try setting momentum to False\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -677,7 +533,7 @@
         {
           "Id": "f362d93f9e6249cc8bebc7328c54b176",
           "Name": "enableManipulation",
-          "Description": "bool\nDefault value : false",
+          "Description": "Enable manipulation of the nodes in the background view with mouse\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -686,7 +542,7 @@
         {
           "Id": "1858901fa22a48269bf4ebd968d65737",
           "Name": "dampingFactor",
-          "Description": "double\nDefault value : 0.98",
+          "Description": "When momentum mode is enabled, this value will determine how much the node's velocity is damped at each iteration\n\ndouble\nDefault value : 0.98",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -724,7 +580,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Execute@DynaShape.Solver,DynaShape.Goals.Goal[],DynaShape.GeometryBinders.GeometryBinder[],double,int,bool,bool,bool,bool,bool,double",
       "Replication": "Auto",
-      "Description": "Solver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
+      "Description": "Execute the solver to iteratively solve the input goals/constraints\n\nSolver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -785,6 +641,150 @@
       ],
       "Replication": "Auto",
       "Description": "Concatenates all given lists into a single list.\n\nList.Join (lists: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "66c8bd1585ca49cc87ad3c61ce1bbb55",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "f21ccc541e824f6b911967f7accad06c",
+          "Name": "mesh",
+          "Description": "A closed mesh to apply the ConstantVolumePressureGoal to.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8932e33cba7344e4bb1e3bb017b4aa1c",
+          "Name": "volumePressureConstant",
+          "Description": "The constant that is the product of the pressure and volume. Meaning, the pressure will automatically decrease as the mesh volume increases (and vice versa).\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dcede6da8e1b40d086dbe3ffd1b3adcf",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "36040d4cace140f8a7f3ef12ba2bc21c",
+          "Name": "ConstantVolumePressureGoal",
+          "Description": "ConstantVolumePressureGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantVolumePressureGoal.Create@var,double,double",
+      "Replication": "Auto",
+      "Description": "Creates a ConstantVolumePressureGoal that simulates pressure trapped inside a closed volume. The pressure decreases as the volume expands (Boyle's law).\n\nConstantVolumePressureGoal.Create (mesh: var, volumePressureConstant: double = 0, weight: double = 1): ConstantVolumePressureGoal"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "5a7a2d2301af4863b28036b96f9bbb2d",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "782fa7fbbc99433d87ddb12172740557",
+          "Name": "constantVolumePressureGoal",
+          "Description": "A ConstantVolumePressureGoal to modify.\n\nConstantVolumePressureGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d6bd9c8e57294a75957247e7888674d2",
+          "Name": "volumePressureConstant",
+          "Description": "An optional new constant for the ConstantVolumePressureGoal.\n\ndouble\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f31f27a2fed6417dbd65dfc999b79189",
+          "Name": "weight",
+          "Description": "An optional new weight for the ConstantVolumePressureGoal.\n\ndouble\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bf5850a652d64a27b24f3f0eddfa69c5",
+          "Name": "ConstantVolumePressureGoal",
+          "Description": "ConstantVolumePressureGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantVolumePressureGoal.Change@DynaShape.Goals.ConstantVolumePressureGoal,double,double",
+      "Replication": "Auto",
+      "Description": "Modifies the ConstantVolumePressureGoal's parameters while the solver is running.\n\nConstantVolumePressureGoal.Change (constantVolumePressureGoal: ConstantVolumePressureGoal, volumePressureConstant: double = -1, weight: double = -1): ConstantVolumePressureGoal"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "dd9d1e8cfdd84527bbd041d49266f389",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "b67649e7f8c8455aad67f817b39d330a",
+          "Name": "line",
+          "Description": "Line",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3b783952ff8144a098d805d77ce72746",
+          "Name": "targetLength",
+          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7ad5e796962245c8aa8f4887d5c3941d",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ab68954f2a01480bb1fd16af4f31b8ba",
+          "Name": "LengthGoal",
+          "Description": "LengthGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Create@Autodesk.DesignScript.Geometry.Line,double,double",
+      "Replication": "Auto",
+      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.Create (line: Line, targetLength: double = -1, weight: double = 1): LengthGoal"
     }
   ],
   "Connectors": [
@@ -796,8 +796,8 @@
     },
     {
       "Start": "e36a7ca35cd74cd4afb945cc9431561a",
-      "End": "590b50330a2f40f6ad57eb814f5fc9ac",
-      "Id": "2fe2657941544cda940a2eecafe7c938",
+      "End": "f21ccc541e824f6b911967f7accad06c",
+      "Id": "212c3d2f8f5b47a5ad8ef944c44ec964",
       "IsHidden": "False"
     },
     {
@@ -838,38 +838,20 @@
     },
     {
       "Start": "c8065159054b44bbb54405199a907305",
-      "End": "94c1348cb09e4ddb8a8e8b10daeb3e1c",
-      "Id": "2803592b09ba4a95a9a7186f7a72eeaf",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "c8065159054b44bbb54405199a907305",
       "End": "8be7445f273947cf8c7cbc8f6fa36f64",
       "Id": "6926ae4da2f3423482d01079a7f45576",
       "IsHidden": "False"
     },
     {
-      "Start": "1569a8a831124971b44edfe14e458727",
-      "End": "f0f8de8b08134a61953eaa0fe1462720",
-      "Id": "cece750da72c4bb8933ee83b7609f740",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "ea63e22968624a529f52929e4674c4cf",
-      "End": "4761890831c84a678b68cf6d613347d2",
-      "Id": "8e152a7ad1b5460580f9ab11c53de2c0",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "90cec7eb676f48b8af9f2058017687e7",
-      "End": "c5b0a49a88af4ba8b26c547fb627548a",
-      "Id": "6b31b5aef39c470d8116c6ab1357ffbb",
+      "Start": "c8065159054b44bbb54405199a907305",
+      "End": "b67649e7f8c8455aad67f817b39d330a",
+      "Id": "2d298051c65c44a4b377e4b5c460ff79",
       "IsHidden": "False"
     },
     {
       "Start": "7ec564615c7f4eaeb5394e389c2c4371",
-      "End": "2c958de4aa484fab9a7fee9b31220463",
-      "Id": "76cbeb0f04444becbb06a9490207f5b1",
+      "End": "d6bd9c8e57294a75957247e7888674d2",
+      "Id": "6346eb11d59340108dabb4ddae90fc6e",
       "IsHidden": "False"
     },
     {
@@ -925,6 +907,24 @@
       "End": "41e291f976b242509a7c16aca11c6273",
       "Id": "34482ecbffe045418f811f83b67c7408",
       "IsHidden": "False"
+    },
+    {
+      "Start": "36040d4cace140f8a7f3ef12ba2bc21c",
+      "End": "782fa7fbbc99433d87ddb12172740557",
+      "Id": "2c5877bc746f4f10b54737518802933d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bf5850a652d64a27b24f3f0eddfa69c5",
+      "End": "c5b0a49a88af4ba8b26c547fb627548a",
+      "Id": "cd1f192c897e4a88a6f0442ae87a7583",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ab68954f2a01480bb1fd16af4f31b8ba",
+      "End": "f0f8de8b08134a61953eaa0fe1462720",
+      "Id": "d15ea524b0c14a2385c73bc5cddd88e2",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
@@ -943,12 +943,12 @@
       "Version": "0.9.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "bdc92393032543049c30292733c798df",
-        "cde9b33290a6419cb21eb3e954f19588",
-        "593d068ff7904248af7e169dfc1ca319",
         "3e30f0ee273c4da88106c9473991418d",
         "53a92df652c145d69f442d848359af66",
-        "28f6297973ae4345a4b91375291b1470"
+        "28f6297973ae4345a4b91375291b1470",
+        "66c8bd1585ca49cc87ad3c61ce1bbb55",
+        "5a7a2d2301af4863b28036b96f9bbb2d",
+        "dd9d1e8cfdd84527bbd041d49266f389"
       ]
     }
   ],
@@ -1039,36 +1039,6 @@
         "ShowGeometry": false,
         "X": 1266.18766202891,
         "Y": 496.189730480417
-      },
-      {
-        "Id": "bdc92393032543049c30292733c798df",
-        "Name": "Goals.LengthGoal_Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 1594.27368453261,
-        "Y": 499.541979210892
-      },
-      {
-        "Id": "cde9b33290a6419cb21eb3e954f19588",
-        "Name": "Goals.ConstantVolumePressureGoal_Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 1569.08005978058,
-        "Y": -72.00919412050729
-      },
-      {
-        "Id": "593d068ff7904248af7e169dfc1ca319",
-        "Name": "Goals.ConstantVolumePressureGoal_Change",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 2111.3657740662943,
-        "Y": 17.99080587949271
       },
       {
         "Id": "ec0df0aba1b64ceca419f3bc053b75e9",
@@ -1179,6 +1149,36 @@
         "ShowGeometry": true,
         "X": 2800.8229667199057,
         "Y": 184.74340047496344
+      },
+      {
+        "Id": "66c8bd1585ca49cc87ad3c61ce1bbb55",
+        "Name": "ConstantVolumePressureGoal.Create",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1567.964273138427,
+        "Y": -70.89340747835439
+      },
+      {
+        "Id": "5a7a2d2301af4863b28036b96f9bbb2d",
+        "Name": "ConstantVolumePressureGoal.Change",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2111.3657740662943,
+        "Y": 17.99080587949271
+      },
+      {
+        "Id": "dd9d1e8cfdd84527bbd041d49266f389",
+        "Name": "LengthGoal.Create",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1599.9221649201438,
+        "Y": 501.9241157681991
       }
     ],
     "Annotations": [
@@ -1190,16 +1190,16 @@
         "WidthAdjustment": 0.0,
         "HeightAdjustment": 0.0,
         "Nodes": [
-          "bdc92393032543049c30292733c798df"
+          "dd9d1e8cfdd84527bbd041d49266f389"
         ],
         "HasNestedGroups": false,
-        "Left": 1584.27368453261,
-        "Top": 345.541979210892,
-        "Width": 291.42857142857133,
-        "Height": 363.28571428571433,
+        "Left": 1589.9221649201438,
+        "Top": 347.9241157681991,
+        "Width": 292.0,
+        "Height": 351.40000000000003,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": 499.541979210892,
+        "InitialTop": 501.9241157681991,
         "InitialHeight": 145.0,
         "TextblockHeight": 144.0,
         "Background": "#FFC1D676"
@@ -1212,20 +1212,20 @@
         "WidthAdjustment": 0.0,
         "HeightAdjustment": 0.0,
         "Nodes": [
-          "cde9b33290a6419cb21eb3e954f19588",
-          "593d068ff7904248af7e169dfc1ca319",
-          "ec0df0aba1b64ceca419f3bc053b75e9"
+          "ec0df0aba1b64ceca419f3bc053b75e9",
+          "66c8bd1585ca49cc87ad3c61ce1bbb55",
+          "5a7a2d2301af4863b28036b96f9bbb2d"
         ],
         "HasNestedGroups": false,
-        "Left": 1559.08005978058,
-        "Top": -188.29490840622157,
-        "Width": 1004.5714285714284,
-        "Height": 463.57142857142856,
+        "Left": 1557.964273138427,
+        "Top": -187.2934074783544,
+        "Width": 1030.6015009278672,
+        "Height": 461.08421335784715,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": -72.00919412050729,
+        "InitialTop": -70.89340747835439,
         "InitialHeight": 359.0,
-        "TextblockHeight": 106.28571428571428,
+        "TextblockHeight": 106.4,
         "Background": "#FFC1D676"
       },
       {
@@ -1240,14 +1240,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 1586.3327890826806,
-        "Top": 742.4131973096796,
-        "Width": 307.42857142857133,
-        "Height": 270.71428571428567,
+        "Top": 742.2989115953939,
+        "Width": 307.20000000000005,
+        "Height": 258.6,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 838.6989115953938,
         "InitialHeight": 145.0,
-        "TextblockHeight": 86.28571428571428,
+        "TextblockHeight": 86.4,
         "Background": "#FFC1D676"
       },
       {
@@ -1272,8 +1272,8 @@
         "HasNestedGroups": false,
         "Left": 2790.8229667199057,
         "Top": -466.685170953608,
-        "Width": 802.8571428571427,
-        "Height": 1708.7142857142858,
+        "Width": 802.9714285714285,
+        "Height": 1707.2285714285713,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -400.685170953608,
@@ -1302,8 +1302,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -695.7752413285907,
-    "Y": 266.85220277681856,
-    "Zoom": 0.5281979497406801
+    "X": -404.6797636858896,
+    "Y": 142.73964625636125,
+    "Zoom": 0.6668676784150867
   }
 }
