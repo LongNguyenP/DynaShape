@@ -342,120 +342,6 @@
   "Nodes": [
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "3c807a35501041fb82e68fc251977d41",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "92d497ecd617425ebaf9d6797ca76dc7",
-          "Name": "startPositions",
-          "Description": "Point[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "608da2967e454c1cb398202e9da78e65",
-          "Name": "targetShapePoints",
-          "Description": "Point[]\nDefault value : null",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "d3cf957328694f42b2b565fec098bc43",
-          "Name": "allowScaling",
-          "Description": "bool\nDefault value : false",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "dbc0fd0ab7ac4ed1b0a6a392cfdce188",
-          "Name": "weight",
-          "Description": "double\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "3e51f9a51ccd4f0f994bea50d5af6851",
-          "Name": "ShapeMatchingGoal",
-          "Description": "ShapeMatchingGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ShapeMatchingGoal_Create@Autodesk.DesignScript.Geometry.Point[],Autodesk.DesignScript.Geometry.Point[],bool,double",
-      "Replication": "Auto",
-      "Description": "Goals.ShapeMatchingGoal_Create (startPositions: Point[], targetShapePoints: Point[] = null, allowScaling: bool = false, weight: double = 1): ShapeMatchingGoal"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "ffcd0443d5734d4e87167fd615e45eda",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "6dfe31c28bac44bfa35c4123a8636e8c",
-          "Name": "goal",
-          "Description": "ShapeMatchingGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "c9f8980e401f48aaa516aff5d322f384",
-          "Name": "targetShapePoints",
-          "Description": "Point[]\nDefault value : null",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "d4922bb853034295997fad65554ed918",
-          "Name": "allowScaling",
-          "Description": "bool\nDefault value : false",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "8321917796f846cc9d1205b3edc14abc",
-          "Name": "weight",
-          "Description": "double\nDefault value : -1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "b5c03b5757094a118f3aea1b9343bfab",
-          "Name": "ShapeMatchingGoal",
-          "Description": "ShapeMatchingGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ShapeMatchingGoal_Change@DynaShape.Goals.ShapeMatchingGoal,Autodesk.DesignScript.Geometry.Point[],bool,double",
-      "Replication": "Auto",
-      "Description": "Goals.ShapeMatchingGoal_Change (goal: ShapeMatchingGoal, targetShapePoints: Point[] = null, allowScaling: bool = false, weight: double = -1): ShapeMatchingGoal"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "Id": "9e6a3d8e566045fe8c599c7f32460d92",
       "NodeType": "FunctionNode",
       "Inputs": [
@@ -1646,7 +1532,7 @@
         {
           "Id": "83b0f5475f664bd8a9c6b0c50e8ff8c5",
           "Name": "solver",
-          "Description": "Solver",
+          "Description": "The solver, which can be obtained from the Solver.Create node\n\nSolver",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1655,7 +1541,7 @@
         {
           "Id": "f0cd37d148c4493d9d34f86286a53133",
           "Name": "goals",
-          "Description": "Goal[]",
+          "Description": "The goals/constraints that the solver will solve\n\nGoal[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1664,7 +1550,7 @@
         {
           "Id": "ab31173cc7e34eceaf536fd4d87b72eb",
           "Name": "geometryBinders",
-          "Description": "GeometryBinder[]\nDefault value : null",
+          "Description": "The geometry binders\n\nGeometryBinder[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1673,7 +1559,7 @@
         {
           "Id": "ede1635623224a31b2680fa15f1dd2d0",
           "Name": "nodeMergeThreshold",
-          "Description": "double\nDefault value : 0.001",
+          "Description": "Before the solver starts to run, nodes that have identical positions (within this threshold) will be merged into one node\n\ndouble\nDefault value : 0.001",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1682,7 +1568,7 @@
         {
           "Id": "85b96953c51348a5a6360bde27ef69e3",
           "Name": "iterations",
-          "Description": "int\nDefault value : 0",
+          "Description": "The number of iterations that the solver will execute in the background before display the intermediate result. If set to 0 (the default value), the solver will attempt run as many iterations as possible within approximately 25 milliseconds, which is sufficient for real-time visual feedback. Using a small value (e.g. 1) will make the solver appears to run more slowly and display more intermediate result, allowing us to better observe and understand how the nodes and goals behave\n\nint\nDefault value : 0",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1691,7 +1577,7 @@
         {
           "Id": "a61e88ac53894758b3e571939e25d84d",
           "Name": "reset",
-          "Description": "bool\nDefault value : true",
+          "Description": "Reset the solver to the initial condition. You should set this to True at the beginning of a scenario, then set it to False. If you add, remove goals, you will need to reset for the changes to take effect\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1700,7 +1586,7 @@
         {
           "Id": "1421f372261d49c9a0656bc9c9f332dc",
           "Name": "execute",
-          "Description": "bool\nDefault value : true",
+          "Description": "Execute or stop executing the solver\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1709,7 +1595,7 @@
         {
           "Id": "184c7df7588e4b28b0db384abe94f69b",
           "Name": "enableMomentum",
-          "Description": "bool\nDefault value : true",
+          "Description": "Apply momentum effect to the movement of the nodes. For simulation of physical motion, this results in more realistic motion. For constraint-based optimization, it often helps the solver to reach the final solution in fewer iteration (i.e. faster), but can sometimes lead to unstable and counter-intuitive solution. In such case, try setting momentum to False\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1727,7 +1613,7 @@
         {
           "Id": "1b55300043594bfd98014a7b09e30b2e",
           "Name": "enableManipulation",
-          "Description": "bool\nDefault value : false",
+          "Description": "Enable manipulation of the nodes in the background view with mouse\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1736,7 +1622,7 @@
         {
           "Id": "72b16094999b4890b52d1520a0fdcab5",
           "Name": "dampingFactor",
-          "Description": "double\nDefault value : 0.98",
+          "Description": "When momentum mode is enabled, this value will determine how much the node's velocity is damped at each iteration\n\ndouble\nDefault value : 0.98",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1774,7 +1660,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Execute@DynaShape.Solver,DynaShape.Goals.Goal[],DynaShape.GeometryBinders.GeometryBinder[],double,int,bool,bool,bool,bool,bool,double",
       "Replication": "Auto",
-      "Description": "Solver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
+      "Description": "Execute the solver to iteratively solve the input goals/constraints\n\nSolver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -1814,7 +1700,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Create",
       "Replication": "Auto",
-      "Description": "Solver.Create ( ): Solver"
+      "Description": "Create a DynaShape solver, which will be input into the Solver.Execute node\n\nSolver.Create ( ): Solver"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -1919,21 +1805,123 @@
       "Replication": "Disabled",
       "Description": "Enables selection between True and False",
       "InputValue": true
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "75470d57e05b4c4289be167162198859",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "250b98d03b694bed809332c9c0b01790",
+          "Name": "startPositions",
+          "Description": "The start positions of the nodes.\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fe6964dff52848a29ba6b789ac8a49e0",
+          "Name": "targetShapePoints",
+          "Description": "The points to move the nodes to.\n\nPoint[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "65ceb38c47934d90af29344c3b03d112",
+          "Name": "allowScaling",
+          "Description": "Allow scaling of the points to maintain the shape.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f27542ab56394bfeb7a61eb1392be67f",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2400ff67f37340ad9bbc4fb045f7b9d6",
+          "Name": "ShapeMatchingGoal",
+          "Description": "ShapeMatchingGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ShapeMatchingGoal.Create@Autodesk.DesignScript.Geometry.Point[],Autodesk.DesignScript.Geometry.Point[],bool,double",
+      "Replication": "Auto",
+      "Description": "Creates a ShapeMatchingGoal to move a set of nodes to positions that resemble a given target shape. The target shape is defined by a sequence of points, provided in the desired order.\n\nShapeMatchingGoal.Create (startPositions: Point[], targetShapePoints: Point[] = null, allowScaling: bool = false, weight: double = 1): ShapeMatchingGoal"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "ee068dc96e754dc1a1afddebbf2e02e2",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "7c71c5bd9da14269a49288d09033c3c5",
+          "Name": "shapeMatchingGoal",
+          "Description": "The ShapeMatchingGoal to modify.\n\nShapeMatchingGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c73eccebb0ea48bf92966b71fe2bacf8",
+          "Name": "targetShapePoints",
+          "Description": "An optional new list of points to move the nodes to.\n\nPoint[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "70fbe6eba07f4af5a0f60ffa9dd44ffa",
+          "Name": "allowScaling",
+          "Description": "Optionally allow or disallow scaling.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a897212ef97542f6b1ec966d932fbd1d",
+          "Name": "weight",
+          "Description": "An optional new weight for the ShapeMatchingGoal.\n\ndouble\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dff1d1d0015740bba43dc75697d6c56f",
+          "Name": "ShapeMatchingGoal",
+          "Description": "ShapeMatchingGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ShapeMatchingGoal.Change@DynaShape.Goals.ShapeMatchingGoal,Autodesk.DesignScript.Geometry.Point[],bool,double",
+      "Replication": "Auto",
+      "Description": "Modifies the ShapeMatchingGoal's parameters while the solver is running.\n\nShapeMatchingGoal.Change (shapeMatchingGoal: ShapeMatchingGoal, targetShapePoints: Point[] = null, allowScaling: bool = false, weight: double = -1): ShapeMatchingGoal"
     }
   ],
   "Connectors": [
-    {
-      "Start": "3e51f9a51ccd4f0f994bea50d5af6851",
-      "End": "6dfe31c28bac44bfa35c4123a8636e8c",
-      "Id": "75640842f0b146b7a894eabd74272a70",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "b5c03b5757094a118f3aea1b9343bfab",
-      "End": "f0cd37d148c4493d9d34f86286a53133",
-      "Id": "20ff16a26ba94c46b69106b26f1adc8e",
-      "IsHidden": "False"
-    },
     {
       "Start": "c209df3d0a0e4ed9b8e16f08b9c2d4cb",
       "End": "ab31173cc7e34eceaf536fd4d87b72eb",
@@ -1960,14 +1948,14 @@
     },
     {
       "Start": "542b8da52c374b7b91f4e19bbd469b42",
-      "End": "92d497ecd617425ebaf9d6797ca76dc7",
-      "Id": "baa9be0b94f248e0b93faa10a80a8033",
+      "End": "4d60f31e3e3546a5bd9cf66edbe4bb7b",
+      "Id": "36522ed5feac4fe7a463a1ca29ced322",
       "IsHidden": "False"
     },
     {
       "Start": "542b8da52c374b7b91f4e19bbd469b42",
-      "End": "4d60f31e3e3546a5bd9cf66edbe4bb7b",
-      "Id": "36522ed5feac4fe7a463a1ca29ced322",
+      "End": "250b98d03b694bed809332c9c0b01790",
+      "Id": "f8107cc0b2e146ebb27f56a57aa7964e",
       "IsHidden": "False"
     },
     {
@@ -2134,8 +2122,8 @@
     },
     {
       "Start": "47ad32bd414b40fe94e200e38577781b",
-      "End": "c9f8980e401f48aaa516aff5d322f384",
-      "Id": "24458677aef144d7822e1020a9f9774c",
+      "End": "c73eccebb0ea48bf92966b71fe2bacf8",
+      "Id": "d0a3194cf5a64c88a9ee5a704576397c",
       "IsHidden": "False"
     },
     {
@@ -2197,6 +2185,18 @@
       "End": "1b55300043594bfd98014a7b09e30b2e",
       "Id": "07f5b467c0be4a97b810688a749f7ced",
       "IsHidden": "False"
+    },
+    {
+      "Start": "2400ff67f37340ad9bbc4fb045f7b9d6",
+      "End": "7c71c5bd9da14269a49288d09033c3c5",
+      "Id": "dd1e5b9ee4a24d56b86941e5e7b53a46",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "dff1d1d0015740bba43dc75697d6c56f",
+      "End": "f0cd37d148c4493d9d34f86286a53133",
+      "Id": "5f2e06665e494246ba0c27c2b67c411a",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
@@ -2206,11 +2206,11 @@
       "Version": "0.9.0.0",
       "ReferenceType": "Package",
       "Nodes": [
-        "3c807a35501041fb82e68fc251977d41",
-        "ffcd0443d5734d4e87167fd615e45eda",
         "9e6a3d8e566045fe8c599c7f32460d92",
         "193b30e4c8484b23a8598361e6b6d638",
-        "1af6fde9b86247d4bbe321916fd96c18"
+        "1af6fde9b86247d4bbe321916fd96c18",
+        "75470d57e05b4c4289be167162198859",
+        "ee068dc96e754dc1a1afddebbf2e02e2"
       ]
     }
   ],
@@ -2262,26 +2262,6 @@
     },
     "ConnectorPins": [],
     "NodeViews": [
-      {
-        "Id": "3c807a35501041fb82e68fc251977d41",
-        "Name": "Goals.ShapeMatchingGoal_Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": -1049.35838691515,
-        "Y": -123.22023953273083
-      },
-      {
-        "Id": "ffcd0443d5734d4e87167fd615e45eda",
-        "Name": "Goals.ShapeMatchingGoal_Change",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": -546.1877953094171,
-        "Y": -125.93537339816784
-      },
       {
         "Id": "9e6a3d8e566045fe8c599c7f32460d92",
         "Name": "GeometryBinders.PolylineBinder",
@@ -2711,6 +2691,26 @@
         "ShowGeometry": true,
         "X": 61.123840702965026,
         "Y": 401.86789305768605
+      },
+      {
+        "Id": "75470d57e05b4c4289be167162198859",
+        "Name": "ShapeMatchingGoal.Create",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -1049.35838691515,
+        "Y": -123.22023953273083
+      },
+      {
+        "Id": "ee068dc96e754dc1a1afddebbf2e02e2",
+        "Name": "ShapeMatchingGoal.Change",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -546.1877953094171,
+        "Y": -125.93537339816783
       }
     ],
     "Annotations": [
@@ -2755,8 +2755,8 @@
         "HasNestedGroups": false,
         "Left": -2927.0640639559597,
         "Top": -1415.143722240272,
-        "Width": 1401.142857142857,
-        "Height": 3031.2882767293586,
+        "Width": 1401.7142857142858,
+        "Height": 3029.802562443644,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -1349.143722240272,
@@ -2772,19 +2772,19 @@
         "WidthAdjustment": 0.0,
         "HeightAdjustment": 0.0,
         "Nodes": [
-          "3c807a35501041fb82e68fc251977d41",
-          "ffcd0443d5734d4e87167fd615e45eda"
+          "75470d57e05b4c4289be167162198859",
+          "ee068dc96e754dc1a1afddebbf2e02e2"
         ],
         "HasNestedGroups": false,
         "Left": -1059.35838691515,
-        "Top": -285.64965911245355,
-        "Width": 874.5991630343044,
-        "Height": 406.5722767225799,
+        "Top": -285.53537339816785,
+        "Width": 881.570591605733,
+        "Height": 394.91513386543704,
         "FontSize": 18.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": -125.93537339816784,
+        "InitialTop": -125.93537339816783,
         "InitialHeight": 147.715133865437,
-        "TextblockHeight": 149.71428571428572,
+        "TextblockHeight": 149.6,
         "Background": "#FFC1D676"
       },
       {
@@ -2802,14 +2802,14 @@
         ],
         "HasNestedGroups": false,
         "Left": -1033.4604892627171,
-        "Top": 219.33436090627424,
-        "Width": 772.0,
-        "Height": 631.8571428571429,
+        "Top": 219.10578947770279,
+        "Width": 771.8857142857142,
+        "Height": 630.5999999999999,
         "FontSize": 18.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 313.9057894777028,
         "InitialHeight": 549.0,
-        "TextblockHeight": 84.57142857142857,
+        "TextblockHeight": 84.80000000000001,
         "Background": "#FFC1D676"
       },
       {
@@ -2825,14 +2825,14 @@
         ],
         "HasNestedGroups": false,
         "Left": -1066.286677194248,
-        "Top": -579.7436846202335,
-        "Width": 579.1697811143675,
-        "Height": 261.817303548359,
+        "Top": -579.6293989059478,
+        "Width": 579.3983525429389,
+        "Height": 249.81730354835906,
         "FontSize": 18.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -528.0293989059478,
         "InitialHeight": 145.81730354835906,
-        "TextblockHeight": 41.714285714285715,
+        "TextblockHeight": 41.6,
         "Background": "#FFC1D676"
       },
       {
@@ -2856,8 +2856,8 @@
         "HasNestedGroups": false,
         "Left": 51.123840702965026,
         "Top": -995.5606783708855,
-        "Width": 802.8571428571429,
-        "Height": 1530.7142857142858,
+        "Width": 802.9714285714285,
+        "Height": 1529.2285714285715,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -929.5606783708855,
@@ -2886,8 +2886,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": 707.0255150903124,
-    "Y": 464.65129500064586,
+    "X": 1355.0255150903126,
+    "Y": 143.05129500064584,
     "Zoom": 0.4593073686400624
   }
 }
