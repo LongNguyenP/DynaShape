@@ -20,8 +20,26 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="DynaShapeImages.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="if not exist &quot;$(SolutionDir)\dist\DynaShape\bin\&quot; mkdir &quot;$(SolutionDir)\dist\DynaShape\bin\&quot;&#xA;Copy &quot;$(TargetDir)\$(TargetName).dll&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).dll&quot;&#xA;Copy &quot;$(TargetDir)\$(TargetName).xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\pkg.json&quot; &quot;$(SolutionDir)\dist\DynaShape\pkg.json&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\DynaShape_DynamoCustomization.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\DynaShape_DynamoCustomization.xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\DynaShape_ViewExtensionDefinition.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\extra\DynaShape_ViewExtensionDefinition.xml&quot;&#xA;" />
   </Target>
-
+<Target Name="CreateNodeIcons" AfterTargets="PostBuildEvent">
+  <!-- Get System.Drawing.dll -->
+  <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v4.8">
+    <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
+  </GetReferenceAssemblyPaths>
+  <!-- Get assembly -->
+  <GetAssemblyIdentity AssemblyFiles="$(OutDir)$(TargetName).dll">
+    <Output TaskParameter="Assemblies" ItemName="AssemblyInfo" />
+  </GetAssemblyIdentity>
+  <!-- Generate customization dll -->
+  <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)\DynaShapeImages.resx" OutputResources="$(ProjectDir)\DynaShapeImages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
+  <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)\DynaShapeImages.resources" OutputAssembly="$(OutDir)DynaShape.customization.dll" Version="%(AssemblyInfo.Version)" />
+</Target>
 </Project>
