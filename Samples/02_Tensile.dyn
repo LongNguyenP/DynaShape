@@ -25,7 +25,7 @@
       "Name": "Reset",
       "Type": "boolean",
       "Type2": "boolean",
-      "Value": "false",
+      "Value": "true",
       "Description": "Enables selection between True and False"
     },
     {
@@ -366,7 +366,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Enables selection between True and False",
-      "InputValue": false
+      "InputValue": true
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
@@ -450,7 +450,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Create",
       "Replication": "Auto",
-      "Description": "Create a DynaShape solver, which will be input into the Solver.Execute node\n\nSolver.Create ( ): Solver"
+      "Description": "Solver.Create ( ): Solver"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -480,7 +480,7 @@
         {
           "Id": "959441e2dc254b44bc744cce58ce0c9c",
           "Name": "solver",
-          "Description": "The solver, which can be obtained from the Solver.Create node\n\nSolver",
+          "Description": "Solver",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -489,7 +489,7 @@
         {
           "Id": "ddd011560d6f47ed9f9fa07be6381533",
           "Name": "goals",
-          "Description": "The goals/constraints that the solver will solve\n\nGoal[]",
+          "Description": "Goal[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -498,7 +498,7 @@
         {
           "Id": "ab897c7c65d642fc851627018d162f7e",
           "Name": "geometryBinders",
-          "Description": "The geometry binders\n\nGeometryBinder[]\nDefault value : null",
+          "Description": "GeometryBinder[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -507,7 +507,7 @@
         {
           "Id": "66305524a18e454a994e31416f49ed77",
           "Name": "nodeMergeThreshold",
-          "Description": "Before the solver starts to run, nodes that have identical positions (within this threshold) will be merged into one node\n\ndouble\nDefault value : 0.001",
+          "Description": "double\nDefault value : 0.001",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -516,7 +516,7 @@
         {
           "Id": "3c9234d3f1c84e08ba49260ac9f81deb",
           "Name": "iterations",
-          "Description": "The number of iterations that the solver will execute in the background before display the intermediate result. If set to 0 (the default value), the solver will attempt run as many iterations as possible within approximately 25 milliseconds, which is sufficient for real-time visual feedback. Using a small value (e.g. 1) will make the solver appears to run more slowly and display more intermediate result, allowing us to better observe and understand how the nodes and goals behave\n\nint\nDefault value : 0",
+          "Description": "int\nDefault value : 0",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -525,7 +525,7 @@
         {
           "Id": "e22a3b90ed2a45ddb9176f1a34a367bd",
           "Name": "reset",
-          "Description": "Reset the solver to the initial condition. You should set this to True at the beginning of a scenario, then set it to False. If you add, remove goals, you will need to reset for the changes to take effect\n\nbool\nDefault value : true",
+          "Description": "bool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -534,7 +534,7 @@
         {
           "Id": "387c94fc7ceb441597a5f8dde592ca70",
           "Name": "execute",
-          "Description": "Execute or stop executing the solver\n\nbool\nDefault value : true",
+          "Description": "bool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -543,7 +543,7 @@
         {
           "Id": "a45c21f815f643c9839a00d6948bf297",
           "Name": "enableMomentum",
-          "Description": "Apply momentum effect to the movement of the nodes. For simulation of physical motion, this results in more realistic motion. For constraint-based optimization, it often helps the solver to reach the final solution in fewer iteration (i.e. faster), but can sometimes lead to unstable and counter-intuitive solution. In such case, try setting momentum to False\n\nbool\nDefault value : true",
+          "Description": "bool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -561,7 +561,7 @@
         {
           "Id": "74cb95375a3f40e5ad2a8e98c508b622",
           "Name": "enableManipulation",
-          "Description": "Enable manipulation of the nodes in the background view with mouse\n\nbool\nDefault value : false",
+          "Description": "bool\nDefault value : false",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -570,7 +570,7 @@
         {
           "Id": "eae509bf902b473db247ea06d5a84caf",
           "Name": "dampingFactor",
-          "Description": "When momentum mode is enabled, this value will determine how much the node's velocity is damped at each iteration\n\ndouble\nDefault value : 0.98",
+          "Description": "double\nDefault value : 0.98",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -608,7 +608,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Execute@DynaShape.Solver,DynaShape.Goals.Goal[],DynaShape.GeometryBinders.GeometryBinder[],double,int,bool,bool,bool,bool,bool,double",
       "Replication": "Auto",
-      "Description": "Execute the solver to iteratively solve the input goals/constraints\n\nSolver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
+      "Description": "Solver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -618,7 +618,7 @@
         {
           "Id": "2126d05a4b114337a2e46f10255c5f46",
           "Name": "startPosition",
-          "Description": "The starting position for this AnchorGoal\n\nPoint",
+          "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -627,7 +627,7 @@
         {
           "Id": "8b48226b83d74c4cabe9d959a45df3e2",
           "Name": "anchor",
-          "Description": "The resting position for this anchor goal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -636,7 +636,7 @@
         {
           "Id": "7e7fb5980ddf4c36a8bad50b81ec787f",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1000",
+          "Description": "double\nDefault value : 1000",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -647,16 +647,16 @@
         {
           "Id": "930803cd4a5849aa906468a0af6fc234",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Creates an AnchorGoal to attempt to keep a node on a specified point. By default the weight for this goal is set very high to ensure the node really \"sticks\" to the anchor.\n\nAnchorGoal.Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
@@ -839,7 +839,7 @@
         {
           "Id": "cf6e38debca74e83ad5a732af59f3b22",
           "Name": "startPositions",
-          "Description": "The starting points for the ConstantGoal.\n\nPoint[]",
+          "Description": "Point[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -848,7 +848,7 @@
         {
           "Id": "3a18461e2caf48e99f35328f2b366e2d",
           "Name": "constant",
-          "Description": "The constant vector to apply to the given nodes.\n\nVector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, -0.1)",
+          "Description": "Vector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, -0.1)",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -857,7 +857,7 @@
         {
           "Id": "5abacbdc81694905866bc06e0853a674",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "Description": "double\nDefault value : 1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -868,16 +868,16 @@
         {
           "Id": "fe0fa25a71ad4176a9705fa819cad692",
           "Name": "ConstantGoal",
-          "Description": "A newly defined ConstantGoal.",
+          "Description": "ConstantGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantGoal.Create@Autodesk.DesignScript.Geometry.Point[],Autodesk.DesignScript.Geometry.Vector,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantGoal_Create@Autodesk.DesignScript.Geometry.Point[],Autodesk.DesignScript.Geometry.Vector,double",
       "Replication": "Auto",
-      "Description": "Creates a ConstantGoal that applies a constant directional offset to the specified nodes. This goal is useful for simulating gravity.\n\nConstantGoal.Create (startPositions: Point[], constant: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, -0.1), weight: double = 1): ConstantGoal"
+      "Description": "Goals.ConstantGoal_Create (startPositions: Point[], constant: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, -0.1), weight: double = 1): ConstantGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -886,8 +886,8 @@
       "Inputs": [
         {
           "Id": "e1c708844eff4919b4b1cd37dd444404",
-          "Name": "constantGoal",
-          "Description": "A ConstantGoal goal to modify with the given parameters.\n\nConstantGoal",
+          "Name": "goal",
+          "Description": "ConstantGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -896,7 +896,7 @@
         {
           "Id": "4ec08d975d7b4af0b52619319a394996",
           "Name": "constant",
-          "Description": "The new constant vector to apply to the given nodes.\n\nVector\nDefault value : null",
+          "Description": "Vector\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -905,7 +905,7 @@
         {
           "Id": "8da6cda964ac43d1a15725acfb7119a4",
           "Name": "weight",
-          "Description": "An optional new weight for the ConstantGoa.l\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -916,16 +916,16 @@
         {
           "Id": "04f53a98fb314e72abd5efb35b83f859",
           "Name": "ConstantGoal",
-          "Description": "The modified ConstantGoal.",
+          "Description": "ConstantGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantGoal.Change@DynaShape.Goals.ConstantGoal,Autodesk.DesignScript.Geometry.Vector,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantGoal_Change@DynaShape.Goals.ConstantGoal,Autodesk.DesignScript.Geometry.Vector,double",
       "Replication": "Auto",
-      "Description": "Modifies the ConstantGoal's parameters while the solver is running.\n\nConstantGoal.Change (constantGoal: ConstantGoal, constant: Vector = null, weight: double = -1): ConstantGoal"
+      "Description": "Goals.ConstantGoal_Change (goal: ConstantGoal, constant: Vector = null, weight: double = -1): ConstantGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -935,7 +935,7 @@
         {
           "Id": "02c730231d4b40a081407fd974910f11",
           "Name": "startPosition",
-          "Description": "The starting position for this AnchorGoal\n\nPoint",
+          "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -944,7 +944,7 @@
         {
           "Id": "db588e24af6648b0a25cdf4f97bb576e",
           "Name": "anchor",
-          "Description": "The resting position for this anchor goal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -953,7 +953,7 @@
         {
           "Id": "d2e2427e9ce242f0ac5068c68dded5ef",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1000",
+          "Description": "double\nDefault value : 1000",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -964,16 +964,16 @@
         {
           "Id": "74833e3c00cb4f10b4b09b7626b1ba41",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Creates an AnchorGoal to attempt to keep a node on a specified point. By default the weight for this goal is set very high to ensure the node really \"sticks\" to the anchor.\n\nAnchorGoal.Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1031,7 +1031,7 @@
         {
           "Id": "55ab8bd8f07546198be36f1ee52ccecd",
           "Name": "goal",
-          "Description": "An AnchorGoal to modify with the given parameters.\n\nAnchorGoal",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1040,7 +1040,7 @@
         {
           "Id": "1e2164bd673a4f6f8778647780f5f7e9",
           "Name": "anchor",
-          "Description": "The new anchor for the given AnchorGoal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1049,7 +1049,7 @@
         {
           "Id": "40b8d8469e8d444b8be8794ea46cd884",
           "Name": "weight",
-          "Description": "An optional new weight for the given AnchorGoal\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1060,16 +1060,16 @@
         {
           "Id": "ad55469daee44f438c899938efb554af",
           "Name": "AnchorGoal",
-          "Description": "The modified AnchorGoal",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Change@DynaShape.Goals.AnchorGoal,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Change@DynaShape.Goals.AnchorGoal,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Modifies the AngleGoal's parameters while the solver is running.\n\nAnchorGoal.Change (goal: AnchorGoal, anchor: Point = null, weight: double = -1): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Change (goal: AnchorGoal, anchor: Point = null, weight: double = -1): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1147,7 +1147,7 @@
       "Inputs": [
         {
           "Id": "731fd116b6794160ace26ea39a3ef583",
-          "Name": "start",
+          "Name": "startPosition1",
           "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -1156,7 +1156,7 @@
         },
         {
           "Id": "2c6a1a1ad70e437bbcb8293938333ce0",
-          "Name": "end",
+          "Name": "startPosition2",
           "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -1166,7 +1166,7 @@
         {
           "Id": "5f93dbbe23974380b941c025a98fb83d",
           "Name": "targetLength",
-          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1175,7 +1175,7 @@
         {
           "Id": "854207ba04f54f9ea0fe233b80e2197c",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "Description": "double\nDefault value : 1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1193,9 +1193,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
       "Replication": "Auto",
-      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.Create (start: Point, end: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
+      "Description": "Goals.LengthGoal_Create (startPosition1: Point, startPosition2: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
     },
     {
       "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
@@ -1243,8 +1243,8 @@
       "Inputs": [
         {
           "Id": "c37cbc74055e4435b22b62cab70973e1",
-          "Name": "lengthGoal",
-          "Description": "The LengthGoal to modify.\n\nLengthGoal",
+          "Name": "goal",
+          "Description": "LengthGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1253,7 +1253,7 @@
         {
           "Id": "cf45b59f94fa4ae882f68fcee871196f",
           "Name": "targetLength",
-          "Description": "An optional new length for the LengthGoal to maintain.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1262,7 +1262,7 @@
         {
           "Id": "1e23bfe2e7d64711a71dbf15ad2c690b",
           "Name": "weight",
-          "Description": "An optional new weight for the LengthGoal.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1280,9 +1280,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Change@DynaShape.Goals.LengthGoal,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Change@DynaShape.Goals.LengthGoal,double,double",
       "Replication": "Auto",
-      "Description": "Modify the LengthGoal's parameters while the solver is running.\n\nLengthGoal.Change (lengthGoal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
+      "Description": "Goals.LengthGoal_Change (goal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
@@ -1493,7 +1493,7 @@
         {
           "Id": "a23de6eb790f4b289293e3dc41ab6fc7",
           "Name": "cs",
-          "Description": "A coordinate system upon which the rectangular grid is based\n\nCoordinateSystem\nDefault value : Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(Autodesk.DesignScript.Geometry.Point.Origin(), Autodesk.DesignScript.Geometry.Vector.XAxis(), Autodesk.DesignScript.Geometry.Vector.YAxis())",
+          "Description": "CoordinateSystem\nDefault value : Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(Autodesk.DesignScript.Geometry.Point.Origin(), Autodesk.DesignScript.Geometry.Vector.XAxis(), Autodesk.DesignScript.Geometry.Vector.YAxis())",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1502,7 +1502,7 @@
         {
           "Id": "37b8d2b636694e458ac8fbef2b896829",
           "Name": "lengthX",
-          "Description": "The X dimension of the grid\n\ndouble\nDefault value : 20",
+          "Description": "double\nDefault value : 20",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1511,7 +1511,7 @@
         {
           "Id": "0e92eb80dba6410da75e073ac1f9f11a",
           "Name": "lengthY",
-          "Description": "The Y dimension of the grid\n\ndouble\nDefault value : 20",
+          "Description": "double\nDefault value : 20",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1520,7 +1520,7 @@
         {
           "Id": "b6a097434b8c4d4c854370c77f3ac62a",
           "Name": "divX",
-          "Description": "The grid division in the X dimension\n\nint\nDefault value : 20",
+          "Description": "int\nDefault value : 20",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1529,7 +1529,7 @@
         {
           "Id": "a38286344fef4262a6dbdb4bb242155c",
           "Name": "divY",
-          "Description": "The grid division in the Y dimension\n\nint\nDefault value : 20",
+          "Description": "int\nDefault value : 20",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1594,7 +1594,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Utilities.RectangularGrid@Autodesk.DesignScript.Geometry.CoordinateSystem,double,double,int,int",
       "Replication": "Auto",
-      "Description": "Create a rectangular grid of points\n\nUtilities.RectangularGrid (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(Autodesk.DesignScript.Geometry.Point.Origin(), Autodesk.DesignScript.Geometry.Vector.XAxis(), Autodesk.DesignScript.Geometry.Vector.YAxis()), lengthX: double = 20, lengthY: double = 20, divX: int = 20, divY: int = 20): var[]..[]"
+      "Description": "Utilities.RectangularGrid (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOriginVectors(Autodesk.DesignScript.Geometry.Point.Origin(), Autodesk.DesignScript.Geometry.Vector.XAxis(), Autodesk.DesignScript.Geometry.Vector.YAxis()), lengthX: double = 20, lengthY: double = 20, divX: int = 20, divY: int = 20): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
@@ -1683,7 +1683,7 @@
         {
           "Id": "13cf6aa8fb934b32a7a18bf5fe99ed98",
           "Name": "targetLength",
-          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1692,7 +1692,7 @@
         {
           "Id": "241dfeb2073c40d5ae8c5a7d7a376ba5",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "Description": "double\nDefault value : 1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1710,9 +1710,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Create@Autodesk.DesignScript.Geometry.Line,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Create@Autodesk.DesignScript.Geometry.Line,double,double",
       "Replication": "Auto",
-      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.Create (line: Line, targetLength: double = -1, weight: double = 1): LengthGoal"
+      "Description": "Goals.LengthGoal_Create (line: Line, targetLength: double = -1, weight: double = 1): LengthGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1722,7 +1722,7 @@
         {
           "Id": "74a1f711294045d69fd3f04baa9769d7",
           "Name": "points",
-          "Description": "The sequence of points\n\nPoint[]",
+          "Description": "Point[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1731,7 +1731,7 @@
         {
           "Id": "075fe34941304bd19eecf47693cc494a",
           "Name": "loop",
-          "Description": "If True, the output will also include a line going from the last point back to the first point, creating a loop\n\nbool\nDefault value : false",
+          "Description": "bool\nDefault value : false",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1751,7 +1751,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Utilities.LinesFromPointSequence@Autodesk.DesignScript.Geometry.Point[],bool",
       "Replication": "Auto",
-      "Description": "Create a sequence of lines from a sequence of input points\n\nUtilities.LinesFromPointSequence (points: Point[], loop: bool = false): Line[]"
+      "Description": "Utilities.LinesFromPointSequence (points: Point[], loop: bool = false): Line[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -1815,7 +1815,7 @@
         {
           "Id": "683bb0027f60407d9b623f5269da1dc4",
           "Name": "startPosition",
-          "Description": "The starting position for this AnchorGoal\n\nPoint",
+          "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1824,7 +1824,7 @@
         {
           "Id": "4ff4178638984e0d958ff3d507346249",
           "Name": "anchor",
-          "Description": "The resting position for this anchor goal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1833,7 +1833,7 @@
         {
           "Id": "9cc5a51456cd4479a4c671fb916e2f62",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1000",
+          "Description": "double\nDefault value : 1000",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1844,16 +1844,16 @@
         {
           "Id": "7ed896e23cda45b1b34b75f4aad12735",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Creates an AnchorGoal to attempt to keep a node on a specified point. By default the weight for this goal is set very high to ensure the node really \"sticks\" to the anchor.\n\nAnchorGoal.Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1863,7 +1863,7 @@
         {
           "Id": "f73e11e1db0a4542842b8042288195ae",
           "Name": "goal",
-          "Description": "An AnchorGoal to modify with the given parameters.\n\nAnchorGoal",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1872,7 +1872,7 @@
         {
           "Id": "e81e499cb9a34356aa88abc1eda58bd5",
           "Name": "anchor",
-          "Description": "The new anchor for the given AnchorGoal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1881,7 +1881,7 @@
         {
           "Id": "8ab16519af7845cab97c431e3db22aba",
           "Name": "weight",
-          "Description": "An optional new weight for the given AnchorGoal\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1892,16 +1892,16 @@
         {
           "Id": "00d581e9b5314276a4befadef3a40e39",
           "Name": "AnchorGoal",
-          "Description": "The modified AnchorGoal",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Change@DynaShape.Goals.AnchorGoal,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Change@DynaShape.Goals.AnchorGoal,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Modifies the AngleGoal's parameters while the solver is running.\n\nAnchorGoal.Change (goal: AnchorGoal, anchor: Point = null, weight: double = -1): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Change (goal: AnchorGoal, anchor: Point = null, weight: double = -1): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -2087,7 +2087,7 @@
       "Inputs": [
         {
           "Id": "7a33863c38764ce793d24c6d2b19042a",
-          "Name": "start",
+          "Name": "startPosition1",
           "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -2096,7 +2096,7 @@
         },
         {
           "Id": "fa76e8a0d48c42be82697200215b1d5d",
-          "Name": "end",
+          "Name": "startPosition2",
           "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -2106,7 +2106,7 @@
         {
           "Id": "9691661b25da45c287c72b91ab0d2f3e",
           "Name": "targetLength",
-          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2115,7 +2115,7 @@
         {
           "Id": "cfc1bdd9c7674eafbfb2f6cf5fae81ce",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "Description": "double\nDefault value : 1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2133,9 +2133,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
       "Replication": "Auto",
-      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.Create (start: Point, end: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
+      "Description": "Goals.LengthGoal_Create (startPosition1: Point, startPosition2: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -2144,8 +2144,8 @@
       "Inputs": [
         {
           "Id": "55baa890752e4da2a3bf2bd2a5dc2342",
-          "Name": "lengthGoal",
-          "Description": "The LengthGoal to modify.\n\nLengthGoal",
+          "Name": "goal",
+          "Description": "LengthGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2154,7 +2154,7 @@
         {
           "Id": "fe9e47c89bff474090f8694ca04762dc",
           "Name": "targetLength",
-          "Description": "An optional new length for the LengthGoal to maintain.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2163,7 +2163,7 @@
         {
           "Id": "c11e033593d64ebea4c75a55ac998a86",
           "Name": "weight",
-          "Description": "An optional new weight for the LengthGoal.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2181,9 +2181,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Change@DynaShape.Goals.LengthGoal,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Change@DynaShape.Goals.LengthGoal,double,double",
       "Replication": "Auto",
-      "Description": "Modify the LengthGoal's parameters while the solver is running.\n\nLengthGoal.Change (lengthGoal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
+      "Description": "Goals.LengthGoal_Change (goal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
@@ -2335,7 +2335,7 @@
         {
           "Id": "837b4299539944fabd4d7ac6f1bfa05d",
           "Name": "startPosition",
-          "Description": "The starting position for this AnchorGoal\n\nPoint",
+          "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2344,7 +2344,7 @@
         {
           "Id": "1a7153fc4680449984d19357790cb80f",
           "Name": "anchor",
-          "Description": "The resting position for this anchor goal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2353,7 +2353,7 @@
         {
           "Id": "212293e872d14b76acd3c7582f90d9df",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1000",
+          "Description": "double\nDefault value : 1000",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2364,16 +2364,16 @@
         {
           "Id": "8f8a2f850be3493c9a67a1f7fac7e13f",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Creates an AnchorGoal to attempt to keep a node on a specified point. By default the weight for this goal is set very high to ensure the node really \"sticks\" to the anchor.\n\nAnchorGoal.Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -2383,7 +2383,7 @@
         {
           "Id": "65969883fad24aca9c0e925e34b0c9d2",
           "Name": "goal",
-          "Description": "An AnchorGoal to modify with the given parameters.\n\nAnchorGoal",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2392,7 +2392,7 @@
         {
           "Id": "163b5dbc4db54d8c854a97628e57a859",
           "Name": "anchor",
-          "Description": "The new anchor for the given AnchorGoal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2401,7 +2401,7 @@
         {
           "Id": "e62267ae11ca493d9bed5f0acd410110",
           "Name": "weight",
-          "Description": "An optional new weight for the given AnchorGoal\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2412,16 +2412,16 @@
         {
           "Id": "44b1494a94b942e5bae385891272ee42",
           "Name": "AnchorGoal",
-          "Description": "The modified AnchorGoal",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Change@DynaShape.Goals.AnchorGoal,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Change@DynaShape.Goals.AnchorGoal,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Modifies the AngleGoal's parameters while the solver is running.\n\nAnchorGoal.Change (goal: AnchorGoal, anchor: Point = null, weight: double = -1): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Change (goal: AnchorGoal, anchor: Point = null, weight: double = -1): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -2607,7 +2607,7 @@
       "Inputs": [
         {
           "Id": "89192a705e1446a99d1040e10f2b359a",
-          "Name": "start",
+          "Name": "startPosition1",
           "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -2616,7 +2616,7 @@
         },
         {
           "Id": "f15ada7b1ba3412693f7ae44f52d3b59",
-          "Name": "end",
+          "Name": "startPosition2",
           "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -2626,7 +2626,7 @@
         {
           "Id": "9a19d4e759054875b2ec2896fc351dbf",
           "Name": "targetLength",
-          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2635,7 +2635,7 @@
         {
           "Id": "585679b88441465490ce4221ae7684f2",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "Description": "double\nDefault value : 1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2653,9 +2653,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
       "Replication": "Auto",
-      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.Create (start: Point, end: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
+      "Description": "Goals.LengthGoal_Create (startPosition1: Point, startPosition2: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -2664,8 +2664,8 @@
       "Inputs": [
         {
           "Id": "872549a2c8904bc2a18bddd0402fd1de",
-          "Name": "lengthGoal",
-          "Description": "The LengthGoal to modify.\n\nLengthGoal",
+          "Name": "goal",
+          "Description": "LengthGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2674,7 +2674,7 @@
         {
           "Id": "263057c8df484625b8cb2382f9a371a9",
           "Name": "targetLength",
-          "Description": "An optional new length for the LengthGoal to maintain.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2683,7 +2683,7 @@
         {
           "Id": "0842107f48914474b8ed396e92691773",
           "Name": "weight",
-          "Description": "An optional new weight for the LengthGoal.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2701,9 +2701,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Change@DynaShape.Goals.LengthGoal,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Change@DynaShape.Goals.LengthGoal,double,double",
       "Replication": "Auto",
-      "Description": "Modify the LengthGoal's parameters while the solver is running.\n\nLengthGoal.Change (lengthGoal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
+      "Description": "Goals.LengthGoal_Change (goal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
@@ -2825,7 +2825,7 @@
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "309530ab555f4e25b490f753d660a0b0",
+          "Id": "7d4da75c4275439a9896de7afc759160",
           "Name": "",
           "Description": "Value of expression at line 1",
           "UsingDefaultValue": false,
@@ -2834,7 +2834,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "792434582b6b4ff08b564b34215994d7",
+          "Id": "991b037ef7c1405c90390611ccb6c7d1",
           "Name": "",
           "Description": "Value of expression at line 2",
           "UsingDefaultValue": false,
@@ -2855,7 +2855,7 @@
         {
           "Id": "41f256028eec496fb99fed1d9194e15e",
           "Name": "startPosition",
-          "Description": "The starting position for this AnchorGoal\n\nPoint",
+          "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2864,7 +2864,7 @@
         {
           "Id": "b804e98ab9cf4402afd981034955d703",
           "Name": "anchor",
-          "Description": "The resting position for this anchor goal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2873,7 +2873,7 @@
         {
           "Id": "6d8304fb7f104b3dbe4a8e6393dc4720",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1000",
+          "Description": "double\nDefault value : 1000",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2884,16 +2884,16 @@
         {
           "Id": "e30a4a5bd8974f1e9478148b74f9f20d",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Creates an AnchorGoal to attempt to keep a node on a specified point. By default the weight for this goal is set very high to ensure the node really \"sticks\" to the anchor.\n\nAnchorGoal.Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -2903,7 +2903,7 @@
         {
           "Id": "1ec85735177b43289dd15462a5a24e37",
           "Name": "goal",
-          "Description": "An AnchorGoal to modify with the given parameters.\n\nAnchorGoal",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2912,7 +2912,7 @@
         {
           "Id": "3ca982c090fa42508183408020b82e57",
           "Name": "anchor",
-          "Description": "The new anchor for the given AnchorGoal\n\nPoint\nDefault value : null",
+          "Description": "Point\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2921,7 +2921,7 @@
         {
           "Id": "501b471c076d4110af2fcb7cf49cd1ab",
           "Name": "weight",
-          "Description": "An optional new weight for the given AnchorGoal\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2932,16 +2932,16 @@
         {
           "Id": "093e609da5f9402bb717baf9cf400fc7",
           "Name": "AnchorGoal",
-          "Description": "The modified AnchorGoal",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Change@DynaShape.Goals.AnchorGoal,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal_Change@DynaShape.Goals.AnchorGoal,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Modifies the AngleGoal's parameters while the solver is running.\n\nAnchorGoal.Change (goal: AnchorGoal, anchor: Point = null, weight: double = -1): AnchorGoal"
+      "Description": "Goals.AnchorGoal_Change (goal: AnchorGoal, anchor: Point = null, weight: double = -1): AnchorGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -3127,7 +3127,7 @@
       "Inputs": [
         {
           "Id": "892936744d3b47b1b851e9064f32fce2",
-          "Name": "start",
+          "Name": "startPosition1",
           "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -3136,7 +3136,7 @@
         },
         {
           "Id": "9b3c5efadcc243f1b0c1d8b258225896",
-          "Name": "end",
+          "Name": "startPosition2",
           "Description": "Point",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -3146,7 +3146,7 @@
         {
           "Id": "74fafce04d8047cbbb2e1881e5f0217a",
           "Name": "targetLength",
-          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -3155,7 +3155,7 @@
         {
           "Id": "b54de9fcdf1e44e8939f1f0c587cc1fa",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "Description": "double\nDefault value : 1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -3173,9 +3173,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
       "Replication": "Auto",
-      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.Create (start: Point, end: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
+      "Description": "Goals.LengthGoal_Create (startPosition1: Point, startPosition2: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -3184,8 +3184,8 @@
       "Inputs": [
         {
           "Id": "87988bc1ef5244e19532d547ad71598d",
-          "Name": "lengthGoal",
-          "Description": "The LengthGoal to modify.\n\nLengthGoal",
+          "Name": "goal",
+          "Description": "LengthGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -3194,7 +3194,7 @@
         {
           "Id": "023a164c73664dd9a90849ac1537043f",
           "Name": "targetLength",
-          "Description": "An optional new length for the LengthGoal to maintain.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -3203,7 +3203,7 @@
         {
           "Id": "fd8eac51d8784cfab8ee5a99934359d4",
           "Name": "weight",
-          "Description": "An optional new weight for the LengthGoal.\n\ndouble\nDefault value : -1",
+          "Description": "double\nDefault value : -1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -3221,9 +3221,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Change@DynaShape.Goals.LengthGoal,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal_Change@DynaShape.Goals.LengthGoal,double,double",
       "Replication": "Auto",
-      "Description": "Modify the LengthGoal's parameters while the solver is running.\n\nLengthGoal.Change (lengthGoal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
+      "Description": "Goals.LengthGoal_Change (goal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
@@ -3874,33 +3874,33 @@
       "IsHidden": "False"
     },
     {
-      "Start": "309530ab555f4e25b490f753d660a0b0",
-      "End": "89192a705e1446a99d1040e10f2b359a",
-      "Id": "e9c19f24234c4d568d68af7e5f925b4b",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "309530ab555f4e25b490f753d660a0b0",
+      "Start": "7d4da75c4275439a9896de7afc759160",
       "End": "6eebbb3666cc4d8da848e046958c29f5",
       "Id": "e763da60f10847fb9ace123b2ce83ffd",
       "IsHidden": "False"
     },
     {
-      "Start": "792434582b6b4ff08b564b34215994d7",
-      "End": "f15ada7b1ba3412693f7ae44f52d3b59",
-      "Id": "b922ec9453f744c0894be697b71b36de",
+      "Start": "7d4da75c4275439a9896de7afc759160",
+      "End": "89192a705e1446a99d1040e10f2b359a",
+      "Id": "e9c19f24234c4d568d68af7e5f925b4b",
       "IsHidden": "False"
     },
     {
-      "Start": "792434582b6b4ff08b564b34215994d7",
+      "Start": "991b037ef7c1405c90390611ccb6c7d1",
+      "End": "837b4299539944fabd4d7ac6f1bfa05d",
+      "Id": "44b56e9a8222472b928e5f7b417c5a73",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "991b037ef7c1405c90390611ccb6c7d1",
       "End": "d2a84fa6425e4e0ca2f0430f8a86c311",
       "Id": "777644ef7fbb4b19a9e3c0e5d40df5ec",
       "IsHidden": "False"
     },
     {
-      "Start": "792434582b6b4ff08b564b34215994d7",
-      "End": "837b4299539944fabd4d7ac6f1bfa05d",
-      "Id": "44b56e9a8222472b928e5f7b417c5a73",
+      "Start": "991b037ef7c1405c90390611ccb6c7d1",
+      "End": "f15ada7b1ba3412693f7ae44f52d3b59",
+      "Id": "b922ec9453f744c0894be697b71b36de",
       "IsHidden": "False"
     },
     {
@@ -4099,15 +4099,15 @@
     },
     "Camera": {
       "Name": "_Background Preview",
-      "EyeX": -129.73025512695312,
-      "EyeY": 36.65906524658203,
-      "EyeZ": 18.412633895874023,
-      "LookX": 108.51165771484375,
-      "LookY": -30.352325439453125,
-      "LookZ": -13.811262130737305,
-      "UpX": 0.054139427840709686,
-      "UpY": 0.9985096454620361,
-      "UpZ": -0.0068915532901883125
+      "EyeX": 34.05759811401367,
+      "EyeY": 67.0776596069336,
+      "EyeZ": 83.43970489501953,
+      "LookX": -60.94719314575195,
+      "LookY": -57.28800964355469,
+      "LookZ": -76.7489242553711,
+      "UpX": -0.19143368303775787,
+      "UpY": 0.9514410495758057,
+      "UpZ": -0.24106654524803162
     },
     "ConnectorPins": [],
     "NodeViews": [
@@ -4183,7 +4183,7 @@
       },
       {
         "Id": "859f5223e673463780e04779c2c8f6be",
-        "Name": "Goals.AnchorGoal.Create",
+        "Name": "Goals.AnchorGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4223,7 +4223,7 @@
       },
       {
         "Id": "1d545dc2633c4fefbbae609eae97486a",
-        "Name": "Goals.ConstantGoal.Create",
+        "Name": "Goals.ConstantGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4233,7 +4233,7 @@
       },
       {
         "Id": "e998e496f94a4715b5060c9113219c55",
-        "Name": "Goals.ConstantGoal.Change",
+        "Name": "Goals.ConstantGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4243,7 +4243,7 @@
       },
       {
         "Id": "8236a86d625c4b1e91a44fbb983f2b69",
-        "Name": "Goals.AnchorGoal.Create",
+        "Name": "Goals.AnchorGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4263,7 +4263,7 @@
       },
       {
         "Id": "a1b47cb66afe4e6eb2330fa3c416d98a",
-        "Name": "Goals.AnchorGoal.Change",
+        "Name": "Goals.AnchorGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4277,7 +4277,7 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": false,
+        "ShowGeometry": true,
         "X": 1348.6787106573156,
         "Y": 3556.0108321527605
       },
@@ -4293,7 +4293,7 @@
       },
       {
         "Id": "28f62620f6854cafbffe064c176ca56d",
-        "Name": "Goals.LengthGoal.Create",
+        "Name": "Goals.LengthGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4313,7 +4313,7 @@
       },
       {
         "Id": "f1fe71afd388431ea4e5d08f6932c9d3",
-        "Name": "Goals.LengthGoal.Change",
+        "Name": "Goals.LengthGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4427,13 +4427,13 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": false,
+        "ShowGeometry": true,
         "X": 900.1072820858872,
         "Y": 3293.4933321527606
       },
       {
         "Id": "4b164bf711564d3da87c188fdccd1b95",
-        "Name": "Goals.LengthGoal.Create",
+        "Name": "Goals.LengthGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4473,7 +4473,7 @@
       },
       {
         "Id": "048559765ef642e58b567a7774c3c32b",
-        "Name": "Goals.AnchorGoal.Create",
+        "Name": "Goals.AnchorGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4483,7 +4483,7 @@
       },
       {
         "Id": "75226c7f7e2a4edda1bc87a1cd55eb09",
-        "Name": "Goals.AnchorGoal.Change",
+        "Name": "Goals.AnchorGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4497,7 +4497,7 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": false,
+        "ShowGeometry": true,
         "X": 1357.460490335558,
         "Y": 4817.517995071883
       },
@@ -4543,7 +4543,7 @@
       },
       {
         "Id": "63dcfd1c44b34dc48305425f7a806d45",
-        "Name": "Goals.LengthGoal.Create",
+        "Name": "Goals.LengthGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4553,7 +4553,7 @@
       },
       {
         "Id": "7c433c0d86d04ff984ef9ebe108c7be2",
-        "Name": "Goals.LengthGoal.Change",
+        "Name": "Goals.LengthGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4617,23 +4617,23 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": false,
+        "ShowGeometry": true,
         "X": 908.8890617641293,
         "Y": 4555.000495071883
       },
       {
         "Id": "e8e12bba8c07468b9161ce12223181ac",
-        "Name": "Goals.AnchorGoal.Create",
+        "Name": "Goals.AnchorGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": false,
+        "ShowGeometry": true,
         "X": 1355.67057642083,
         "Y": 5870.1704550735685
       },
       {
         "Id": "9d1c8f41617d4ea5934d86ef11a6caa6",
-        "Name": "Goals.AnchorGoal.Change",
+        "Name": "Goals.AnchorGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4693,7 +4693,7 @@
       },
       {
         "Id": "be93cf9aa4884d8d9e19a5a9d913c0a8",
-        "Name": "Goals.LengthGoal.Create",
+        "Name": "Goals.LengthGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4703,7 +4703,7 @@
       },
       {
         "Id": "1e6be7efd0d349ec91503e3437707f18",
-        "Name": "Goals.LengthGoal.Change",
+        "Name": "Goals.LengthGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4767,13 +4767,13 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": false,
+        "ShowGeometry": true,
         "X": 907.0991478494016,
         "Y": 5820.652955073569
       },
       {
         "Id": "11e94b728dca4eed8066195178df21f7",
-        "Name": "Goals.AnchorGoal.Create",
+        "Name": "Goals.AnchorGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4783,7 +4783,7 @@
       },
       {
         "Id": "7d8fc820f0304feaaf3a5ae33b8ead79",
-        "Name": "Goals.AnchorGoal.Change",
+        "Name": "Goals.AnchorGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4797,7 +4797,7 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": false,
+        "ShowGeometry": true,
         "X": 1361.5122326982287,
         "Y": 7322.214033396525
       },
@@ -4843,7 +4843,7 @@
       },
       {
         "Id": "d4fd3804245b4e89ad0e2713b7f76638",
-        "Name": "Goals.LengthGoal.Create",
+        "Name": "Goals.LengthGoal_Create",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4853,7 +4853,7 @@
       },
       {
         "Id": "5b6d97817dd143f7a417a64195f8ddf9",
-        "Name": "Goals.LengthGoal.Change",
+        "Name": "Goals.LengthGoal_Change",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
@@ -4917,7 +4917,7 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "ShowGeometry": false,
+        "ShowGeometry": true,
         "X": 912.9408041268,
         "Y": 7059.696533396525
       },
@@ -4956,8 +4956,8 @@
         "HasNestedGroups": false,
         "Left": 4543.121792667406,
         "Top": 1670.2126473236985,
-        "Width": 802.9714285714281,
-        "Height": 2163.2285714285717,
+        "Width": 802.8571428571431,
+        "Height": 2164.714285714286,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 1736.2126473236985,
@@ -4977,14 +4977,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 2266.060995010899,
-        "Top": 2035.195799303441,
-        "Width": 292.0,
-        "Height": 344.20000000000005,
+        "Top": 2035.4243707320122,
+        "Width": 291.42857142857156,
+        "Height": 355.8571428571429,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 2181.995799303441,
         "InitialHeight": 145.0,
-        "TextblockHeight": 136.79999999999998,
+        "TextblockHeight": 136.57142857142858,
         "Background": "#FFC1D676"
       },
       {
@@ -5013,14 +5013,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 890.1072820858872,
-        "Top": 2651.8108321527607,
-        "Width": 1630.057142857143,
-        "Height": 1249.0,
+        "Top": 2651.582260724189,
+        "Width": 1630.2857142857147,
+        "Height": 1250.7142857142858,
         "FontSize": 48.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 2797.0108321527605,
         "InitialHeight": 1117.0,
-        "TextblockHeight": 135.2,
+        "TextblockHeight": 135.42857142857142,
         "Background": "#FFC1D676"
       },
       {
@@ -5039,8 +5039,8 @@
         "HasNestedGroups": false,
         "Left": 1316.0702066926447,
         "Top": 1570.1986913921266,
-        "Width": 1332.8000000000002,
-        "Height": 411.6275000000003,
+        "Width": 1331.4285714285716,
+        "Height": 425.11321428571455,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 1636.1986913921266,
@@ -5060,14 +5060,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 2255.44719287511,
-        "Top": 2431.41717081852,
-        "Width": 336.8000000000002,
-        "Height": 344.2000000000003,
+        "Top": 2431.6457422470917,
+        "Width": 336.57142857142844,
+        "Height": 355.85714285714266,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 2578.21717081852,
         "InitialHeight": 145.0,
-        "TextblockHeight": 136.79999999999998,
+        "TextblockHeight": 136.57142857142858,
         "Background": "#FFC1D676"
       },
       {
@@ -5084,8 +5084,8 @@
         "HasNestedGroups": false,
         "Left": 1904.6868574920918,
         "Top": 1177.4097539329593,
-        "Width": 717.7142857142858,
-        "Height": 299.4000000000001,
+        "Width": 717.1428571428573,
+        "Height": 311.2857142857142,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 1279.4097539329593,
@@ -5119,14 +5119,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 898.8890617641293,
-        "Top": 3970.917995071883,
-        "Width": 1630.0571428571427,
-        "Height": 1191.4,
+        "Top": 3970.803709357597,
+        "Width": 1630.2857142857144,
+        "Height": 1193.0000000000005,
         "FontSize": 48.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 4058.517995071883,
         "InitialHeight": 1117.0,
-        "TextblockHeight": 77.60000000000001,
+        "TextblockHeight": 77.71428571428571,
         "Background": "#FFC1D676"
       },
       {
@@ -5155,14 +5155,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 897.0991478494016,
-        "Top": 5236.570455073568,
-        "Width": 1630.057142857143,
-        "Height": 1191.4000000000005,
+        "Top": 5236.456169359283,
+        "Width": 1630.2857142857147,
+        "Height": 1193.0,
         "FontSize": 48.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 5324.1704550735685,
         "InitialHeight": 1117.0,
-        "TextblockHeight": 77.60000000000001,
+        "TextblockHeight": 77.71428571428571,
         "Background": "#FFC1D676"
       },
       {
@@ -5191,14 +5191,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 902.9408041268,
-        "Top": 6475.614033396525,
-        "Width": 1630.0571428571427,
-        "Height": 1191.4000000000005,
+        "Top": 6475.49974768224,
+        "Width": 1630.2857142857144,
+        "Height": 1193.0,
         "FontSize": 48.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 6563.214033396525,
         "InitialHeight": 1117.0,
-        "TextblockHeight": 77.60000000000001,
+        "TextblockHeight": 77.71428571428571,
         "Background": "#FFC1D676"
       },
       {
@@ -5222,8 +5222,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": 288.63748408311403,
-    "Y": -561.9359307774157,
-    "Zoom": 0.4023647613309192
+    "X": -2475.2358704552876,
+    "Y": -1250.997493846717,
+    "Zoom": 0.5639660539237991
   }
 }
