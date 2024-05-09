@@ -7,6 +7,9 @@
       <namespace name="DynaShape.ZeroTouch">
         <category>DynaShape</category>
       </namespace>
+	  <namespace name="DynaShape.ZeroTouch.Goals">
+        <category>DynaShape.Goals</category>
+      </namespace>
       <namespace name="DynaSpace">
         <category>DynaSpace</category>
       </namespace>
