@@ -10,9 +10,9 @@
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="DynaShape.ZeroTouch.Goals.FloorGoal.Change.svg"
    xml:space="preserve"
-   inkscape:export-filename="DynaShape.ZeroTouch.Goals.FloorGoal.Change.Small.png"
-   inkscape:export-xdpi="24"
-   inkscape:export-ydpi="24"
+   inkscape:export-filename="DynaShape.ZeroTouch.Goals.FloorGoal.Change.Large.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -28,8 +28,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="2.6950732"
-     inkscape:cx="186.45134"
-     inkscape:cy="24.674654"
+     inkscape:cx="128.93898"
+     inkscape:cy="25.045702"
      inkscape:window-width="2398"
      inkscape:window-height="1341"
      inkscape:window-x="533"
@@ -124,16 +124,7 @@
        width="5.2916665"
        height="5.2916665"
        x="17.380701"
-       y="-5.6392407" /><g
-       id="g4906-6"
-       transform="matrix(0.54969476,0,0,0.54969476,8.3748223,15.313295)"
-       style="fill:#cc3333;fill-opacity:1"><path
-         d="m 45.898295,26.370265 h -9.022291 v -2.248959 c 0,-0.185208 -0.105834,-0.343958 -0.264584,-0.423333 -0.185208,-0.07938 -0.370416,-0.02646 -0.47625,0.07937 l -5.371041,4.577292 c -0.105834,0.07937 -0.185209,0.238125 -0.185209,0.343958 0,0.15875 0.07937,0.264583 0.185209,0.370417 l 5.371041,4.577291 c 0.07937,0.07937 0.185209,0.105834 0.291042,0.105834 0.07937,0 0.105833,-0.02646 0.185208,-0.02646 0.15875,-0.07937 0.264584,-0.264583 0.264584,-0.449791 V 31.1063 h 8.995833 c 0.264583,0 0.449791,-0.238125 0.449791,-0.47625 v -3.81 c 0.02646,-0.264583 -0.15875,-0.449791 -0.423333,-0.449791 z"
-         id="path4880-4"
-         style="fill:#cc3333;fill-opacity:1;stroke-width:0.264583" /><path
-         d="m 31.081629,20.020265 h 8.969374 v 2.2225 c 0,0.15875 0.105834,0.343958 0.264584,0.423333 0.07937,0.02646 0.15875,0.02646 0.238125,0.02646 0.105833,0 0.185208,-0.02646 0.291041,-0.105833 l 5.371042,-4.577292 c 0.105833,-0.07937 0.15875,-0.238125 0.15875,-0.343958 0,-0.15875 -0.02646,-0.291042 -0.15875,-0.370417 l -5.3975,-4.603749 c -0.15875,-0.105834 -0.343958,-0.15875 -0.529167,-0.07938 -0.15875,0.07938 -0.264583,0.264583 -0.264583,0.449791 v 2.2225 h -8.942916 c -0.264584,0 -0.47625,0.238125 -0.47625,0.47625 v 3.783542 c -0.02646,0.238125 0.211666,0.47625 0.47625,0.47625 z"
-         id="path4882-5"
-         style="fill:#cc3333;fill-opacity:1;stroke-width:0.264583" /></g><path
+       y="-5.6392407" /><path
        d="m 47.689495,16.951769 h -3.087181 v -3.083222 c 0,-0.378788 -0.378788,-0.706773 -0.790143,-0.706773 h -1.419057 c -0.413024,0 -0.791811,0.332409 -0.791811,0.706773 v 3.083222 h -3.090998 c -0.378787,0 -0.706772,0.376031 -0.706772,0.791811 v 1.414675 c 0,0.424064 0.33241,0.794568 0.706772,0.794568 h 3.087181 v 3.128032 c 0,0.371607 0.378788,0.664253 0.791811,0.664253 h 1.417361 c 0.411369,0 0.790143,-0.292646 0.790143,-0.664253 v -3.126901 h 3.092694 c 0.378787,0 0.706771,-0.374364 0.706771,-0.794568 v -1.414675 c 0,-0.41578 -0.332409,-0.791811 -0.706771,-0.791811 z"
        fill-rule="evenodd"
        id="path4951-7"
@@ -168,4 +159,16 @@
          class="fil0"
          points="396,666 233,503 197,539 423,765 424,765 459,729 650,538 614,502 440,676 443,82 397,82 "
          id="polygon7518-4"
-         style="fill:#cc3333;fill-opacity:1" /></g></g></svg>
+         style="fill:#cc3333;fill-opacity:1" /></g><polygon
+       points="36.4222,25.183 43,0 11,38.817 27.5778,38.817 21,64 53,25.183 "
+       id="polygon296"
+       transform="matrix(-0.2015873,0,0,0.2015873,36.084127,20.965079)"
+       style="fill:#cc3333;fill-opacity:1" /></g><style
+     type="text/css"
+     id="style294">
+	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st1{stroke:#000000;stroke-width:0.75;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
+	.st4{stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+</style></svg>
