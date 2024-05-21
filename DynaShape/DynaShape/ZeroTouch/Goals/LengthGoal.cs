@@ -20,7 +20,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="LengthGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.LengthGoal Create(
+        public static DynaShape.Goals.LengthGoal ByStartEnd(
             Point start,
             Point end,
             [DefaultArgument("-1.0")] float targetLength,
@@ -44,7 +44,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="LengthGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.LengthGoal Create(
+        public static DynaShape.Goals.LengthGoal ByLine(
             Line line,
             [DefaultArgument("-1.0")] float targetLength,
             [DefaultArgument("1.0")] float weight)

@@ -22,7 +22,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ConstantPressureGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.ConstantPressureGoal Create(
+        public static DynaShape.Goals.ConstantPressureGoal ByPositions(
             Point startPosition1,
             Point startPosition2,
             Point startPosition3,
@@ -41,7 +41,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ConstantPressureGoal"></returns>
         [NodeCategory("Create")]
-        public static List<DynaShape.Goals.ConstantPressureGoal> Create(
+        public static List<DynaShape.Goals.ConstantPressureGoal> ByMesh(
             Mesh mesh,
             [DefaultArgument("0.1")] float pressure,
             [DefaultArgument("1.0")] float weight)
