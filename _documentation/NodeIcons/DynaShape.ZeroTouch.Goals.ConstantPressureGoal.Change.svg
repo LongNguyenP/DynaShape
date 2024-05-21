@@ -55,19 +55,19 @@
        transform="matrix(1.0849039,0,0,1.0849039,-4.9261819,-2.5274833)"><g
          id="g7520-6"
          transform="matrix(0,-0.01512186,0.01512186,0,3.3006695,22.179307)"
-         style="clip-rule:evenodd;fill:#cc3333;fill-opacity:1;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"><polygon
+         style="clip-rule:evenodd;fill:#FF6900;fill-opacity:1;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"><polygon
            class="fil0"
            points="423,765 424,765 459,729 650,538 614,502 440,676 443,82 397,82 396,666 233,503 197,539 "
            id="polygon7518-4"
-           style="fill:#cc3333;fill-opacity:1" /></g><path
+           style="fill:#FF6900;fill-opacity:1" /></g><path
          class="cls-1"
          d="m 14.752861,28.26005 c 0,0.725172 0.593321,1.318493 1.318493,1.318493 0.725171,0 1.318493,-0.593321 1.318493,-1.318493 0,-2.724885 0.769122,-4.074143 1.582192,-5.498116 0.905365,-1.586587 1.933789,-3.379738 1.933789,-6.80782 0,-3.428083 -1.024029,-5.221233 -1.933789,-6.8078201 -0.81307,-1.4283676 -1.582192,-2.7732307 -1.582192,-5.4981168 0,-0.7251713 -0.593322,-1.3184931 -1.318493,-1.3184931 -0.725172,0 -1.318493,0.5933218 -1.318493,1.3184931 0,3.4280824 1.024029,5.2212332 1.933789,6.8078199 0.813072,1.428368 1.582192,2.77323 1.582192,5.498117 0,2.724886 -0.76912,4.074145 -1.582192,5.498117 -0.905364,1.586586 -1.933789,3.379737 -1.933789,6.807819 z"
          id="path7651"
-         style="fill:#00b2ff;fill-opacity:1" /></g><polygon
+         style="fill:#73C5FF;fill-opacity:1" /></g><polygon
        points="36.4222,25.183 43,0 11,38.817 27.5778,38.817 21,64 53,25.183 "
        id="polygon296"
        transform="matrix(-0.2015873,0,0,0.2015873,36.084127,20.965079)"
-       style="fill:#cc3333;fill-opacity:1" /></g><style
+       style="fill:#FF6900;fill-opacity:1" /></g><style
      type="text/css"
      id="style294">
 	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}

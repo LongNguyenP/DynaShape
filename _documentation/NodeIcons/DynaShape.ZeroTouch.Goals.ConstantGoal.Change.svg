@@ -47,7 +47,7 @@
      inkscape:groupmode="layer"
      id="layer1"><path
        sodipodi:type="star"
-       style="opacity:1;fill:#00b2ff;fill-opacity:1;stroke:none;stroke-width:1.717;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#73C5FF;fill-opacity:1;stroke:none;stroke-width:1.717;stroke-dasharray:none;stroke-opacity:1"
        id="path7427"
        inkscape:flatsided="false"
        sodipodi:sides="3"
@@ -62,7 +62,7 @@
        d="m 3.8883467,12.845589 4.2373018,-7.3392212 4.2373025,-7.3392221 4.237301,7.3392219 4.237302,7.3392224 -8.474604,0 z"
        inkscape:transform-center-y="-2.6012406"
        transform="matrix(1.0632902,0,0,1.0632902,0.8206772,7.3396961)" /><rect
-       style="opacity:1;fill:#00b2ff;fill-opacity:1;stroke:none;stroke-width:1.50658;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#73C5FF;fill-opacity:1;stroke:none;stroke-width:1.50658;stroke-dasharray:none;stroke-opacity:1"
        id="rect7512"
        width="25.882666"
        height="3.2353332"
@@ -70,22 +70,22 @@
        y="2.2412364" /><g
        id="g7520"
        transform="matrix(0.01240869,0,0,0.01240869,18.841765,5.7123068)"
-       style="clip-rule:evenodd;fill:#cc3333;fill-opacity:1;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"><polygon
+       style="clip-rule:evenodd;fill:#FF6900;fill-opacity:1;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"><polygon
          class="fil0"
          points="650,538 614,502 440,676 443,82 397,82 396,666 233,503 197,539 423,765 424,765 459,729 "
          id="polygon7518"
-         style="fill:#cc3333;fill-opacity:1" /></g><g
+         style="fill:#FF6900;fill-opacity:1" /></g><g
        id="g7520-6"
        transform="matrix(0.01240869,0,0,0.01240869,-1.4197646,5.7123068)"
-       style="clip-rule:evenodd;fill:#cc3333;fill-opacity:1;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"><polygon
+       style="clip-rule:evenodd;fill:#FF6900;fill-opacity:1;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"><polygon
          class="fil0"
          points="424,765 459,729 650,538 614,502 440,676 443,82 397,82 396,666 233,503 197,539 423,765 "
          id="polygon7518-4"
-         style="fill:#cc3333;fill-opacity:1" /></g><polygon
+         style="fill:#FF6900;fill-opacity:1" /></g><polygon
        points="36.4222,25.183 43,0 11,38.817 27.5778,38.817 21,64 53,25.183 "
        id="polygon296"
        transform="matrix(-0.2015873,0,0,0.2015873,36.084127,20.965079)"
-       style="fill:#cc3333;fill-opacity:1" /></g><style
+       style="fill:#FF6900;fill-opacity:1" /></g><style
      type="text/css"
      id="style294">
 	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
