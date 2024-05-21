@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if not exist &quot;$(SolutionDir)\dist\DynaShape\bin\&quot; mkdir &quot;$(SolutionDir)\dist\DynaShape\bin\&quot;&#xA;Copy &quot;$(TargetDir)\$(TargetName).dll&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).dll&quot;&#xA;Copy &quot;$(TargetDir)\$(TargetName).xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\pkg.json&quot; &quot;$(SolutionDir)\dist\DynaShape\pkg.json&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\DynaShape_DynamoCustomization.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\DynaShape_DynamoCustomization.xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\DynaShape_ViewExtensionDefinition.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\extra\DynaShape_ViewExtensionDefinition.xml&quot;&#xA;" />
+    <Exec Command="if not exist &quot;$(SolutionDir)\dist\DynaShape\bin&quot; mkdir &quot;$(SolutionDir)\dist\DynaShape\bin&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\pkg.json&quot; &quot;$(SolutionDir)\dist\DynaShape\pkg.json&quot;&#xA;Copy &quot;$(TargetDir)\$(TargetName).dll&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).dll&quot;&#xA;Copy &quot;$(TargetDir)\$(TargetName).xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\$(TargetName)_DynamoCustomization.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName)_DynamoCustomization.xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\$(TargetName)_ViewExtensionDefinition.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\extra\$(TargetName)_ViewExtensionDefinition.xml&quot;&#xA;" />
   </Target>
 
 </Project>

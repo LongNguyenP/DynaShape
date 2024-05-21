@@ -21,5 +21,6 @@
     "contains_binaries": true,
     "node_libraries": [
         "DynaShape, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null",
+        "DynaSpace, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null"
     ]
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynaShape", "DynaShape\DynaShape.csproj", "{F237643F-9F49-46EF-88A0-96592B6F5FBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynaSpace", "DynaSpace\DynaSpace.csproj", "{E6BB3E64-EC86-4810-A79C-501BAB0A120E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F237643F-9F49-46EF-88A0-96592B6F5FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F237643F-9F49-46EF-88A0-96592B6F5FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F237643F-9F49-46EF-88A0-96592B6F5FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6BB3E64-EC86-4810-A79C-501BAB0A120E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6BB3E64-EC86-4810-A79C-501BAB0A120E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6BB3E64-EC86-4810-A79C-501BAB0A120E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6BB3E64-EC86-4810-A79C-501BAB0A120E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

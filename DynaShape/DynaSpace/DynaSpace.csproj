@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DocumentationFile>bin\Debug\DynaSpace.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DocumentationFile>bin\Release\DynaSpace.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.3.7597" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DynaShape\DynaShape.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if not exist &quot;$(SolutionDir)\dist\DynaShape\bin&quot; mkdir &quot;$(SolutionDir)\dist\DynaShape\bin&quot;&#xA;Copy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).dll&quot;&#xA;Copy &quot;$(TargetDir)$(TargetName).xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName).xml&quot;&#xA;Copy &quot;$(SolutionDir)\ManifestFiles\$(TargetName)_DynamoCustomization.xml&quot; &quot;$(SolutionDir)\dist\DynaShape\bin\$(TargetName)_DynamoCustomization.xml&quot;&#xA;&#xA;if not exist &quot;$(SolutionDir)\dist\DynaShape\doc&quot; mkdir &quot;$(SolutionDir)\dist\DynaShape\doc&quot;&#xA;copy &quot;$(ProjectDir)\DynamoDocumentation&quot; &quot;$(SolutionDir)\dist\DynaShape\doc&quot;&#xA;" />
+  </Target>
+
+</Project>
