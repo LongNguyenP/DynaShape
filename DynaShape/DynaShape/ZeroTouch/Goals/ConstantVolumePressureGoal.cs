@@ -1,5 +1,6 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using Autodesk.Dynamo.MeshToolkit;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -17,6 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="volumePressureConstant">The constant that is the product of the pressure and volume. Meaning, the pressure will automatically decrease as the mesh volume increases (and vice versa).</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ConstantVolumePressureGoal"></returns>
+        [NodeCategory("Create")]
         public static DynaShape.Goals.ConstantVolumePressureGoal Create(
             Mesh mesh,
             [DefaultArgument("0.0")] float volumePressureConstant,
@@ -34,6 +36,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="volumePressureConstant">An optional new constant for the ConstantVolumePressureGoal.</param>
         /// <param name="weight">An optional new weight for the ConstantVolumePressureGoal.</param>
         /// <returns name="ConstantVolumePressureGoal"></returns>
+        [NodeCategory("Actions")]
         public static DynaShape.Goals.ConstantVolumePressureGoal Change(
             DynaShape.Goals.ConstantVolumePressureGoal constantVolumePressureGoal,
             [DefaultArgument("-1.0")] float volumePressureConstant,

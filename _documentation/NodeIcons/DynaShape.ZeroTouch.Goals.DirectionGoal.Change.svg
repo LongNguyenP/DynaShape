@@ -97,16 +97,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"><path
-       style="fill:#00b2ff;fill-opacity:1;stroke:none;stroke-width:0.077994;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#73C5FF;fill-opacity:1;stroke:none;stroke-width:0.077994;stroke-dasharray:none;stroke-opacity:1"
        d="M 5.5158309,27.968378 C 5.2706452,27.722476 5.0621892,27.52062 5.0628704,27.509307 5.0635728,27.497949 17.930817,13.884412 21.20509,10.465512 c 4.466767,-4.6640681 5.938516,-6.2187006 5.894315,-6.2262661 -0.05184,-0.00887 -5.807378,0.1277938 -6.713912,0.1594183 -0.239786,0.00835 -0.351374,0.00141 -0.358958,-0.022396 -0.006,-0.018989 -0.01574,-0.3482551 -0.02151,-0.7316804 L 19.994565,2.947449 20.640428,2.927502 c 0.355224,-0.011006 2.020865,-0.053737 3.701424,-0.095015 1.680557,-0.041279 3.47403,-0.0912 3.985494,-0.1109173 0.511463,-0.019734 0.937759,-0.028023 0.947327,-0.018421 0.01486,0.014908 0.260816,9.2683603 0.246711,9.2813173 -0.0029,0.0025 -0.333245,0.01473 -0.734382,0.02715 l -0.729342,0.02252 -3.08e-4,-0.181148 c -1.54e-4,-0.09963 -0.03462,-1.504724 -0.07654,-3.1224301 -0.04194,-1.617708 -0.07636,-3.0429208 -0.07648,-3.1671416 -1.23e-4,-0.1242283 -0.01233,-0.2212387 -0.02731,-0.2155917 -0.01486,0.00568 -2.643391,2.761368 -5.841109,6.1238234 -3.197718,3.362458 -16.0161902,16.923893 -16.0337985,16.927918 -0.017694,0.0041 -0.2410254,-0.185281 -0.4862111,-0.431184 z"
        id="path9725"
        sodipodi:nodetypes="scssssscssssssccsssscss" /><circle
-       style="fill:#cc3333;fill-opacity:1;stroke:none;stroke-width:0.329999;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#FF6900;fill-opacity:1;stroke:none;stroke-width:0.329999;stroke-dasharray:none;stroke-opacity:1"
        id="path2217"
        cx="5.0628686"
        cy="16.933332"
        r="0.97186279" /><circle
-       style="fill:#cc3333;fill-opacity:1;stroke:none;stroke-width:0.329999;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#FF6900;fill-opacity:1;stroke:none;stroke-width:0.329999;stroke-dasharray:none;stroke-opacity:1"
        id="path2217-7"
        cx="15.174932"
        cy="7.9860444"
@@ -114,7 +114,7 @@
        points="36.4222,25.183 43,0 11,38.817 27.5778,38.817 21,64 53,25.183 "
        id="polygon296"
        transform="matrix(-0.2015873,0,0,0.2015873,36.084127,20.965079)"
-       style="fill:#cc3333;fill-opacity:1" /></g><style
+       style="fill:#FF6900;fill-opacity:1" /></g><style
      type="text/css"
      id="style294">
 	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}

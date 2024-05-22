@@ -19,7 +19,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ParallelLinesGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.ParallelLinesGoal Create(
+        public static DynaShape.Goals.ParallelLinesGoal ByStartEndPositions(
             List<Point> startPoints,
             List<Point> endPoints,
             [DefaultArgument("1.0")] float weight)
@@ -46,7 +46,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ParallelLinesGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.ParallelLinesGoal Create(
+        public static DynaShape.Goals.ParallelLinesGoal ByLines(
             List<Line> lines,
             [DefaultArgument("1.0")] float weight)
         {

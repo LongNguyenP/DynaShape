@@ -8,6 +8,9 @@ using Point = Autodesk.DesignScript.Geometry.Point;
 namespace DynaShape.ZeroTouch;
 
 
+/// <summary>
+/// Wrapper class for GeometryBinders
+/// </summary>
 public static class GeometryBinders
 {
     public static CircleBinder CircleBinder(

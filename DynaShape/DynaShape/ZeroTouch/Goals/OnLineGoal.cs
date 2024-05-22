@@ -21,7 +21,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.OnLineGoal Create(
+        public static DynaShape.Goals.OnLineGoal ByStartPositionOriginDirection(
             List<Point> startPosition,
             [DefaultArgument("Point.Origin()")] Point targetLineOrigin,
             [DefaultArgument("Vector.XAxis()")] Vector targetLineDirection,
@@ -44,7 +44,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.OnLineGoal Create(
+        public static DynaShape.Goals.OnLineGoal ByStartPositionsLine(
             List<Point> startPositions,
             [DefaultArgument("Line.ByStartPointEndPoint(Point.Origin(), Point.ByCoordinates(1.0, 0.0, 0.0))")] Line
                 targetLine,
@@ -63,7 +63,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">An optional new weight for the OnLineGoal.</param>
         /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Actions")]
-        public static DynaShape.Goals.OnLineGoal Change(
+        public static DynaShape.Goals.OnLineGoal ChangeWithOriginAndDirection(
             DynaShape.Goals.OnLineGoal onLineGoal,
             [DefaultArgument("null")] Point targetLineOrigin,
             [DefaultArgument("null")] Vector targetLineDirection,
@@ -84,7 +84,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">An optional new weight for the OnLineGoal.</param>
         /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Actions")]
-        public static DynaShape.Goals.OnLineGoal Change(
+        public static DynaShape.Goals.OnLineGoal ChangeWithLine(
             DynaShape.Goals.OnLineGoal onLineGoal,
             [DefaultArgument("null")] Line targetLine,
             [DefaultArgument("-1.0")] float weight)
