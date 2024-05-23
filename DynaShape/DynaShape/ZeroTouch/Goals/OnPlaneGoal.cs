@@ -21,7 +21,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="OnPlaneGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.OnPlaneGoal Create(
+        public static DynaShape.Goals.OnPlaneGoal ByStartPositionsOriginNormal(
             List<Point> startPositions,
             [DefaultArgument("Point.Origin()")] Point targetPlaneOrigin,
             [DefaultArgument("Vector.ZAxis()")] Vector targetPlaneNormal,
@@ -43,7 +43,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="OnPlaneGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.OnPlaneGoal Create(
+        public static DynaShape.Goals.OnPlaneGoal ByStartPositions(
             List<Point> startPositions,
             [DefaultArgument("Plane.ByOriginNormal(Point.Origin(), Vector.ZAxis())")] Plane targetPlane,
             [DefaultArgument("1.0")] float weight)
@@ -62,7 +62,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">An optional new weight for the OnPlaneGoal.</param>
         /// <returns></returns>
         [NodeCategory("Actions")]
-        public static DynaShape.Goals.OnPlaneGoal Change(
+        public static DynaShape.Goals.OnPlaneGoal ChangeByOriginNormal(
            DynaShape.Goals.OnPlaneGoal onPlaneGoal,
             [DefaultArgument("null")] Point targetPlaneOrigin,
             [DefaultArgument("null")] Vector targetPlaneNormal,
@@ -83,7 +83,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">An optional new weight for the OnPlaneGoal.</param>
         /// <returns name="OnPlaneGoal"></returns>
         [NodeCategory("Actions")]
-        public static DynaShape.Goals.OnPlaneGoal Change(
+        public static DynaShape.Goals.OnPlaneGoal ChangeByPlane(
             DynaShape.Goals.OnPlaneGoal onPlaneGoal,
             [DefaultArgument("null")] Plane targetPlane,
             [DefaultArgument("-1.0")] float weight)
