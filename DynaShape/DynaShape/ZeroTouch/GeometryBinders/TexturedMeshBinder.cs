@@ -2,7 +2,7 @@
 using DSCore;
 using HelixToolkit.SharpDX.Core;
 
-namespace DynaShape.ZeroTouch.GeometryBinders.GeometryBinders;
+namespace DynaShape.ZeroTouch.GeometryBinders;
 
 /// <summary>
 /// Wrapper class for TexturedMeshBinder

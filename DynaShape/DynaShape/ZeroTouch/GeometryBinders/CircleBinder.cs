@@ -2,7 +2,7 @@
 using Autodesk.DesignScript.Runtime;
 using DSCore;
 
-namespace DynaShape.ZeroTouch.GeometryBinders.GeometryBinders;
+namespace DynaShape.ZeroTouch.GeometryBinders;
 
 /// <summary>
 /// Wrapper class for circle binder
