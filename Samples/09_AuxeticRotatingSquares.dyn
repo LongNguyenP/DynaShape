@@ -73,7 +73,7 @@
       "Name": "Number",
       "Type": "number",
       "Type2": "number",
-      "Value": "0.15",
+      "Value": "0.3",
       "NumberType": "Double",
       "Description": "Creates a number"
     }
@@ -98,7 +98,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Create",
       "Replication": "Auto",
-      "Description": "Solver.Create ( ): Solver"
+      "Description": "Create a DynaShape solver, which will be input into the Solver.Execute node\n\nSolver.Create ( ): Solver"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -254,7 +254,7 @@
         {
           "Id": "6f9d4f3c86494feda309d2b6a62f14a2",
           "Name": "solver",
-          "Description": "Solver",
+          "Description": "The solver, which can be obtained from the Solver.Create node\n\nSolver",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -263,7 +263,7 @@
         {
           "Id": "4cfc19e9d0da47509f79395a934aa237",
           "Name": "goals",
-          "Description": "Goal[]",
+          "Description": "The goals/constraints that the solver will solve\n\nGoal[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -272,7 +272,7 @@
         {
           "Id": "8ef404f8cdea47f0aaac6f9ccc21952b",
           "Name": "geometryBinders",
-          "Description": "GeometryBinder[]\nDefault value : null",
+          "Description": "The geometry binders\n\nGeometryBinder[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -281,7 +281,7 @@
         {
           "Id": "9a42dc13559c45fe9acaab76d7c09246",
           "Name": "nodeMergeThreshold",
-          "Description": "double\nDefault value : 0.001",
+          "Description": "Before the solver starts to run, nodes that have identical positions (within this threshold) will be merged into one node\n\ndouble\nDefault value : 0.001",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -290,7 +290,7 @@
         {
           "Id": "18f6320c787a40969d8c00b493cc1e5c",
           "Name": "iterations",
-          "Description": "int\nDefault value : 0",
+          "Description": "The number of iterations that the solver will execute in the background before display the intermediate result. If set to 0 (the default value), the solver will attempt run as many iterations as possible within approximately 25 milliseconds, which is sufficient for real-time visual feedback. Using a small value (e.g. 1) will make the solver appears to run more slowly and display more intermediate result, allowing us to better observe and understand how the nodes and goals behave\n\nint\nDefault value : 0",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -299,7 +299,7 @@
         {
           "Id": "929f2f529d774b89ace18e17d77b9d7f",
           "Name": "reset",
-          "Description": "bool\nDefault value : true",
+          "Description": "Reset the solver to the initial condition. You should set this to True at the beginning of a scenario, then set it to False. If you add, remove goals, you will need to reset for the changes to take effect\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -308,7 +308,7 @@
         {
           "Id": "6484351732e44db08eedc2f0fc7ffefb",
           "Name": "execute",
-          "Description": "bool\nDefault value : true",
+          "Description": "Execute or stop executing the solver\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -317,7 +317,7 @@
         {
           "Id": "f8d5c44374ca46c6b2e057e89331d40f",
           "Name": "enableMomentum",
-          "Description": "bool\nDefault value : true",
+          "Description": "Apply momentum effect to the movement of the nodes. For simulation of physical motion, this results in more realistic motion. For constraint-based optimization, it often helps the solver to reach the final solution in fewer iteration (i.e. faster), but can sometimes lead to unstable and counter-intuitive solution. In such case, try setting momentum to False\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -335,7 +335,7 @@
         {
           "Id": "cb8ca3e6d2334ca49616f19a45c3d1c4",
           "Name": "enableManipulation",
-          "Description": "bool\nDefault value : false",
+          "Description": "Enable manipulation of the nodes in the background view with mouse\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -344,7 +344,7 @@
         {
           "Id": "0b9fd2e88c4f4631bb78041900ec09fa",
           "Name": "dampingFactor",
-          "Description": "double\nDefault value : 0.98",
+          "Description": "When momentum mode is enabled, this value will determine how much the node's velocity is damped at each iteration\n\ndouble\nDefault value : 0.98",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -382,7 +382,7 @@
       ],
       "FunctionSignature": "DynaShape.ZeroTouch.Solver.Execute@DynaShape.Solver,DynaShape.Goals.Goal[],DynaShape.GeometryBinders.GeometryBinder[],double,int,bool,bool,bool,bool,bool,double",
       "Replication": "Auto",
-      "Description": "Solver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
+      "Description": "Execute the solver to iteratively solve the input goals/constraints\n\nSolver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -610,7 +610,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Creates a number",
-      "InputValue": 0.15
+      "InputValue": 0.3
     }
   ],
   "Connectors": [
@@ -721,7 +721,7 @@
   "NodeLibraryDependencies": [
     {
       "Name": "DynaShape",
-      "Version": "0.9.0.0",
+      "Version": "0.9.2",
       "ReferenceType": "Package",
       "Nodes": [
         "dbe7da0a4ef34dc3a6f4ab0fd9ca4b1f",
@@ -766,15 +766,15 @@
     },
     "Camera": {
       "Name": "_Background Preview",
-      "EyeX": 41.27688217163086,
-      "EyeY": 33.07567596435547,
-      "EyeZ": 18.538888931274414,
-      "LookX": -17.72332191467285,
-      "LookY": -36.933250427246094,
-      "LookZ": -47.88504409790039,
-      "UpX": -0.13840970396995544,
-      "UpY": 0.9170600175857544,
-      "UpZ": -0.37395668029785156
+      "EyeX": 32.29261016845703,
+      "EyeY": 40.97032165527344,
+      "EyeZ": 13.685964584350586,
+      "LookX": -5.635383605957031,
+      "LookY": -48.39051818847656,
+      "LookZ": -39.97206115722656,
+      "UpX": -0.08553650975227356,
+      "UpY": 0.7903087735176086,
+      "UpZ": -0.6067088842391968
     },
     "ConnectorPins": [],
     "NodeViews": [
@@ -925,8 +925,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1836.43745293525,
-        "Y": -202.668047088399
+        "X": 1834.5274514434739,
+        "Y": -128.81465607305333
       }
     ],
     "Annotations": [
@@ -985,8 +985,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -960.3913546741446,
-    "Y": 466.4841771361136,
-    "Zoom": 0.4889582156888429
+    "X": -1342.1569330932584,
+    "Y": 527.8273050414556,
+    "Zoom": 0.5045407468945682
   }
 }

@@ -186,7 +186,7 @@
       "Name": "Number Slider",
       "Type": "number",
       "Type2": "number",
-      "Value": "0",
+      "Value": "0.10999999999999999",
       "MaximumValue": 0.6,
       "MinimumValue": -0.6,
       "StepValue": 0.01,
@@ -198,7 +198,7 @@
       "Name": "Number Slider",
       "Type": "number",
       "Type2": "number",
-      "Value": "-0.15",
+      "Value": "0",
       "MaximumValue": 0.6,
       "MinimumValue": -0.6,
       "StepValue": 0.01,
@@ -210,7 +210,7 @@
       "Name": "Number Slider",
       "Type": "number",
       "Type2": "number",
-      "Value": "0.15",
+      "Value": "0.27",
       "MaximumValue": 0.6,
       "MinimumValue": -0.6,
       "StepValue": 0.01,
@@ -1090,7 +1090,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Produces numeric values",
-      "InputValue": 0.0
+      "InputValue": 0.10999999999999999
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
@@ -1114,7 +1114,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Produces numeric values",
-      "InputValue": -0.15
+      "InputValue": 0.0
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
@@ -1138,7 +1138,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Produces numeric values",
-      "InputValue": 0.15
+      "InputValue": 0.27
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -1865,54 +1865,6 @@
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "520589563bdc45d9b3271381a86d73c2",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "2eb91e5af0e54d3688e0e4134cf7975b",
-          "Name": "mesh",
-          "Description": "var",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "7aebc3645c5e4a899be69fa5035d5e76",
-          "Name": "windVector",
-          "Description": "A vector representing the direction of the wind.\n\nVector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0)",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "2170493a1cf5452d9a4eb4783aeda3c2",
-          "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "f903e85c736d46b99383865d739573cb",
-          "Name": "DirectionalWindGoal[]",
-          "Description": "DirectionalWindGoal[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.DirectionalWindGoal.Create@var,Autodesk.DesignScript.Geometry.Vector,double",
-      "Replication": "Auto",
-      "Description": "Creates a DirectionalWindGoal to simulate wind by applying a constant force on the three vertices of a triangle, scaled by the cosine of the angle between the wind vector and the triangle's normal. With this implementation, the wind has full effect when it hits the triangle head-on, and zero effect if it blows parallel to the triangle.\n\nDirectionalWindGoal.Create (mesh: var, windVector: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0), weight: double = 1): DirectionalWindGoal[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "Id": "4886b1f89cd0430596fb9b0df988f2e6",
       "NodeType": "FunctionNode",
       "Inputs": [
@@ -1958,6 +1910,54 @@
       "FunctionSignature": "DynaShape.ZeroTouch.Goals.DirectionalWindGoal.Change@DynaShape.Goals.DirectionalWindGoal,Autodesk.DesignScript.Geometry.Vector,double",
       "Replication": "Auto",
       "Description": "Adjust the DirectionalWindGoal's parameters while the solver is running.\n\nDirectionalWindGoal.Change (directionalWindGoal: DirectionalWindGoal, windVector: Vector = null, weight: double = -1): DirectionalWindGoal"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "605a99f8fc6742a2bad661777f59131e",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "d981c95fdc904653a9a9203108c89ede",
+          "Name": "mesh",
+          "Description": "Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d4f05bd480bf469482bfcee4367e447f",
+          "Name": "windVector",
+          "Description": "A vector representing the direction of the wind.\n\nVector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cb53ef09c1d3413ea1b314a2fdb1dec5",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9a2bf6773a0c4acf94f99fb8485527c1",
+          "Name": "DirectionalWindGoal[]",
+          "Description": "DirectionalWindGoal[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.DirectionalWindGoal.Create@Autodesk.Dynamo.MeshToolkit.Mesh,Autodesk.DesignScript.Geometry.Vector,double",
+      "Replication": "Auto",
+      "Description": "Creates a DirectionalWindGoal to simulate wind by applying a constant force on the three vertices of a triangle, scaled by the cosine of the angle between the wind vector and the triangle's normal. With this implementation, the wind has full effect when it hits the triangle head-on, and zero effect if it blows parallel to the triangle.\n\nDirectionalWindGoal.Create (mesh: Mesh, windVector: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0), weight: double = 1): DirectionalWindGoal[]"
     }
   ],
   "Connectors": [
@@ -2167,8 +2167,8 @@
     },
     {
       "Start": "db7c84014a0141ac964e8c9a982e0609",
-      "End": "2eb91e5af0e54d3688e0e4134cf7975b",
-      "Id": "c1f3b516923d46d38ae792c8f3484533",
+      "End": "d981c95fdc904653a9a9203108c89ede",
+      "Id": "99f78343cac34d95a128a6cbfcb91685",
       "IsHidden": "False"
     },
     {
@@ -2204,7 +2204,7 @@
     {
       "Start": "90211135d96c4a53a779adfef8b930c6",
       "End": "a56f7cc2669c494fb6eda520f32305eb",
-      "Id": "dc7aa51cacbf4edb8f6953e90ce7c792",
+      "Id": "61fb917810844a52a00a1a8d95cd3517",
       "IsHidden": "False"
     },
     {
@@ -2256,15 +2256,15 @@
       "IsHidden": "False"
     },
     {
-      "Start": "f903e85c736d46b99383865d739573cb",
-      "End": "66649af5a699420b80e9c52056eefc22",
-      "Id": "770c9fc0dc8a45548c1f2187cdf60ab6",
-      "IsHidden": "False"
-    },
-    {
       "Start": "ea3306b267ad4d6b877b0064b908eb6b",
       "End": "93e7c5bb2c59431abfceecbad172a6ff",
       "Id": "54d589bea7b34d3280d6a94daf484b09",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9a2bf6773a0c4acf94f99fb8485527c1",
+      "End": "66649af5a699420b80e9c52056eefc22",
+      "Id": "43b3fa66d7ff40349777e1af9000e17a",
       "IsHidden": "False"
     }
   ],
@@ -2293,8 +2293,8 @@
         "d8e7669f0df64a44bd92e95efca8dd52",
         "cc6a36f4ddce41759880600e63c7c709",
         "1f8ef3b5ced549b8b546859d997e9af8",
-        "520589563bdc45d9b3271381a86d73c2",
-        "4886b1f89cd0430596fb9b0df988f2e6"
+        "4886b1f89cd0430596fb9b0df988f2e6",
+        "605a99f8fc6742a2bad661777f59131e"
       ]
     }
   ],
@@ -2334,15 +2334,15 @@
     },
     "Camera": {
       "Name": "_Background Preview",
-      "EyeX": 12.336758613586426,
-      "EyeY": 22.30972671508789,
-      "EyeZ": 19.317996978759766,
-      "LookX": -10.450956344604492,
-      "LookY": -11.966320037841797,
-      "LookZ": -21.746734619140625,
-      "UpX": -0.10478923469781876,
-      "UpY": 0.9702957272529602,
-      "UpZ": -0.21804958581924438
+      "EyeX": 21.61043930053711,
+      "EyeY": 16.026201248168945,
+      "EyeZ": 17.014677047729492,
+      "LookX": -19.86639976501465,
+      "LookY": -4.720102310180664,
+      "LookZ": -17.560874938964844,
+      "UpX": 0.02988225407898426,
+      "UpY": 0.9992043972015381,
+      "UpZ": 0.026413800194859505
     },
     "ConnectorPins": [],
     "NodeViews": [
@@ -2797,16 +2797,6 @@
         "Y": -255.05934328753074
       },
       {
-        "Id": "520589563bdc45d9b3271381a86d73c2",
-        "Name": "DirectionalWindGoal.Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 2182.5409203368845,
-        "Y": -1174.7651963218245
-      },
-      {
         "Id": "4886b1f89cd0430596fb9b0df988f2e6",
         "Name": "DirectionalWindGoal.Change",
         "IsSetAsInput": false,
@@ -2815,6 +2805,16 @@
         "ShowGeometry": true,
         "X": 2618.313577638742,
         "Y": -1070.9410498281482
+      },
+      {
+        "Id": "605a99f8fc6742a2bad661777f59131e",
+        "Name": "DirectionalWindGoal.Create",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2180.417715075913,
+        "Y": -1228.5375055918435
       }
     ],
     "Annotations": [
@@ -2830,14 +2830,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 1468.6375749585409,
-        "Top": -428.2593432875307,
-        "Width": 292.0,
-        "Height": 370.6,
+        "Top": -427.9164861446736,
+        "Width": 291.42857142857156,
+        "Height": 370.14285714285717,
         "FontSize": 14.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -255.05934328753074,
         "InitialHeight": 145.0,
-        "TextblockHeight": 163.2,
+        "TextblockHeight": 162.85714285714286,
         "Background": "#FFC1D676"
       },
       {
@@ -2854,14 +2854,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 973.6344585127154,
-        "Top": 46.29517324969733,
-        "Width": 753.3714285714284,
-        "Height": 431.8191177326251,
+        "Top": 46.18088753541163,
+        "Width": 752.5714285714284,
+        "Height": 433.41911773262507,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 133.89517324969734,
-        "InitialHeight": 359.0,
-        "TextblockHeight": 77.60000000000001,
+        "InitialHeight": 357.41911773262507,
+        "TextblockHeight": 77.71428571428571,
         "Background": "#FFC1D676"
       },
       {
@@ -2896,8 +2896,8 @@
         "HasNestedGroups": false,
         "Left": 171.6438432617299,
         "Top": 577.2068109204698,
-        "Width": 1535.0857142857142,
-        "Height": 1520.8000000000002,
+        "Width": 1535.4285714285713,
+        "Height": 1522.2857142857147,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 679.2068109204698,
@@ -2918,8 +2918,8 @@
         "HasNestedGroups": false,
         "Left": 1378.6049006575984,
         "Top": -739.0559736417113,
-        "Width": 307.20000000000005,
-        "Height": 244.2,
+        "Width": 307.42857142857133,
+        "Height": 244.42857142857144,
         "FontSize": 18.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -657.0559736417113,
@@ -2939,18 +2939,18 @@
           "fd53f51f74ef47bdac307077e012f5c9",
           "06873b1b50614c388ab9a4b5523e137f",
           "372d81147e1c413b8dfea5efa7c39fd7",
-          "520589563bdc45d9b3271381a86d73c2",
-          "4886b1f89cd0430596fb9b0df988f2e6"
+          "4886b1f89cd0430596fb9b0df988f2e6",
+          "605a99f8fc6742a2bad661777f59131e"
         ],
         "HasNestedGroups": false,
         "Left": 1730.5992919244563,
-        "Top": -1240.7651963218245,
-        "Width": 1262.514285714286,
-        "Height": 608.6241464936764,
+        "Top": -1294.5375055918435,
+        "Width": 1261.7142857142858,
+        "Height": 663.8821700494098,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": -1174.7651963218245,
-        "InitialHeight": 542.0000000000001,
+        "InitialTop": -1228.5375055918435,
+        "InitialHeight": 555.8241464936765,
         "TextblockHeight": 56.0,
         "Background": "#FFC1D676"
       },
@@ -2976,8 +2976,8 @@
         "HasNestedGroups": false,
         "Left": 3324.0926998362193,
         "Top": -1113.2617767631073,
-        "Width": 802.9714285714281,
-        "Height": 1777.2285714285713,
+        "Width": 802.8571428571431,
+        "Height": 1778.7142857142858,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -1047.2617767631073,
@@ -3006,8 +3006,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -1349.1964195191044,
-    "Y": 597.613522236567,
-    "Zoom": 0.6634487513654674
+    "X": -2126.4844215773537,
+    "Y": 507.1781989845474,
+    "Zoom": 0.6475395944685725
   }
 }

@@ -2,7 +2,7 @@
   "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "12_ConstantPressure",
+  "Name": "12_ConstantPressure_PneumaticStructure",
   "ElementResolver": {
     "ResolutionMap": {
       "Point": {
@@ -935,102 +935,6 @@
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "37eef5dcf9a647c1bc066537c15aee1e",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "750c4bf0331a48739aed454636ab783b",
-          "Name": "line",
-          "Description": "Line",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "94381e21136644048937a7ee17f2d527",
-          "Name": "targetLength",
-          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "7b466e85ebac4b13a3077b463028463c",
-          "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "de61053562d5401c8319e0222158c8e3",
-          "Name": "LengthGoal",
-          "Description": "LengthGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Create@Autodesk.DesignScript.Geometry.Line,double,double",
-      "Replication": "Auto",
-      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.Create (line: Line, targetLength: double = -1, weight: double = 1): LengthGoal"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "8a30a215587040679d4bbf7bb670c8f0",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "d2c773a36db94126b07337eecbe9c769",
-          "Name": "mesh",
-          "Description": "Mesh",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "e1804a4e691143d3a61f8f95b3c5f0d7",
-          "Name": "pressure",
-          "Description": "The pressure being applied on the triangle.\n\ndouble\nDefault value : 0.1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "6e701c074fb7492eb2cf748fd1994996",
-          "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "f2b1beac66b54193ac7ea35cac201479",
-          "Name": "ConstantPressureGoal[]",
-          "Description": "ConstantPressureGoal[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantPressureGoal.Create@Autodesk.Dynamo.MeshToolkit.Mesh,double,double",
-      "Replication": "Auto",
-      "Description": "Creates a ConstantPressureGoal which applies a force perpendicular to a triangular surface, with magnitude proportional to the surface area.\n\nConstantPressureGoal.Create (mesh: Mesh, pressure: double = 0.1, weight: double = 1): ConstantPressureGoal[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "Id": "91ced584dae04fdbbbb3aac70d027577",
       "NodeType": "FunctionNode",
       "Inputs": [
@@ -1076,6 +980,102 @@
       "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantPressureGoal.Change@DynaShape.Goals.ConstantPressureGoal,double,double",
       "Replication": "Auto",
       "Description": "Modifies the ConstantPressureGoal's parameters while the solver is running\n\nConstantPressureGoal.Change (constantPressureGoal: ConstantPressureGoal, pressure: double = -1, weight: double = -1): ConstantPressureGoal"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "fc8d1a88aa5a4b808c298406155d16ee",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "f2bc57bed8234a269e32a07db0ba073e",
+          "Name": "mesh",
+          "Description": "A mesh to apply the ConstantPressureGoal to.\n\nMesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "46f06cfb06c14e00bd4f83dd1e18e1d4",
+          "Name": "pressure",
+          "Description": "The pressure being applied on the mesh's triangles.\n\ndouble\nDefault value : 0.1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1272786a889f4098817824ad549bd3cc",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7500465ce02d4202b1268fefa02ea223",
+          "Name": "ConstantPressureGoal[]",
+          "Description": "ConstantPressureGoal[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantPressureGoal.ByMesh@Autodesk.Dynamo.MeshToolkit.Mesh,double,double",
+      "Replication": "Auto",
+      "Description": "Creates a ConstantPressureGoal which applies a force perpendicular to a triangular surface, with magnitude proportional to the surface area.\n\nConstantPressureGoal.ByMesh (mesh: Mesh, pressure: double = 0.1, weight: double = 1): ConstantPressureGoal[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "b2d4f6bc3df840018abaa70220372cee",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "cdf940a062204a47b104e38e49aed783",
+          "Name": "line",
+          "Description": "A line to extract the start and end points from.\n\nLine",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dc81c2194b97407187244d38257dc683",
+          "Name": "targetLength",
+          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "13ab9b5db94b4e409716da7df2f2934b",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2300d3ad182c42a39677fce03dda416a",
+          "Name": "LengthGoal",
+          "Description": "LengthGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.ByLine@Autodesk.DesignScript.Geometry.Line,double,double",
+      "Replication": "Auto",
+      "Description": "Creates a LengthGoal to maintain the specified distance between two nodes located at the start and end of the given line.\n\nLengthGoal.ByLine (line: Line, targetLength: double = -1, weight: double = 1): LengthGoal"
     }
   ],
   "Connectors": [
@@ -1135,8 +1135,8 @@
     },
     {
       "Start": "b361b23d5e8f423a854ab3efcb5bdb17",
-      "End": "d2c773a36db94126b07337eecbe9c769",
-      "Id": "b94b271de5b34a55a9e17db7456f3467",
+      "End": "f2bc57bed8234a269e32a07db0ba073e",
+      "Id": "e756dd9ad384427196b6918e6c071b13",
       "IsHidden": "False"
     },
     {
@@ -1177,8 +1177,8 @@
     },
     {
       "Start": "f07baae8e76d4bf380a5bbec40a5f5b9",
-      "End": "750c4bf0331a48739aed454636ab783b",
-      "Id": "5292f07a0b2f4315b359bce820257363",
+      "End": "cdf940a062204a47b104e38e49aed783",
+      "Id": "2f2a588965694754ad7ef9ef315f9d6f",
       "IsHidden": "False"
     },
     {
@@ -1220,7 +1220,7 @@
     {
       "Start": "3d552a2aced040c4a1c5b31d6b2e1c79",
       "End": "07e0f39fee5546629f1fecb417ce67ee",
-      "Id": "49990692ba51465382113e90e5e53251",
+      "Id": "6e8f32fcea054672b66b05bb112fcde2",
       "IsHidden": "False"
     },
     {
@@ -1260,21 +1260,21 @@
       "IsHidden": "False"
     },
     {
-      "Start": "de61053562d5401c8319e0222158c8e3",
-      "End": "f3e57a21b2b048e19bc4777bb2a2bbe0",
-      "Id": "9c6bd54493804a3aaf60ebfef51cfa88",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "f2b1beac66b54193ac7ea35cac201479",
-      "End": "6110208412384894b1448a4be47f2fd3",
-      "Id": "b4ba3d0d8acc4e7e8ba91e88289fbce4",
-      "IsHidden": "False"
-    },
-    {
       "Start": "4bf56c14097944f5a7cecf2c8f8ccf15",
       "End": "8264db7b19274035948f731d5ac10f95",
       "Id": "3ffdc4dd72714ee393a2f627fc8f7645",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7500465ce02d4202b1268fefa02ea223",
+      "End": "6110208412384894b1448a4be47f2fd3",
+      "Id": "4e4572907e9446389867cfd70f0b5c37",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2300d3ad182c42a39677fce03dda416a",
+      "End": "f3e57a21b2b048e19bc4777bb2a2bbe0",
+      "Id": "cba129a02a55474f86fd331ab1c9af32",
       "IsHidden": "False"
     }
   ],
@@ -1282,7 +1282,7 @@
   "NodeLibraryDependencies": [
     {
       "Name": "DynaShape",
-      "Version": "0.9.0.0",
+      "Version": "0.9.2",
       "ReferenceType": "Package",
       "Nodes": [
         "519fffad8418477ba7ceb03b7b66dc47",
@@ -1291,9 +1291,9 @@
         "df8f5807f39d40f1b2ffde4e06ef33fa",
         "891626282ac24b0aac023cba47785ec5",
         "72eeb541c7384d678b5fe3dca8d56cf4",
-        "37eef5dcf9a647c1bc066537c15aee1e",
-        "8a30a215587040679d4bbf7bb670c8f0",
-        "91ced584dae04fdbbbb3aac70d027577"
+        "91ced584dae04fdbbbb3aac70d027577",
+        "fc8d1a88aa5a4b808c298406155d16ee",
+        "b2d4f6bc3df840018abaa70220372cee"
       ]
     },
     {
@@ -1306,7 +1306,7 @@
     }
   ],
   "EnableLegacyPolyCurveBehavior": true,
-  "Thumbnail": null,
+  "Thumbnail": "",
   "GraphDocumentationURL": null,
   "ExtensionWorkspaceData": [
     {
@@ -1341,15 +1341,15 @@
     },
     "Camera": {
       "Name": "_Background Preview",
-      "EyeX": 47.69467544555664,
-      "EyeY": 29.910781860351562,
-      "EyeZ": 60.27141189575195,
-      "LookX": -49.3075065612793,
-      "LookY": -28.491485595703125,
-      "LookZ": -56.1048698425293,
-      "UpX": -0.09757432341575623,
-      "UpY": 0.9890158772468567,
-      "UpZ": -0.11102581769227982
+      "EyeX": 51.076053619384766,
+      "EyeY": 53.49907302856445,
+      "EyeZ": 72.16000366210938,
+      "LookX": -57.97771072387695,
+      "LookY": -51.970542907714844,
+      "LookZ": -62.11957550048828,
+      "UpX": -0.22294357419013977,
+      "UpY": 0.9451122283935547,
+      "UpZ": -0.23887062072753906
     },
     "ConnectorPins": [],
     "NodeViews": [
@@ -1360,8 +1360,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 301.6474482490837,
-        "Y": -840.0782409261614
+        "X": 227.94522124203172,
+        "Y": -941.9874930840607
       },
       {
         "Id": "7598ac9ad67b4142880d4996cdd1e44c",
@@ -1370,8 +1370,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 814.8019532428837,
-        "Y": -870.9111903745471
+        "X": 741.0997262358317,
+        "Y": -972.8204425324465
       },
       {
         "Id": "519fffad8418477ba7ceb03b7b66dc47",
@@ -1540,8 +1540,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 845.767459483285,
-        "Y": -216.66867054434988
+        "X": 852.6778438572402,
+        "Y": -142.13013097410874
       },
       {
         "Id": "72eeb541c7384d678b5fe3dca8d56cf4",
@@ -1550,28 +1550,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1126.3703268103875,
-        "Y": -875.0272482845544
-      },
-      {
-        "Id": "37eef5dcf9a647c1bc066537c15aee1e",
-        "Name": "LengthGoal.Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 1221.2752382709639,
-        "Y": 78.57730207132681
-      },
-      {
-        "Id": "8a30a215587040679d4bbf7bb670c8f0",
-        "Name": "ConstantPressureGoal.Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 881.8952748879394,
-        "Y": -421.00215185715217
+        "X": 1052.6680998033355,
+        "Y": -976.9365004424537
       },
       {
         "Id": "91ced584dae04fdbbbb3aac70d027577",
@@ -1580,8 +1560,28 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1266.0703564803562,
-        "Y": -383.0401872729211
+        "X": 1256.0614120719908,
+        "Y": -405.78778820102355
+      },
+      {
+        "Id": "fc8d1a88aa5a4b808c298406155d16ee",
+        "Name": "ConstantPressureGoal.ByMesh",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 855.2075397145953,
+        "Y": -402.1897850096858
+      },
+      {
+        "Id": "b2d4f6bc3df840018abaa70220372cee",
+        "Name": "LengthGoal.ByLine",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1205.7060818740126,
+        "Y": 97.21813375147053
       }
     ],
     "Annotations": [
@@ -1613,7 +1613,7 @@
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -939.4720868068805,
-        "InitialHeight": 1046.730151836513,
+        "InitialHeight": 1867.4285714285716,
         "TextblockHeight": 56.0,
         "Background": "#FF48B9FF"
       },
@@ -1630,14 +1630,14 @@
           "72eeb541c7384d678b5fe3dca8d56cf4"
         ],
         "HasNestedGroups": false,
-        "Left": 291.6474482490837,
-        "Top": -933.598676855983,
+        "Left": 217.94522124203172,
+        "Top": -1035.5079290138824,
         "Width": 1116.1514499898751,
-        "Height": 364.5446293385786,
+        "Height": 364.5446293385787,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": -875.0272482845544,
-        "InitialHeight": 195.4493051665271,
+        "InitialTop": -976.9365004424537,
+        "InitialHeight": 179.94900735839303,
         "TextblockHeight": 48.57142857142857,
         "Background": "#FFC1D676"
       },
@@ -1650,41 +1650,19 @@
         "HeightAdjustment": 0.0,
         "Nodes": [
           "f64be7ed6be4463d89148c77721642cb",
-          "8a30a215587040679d4bbf7bb670c8f0",
-          "91ced584dae04fdbbbb3aac70d027577"
+          "91ced584dae04fdbbbb3aac70d027577",
+          "fc8d1a88aa5a4b808c298406155d16ee"
         ],
         "HasNestedGroups": false,
-        "Left": 835.767459483285,
-        "Top": -494.4307232857236,
-        "Width": 823.7314684256427,
-        "Height": 411.047767027088,
+        "Left": 842.6778438572402,
+        "Top": -479.216359629595,
+        "Width": 806.812139643322,
+        "Height": 470.37194294120053,
         "FontSize": 18.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": -421.00215185715217,
-        "InitialHeight": 283.030286799061,
+        "InitialTop": -405.78778820102355,
+        "InitialHeight": 408.6576572269148,
         "TextblockHeight": 63.42857142857143,
-        "Background": "#FFC1D676"
-      },
-      {
-        "Id": "f2473e86948040288bd278aa918cfe23",
-        "Title": "Length goals that help the surface resist the stretching caused by pressure",
-        "DescriptionText": null,
-        "IsExpanded": true,
-        "WidthAdjustment": 0.0,
-        "HeightAdjustment": 0.0,
-        "Nodes": [
-          "37eef5dcf9a647c1bc066537c15aee1e"
-        ],
-        "HasNestedGroups": false,
-        "Left": 1211.2752382709639,
-        "Top": -15.994126500101757,
-        "Width": 291.42857142857133,
-        "Height": 291.85714285714283,
-        "FontSize": 18.0,
-        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": 78.57730207132681,
-        "InitialHeight": 145.0,
-        "TextblockHeight": 84.57142857142857,
         "Background": "#FFC1D676"
       },
       {
@@ -1706,8 +1684,30 @@
         "FontSize": 18.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 368.55056045705817,
-        "InitialHeight": 260.076463831334,
+        "InitialHeight": 307.9085392074652,
         "TextblockHeight": 41.714285714285715,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "f2473e86948040288bd278aa918cfe23",
+        "Title": "Length goals that help the surface resist the stretching caused by pressure",
+        "DescriptionText": "",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "b2d4f6bc3df840018abaa70220372cee"
+        ],
+        "HasNestedGroups": false,
+        "Left": 1195.7060818740126,
+        "Top": 2.6467051800419625,
+        "Width": 291.42857142857133,
+        "Height": 291.85714285714283,
+        "FontSize": 18.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 97.21813375147053,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 84.57142857142857,
         "Background": "#FFC1D676"
       },
       {
@@ -1731,8 +1731,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -909.1224461951977,
-    "Y": 432.27573633358946,
-    "Zoom": 0.6754742800738874
+    "X": -1145.7455383535666,
+    "Y": 351.7197257615844,
+    "Zoom": 0.6319222102323303
   }
 }
