@@ -1,6 +1,7 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
 using Dynamo.Graph.Nodes;
+using DynamoServices;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -25,10 +26,14 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("null")] Point anchor,
             [DefaultArgument("1000.0")] float weight)
         {
-            return new DynaShape.Goals.AnchorGoal(
+            DynaShape.Goals.AnchorGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.AnchorGoal>();
+
+            goal.Initialize(
                 startPosition.ToTriple(),
                 anchor?.ToTriple() ?? startPosition.ToTriple(),
                 weight);
+
+            return goal;
         }
 
 

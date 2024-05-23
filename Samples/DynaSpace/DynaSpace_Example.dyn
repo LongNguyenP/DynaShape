@@ -3455,13 +3455,6 @@
         "fba2640ef66f44e0936e451d2d823d92",
         "158591f01b9b4bbe95f4625b3f71f965"
       ]
-    },
-    {
-      "Name": "SampleBuildingProgram-Clinic.csv",
-      "ReferenceType": "External",
-      "Nodes": [
-        "a708732939b2426fbc6b05b9b9023636"
-      ]
     }
   ],
   "EnableLegacyPolyCurveBehavior": true,
@@ -4666,8 +4659,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -497.41897866448016,
-    "Y": -194.71356804936102,
+    "X": -569.4189786644802,
+    "Y": -51.2849966207896,
     "Zoom": 0.4677856744275378
   }
 }
