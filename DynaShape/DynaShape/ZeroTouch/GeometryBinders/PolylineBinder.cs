@@ -1,6 +1,7 @@
 ﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
 using DSCore;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.GeometryBinders;
 
@@ -18,6 +19,7 @@ public class PolylineBinder
     /// <param name="color">An optional color to preview the circle geometry.</param>
     /// <param name="loop">An optional setting to force the Polyline to be a closed loop.</param>
     /// <returns name="polylineBinder"></returns>
+    [NodeCategory("Create")]
     public static DynaShape.GeometryBinders.PolylineBinder ByVertices(
         List<Point> vertices,
         [DefaultArgument("null")] Color color,

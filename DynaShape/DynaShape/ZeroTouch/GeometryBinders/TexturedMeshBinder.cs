@@ -1,5 +1,6 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using DSCore;
+using Dynamo.Graph.Nodes;
 using HelixToolkit.SharpDX.Core;
 
 namespace DynaShape.ZeroTouch.GeometryBinders;
@@ -19,6 +20,7 @@ public class TexturedMeshBinder
     /// <param name="textureFileName">A texture file to apply to the given ToolkitMesh.</param>
     /// <param name="textureCoordinates">The coordinates to extract from the texture file.</param>
     /// <returns name="texturedMeshBinder"></returns>
+    [NodeCategory("Create")]
     public static DynaShape.GeometryBinders.TexturedMeshBinder ByToolkitMeshAndTexture(
         Autodesk.Dynamo.MeshToolkit.Mesh toolkitMesh,
         [DefaultArgument("null")] Color color,

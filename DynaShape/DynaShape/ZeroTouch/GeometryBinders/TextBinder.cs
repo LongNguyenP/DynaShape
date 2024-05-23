@@ -1,6 +1,7 @@
 ﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
 using DSCore;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.GeometryBinders;
 
@@ -17,6 +18,7 @@ public class TextBinder
     /// <param name="text">The string value of the text.</param>
     /// <param name="color">An optional color to preview the circle geometry.</param>
     /// <returns name="textBinder"></returns>
+    [NodeCategory("Create")]
     public static DynaShape.GeometryBinders.TextBinder ByPositionText(
         Point position,
         string text,

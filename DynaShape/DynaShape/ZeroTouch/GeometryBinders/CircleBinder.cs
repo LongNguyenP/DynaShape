@@ -1,6 +1,7 @@
 ﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
 using DSCore;
+using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.GeometryBinders;
 
@@ -19,6 +20,7 @@ public class CircleBinder
     /// <param name="planeNormal">An optional normal for the circle's plane.</param>
     /// <param name="color">An optional color to preview the circle geometry.</param>
     /// <returns name="circleBinder"></returns>
+    [NodeCategory("Create")]
     public static DynaShape.GeometryBinders.CircleBinder ByCenterRadius(
         Point center,
         float radius,

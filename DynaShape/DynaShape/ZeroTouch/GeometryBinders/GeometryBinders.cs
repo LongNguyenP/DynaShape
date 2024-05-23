@@ -1,9 +1,4 @@
-﻿using Autodesk.DesignScript.Geometry;
-using Autodesk.DesignScript.Runtime;
-using DynaShape.GeometryBinders;
-using HelixToolkit.SharpDX.Core;
-using Color = DSCore.Color;
-using Point = Autodesk.DesignScript.Geometry.Point;
+﻿using Color = DSCore.Color;
 
 namespace DynaShape.ZeroTouch.GeometryBinders;
 
