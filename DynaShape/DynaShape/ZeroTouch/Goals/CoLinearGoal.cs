@@ -7,7 +7,7 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// CoLinear goal.
     /// </summary>
-    public  class CoLinearGoal
+    public class CoLinearGoal
     {
         private CoLinearGoal(){}
 
