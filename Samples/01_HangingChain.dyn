@@ -12,7 +12,7 @@
       "Name": "Reset",
       "Type": "boolean",
       "Type2": "boolean",
-      "Value": "false",
+      "Value": "true",
       "Description": "Enables selection between True and False"
     },
     {
@@ -280,7 +280,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Enables selection between True and False",
-      "InputValue": false
+      "InputValue": true
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -348,8 +348,8 @@
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
-      "WatchWidth": 49.6,
-      "WatchHeight": 37.6,
+      "WatchWidth": 50.285714285714285,
+      "WatchHeight": 37.714285714285715,
       "Id": "acc3bd52fc84460385f4e3ab6110678d",
       "NodeType": "ExtensionNode",
       "Inputs": [
@@ -1338,8 +1338,8 @@
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
-      "WatchWidth": 49.6,
-      "WatchHeight": 37.6,
+      "WatchWidth": 50.285714285714285,
+      "WatchHeight": 37.714285714285715,
       "Id": "03e094d6ada843a388002797797b4e7d",
       "NodeType": "ExtensionNode",
       "Inputs": [
@@ -1498,63 +1498,6 @@
       "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.SplitByPoints@Autodesk.DesignScript.Geometry.Point[]",
       "Replication": "Auto",
       "Description": "Split a Curve into multiple pieces at the given points\n\nCurve.SplitByPoints (points: Point[]): Curve[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "a266e768182d433595be7f339e065022",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "106f4da303aa424ab2518b23bac1a00e",
-          "Name": "start",
-          "Description": "Point",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "47423e9ddd3f445d84fe36239fa6f51c",
-          "Name": "end",
-          "Description": "Point",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "196c75587c1b4afa82c8a8b7eca5c6b3",
-          "Name": "targetLength",
-          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "309378b7cfd44b6f8a7b47e2f32e1684",
-          "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "b5a51c583b1b4b57a6293f0a6bede24b",
-          "Name": "LengthGoal",
-          "Description": "LengthGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
-      "Replication": "Auto",
-      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.Create (start: Point, end: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1891,6 +1834,63 @@
       "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.Change@DynaShape.Goals.LengthGoal,double,double",
       "Replication": "Auto",
       "Description": "Modify the LengthGoal's parameters while the solver is running.\n\nLengthGoal.Change (lengthGoal: LengthGoal, targetLength: double = -1, weight: double = -1): LengthGoal"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "75d5b4e0bf584d068e4199a58d3144a6",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "e35dec05b8f14f64a0527f89217b58e8",
+          "Name": "start",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b71c52e3ca3048b58f4095dc7cb10d08",
+          "Name": "end",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0b6951f8dc8c444bb8d4ac9c2f1620e8",
+          "Name": "targetLength",
+          "Description": "The length to maintain. If unspecified, the length will default to the length between the two nodes.\n\ndouble\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9856e17b3d0448519746fb56157dab82",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "57b84c2f2d29476fac251af0caa1f6d4",
+          "Name": "LengthGoal",
+          "Description": "LengthGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.LengthGoal.ByStartEnd@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double,double",
+      "Replication": "Auto",
+      "Description": "Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.\n\nLengthGoal.ByStartEnd (start: Point, end: Point, targetLength: double = -1, weight: double = 1): LengthGoal"
     }
   ],
   "Connectors": [
@@ -1932,12 +1932,6 @@
     },
     {
       "Start": "ba9cc48dce6c4f74864a3213970e7153",
-      "End": "64af95cf967b49d7aa01f95d0e4d9109",
-      "Id": "d5d275a1ef3142d18bf9941f428e78f1",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "ba9cc48dce6c4f74864a3213970e7153",
       "End": "f9665a0b1c36444e8890fc974103f5e9",
       "Id": "8af933cbe33548c9b2270348d679190a",
       "IsHidden": "False"
@@ -1946,12 +1940,6 @@
       "Start": "7611b855822840e098558a3e0ccca039",
       "End": "4120073dd08e4ea1bda8647667ff5bf7",
       "Id": "a87304098fb54a769f93f6be192a61d2",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "7611b855822840e098558a3e0ccca039",
-      "End": "02f858d4910642418ce805ac1128390a",
-      "Id": "40d815abb7514e5daee8bd3d1547346f",
       "IsHidden": "False"
     },
     {
@@ -1998,14 +1986,14 @@
     },
     {
       "Start": "5df654eeb34e4b2fb525aa6c7b26dc3c",
-      "End": "106f4da303aa424ab2518b23bac1a00e",
-      "Id": "77626583a9964b0f894effce9d9629b0",
+      "End": "e35dec05b8f14f64a0527f89217b58e8",
+      "Id": "c8e59ec9b70f46cf8e5903aa9f52598e",
       "IsHidden": "False"
     },
     {
       "Start": "e64a05416d824cc590b975caccefa068",
-      "End": "47423e9ddd3f445d84fe36239fa6f51c",
-      "Id": "dd61aa161cbe47eb85c25169f11b743c",
+      "End": "b71c52e3ca3048b58f4095dc7cb10d08",
+      "Id": "7fd27eb35c404553959927a5675366ff",
       "IsHidden": "False"
     },
     {
@@ -2165,12 +2153,6 @@
       "IsHidden": "False"
     },
     {
-      "Start": "b5a51c583b1b4b57a6293f0a6bede24b",
-      "End": "2ad42bc5f9ff4bc5910f83c6e6f5abcd",
-      "Id": "f0864fe4902245ceb3c1907b781a0d4b",
-      "IsHidden": "False"
-    },
-    {
       "Start": "06cef176bfd443b39b22c44fa7452a76",
       "End": "e686cfa78cf4438ca5f56837739ecdd6",
       "Id": "c0864ea9015a4d8b80c685325f942f54",
@@ -2211,26 +2193,32 @@
       "End": "0215f5e917904078a9f4596ca3efbbb7",
       "Id": "a484ad8104e749ed8e3b07ce1b292632",
       "IsHidden": "False"
+    },
+    {
+      "Start": "57b84c2f2d29476fac251af0caa1f6d4",
+      "End": "2ad42bc5f9ff4bc5910f83c6e6f5abcd",
+      "Id": "7d8a6fad2bc9448ab379e98bfb198191",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [
     {
       "Name": "DynaShape",
-      "Version": "0.9.0.0",
+      "Version": "0.9.2",
       "ReferenceType": "Package",
       "Nodes": [
         "dbe7da0a4ef34dc3a6f4ab0fd9ca4b1f",
         "42f2b3a0c8a347da9d1fd1c2f8b8cd00",
         "20baa404275f42bea536993a7b4d201d",
-        "a266e768182d433595be7f339e065022",
         "a6e62808713347eebe4bd531f57149b0",
         "52ef2d7bb6504623971483ffc7f09a86",
         "499c279531394fb59234637150221587",
         "722cf6347ad140ed8290a22065afdee5",
         "d640e7652e76423d988d8daaec885dfd",
         "ecec9d4ce93d46aa8b15c2298d164167",
-        "0f8df746f4664e4eadbd487df95561c5"
+        "0f8df746f4664e4eadbd487df95561c5",
+        "75d5b4e0bf584d068e4199a58d3144a6"
       ]
     }
   ],
@@ -2663,16 +2651,6 @@
         "Y": -138.192608431208
       },
       {
-        "Id": "a266e768182d433595be7f339e065022",
-        "Name": "LengthGoal.Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 821.252511876349,
-        "Y": -193.59232321397303
-      },
-      {
         "Id": "a6e62808713347eebe4bd531f57149b0",
         "Name": "AnchorGoal.Create",
         "IsSetAsInput": false,
@@ -2741,6 +2719,16 @@
         "ShowGeometry": true,
         "X": 1709.272273222819,
         "Y": -155.79489102621397
+      },
+      {
+        "Id": "75d5b4e0bf584d068e4199a58d3144a6",
+        "Name": "LengthGoal.ByStartEnd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 801.6681782168356,
+        "Y": -221.84498526628744
       }
     ],
     "Annotations": [
@@ -2767,14 +2755,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 3258.7455137500765,
-        "Top": -668.9153489429468,
-        "Width": 1169.047872492627,
-        "Height": 1423.7380290643398,
+        "Top": -669.0296346572325,
+        "Width": 1169.6193010640554,
+        "Height": 1425.33802906434,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -581.3153489429468,
         "InitialHeight": 1349.33802906434,
-        "TextblockHeight": 77.60000000000001,
+        "TextblockHeight": 77.71428571428571,
         "Background": "#FF48B9FF"
       },
       {
@@ -2792,14 +2780,14 @@
         ],
         "HasNestedGroups": false,
         "Left": -1995.7690501686102,
-        "Top": -609.4709736619055,
-        "Width": 693.3714285714286,
-        "Height": 488.59999999999997,
+        "Top": -609.2424022333341,
+        "Width": 693.1428571428573,
+        "Height": 489.85714285714283,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -550.6709736619056,
         "InitialHeight": 443.0,
-        "TextblockHeight": 48.8,
+        "TextblockHeight": 48.57142857142857,
         "Background": "#FFC1D676"
       },
       {
@@ -2817,14 +2805,14 @@
         ],
         "HasNestedGroups": false,
         "Left": -1996.7952330902226,
-        "Top": -35.962467864283255,
-        "Width": 693.3714285714282,
-        "Height": 488.6,
+        "Top": -35.73389643571183,
+        "Width": 693.1428571428569,
+        "Height": 489.85714285714283,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 22.837532135716742,
         "InitialHeight": 443.0,
-        "TextblockHeight": 48.8,
+        "TextblockHeight": 48.57142857142857,
         "Background": "#FFC1D676"
       },
       {
@@ -2837,18 +2825,18 @@
         "Nodes": [
           "0b61f70367884505a00bca911cf7a260",
           "ebb2d1b083fc43d7bcdb816dd07a41af",
-          "a266e768182d433595be7f339e065022"
+          "75d5b4e0bf584d068e4199a58d3144a6"
         ],
         "HasNestedGroups": false,
         "Left": 524.8638999654676,
-        "Top": -351.4393979717441,
-        "Width": 578.3886119108814,
-        "Height": 393.40000000000003,
+        "Top": -351.5536836860298,
+        "Width": 558.2328496799395,
+        "Height": 395.0,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -263.83939797174406,
         "InitialHeight": 307.0,
-        "TextblockHeight": 77.60000000000001,
+        "TextblockHeight": 77.71428571428571,
         "Background": "#FFC1D676"
       },
       {
@@ -2864,14 +2852,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 1250.7008446513905,
-        "Top": -214.594891026214,
-        "Width": 740.5714285714284,
-        "Height": 256.20000000000005,
+        "Top": -214.36631959764253,
+        "Width": 740.0,
+        "Height": 255.85714285714283,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -155.79489102621397,
         "InitialHeight": 179.0,
-        "TextblockHeight": 48.8,
+        "TextblockHeight": 48.57142857142857,
         "Background": "#FFC1D676"
       },
       {
@@ -2888,14 +2876,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 1143.1642458127008,
-        "Top": 115.03600572954922,
-        "Width": 1086.514285714286,
-        "Height": 292.6,
+        "Top": 115.26457715812064,
+        "Width": 1085.7142857142858,
+        "Height": 293.8571428571429,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 173.8360057295492,
         "InitialHeight": 247.00000000000003,
-        "TextblockHeight": 48.8,
+        "TextblockHeight": 48.57142857142857,
         "Background": "#FFC1D676"
       },
       {
@@ -2910,14 +2898,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 1362.990070091982,
-        "Top": 597.0132504069667,
-        "Width": 336.79999999999995,
-        "Height": 293.79999999999995,
+        "Top": 597.1275361212524,
+        "Width": 336.57142857142844,
+        "Height": 293.57142857142844,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 693.4132504069667,
         "InitialHeight": 145.0,
-        "TextblockHeight": 86.4,
+        "TextblockHeight": 86.28571428571428,
         "Background": "#FFC1D676"
       },
       {
@@ -2941,14 +2929,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 1371.3344185944645,
-        "Top": -1229.5266078920386,
-        "Width": 1067.103037186101,
-        "Height": 937.8628838795846,
+        "Top": -1229.2980364634673,
+        "Width": 1067.445894328958,
+        "Height": 939.1200267367276,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -1170.7266078920386,
         "InitialHeight": 892.2628838795847,
-        "TextblockHeight": 48.8,
+        "TextblockHeight": 48.57142857142857,
         "Background": "#FFC1D676"
       },
       {
@@ -2967,14 +2955,14 @@
         ],
         "HasNestedGroups": false,
         "Left": -1152.8402453910167,
-        "Top": -196.992608431208,
+        "Top": -196.76403700263654,
         "Width": 1411.4285714285713,
         "Height": 556.7586641244579,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -138.192608431208,
         "InitialHeight": 502.58616412445804,
-        "TextblockHeight": 48.8,
+        "TextblockHeight": 48.57142857142857,
         "Background": "#FFC1D676"
       },
       {
@@ -2990,8 +2978,8 @@
         "HasNestedGroups": false,
         "Left": 796.1733396355249,
         "Top": 121.40269442929855,
-        "Width": 307.9999999999999,
-        "Height": 351.4,
+        "Width": 308.57142857142856,
+        "Height": 351.2857142857143,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 275.40269442929855,
@@ -3012,14 +3000,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 724.4464964370718,
-        "Top": -1161.0913782709238,
-        "Width": 306.8046329386889,
-        "Height": 526.8698716814151,
+        "Top": -1160.7485211280666,
+        "Width": 306.2332043672603,
+        "Height": 526.4127288242723,
         "FontSize": 24.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -1035.8913782709237,
-        "InitialHeight": 364.858843991209,
-        "TextblockHeight": 115.2,
+        "InitialHeight": 349.2698716814151,
+        "TextblockHeight": 114.85714285714286,
         "Background": "#FFC1D676"
       },
       {
@@ -3043,8 +3031,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": 428.0291874659114,
-    "Y": 300.3549603966002,
-    "Zoom": 0.2003412590287975
+    "X": -1333.653879320644,
+    "Y": 474.13920606415206,
+    "Zoom": 0.42075444139899754
   }
 }
