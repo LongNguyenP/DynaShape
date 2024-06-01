@@ -274,7 +274,7 @@ namespace DynaSpace
 
             for (int i = 0; i < SpaceAdjacencyGoals.Count; i++)
             {
-                float currentDistance = (float)(SpaceAdjacencyGoals[i].GetOutput(Solver.Nodes)[0]);
+                float currentDistance = (float)(SpaceAdjacencyGoals[i].GetOutputs(Solver.Nodes)[0]);
                 SpaceAdjErrors.Add(currentDistance - SpaceAdjTargets[i]);
                 SpaceAdjErrorRatios.Add(currentDistance / SpaceAdjTargets[i]);
             }

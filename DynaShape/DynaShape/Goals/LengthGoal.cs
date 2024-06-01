@@ -9,19 +9,30 @@ namespace DynaShape.Goals
     {
         public float TargetLength;
 
-        public LengthGoal(Triple firstNodePosition, Triple secondNodePosition, float targetLength, float weight = 1000f)
+
+        public LengthGoal()
         {
-            Weight = weight;
-            TargetLength = targetLength;
-            StartingPositions = new[] { firstNodePosition, secondNodePosition };
             Moves = new Triple[2];
             Weights = new float[2];
+        }
+
+        public LengthGoal(Triple firstNodePosition, Triple secondNodePosition, float targetLength, float weight = 1000f)
+        {
+            Initialize(firstNodePosition, secondNodePosition, targetLength, weight);
         }
 
 
         public LengthGoal(Triple firstNodePosition, Triple secondNodePosition, float weight = 1000f)
             : this(firstNodePosition, secondNodePosition, firstNodePosition.DistanceTo(secondNodePosition), weight)
         {
+        }
+
+
+        internal void Initialize(Triple firstNodePosition, Triple secondNodePosition, float targetLength, float weight = 1000f)
+        {
+            Weight = weight;
+            TargetLength = targetLength;
+            StartingPositions = new[] { firstNodePosition, secondNodePosition };
         }
 
 
@@ -36,7 +47,7 @@ namespace DynaShape.Goals
             Weights[0] = Weights[1] = Weight;
         }
 
-        public override List<object> GetOutput(List<Node> allNodes)
+        public override List<object> GetOutputs(List<Node> allNodes)
         {
             return new List<object> {allNodes[NodeIndices[1]].Position.DistanceTo(allNodes[NodeIndices[0]].Position)};
         }

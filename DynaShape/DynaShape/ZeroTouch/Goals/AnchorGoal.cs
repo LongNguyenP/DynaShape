@@ -21,7 +21,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver</param>
         /// <returns name="AnchorGoal">A newly defined AnchorGoal.</returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.AnchorGoal Create(
+        public static DynaShape.Goals.AnchorGoal ByPoint(
             Point startPosition,
             [DefaultArgument("null")] Point anchor,
             [DefaultArgument("1000.0")] float weight)
@@ -33,25 +33,6 @@ namespace DynaShape.ZeroTouch.Goals
                 anchor?.ToTriple() ?? startPosition.ToTriple(),
                 weight);
 
-            return goal;
-        }
-
-
-        /// <summary>
-        /// Modifies the AngleGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="goal">An AnchorGoal to modify with the given parameters.</param>
-        /// <param name="anchor">The new anchor for the given AnchorGoal</param>
-        /// <param name="weight">An optional new weight for the given AnchorGoal</param>
-        /// <returns name="AnchorGoal">The modified AnchorGoal</returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.AnchorGoal Change(
-            DynaShape.Goals.AnchorGoal goal,
-            [DefaultArgument("null")] Point anchor,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (anchor != null) goal.Anchor = anchor.ToTriple();
-            if (weight >= 0.0) goal.Weight = weight;
             return goal;
         }
     }

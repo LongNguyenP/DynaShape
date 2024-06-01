@@ -20,7 +20,7 @@ public class PolylineBinder
     /// <param name="loop">An optional setting to force the Polyline to be a closed loop.</param>
     /// <returns name="polylineBinder"></returns>
     [NodeCategory("Create")]
-    public static DynaShape.GeometryBinders.PolylineBinder ByVertices(
+    public static DynaShape.GeometryBinders.PolylineBinder ByPoints(
         List<Point> vertices,
         [DefaultArgument("null")] Color color,
         [DefaultArgument("false")] bool loop)

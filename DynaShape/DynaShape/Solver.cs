@@ -231,7 +231,7 @@ public class Solver : IDisposable
     public List<List<object>> GetGoalOutputs()
     {
         List<List<object>> goalOutputs = new List<List<object>>(Goals.Count);
-        foreach (Goal goal in Goals) goalOutputs.Add(goal.GetOutput(Nodes));
+        foreach (Goal goal in Goals) goalOutputs.Add(goal.GetOutputs(Nodes));
         return goalOutputs;
     }
 
