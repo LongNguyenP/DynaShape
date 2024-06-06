@@ -26,7 +26,7 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("null")] Point anchor,
             [DefaultArgument("1000.0")] float weight)
         {
-            DynaShape.Goals.AnchorGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.AnchorGoal>();
+            DynaShape.Goals.AnchorGoal goal = GoalTracingUtils.GetObjectFromTrace<DynaShape.Goals.AnchorGoal>();
 
             goal.Initialize(
                 startPosition.ToTriple(),

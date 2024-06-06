@@ -5,64 +5,56 @@ using DynaShape.Goals;
 namespace DynaShape;
 
 [IsVisibleInDynamoLibrary(false)]
-internal class TracingUtils
+internal class GoalTracingUtils
 {
     private const string TraceID = "{0459D869-0C72-447F-96D8-08A7FB92214B}-REVIT";
     private static int id = 0;
-    private static Dictionary<int, Goal> traceableObjectDictionary = new Dictionary<int, Goal>();
+    private static Dictionary<Guid, Goal> traceableObjectDictionary = new Dictionary<Guid, Goal>();
 
     public static T GetObjectFromTrace<T>() where T : Goal, new()
     {
         T item;
-        // See if there is data for this object is in trace.
-        var traceId = TracingUtils.GetObjectIdFromTrace();
+        var traceId = GoalTracingUtils.GetObjectIdFromTrace();
 
-        int id;
-        if (traceId == -1)
+        Guid id;
+        if (traceId.Equals(Guid.Empty))
         {
             // If there's no id stored in trace for this object,
             // then grab the next unused trace id.
-            id = TracingUtils.GetNextUnusedID();
+            id = Guid.NewGuid();
 
             // Create an item
             item = new T();
 
             // Remember to store the updated object in the trace object manager,
             // so it's available to use the next time around.
-            TracingUtils.RegisterTraceableObjectForId(id, item);
+            GoalTracingUtils.RegisterTraceableObjectForId(id, item);
         }
         else
         {
             // If there's and id stored in trace, then retrieve the object stored
             // with that id from the trace object manager.
-            item = (T)TracingUtils.GetTracedObjectById(traceId)
+            item = (T)GoalTracingUtils.GetTracedObjectById(traceId)
                 ?? new T();
         }
 
         return item;
     }
 
-    private static int GetNextUnusedID()
+    private static Guid GetObjectIdFromTrace()
     {
-        var next = id;
-        id++;
-        return next;
+        string id = TraceUtils.GetTraceData(TraceID);
+        return string.IsNullOrEmpty(id) ? Guid.Empty : Guid.Parse(id);
     }
 
-    private static int GetObjectIdFromTrace()
-    {
-        var id = TraceUtils.GetTraceData(TraceID);
-        return string.IsNullOrEmpty(id) ? -1 : int.Parse(id);
-    }
-
-    private static Goal GetTracedObjectById(int id)
+    private static Goal GetTracedObjectById(Guid id)
     {
         Goal ret;
         traceableObjectDictionary.TryGetValue(id, out ret);
         return ret;
     }
 
-    private static void RegisterTraceableObjectForId(int id, Goal objectToTrace)
+    private static void RegisterTraceableObjectForId(Guid id, Goal objectToTrace)
     {
         if (traceableObjectDictionary.ContainsKey(id))
         {

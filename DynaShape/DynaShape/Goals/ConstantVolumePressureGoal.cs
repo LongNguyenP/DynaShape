@@ -13,10 +13,21 @@ namespace DynaShape.Goals
         public float VolumePressureConstant;
         public Mesh Mesh;
 
-        private readonly List<int> faces;
+        private List<int> faces;
         private float currentVolumeInversed;
 
+
+        public ConstantVolumePressureGoal()
+        {
+        }
+
+
         public ConstantVolumePressureGoal(Mesh mesh, float volumePressureConstant, float weight = 1f)
+        {
+            Initialize(mesh, volumePressureConstant, weight);
+        }
+
+        private void Initialize(Mesh mesh, float volumePressureConstant, float weight)
         {
             try
             {
@@ -32,7 +43,7 @@ namespace DynaShape.Goals
             Weight = weight;
             VolumePressureConstant = volumePressureConstant;
             List<Point> vertices = mesh.Vertices();
-                StartingPositions = new Triple[mesh.VertexCount];
+            StartingPositions = new Triple[mesh.VertexCount];
             for (int i = 0; i < mesh.VertexCount; i++)
                 StartingPositions[i] = vertices[i].ToTriple();
 

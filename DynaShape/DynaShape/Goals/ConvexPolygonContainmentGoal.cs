@@ -44,11 +44,22 @@ namespace DynaShape.Goals
         private Triple planeNormal;
 
 
+        public ConvexPolygonContainmentGoal()
+        {
+        }
+
+
         public ConvexPolygonContainmentGoal(
             List<Triple> centers,
             List<float> radii,
             List<Triple> polygonVertices,
             float weight = 1000f)
+        {
+            Initialize(centers, radii, polygonVertices, weight);
+        }
+
+
+        private void Initialize(List<Triple> centers, List<float> radii, List<Triple> polygonVertices, float weight)
         {
             Weight = weight;
             Radii = radii.ToArray();

@@ -32,15 +32,11 @@ public class Solver : IDisposable
 
     public int IterationCount = 0;
 
-    public int CurrentIteration { get; private set; }
+    public int CurrentIteration { get; private set; } = 0;
 
-    public readonly DateTime TimeCreated;
 
     public Solver()
     {
-        TimeCreated = DateTime.Now;
-        CurrentIteration = 0;
-
         if (DynaShapeViewExtension.ViewModel != null) // This check is important in case ViewModel is null (e.g. in Refinery mode)
         {
             Display = new DynaShapeDisplay(this);

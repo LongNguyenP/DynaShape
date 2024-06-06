@@ -9,7 +9,19 @@ namespace DynaShape.Goals
     {
         public float Pressure;
 
+
+        public ConstantPressureGoal()
+        {
+        }
+
+
         public ConstantPressureGoal(Triple nodePosition1, Triple nodePosition2, Triple nodePosition3, float pressure, float weight = 1000f)
+        {
+            Initialize(nodePosition1, nodePosition2, nodePosition3, pressure, weight);
+        }
+
+
+        private void Initialize(Triple nodePosition1, Triple nodePosition2, Triple nodePosition3, float pressure, float weight)
         {
             Weight = weight;
             Pressure = pressure;

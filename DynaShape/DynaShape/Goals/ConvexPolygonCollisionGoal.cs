@@ -56,14 +56,22 @@ namespace DynaShape.Goals
         }
 
         private List<Triple> polygonVertices;
-        private List<Triple> normals; // The normals vectors of the polygon edges
+        private List<Triple> normals; // The normal vectors of the polygon edges
         private Triple planeNormal; // The normal of the 2D plane that contains the polygon
 
-        public ConvexPolygonCollisionGoal(
-            List<Triple> centers,
-            List<float> radii,
-            List<Triple> polygonVertices,
-            float weight = 1000f)
+
+        public ConvexPolygonCollisionGoal()
+        {
+        }
+
+
+        public ConvexPolygonCollisionGoal(List<Triple> centers, List<float> radii, List<Triple> polygonVertices, float weight = 1000f)
+        {
+            Initialize(centers, radii, polygonVertices, weight);
+        }
+
+
+        private void Initialize(List<Triple> centers, List<float> radii, List<Triple> polygonVertices, float weight)
         {
             Weight = weight;
             Radii = radii.ToArray();
