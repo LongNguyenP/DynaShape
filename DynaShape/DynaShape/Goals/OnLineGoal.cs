@@ -12,14 +12,14 @@ namespace DynaShape.Goals
         public Triple TargetLineDirection;
 
 
+        public OnLineGoal()
+        {
+        }
+
+
         public OnLineGoal(List<Triple> nodeStartingPositions, Triple lineOrigin, Triple lineDirection, float weight = 1f)
         {
-            TargetLineOrigin = lineOrigin;
-            TargetLineDirection = lineDirection;
-            Weight = weight;
-            StartingPositions = nodeStartingPositions.ToArray();
-            Moves = new Triple[StartingPositions.Length];
-            Weights = new float[StartingPositions.Length];
+            Initialize(nodeStartingPositions, lineOrigin, lineDirection, weight);
         }
 
 
@@ -30,6 +30,17 @@ namespace DynaShape.Goals
                   (line.EndPoint.ToTriple() - line.StartPoint.ToTriple()).Normalise(),
                   weight)
         {
+        }
+
+
+        private void Initialize(List<Triple> nodeStartingPositions, Triple lineOrigin, Triple lineDirection, float weight)
+        {
+            TargetLineOrigin = lineOrigin;
+            TargetLineDirection = lineDirection;
+            Weight = weight;
+            StartingPositions = nodeStartingPositions.ToArray();
+            Moves = new Triple[StartingPositions.Length];
+            Weights = new float[StartingPositions.Length];
         }
 
 

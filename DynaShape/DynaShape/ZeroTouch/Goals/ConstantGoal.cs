@@ -24,7 +24,7 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("Vector.ByCoordinates(0, 0, -0.1)")] Vector constant,
             [DefaultArgument("1.0")] float weight)
         {
-            DynaShape.Goals.ConstantGoal goal = GoalTracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantGoal>();
+            DynaShape.Goals.ConstantGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantGoal>();
 
             goal.Initialize(
                 startPositions.ToTriples(),

@@ -11,7 +11,19 @@ namespace DynaShape.Goals
         public List<Triple> LineStarts;
         public List<Triple> LineEnds;
 
+
+        public SphereStaticLineCollisionGoal()
+        {
+        }
+
+
         public SphereStaticLineCollisionGoal(List<Triple> centers, List<float> radii, List<Triple> lineStarts, List<Triple> lineEnds, float weight = 1000f)
+        {
+            Initialize(centers, radii, lineStarts, lineEnds, weight);
+        }
+
+
+        private void Initialize(List<Triple> centers, List<float> radii, List<Triple> lineStarts, List<Triple> lineEnds, float weight)
         {
             Weight = weight;
             Radii = radii.ToArray();

@@ -8,7 +8,18 @@ namespace DynaShape.Goals
     [IsVisibleInDynamoLibrary(false)]
     public class CoPlanarGoal : Goal
     {
+        public CoPlanarGoal()
+        {
+        }
+
+
         public CoPlanarGoal(List<Triple> nodeStartingPositions, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, weight);
+        }
+
+
+        private void Initialize(List<Triple> nodeStartingPositions, float weight)
         {
             if (nodeStartingPositions.Count < 4) throw new Exception("CoPlanar Goal: Node count must be at least 4");
             Weight = weight;

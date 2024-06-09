@@ -10,19 +10,30 @@ namespace DynaShape.Goals
         public Triple TargetDirection;
 
 
+        public DirectionGoal()
+        {
+        }
+
+
         public DirectionGoal(Triple firstNodePosition, Triple secondNodePosition, Triple targetDirection, float weight = 1f)
         {
-            TargetDirection = targetDirection.Normalise();
-            Weight = weight;
-            StartingPositions = new[] { firstNodePosition, secondNodePosition };
-            Moves = new Triple[2];
-            Weights = new float[2];
+            Initialize(firstNodePosition, secondNodePosition, targetDirection, weight);
         }
 
 
         public DirectionGoal(Triple firstNodePosition, Triple secondNodePosition, float weight = 1f)
             : this(firstNodePosition, secondNodePosition, secondNodePosition - firstNodePosition, weight)
         {
+        }
+
+
+        private void Initialize(Triple firstNodePosition, Triple secondNodePosition, Triple targetDirection, float weight)
+        {
+            TargetDirection = targetDirection.Normalise();
+            Weight = weight;
+            StartingPositions = new[] { firstNodePosition, secondNodePosition };
+            Moves = new Triple[2];
+            Weights = new float[2];
         }
 
 

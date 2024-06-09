@@ -12,8 +12,9 @@ public class LineBinder
 {
     private LineBinder(){}
 
+
     /// <summary>
-    /// Create a LinderBinder to preview line geometry.
+    /// Create a LineBinder.
     /// </summary>
     /// <param name="line">The line to generate a preview for.</param>
     /// <param name="color">An optional color to preview the circle geometry.</param>
@@ -23,13 +24,19 @@ public class LineBinder
         Line line,
         [DefaultArgument("null")] Color color)
     {
-        return new DynaShape.GeometryBinders.LineBinder(
+        var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.LineBinder>();
+
+        binder.Initialize(
             line.StartPoint.ToTriple(),
             line.EndPoint.ToTriple(),
             color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+
+        return binder;
     }
+
+
     /// <summary>
-    /// Create a LinderBinder to preview line geometry.
+    /// Create a LineBinder.\\
     /// </summary>
     /// <param name="startPoint">The start point of the line.</param>
     /// <param name="endPoint">The end point of the line.</param>
@@ -41,9 +48,13 @@ public class LineBinder
         Point endPoint,
         [DefaultArgument("null")] Color color)
     {
-        return new DynaShape.GeometryBinders.LineBinder(
+        var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.LineBinder>();
+
+        binder.Initialize(
             startPoint.ToTriple(),
             endPoint.ToTriple(),
             color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+
+        return binder;
     }
 }

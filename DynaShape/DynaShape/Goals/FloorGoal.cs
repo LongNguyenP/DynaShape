@@ -9,7 +9,19 @@ namespace DynaShape.Goals
     {
         public float FloorHeight;
 
+
+        public FloorGoal()
+        {
+        }
+
+
         public FloorGoal(List<Triple> nodeStartingPositions, float floorHeight = 0f, float weight = 1000f)
+        {
+            Initialize(nodeStartingPositions, floorHeight, weight);
+        }
+
+
+        private void Initialize(List<Triple> nodeStartingPositions, float floorHeight, float weight)
         {
             Weight = weight;
             FloorHeight = floorHeight;
@@ -17,6 +29,7 @@ namespace DynaShape.Goals
             Moves = new Triple[nodeStartingPositions.Count];
             Weights = new float[nodeStartingPositions.Count];
         }
+
 
         internal override void Compute(List<Node> allNodes)
         {

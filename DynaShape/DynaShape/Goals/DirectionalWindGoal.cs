@@ -9,7 +9,19 @@ namespace DynaShape.Goals
     {
         public Triple WindVector;
 
+
+        public DirectionalWindGoal()
+        {
+        }
+
+
         public DirectionalWindGoal(Triple nodePosition1, Triple nodePosition2, Triple nodePosition3, Triple windVector, float weight = 1000f)
+        {
+            Initialize(nodePosition1, nodePosition2, nodePosition3, windVector, weight);
+        }
+
+
+        private void Initialize(Triple nodePosition1, Triple nodePosition2, Triple nodePosition3, Triple windVector, float weight)
         {
             Weight = weight;
             WindVector = windVector;

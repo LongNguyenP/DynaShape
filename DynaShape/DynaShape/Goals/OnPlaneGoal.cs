@@ -17,7 +17,25 @@ namespace DynaShape.Goals
 
         public Triple targetPlaneNormal;
 
+
+        public OnPlaneGoal()
+        {
+        }
+
+
         public OnPlaneGoal(List<Triple> nodeStartingPositions, Triple planeOrigin, Triple planeNormal, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, planeOrigin, planeNormal, weight);
+        }
+
+
+        public OnPlaneGoal(List<Triple> nodeStartingPositions, Plane plane, float weight = 1f)
+            : this(nodeStartingPositions, plane.Origin.ToTriple(), plane.Normal.ToTriple(), weight)
+        {
+        }
+
+
+        private void Initialize(List<Triple> nodeStartingPositions, Triple planeOrigin, Triple planeNormal, float weight)
         {
             TargetPlaneOrigin = planeOrigin;
             TargetPlaneNormal = planeNormal;
@@ -25,12 +43,6 @@ namespace DynaShape.Goals
             StartingPositions = nodeStartingPositions.ToArray();
             Moves = new Triple[StartingPositions.Length];
             Weights = new float[StartingPositions.Length];
-        }
-
-
-        public OnPlaneGoal(List<Triple> nodeStartingPositions, Plane plane, float weight = 1f)
-            : this(nodeStartingPositions, plane.Origin.ToTriple(), plane.Normal.ToTriple(), weight)
-        {
         }
 
 

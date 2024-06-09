@@ -7,7 +7,18 @@ namespace DynaShape.Goals
     [IsVisibleInDynamoLibrary(false)]
     public class MergeGoal : Goal
     {
+        public MergeGoal()
+        {
+        }
+
+
         public MergeGoal(List<Triple> nodeStartingPositions, float weight = 1000f)
+        {
+            Initialize(nodeStartingPositions, weight);
+        }
+
+
+        private void Initialize(List<Triple> nodeStartingPositions, float weight)
         {
             Weight = weight;
             StartingPositions = nodeStartingPositions.ToArray();

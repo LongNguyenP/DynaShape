@@ -24,7 +24,7 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("-1.0")] float targetLength,
             [DefaultArgument("1.0")] float weight)
         {
-            DynaShape.Goals.LengthGoal goal = GoalTracingUtils.GetObjectFromTrace<DynaShape.Goals.LengthGoal>();
+            DynaShape.Goals.LengthGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.LengthGoal>();
 
             Triple start = startPoint.ToTriple();
             Triple end = endPoint.ToTriple();
@@ -54,7 +54,7 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("-1.0")] float targetLength,
             [DefaultArgument("1.0")] float weight)
         {
-            DynaShape.Goals.LengthGoal goal = GoalTracingUtils.GetObjectFromTrace<DynaShape.Goals.LengthGoal>();
+            DynaShape.Goals.LengthGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.LengthGoal>();
 
             Triple start = line.StartPoint.ToTriple();
             Triple end = line.EndPoint.ToTriple();

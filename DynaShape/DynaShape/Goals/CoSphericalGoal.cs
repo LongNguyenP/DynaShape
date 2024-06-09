@@ -8,7 +8,17 @@ namespace DynaShape.Goals
     [IsVisibleInDynamoLibrary(false)]
     public class CoSphericalGoal : Goal
     {
+        public CoSphericalGoal()
+        {
+        }
+
+
         public CoSphericalGoal(List<Triple> nodeStartingPositions, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, weight);
+        }
+
+        private void Initialize(List<Triple> nodeStartingPositions, float weight)
         {
             if (nodeStartingPositions.Count <= 4) throw new Exception("CoSpherical Goal: Node count must be at least 5");
             Weight = weight;
@@ -16,6 +26,7 @@ namespace DynaShape.Goals
             Moves = new Triple[StartingPositions.Length];
             Weights = new float[StartingPositions.Length];
         }
+
 
         internal override void Compute(List<Node> allNodes)
         {

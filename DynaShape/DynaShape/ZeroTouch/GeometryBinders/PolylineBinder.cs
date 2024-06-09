@@ -13,7 +13,7 @@ public class PolylineBinder
     private PolylineBinder(){}
 
     /// <summary>
-    /// Create a PolylineBinder to preview Polyline geometry.
+    /// Create a PolylineBinder.
     /// </summary>
     /// <param name="vertices">The vertices of the Polyline.</param>
     /// <param name="color">An optional color to preview the circle geometry.</param>
@@ -25,9 +25,13 @@ public class PolylineBinder
         [DefaultArgument("null")] Color color,
         [DefaultArgument("false")] bool loop)
     {
-        return new DynaShape.GeometryBinders.PolylineBinder(
+        var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.PolylineBinder>();
+
+        binder.Initialize(
             vertices.ToTriples(),
             color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor,
             loop);
+
+        return binder;
     }
 }

@@ -7,7 +7,18 @@ namespace DynaShape.Goals
     [IsVisibleInDynamoLibrary(false)]
     public class ParallelLinesGoal : Goal
     {
+        public ParallelLinesGoal()
+        {
+        }
+
+
         public ParallelLinesGoal(List<Triple> pointPairs, float weight = 1f)
+        {
+            Initialize(pointPairs, weight);
+
+        }
+
+        private void Initialize(List<Triple> pointPairs, float weight)
         {
             Weight = weight;
             StartingPositions = pointPairs.ToArray();

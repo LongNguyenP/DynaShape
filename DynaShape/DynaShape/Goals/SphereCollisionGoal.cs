@@ -9,7 +9,19 @@ namespace DynaShape.Goals
     {
         public float[] Radii;
 
+
+        public SphereCollisionGoal()
+        {
+        }
+
+
         public SphereCollisionGoal(List<Triple> centers, List<float> radii, float weight = 1000f)
+        {
+            Initialize(centers, radii, weight);
+        }
+
+
+        private void Initialize(List<Triple> centers, List<float> radii, float weight)
         {
             Weight = weight;
             Radii = radii.ToArray();

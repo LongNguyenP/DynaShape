@@ -13,17 +13,29 @@ namespace DynaShape.GeometryBinders
     {
         public string Text;
 
+
+        public TextBinder()
+        {
+        }
+
+
         public TextBinder(Triple center, string text, Color4 color)
         {
-            StartingPositions = new[] { center };
-            Text = text;
-            Color = color;
+            Initialize(center, text, color);
         }
 
 
         public TextBinder(Triple center, string text)
             : this (center, text, DynaShapeDisplay.DefaultLineColor)
         {
+        }
+
+
+        public void Initialize(Triple center, string text, Color4 color)
+        {
+            StartingPositions = new[] { center };
+            Text = text;
+            Color = color;
         }
 
 

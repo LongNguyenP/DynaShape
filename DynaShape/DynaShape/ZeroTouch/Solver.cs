@@ -9,16 +9,8 @@ namespace DynaShape.ZeroTouch;
 public static class Solver
 {
     /// <summary>
-    /// Create a DynaShape solver, which will be input into the Solver.Execute node
-    /// </summary>
-    /// <returns></returns>
-    public static DynaShape.Solver Create() => new DynaShape.Solver();
-
-
-    /// <summary>
     /// Execute the solver to iteratively solve the input goals/constraints
     /// </summary>
-    /// <param name="solver">The solver, which can be obtained from the Solver.Create node</param>
     /// <param name="goals">The goals/constraints that the solver will solve</param>
     /// <param name="geometryBinders">The geometry binders</param>
     /// <param name="nodeMergeThreshold">Before the solver starts to run, nodes that have identical positions (within this threshold) will be merged into one node</param>
@@ -33,7 +25,6 @@ public static class Solver
     [MultiReturn("nodePositions", "goalOutputs", "geometries")]
     [CanUpdatePeriodically(true)]
     public static Dictionary<string, object> Execute(
-        DynaShape.Solver solver,
         List<Goal> goals,
         [DefaultArgument("null")] List<GeometryBinder> geometryBinders,
         [DefaultArgument("0.001")] float nodeMergeThreshold,
@@ -47,6 +38,8 @@ public static class Solver
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
+
+        DynaShape.Solver solver = TracingUtils.GetObjectFromTrace<DynaShape.Solver>();
 
         if (reset)
         {
