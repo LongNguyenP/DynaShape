@@ -1,5 +1,5 @@
 {
-  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "Uuid": "0c7bc5de-8286-455e-a64e-23b0b8f5ebb0",
   "IsCustomNode": false,
   "Description": "",
   "Name": "07_Cocircular_EqualLengths_2DGrid",
@@ -223,54 +223,6 @@
       "Description": "Concatenates all given lists into a single list.\n\nList.Join (lists: var[]..[]): var[]..[]"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "cdeb1babf1d44286a6af3af17f284084",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "06c5651b5d854176a5908c3959771ed5",
-          "Name": "vertices",
-          "Description": "Point[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "c815c619ca784ac2a978538eb4962748",
-          "Name": "color",
-          "Description": "Color\nDefault value : null",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "600369d300f94a6e81205ac1fd17135a",
-          "Name": "loop",
-          "Description": "bool\nDefault value : false",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "153d561241e64d9eb384a8d9e583ea75",
-          "Name": "PolylineBinder",
-          "Description": "PolylineBinder",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.GeometryBinders.PolylineBinder@Autodesk.DesignScript.Geometry.Point[],DSCore.Color,bool",
-      "Replication": "Auto",
-      "Description": "GeometryBinders.PolylineBinder (vertices: Point[], color: Color = null, loop: bool = false): PolylineBinder"
-    },
-    {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
       "FunctionSignature": "DSCore.List.Join@var[]..[]",
       "FunctionType": "VariableArgument",
@@ -425,26 +377,6 @@
       "InputValue": true
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "0531f2f9611f41aa87a411cb51bd9ac8",
-      "NodeType": "FunctionNode",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "d33e5abb707d436caacc9d5ea6cf86ac",
-          "Name": "Solver",
-          "Description": "Solver",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Solver.Create",
-      "Replication": "Auto",
-      "Description": "Create a DynaShape solver, which will be input into the Solver.Execute node\n\nSolver.Create ( ): Solver"
-    },
-    {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
       "Id": "ee9cd04f591a420a953de65b750bb8b7",
       "NodeType": "BooleanInputNode",
@@ -471,15 +403,6 @@
       "Inputs": [
         {
           "Id": "d5075e6bba3749fb9e655ccd73747d13",
-          "Name": "solver",
-          "Description": "The solver, which can be obtained from the Solver.Create node\n\nSolver",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "7279f613a1df43e8926801d6cd0732eb",
           "Name": "goals",
           "Description": "The goals/constraints that the solver will solve\n\nGoal[]",
           "UsingDefaultValue": false,
@@ -488,16 +411,16 @@
           "KeepListStructure": false
         },
         {
-          "Id": "0a3f4f2a9f7a4c2c8663bc73d0cd12f5",
+          "Id": "7279f613a1df43e8926801d6cd0732eb",
           "Name": "geometryBinders",
-          "Description": "The geometry binders\n\nGeometryBinder[]\nDefault value : null",
-          "UsingDefaultValue": true,
+          "Description": "The geometry binders\n\nGeometryBinder[]\nDefault value : null (disabled)",
+          "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
         },
         {
-          "Id": "edcdf05f4fac495cabd6901ee61307d5",
+          "Id": "0a3f4f2a9f7a4c2c8663bc73d0cd12f5",
           "Name": "nodeMergeThreshold",
           "Description": "Before the solver starts to run, nodes that have identical positions (within this threshold) will be merged into one node\n\ndouble\nDefault value : 0.001",
           "UsingDefaultValue": true,
@@ -506,7 +429,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "045a626af2cb4aa6badc2e48dcdd6ff2",
+          "Id": "edcdf05f4fac495cabd6901ee61307d5",
           "Name": "iterations",
           "Description": "The number of iterations that the solver will execute in the background before display the intermediate result. If set to 0 (the default value), the solver will attempt run as many iterations as possible within approximately 25 milliseconds, which is sufficient for real-time visual feedback. Using a small value (e.g. 1) will make the solver appears to run more slowly and display more intermediate result, allowing us to better observe and understand how the nodes and goals behave\n\nint\nDefault value : 0",
           "UsingDefaultValue": true,
@@ -515,7 +438,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "cee2302d44ef4775a66c9dba672c3fbc",
+          "Id": "045a626af2cb4aa6badc2e48dcdd6ff2",
           "Name": "reset",
           "Description": "Reset the solver to the initial condition. You should set this to True at the beginning of a scenario, then set it to False. If you add, remove goals, you will need to reset for the changes to take effect\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
@@ -524,7 +447,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "8c236ee5287247ccb98404a835c2bcae",
+          "Id": "cee2302d44ef4775a66c9dba672c3fbc",
           "Name": "execute",
           "Description": "Execute or stop executing the solver\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
@@ -533,7 +456,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "cbdd0b565ee44751876123ac185457f0",
+          "Id": "8c236ee5287247ccb98404a835c2bcae",
           "Name": "enableMomentum",
           "Description": "Apply momentum effect to the movement of the nodes. For simulation of physical motion, this results in more realistic motion. For constraint-based optimization, it often helps the solver to reach the final solution in fewer iteration (i.e. faster), but can sometimes lead to unstable and counter-intuitive solution. In such case, try setting momentum to False\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
@@ -542,7 +465,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "9d377363b4c542a7aee2d668cc1f9f15",
+          "Id": "cbdd0b565ee44751876123ac185457f0",
           "Name": "enableFastDisplay",
           "Description": "bool\nDefault value : true",
           "UsingDefaultValue": true,
@@ -551,7 +474,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "c58c050b549a47fab330027fe418c207",
+          "Id": "9d377363b4c542a7aee2d668cc1f9f15",
           "Name": "enableManipulation",
           "Description": "Enable manipulation of the nodes in the background view with mouse\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
@@ -560,7 +483,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "e0711b1c1b7648d88dd323baa3f85fbd",
+          "Id": "c58c050b549a47fab330027fe418c207",
           "Name": "dampingFactor",
           "Description": "When momentum mode is enabled, this value will determine how much the node's velocity is damped at each iteration\n\ndouble\nDefault value : 0.98",
           "UsingDefaultValue": true,
@@ -598,9 +521,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Solver.Execute@DynaShape.Solver,DynaShape.Goals.Goal[],DynaShape.GeometryBinders.GeometryBinder[],double,int,bool,bool,bool,bool,bool,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Solver.Execute@DynaShape.Goals.Goal[],DynaShape.GeometryBinders.GeometryBinder[],double,int,bool,bool,bool,bool,bool,double",
       "Replication": "Auto",
-      "Description": "Execute the solver to iteratively solve the input goals/constraints\n\nSolver.Execute (solver: Solver, goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
+      "Description": "Execute the solver to iteratively solve the input goals/constraints\n\nSolver.Execute (goals: Goal[], geometryBinders: GeometryBinder[] = null, nodeMergeThreshold: double = 0.001, iterations: int = 0, reset: bool = true, execute: bool = true, enableMomentum: bool = true, enableFastDisplay: bool = true, enableManipulation: bool = false, dampingFactor: double = 0.98): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -621,45 +544,6 @@
       "Replication": "Disabled",
       "Description": "Enables selection between True and False",
       "InputValue": true
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "40bb5e8edacb4cfca2d6aa90ff4b6cf3",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "caaa8a7915b649eba346d1b050be4caa",
-          "Name": "startPositions",
-          "Description": "The start positions of the nodes.\n\nPoint[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "67b7369697d2424f8d61f9a45f8f8516",
-          "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "def8baeffce049bb949a5d76917c6301",
-          "Name": "EqualLengthsGoal",
-          "Description": "EqualLengthsGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.EqualLengthsGoal.Create@Autodesk.DesignScript.Geometry.Point[],double",
-      "Replication": "Auto",
-      "Description": "Creates an EqualLengthsGoal to force a sequence of nodes to maintain equal distances.\n\nEqualLengthsGoal.Create (startPositions: Point[], weight: double = 1): EqualLengthsGoal"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -702,11 +586,59 @@
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "049759ceb1a24a6e8ae2b54197838756",
+      "Id": "6d2cfb7f889349dc8e938a17d6887390",
       "NodeType": "FunctionNode",
       "Inputs": [
         {
-          "Id": "681db1cb2bf04dd0b46eed87dbe4f4c1",
+          "Id": "bcf30bd74af746f3aea708ff043ed8b3",
+          "Name": "vertices",
+          "Description": "The vertices of the Polyline.\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1d656c06fa54440da1998e1582c04e93",
+          "Name": "color",
+          "Description": "An optional color to preview the circle geometry.\n\nColor\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "48675b58afd5489dbeb3d1a14c189d0c",
+          "Name": "loop",
+          "Description": "An optional setting to force the Polyline to be a closed loop.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "439ef24b6354475385acabf9f839f722",
+          "Name": "PolylineBinder",
+          "Description": "PolylineBinder",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.GeometryBinders.PolylineBinder.ByPoints@Autodesk.DesignScript.Geometry.Point[],DSCore.Color,bool",
+      "Replication": "Auto",
+      "Description": "Create a PolylineBinder.\n\nPolylineBinder.ByPoints (vertices: Point[], color: Color = null, loop: bool = false): PolylineBinder"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "5c2f293954764b6eab41f9ab591569f8",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "88acb7db9ff7491c96647c6bdaf8ed99",
           "Name": "startPosition",
           "Description": "The starting position for this AnchorGoal\n\nPoint",
           "UsingDefaultValue": false,
@@ -715,7 +647,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "00cccd75bfa44f78ab68264676a4a9ce",
+          "Id": "831383836e66431c833f24f434c47a10",
           "Name": "anchor",
           "Description": "The resting position for this anchor goal\n\nPoint\nDefault value : null",
           "UsingDefaultValue": true,
@@ -724,7 +656,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "192d6427a81d43ca8c56afc79883e018",
+          "Id": "1572ea7cc32149dfaed92669a60ce695",
           "Name": "weight",
           "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1000",
           "UsingDefaultValue": true,
@@ -735,7 +667,7 @@
       ],
       "Outputs": [
         {
-          "Id": "756af397638f4564b2c652c540e52fd1",
+          "Id": "270daaccde7a4bd6882a3ea258fa39c9",
           "Name": "AnchorGoal",
           "Description": "A newly defined AnchorGoal.",
           "UsingDefaultValue": false,
@@ -744,9 +676,48 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.Create@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.AnchorGoal.ByPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
       "Replication": "Auto",
-      "Description": "Creates an AnchorGoal to attempt to keep a node on a specified point. By default the weight for this goal is set very high to ensure the node really \"sticks\" to the anchor.\n\nAnchorGoal.Create (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
+      "Description": "Creates an AnchorGoal to attempt to keep a node on a specified point. By default the weight for this goal is set very high to ensure the node really \"sticks\" to the anchor.\n\nAnchorGoal.ByPoint (startPosition: Point, anchor: Point = null, weight: double = 1000): AnchorGoal"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "0c58395c21994f67920d0918cc89ccb5",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "b7ef3a694e3d452999fbc78433eaaed2",
+          "Name": "startPositions",
+          "Description": "The start positions of the nodes.\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bc2845f896b14c6698a267fec857c4cb",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5d8f92b6139d47cdbdd0a52b211aa510",
+          "Name": "EqualLengthsGoal",
+          "Description": "EqualLengthsGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartPositions@Autodesk.DesignScript.Geometry.Point[],double",
+      "Replication": "Auto",
+      "Description": "Creates an EqualLengthsGoal to force a sequence of nodes to maintain equal distances.\n\nEqualLengthsGoal.ByStartPositions (startPositions: Point[], weight: double = 1): EqualLengthsGoal"
     }
   ],
   "Connectors": [
@@ -764,38 +735,32 @@
     },
     {
       "Start": "bcd129b00c764aeaa7d9b15208ba5658",
-      "End": "681db1cb2bf04dd0b46eed87dbe4f4c1",
-      "Id": "7366f9cb672c466b9304e8404e908e65",
+      "End": "88acb7db9ff7491c96647c6bdaf8ed99",
+      "Id": "24a5cc2306c14dffb78053f658653ac8",
       "IsHidden": "False"
     },
     {
       "Start": "95ffadfc8e4f493ebc799181232445bb",
-      "End": "06c5651b5d854176a5908c3959771ed5",
-      "Id": "e01dc93b80f849748bf7592f4ad97e50",
+      "End": "bcf30bd74af746f3aea708ff043ed8b3",
+      "Id": "e340e459d88c4f0b8aaf71ae90ab1cce",
       "IsHidden": "False"
     },
     {
       "Start": "95ffadfc8e4f493ebc799181232445bb",
-      "End": "caaa8a7915b649eba346d1b050be4caa",
-      "Id": "59e41f04b37243d58ce68833459698e5",
+      "End": "b7ef3a694e3d452999fbc78433eaaed2",
+      "Id": "07df40de02a244b48ad64f5b60fc53d1",
       "IsHidden": "False"
     },
     {
       "Start": "95ffadfc8e4f493ebc799181232445bb",
       "End": "06d64180613b40d3a8eed5b642127d2d",
-      "Id": "c08961b95c2a46e6ba0ac94332070847",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "153d561241e64d9eb384a8d9e583ea75",
-      "End": "0a3f4f2a9f7a4c2c8663bc73d0cd12f5",
-      "Id": "7f8da9ae935f46d3831fe5ad0ae2a27e",
+      "Id": "fdea3624427d4dc5ad516d502b7965a5",
       "IsHidden": "False"
     },
     {
       "Start": "3d232618ec7f46d4a252887a68802cbc",
-      "End": "7279f613a1df43e8926801d6cd0732eb",
-      "Id": "bccbf24a8ec049e4bfb7e07d11387e36",
+      "End": "d5075e6bba3749fb9e655ccd73747d13",
+      "Id": "79ba9c27e1c84e36804af0c201f6d5b8",
       "IsHidden": "False"
     },
     {
@@ -824,50 +789,38 @@
     },
     {
       "Start": "8b84d80b1b2341c8a71e31fd68040782",
-      "End": "cee2302d44ef4775a66c9dba672c3fbc",
-      "Id": "6127d6878ed64cae921883503e87fab3",
+      "End": "045a626af2cb4aa6badc2e48dcdd6ff2",
+      "Id": "6d669fd76f174a0ab26e9b36869b8af8",
       "IsHidden": "False"
     },
     {
       "Start": "21f99f390e86491fbe29af21e9d433ae",
-      "End": "045a626af2cb4aa6badc2e48dcdd6ff2",
-      "Id": "72082c80925c4b05b1cba109a4e18d9f",
+      "End": "edcdf05f4fac495cabd6901ee61307d5",
+      "Id": "130ae6ce7ad14ef1bf76c10d8c5fc99a",
       "IsHidden": "False"
     },
     {
       "Start": "01ea8410091a4a7abafb0e475636f4b9",
-      "End": "8c236ee5287247ccb98404a835c2bcae",
-      "Id": "bc24446909ce49c9bb9a8824255f066c",
+      "End": "cee2302d44ef4775a66c9dba672c3fbc",
+      "Id": "552036a28b4a4f9d9aa7819c7b3127b4",
       "IsHidden": "False"
     },
     {
       "Start": "85ba02058dcb40de9172c5164cee9cf8",
-      "End": "cbdd0b565ee44751876123ac185457f0",
-      "Id": "d2ee6ceb2c2540f59fa3ce61625428cb",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "d33e5abb707d436caacc9d5ea6cf86ac",
-      "End": "d5075e6bba3749fb9e655ccd73747d13",
-      "Id": "b9a78766e1fc4e59ba1a1b9cd529261e",
+      "End": "8c236ee5287247ccb98404a835c2bcae",
+      "Id": "3fdb624c9a7941da8517e17ac7bbaefb",
       "IsHidden": "False"
     },
     {
       "Start": "0c052b0b53d647c9a8b0d6e454841403",
-      "End": "9d377363b4c542a7aee2d668cc1f9f15",
-      "Id": "ab99b787e4a04d2fa3338383fb611b0d",
+      "End": "cbdd0b565ee44751876123ac185457f0",
+      "Id": "6df01136ca48464da7ff2874045925cd",
       "IsHidden": "False"
     },
     {
       "Start": "cdaae1aa374a4576b49d5dd79d35bbe6",
-      "End": "c58c050b549a47fab330027fe418c207",
-      "Id": "7a958b9c579444baaec3e928e79a495a",
-      "IsHidden": "False"
-    },
-    {
-      "Start": "def8baeffce049bb949a5d76917c6301",
-      "End": "6f167cbbe87942faa2b0d0251a4d9537",
-      "Id": "62a061b856a4495f8c878a278888f0bc",
+      "End": "9d377363b4c542a7aee2d668cc1f9f15",
+      "Id": "58a925c9d31348e0b2b99ea9ef4a712b",
       "IsHidden": "False"
     },
     {
@@ -877,9 +830,21 @@
       "IsHidden": "False"
     },
     {
-      "Start": "756af397638f4564b2c652c540e52fd1",
+      "Start": "439ef24b6354475385acabf9f839f722",
+      "End": "7279f613a1df43e8926801d6cd0732eb",
+      "Id": "20c62dc72bda489a83ca94d773ea8a43",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "270daaccde7a4bd6882a3ea258fa39c9",
       "End": "0c8b96c1e6c44c3ebfd7ee10a08e2d84",
-      "Id": "17b9a425368041d88360de53d71b1b18",
+      "Id": "6d70b79b595149ed93bfe34cae1e87c6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5d8f92b6139d47cdbdd0a52b211aa510",
+      "End": "6f167cbbe87942faa2b0d0251a4d9537",
+      "Id": "ce28da06987b46b48b598f963f944d70",
       "IsHidden": "False"
     }
   ],
@@ -891,12 +856,11 @@
       "ReferenceType": "Package",
       "Nodes": [
         "17df6f015f734f2c8c73d588dfe82c09",
-        "cdeb1babf1d44286a6af3af17f284084",
-        "0531f2f9611f41aa87a411cb51bd9ac8",
         "0b77baf294664b2e9f1d1b1258eb1078",
-        "40bb5e8edacb4cfca2d6aa90ff4b6cf3",
         "a7630b1b8c41471aa2142819ecac7ece",
-        "049759ceb1a24a6e8ae2b54197838756"
+        "6d2cfb7f889349dc8e938a17d6887390",
+        "5c2f293954764b6eab41f9ab591569f8",
+        "0c58395c21994f67920d0918cc89ccb5"
       ]
     }
   ],
@@ -924,7 +888,26 @@
     "warningCount": 0,
     "errorCount": 0
   },
-  "Bindings": [],
+  "Bindings": [
+    {
+      "NodeId": "0b77baf2-9466-4b2e-9f1d-1b1258eb1078",
+      "Binding": {
+        "Execute_InClassDecl-1_InFunctionScope-1_Instance0_0b77baf2-9466-4b2e-9f1d-1b1258eb1078": "H4sIAAAAAAAACouuVkpJLElUslIyN7BMTk4xMtE1tbRI1DWxNEzWTTRKBLKSE1MMDEySjEySzJVqYwFf+8USMQAAAA=="
+      }
+    },
+    {
+      "NodeId": "6d2cfb7f-8893-49dc-8e93-8a17d6887390",
+      "Binding": {
+        "ByPoints_InClassDecl-1_InFunctionScope-1_Instance0_6d2cfb7f-8893-49dc-8e93-8a17d6887390": "H4sIAAAAAAAACl1WsY6uuwl8l1MHCdsYcOq8xdUtANtlmtwuyrtnvlNE6zSrX7uz/mGYGfjj37/+ef7119n/iL/i19//+Pev/fvDr9jsYodJ+zkkbSut5kLsczSZTVnPr//87X943q1pzE49dZAcFVq9BZ1so84evuX+xNcZ2aKKRgiTZEzKkkZ7eohbae76ibc426qhlOmN5MagyCOksWbPbHu3+RN//OiW00h1J8k4gxIPU5WU85Sw3X7iR8wz01BP7Qn8upQyJrnO0rv0Nu0/8WqT+aLLcrskMSdFRdLUJXJBkis//eqZZ41OZ0iQbPQLoFP2ucv36FcffoZsD9ZN3vbXdBjFWEw5e0Pzp4ePn/iNX5nYovCLft075dZOtnOeW1Zh+hN/PWfeZJp9gv910W/XQ1O0NbxzOsfDZ8iVtCDFTxIV8I/JUvfZhcuudf+JT24s5hv15CYxkOR3HRprzTvx7d4f/Zhaw3iTdph/eoB+1l0YB4arcWXXM1/hZlxHwSdQorwwKlYafd06bLyWPfyL5D4oWGpAnw7RBR+nVZayxq21nvmanORdv9//6smE/mtRixY2pY2dz3x5sOoYTL4C+OFBcSuoxGCZDsJe/iHOhj9sajM75psC/nlTbyhHm42RD/8eban0gkE28LvAf29Kvm/vtRlTkQd/4JaG0fZW0A/XpjzRqSUYWpBeH4/+fUaa6qUbDH/1YZSDB804K0fjre15H47ouY2pXaTC73rWHUq39ds/5ebr9+Qrd/Ol36KW1YFnPlTndhvqHvvBG3zYAiqeE1WAEvi3h37tw3frauz16PMOvmaNoEW8fxTWGmo00MVMhYfHOy8Mpd9YdFng9+0FflbQHX1OY61ej55Z2oIgnGB7zNdWUmqDiNaAlsMVsfcT3wqBErGptIOf43Amgoo8Mnyfm3ji8eOdrTOiNs2RJyiZEMFK0Ojwz+1az/uTWzuCgd41wQ9ETBGMvHVj8b7w1OOXfVdr91zqDBMjrwL140eHKtYUiSOPX6zEt6HgbAd+N/glEyERy7cqY4rnqWcg7c9BSkl+/UqHNHNiaTi8Mm2tIQ//0k537hsARLlgQshzLBlvw+BGeIwfv0ALej4V+PXPj3bIO5I91263s6zZHv1cbBSEDrpcBXw5otwhunOXtHJFXj78+9XpK518YolJfU9jR+ATlgiEN9If/X8y302VrA3MyyfyGSoDswZbwEz/x/80mb24qDDgD4XoAQf4kviCHv+bD592JlsBZfd++Yl8yxxC2xmJXraG7Z/4QN0L0UHIIYQcVAAq26LdodrFYPPNt3NlMIyHAFyf/odjtPgE3u1ObdfWs3/P4TgxGvVVwHeYcg3ITyPg9xodufjmw/m9xz8o+BE/uAfQDng4tVeDTV9/9Qmhj023f/Wjd/AD+XV13AkIypHPfJW9+sFUF/4Mf+FSyQaRIlazjvWV89WbYa9j00KVcJXwZlohWK/MDC+OMeTpF8vHPy8Rj2/fgVWCxNB+XeFTN+rN2wZ9DHiVDAKAfyE1D4SuYCsdbDOcEA8/1nEkfAcDthXqX/5Z5RruBx5VHXpeDz+2+hVVQC9STQymwU4ygqUh/qqFFfvoQffUe7El4qJfuJPccNTccSpPLXxFPvPdlgoDEHeIQlhxjyn241QkP1ciKp990WGhZENA5cS+cIQKNj1CV1qfy5B3/OoTd95M9IvLB3i5v5NlUDWgGfebtaffiDYvEu17Gvmg0ENCy3RhMljApM+HzwbHte9APYVUk40lE/sLubnx+4LNxnsv7R6xkFIDQf/lD/xbSym9pixcF2O8/EdX7MdBVyb0Ce9AOjgnRnUkK/eFPHvyBHoOiBELEVekQNBQ3reeMCiU6ln3wUcisAp5OBHd3z4NctzIhDu4OWqMxdDbn//587+Ii2AhsgsAAA=="
+      }
+    },
+    {
+      "NodeId": "5c2f2939-5476-4b6e-ab41-f9ab591569f8",
+      "Binding": {
+        "ByPoint_InClassDecl-1_InFunctionScope-1_Instance0_5c2f2939-5476-4b6e-ab41-f9ab591569f8": "H4sIAAAAAAAACk3MPQ7CMAxA4btkxlIcOz9m5haog53YIwvdqt4dxIC6veHTex7p5e/d10N3TffnkdYvEo0u2n1CLm0B1+VgRRWqVpRQt9w1nbe/j4wYywrQQAYWmqBiARhEhE4Lp11983Dx1aEXzt+/IYgqAmrX7LPo8HH1xC2ktArMJsDWGqjPCRF1RI5wI07ndm4fU9ej2NIAAAA="
+      }
+    }
+  ],
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
@@ -936,15 +919,15 @@
     },
     "Camera": {
       "Name": "_Background Preview",
-      "EyeX": -50.45579528808594,
-      "EyeY": 44.9693603515625,
-      "EyeZ": 51.03229522705078,
-      "LookX": 50.5657844543457,
-      "LookY": -32.65544891357422,
-      "LookZ": -60.01092529296875,
-      "UpX": 0.11426742374897003,
-      "UpY": 0.9841507077217102,
-      "UpZ": -0.13561081886291504
+      "EyeX": 22.885639190673828,
+      "EyeY": 27.754924774169922,
+      "EyeZ": 43.075443267822266,
+      "LookX": -29.117095947265625,
+      "LookY": -26.736003875732422,
+      "LookZ": -42.439151763916016,
+      "UpX": -0.14710702002048492,
+      "UpY": 0.96560138463974,
+      "UpZ": -0.21441422402858734
     },
     "ConnectorPins": [],
     "NodeViews": [
@@ -965,18 +948,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": false,
-        "X": 299.8612043919303,
-        "Y": 217.97048925973
-      },
-      {
-        "Id": "cdeb1babf1d44286a6af3af17f284084",
-        "Name": "GeometryBinders.PolylineBinder",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 664.4028895486144,
-        "Y": 41.25429775318992
+        "X": 327.7913856346729,
+        "Y": 241.66882485963305
       },
       {
         "Id": "30b022559de64dab9126bfe766aa1a7a",
@@ -985,8 +958,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1100.9259897891825,
-        "Y": 398.9651885379459
+        "X": 1095.828508849224,
+        "Y": 229.85018490196194
       },
       {
         "Id": "e1ec11365cac4873a6a7431f2167b83e",
@@ -1005,8 +978,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1457.2427138751175,
-        "Y": 322.6845979319132
+        "X": 1095.828508849224,
+        "Y": 591.8501849019619
       },
       {
         "Id": "a2533db218d54928bf8c73b0204df6c1",
@@ -1015,8 +988,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1457.2427138751175,
-        "Y": 173.68459793191306
+        "X": 1095.828508849224,
+        "Y": 442.85018490196194
       },
       {
         "Id": "c82aee1ea37b4310a96c2d1588f9c1eb",
@@ -1025,8 +998,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1457.2427138751175,
-        "Y": 471.6845979319132
+        "X": 1095.828508849224,
+        "Y": 740.8501849019619
       },
       {
         "Id": "24b102284bea4b1293a8f157ba519ce5",
@@ -1035,18 +1008,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1457.2427138751175,
-        "Y": 621.6845979319135
-      },
-      {
-        "Id": "0531f2f9611f41aa87a411cb51bd9ac8",
-        "Name": "Solver.Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 1457.2427138751175,
-        "Y": 24.684597931913174
+        "X": 1095.828508849224,
+        "Y": 890.8501849019619
       },
       {
         "Id": "ee9cd04f591a420a953de65b750bb8b7",
@@ -1055,8 +1018,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1457.2427138751175,
-        "Y": 770.6845979319135
+        "X": 1095.828508849224,
+        "Y": 1039.850184901962
       },
       {
         "Id": "0b77baf294664b2e9f1d1b1258eb1078",
@@ -1065,8 +1028,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1905.814142446546,
-        "Y": 282.6845979319132
+        "X": 1544.3999374206523,
+        "Y": 571.8501849019619
       },
       {
         "Id": "a93611865e154677b50159e83d7e4023",
@@ -1075,18 +1038,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 1457.2427138751175,
-        "Y": 919.6845979319135
-      },
-      {
-        "Id": "40bb5e8edacb4cfca2d6aa90ff4b6cf3",
-        "Name": "EqualLengthsGoal.Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 661.0928150036697,
-        "Y": 442.0329423208101
+        "X": 1095.828508849224,
+        "Y": 1188.8501849019622
       },
       {
         "Id": "a7630b1b8c41471aa2142819ecac7ece",
@@ -1095,25 +1048,45 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 663.0661340940441,
-        "Y": 247.3196401130727
+        "X": 663.9125032226121,
+        "Y": 45.03741838532966
       },
       {
-        "Id": "049759ceb1a24a6e8ae2b54197838756",
-        "Name": "AnchorGoal.Create",
+        "Id": "6d2cfb7f889349dc8e938a17d6887390",
+        "Name": "PolylineBinder.ByPoints",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 659.2905833770006,
-        "Y": 621.7013960010992
+        "X": 657.4092137369975,
+        "Y": 608.4766909250375
+      },
+      {
+        "Id": "5c2f293954764b6eab41f9ab591569f8",
+        "Name": "AnchorGoal.ByPoint",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 655.9756561014136,
+        "Y": 395.6664831455877
+      },
+      {
+        "Id": "0c58395c21994f67920d0918cc89ccb5",
+        "Name": "EqualLengthsGoal.ByStartPositions",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 657.8310357403731,
+        "Y": 219.43180092973185
       }
     ],
     "Annotations": [
       {
         "Id": "ffd7de5fa88944768f6bd9c2b0e670c2",
         "Title": "DynaShape Solver",
-        "DescriptionText": "Description <Double click here to edit group description>",
+        "DescriptionText": "",
         "IsExpanded": true,
         "WidthAdjustment": 0.0,
         "HeightAdjustment": 0.0,
@@ -1122,20 +1095,20 @@
           "a2533db218d54928bf8c73b0204df6c1",
           "c82aee1ea37b4310a96c2d1588f9c1eb",
           "24b102284bea4b1293a8f157ba519ce5",
-          "0531f2f9611f41aa87a411cb51bd9ac8",
           "ee9cd04f591a420a953de65b750bb8b7",
           "0b77baf294664b2e9f1d1b1258eb1078",
           "a93611865e154677b50159e83d7e4023",
-          "6954c7c57f8c4d8c80a64f6882b3f4c7"
+          "6954c7c57f8c4d8c80a64f6882b3f4c7",
+          "30b022559de64dab9126bfe766aa1a7a"
         ],
         "HasNestedGroups": false,
-        "Left": 1447.2427138751175,
-        "Top": -477.7439734966582,
-        "Width": 802.8571428571429,
-        "Height": 1530.7142857142858,
+        "Left": 1085.828508849224,
+        "Top": 69.4216134733905,
+        "Width": 802.8571428571427,
+        "Height": 1252.7142857142858,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": -411.7439734966582,
+        "InitialTop": 135.4216134733905,
         "InitialHeight": 1476.4285714285716,
         "TextblockHeight": 56.0,
         "Background": "#FF48B9FF"
@@ -1149,8 +1122,8 @@
         "HeightAdjustment": 0.0,
         "Nodes": [],
         "HasNestedGroups": false,
-        "Left": 1457.2427138751175,
-        "Top": -403.7439734966582,
+        "Left": 1544.3999374206523,
+        "Top": 143.4216134733905,
         "Width": 0.0,
         "Height": 0.0,
         "FontSize": 36.0,
@@ -1161,8 +1134,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -1140.3002758339712,
-    "Y": 54.95868770952069,
-    "Zoom": 0.8180991956754722
+    "X": -465.4882561630558,
+    "Y": 196.55979883290735,
+    "Zoom": 0.4603994503732801
   }
 }

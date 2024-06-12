@@ -19,7 +19,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> pointPairs, float weight)
+        public void Initialize(List<Triple> pointPairs, float weight)
         {
             Weight = weight;
             if (pointPairs.Count % 2 != 0) throw new Exception("Equal-Length Goal: Node count must be even");

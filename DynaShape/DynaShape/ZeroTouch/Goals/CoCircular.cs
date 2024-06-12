@@ -11,6 +11,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private CoCircularGoal(){}
 
+
         /// <summary>
         /// Creates a CoCircularGoal that attempts to force a set of nodes to lie on a common circular arc.
         /// </summary>
@@ -22,23 +23,9 @@ namespace DynaShape.ZeroTouch.Goals
             List<Point> startPositions,
             [DefaultArgument("1.0")] float weight)
         {
-            return new DynaShape.Goals.CoCircularGoal(startPositions.ToTriples(), weight);
-        }
-
-
-        /// <summary>
-        /// Modifies the CoCircularGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="coCircularGoal">A CoCircular goal to modify with the given parameters</param>
-        /// <param name="weight">An optional new weight for the AngleGoal</param>
-        /// <returns name="CoCircularGoal">The modified CoCircular goal</returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.CoCircularGoal Change(
-            DynaShape.Goals.CoCircularGoal coCircularGoal,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (weight >= 0.0) coCircularGoal.Weight = weight;
-            return coCircularGoal;
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.CoCircularGoal>();
+            goal.Initialize(startPositions.ToTriples(), weight);
+            return goal;
         }
     }
 }

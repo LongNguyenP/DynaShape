@@ -11,6 +11,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private EqualLengthsGoal(){}
 
+
         /// <summary>
         /// Creates an EqualLengthsGoal to force a sequence of nodes to maintain equal distances.
         /// </summary>
@@ -32,7 +33,10 @@ namespace DynaShape.ZeroTouch.Goals
 
             triples.Add(startPositions[startPositions.Count - 1].ToTriple());
 
-            return new DynaShape.Goals.EqualLengthsGoal(triples, weight);
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.EqualLengthsGoal>();
+            goal.Initialize(triples, weight);
+
+            return goal;
         }
 
 
@@ -59,7 +63,12 @@ namespace DynaShape.ZeroTouch.Goals
                 triples.Add(endPositions[i].ToTriple());
             }
 
-            return new DynaShape.Goals.EqualLengthsGoal(triples, weight);
+            triples.Add(startPositions[startPositions.Count - 1].ToTriple());
+
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.EqualLengthsGoal>();
+            goal.Initialize(triples, weight);
+
+            return goal;
         }
 
 
@@ -80,23 +89,11 @@ namespace DynaShape.ZeroTouch.Goals
                 startPositions.Add(line.StartPoint.ToTriple());
                 startPositions.Add(line.EndPoint.ToTriple());
             }
-            return new DynaShape.Goals.EqualLengthsGoal(startPositions, weight);
-        }
 
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.EqualLengthsGoal>();
+            goal.Initialize(startPositions, weight);
 
-        /// <summary>
-        /// Modifies the EqualLengthsGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="equalLengthsGoal">The equalLengthsGoal to modify.</param>
-        /// <param name="weight">An optional new weight for the EqualLengthsGoal.</param>
-        /// <returns name="EqualLengthsGoal"></returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.EqualLengthsGoal Change(
-            DynaShape.Goals.EqualLengthsGoal equalLengthsGoal,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (weight >= 1.0) equalLengthsGoal.Weight = weight;
-            return equalLengthsGoal;
+            return goal;
         }
     }
 }
