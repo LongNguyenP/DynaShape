@@ -18,19 +18,30 @@ namespace DynaShape.Goals
         }
 
 
+        public ShapeMatchingGoal(List<Triple> nodeStartingPositions, bool allowScaling = false, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, allowScaling, weight);
+        }
+
+
         public ShapeMatchingGoal(List<Triple> nodeStartingPositions, List<Triple> targetShapePositions, bool allowScaling = false, float weight = 1f)
         {
             Initialize(nodeStartingPositions, targetShapePositions, allowScaling, weight);
         }
 
 
-        public ShapeMatchingGoal(List<Triple> nodeStartingPositions, bool allowScaling = false, float weight = 1f)
-           : this(nodeStartingPositions, nodeStartingPositions, allowScaling, weight)
+        public void Initialize(List<Triple> nodeStartingPositions, bool allowScaling, float weight)
         {
+            Weight = weight;
+            StartingPositions = nodeStartingPositions.ToArray();
+            Moves = new Triple[StartingPositions.Length];
+            Weights = new float[StartingPositions.Length];
+            AllowScaling = allowScaling;
+            SetTargetShapePoints(nodeStartingPositions);
         }
 
 
-        private void Initialize(List<Triple> nodeStartingPositions, List<Triple> targetShapePositions, bool allowScaling, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, List<Triple> targetShapePositions, bool allowScaling, float weight)
         {
             Weight = weight;
             StartingPositions = nodeStartingPositions.ToArray();
