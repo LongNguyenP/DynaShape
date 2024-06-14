@@ -11,6 +11,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private ConstantGoal(){}
 
+
         /// <summary>
         /// Creates a ConstantGoal that applies a constant directional offset to the specified nodes. This goal is useful for simulating gravity.
         /// </summary>
@@ -25,12 +26,10 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("1.0")] float weight)
         {
             DynaShape.Goals.ConstantGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantGoal>();
-
             goal.Initialize(
                 startPositions.ToTriples(),
                 constant.ToTriple(),
                 weight);
-
             return goal;
         }
     }

@@ -11,6 +11,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private CoLinearGoal(){}
 
+
         /// <summary>
         /// Creates a CoLinearGoal that attempts to force a set of nodes to lie on a common line.
         /// The line position and orientation are computed based on the current node positions.
@@ -20,27 +21,13 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver</param>
         /// <returns></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.CoLinearGoal Create(
+        public static DynaShape.Goals.CoLinearGoal ByPoints(
             List<Point> startPositions,
             [DefaultArgument("1000.0")] float weight)
-        {
-            return new DynaShape.Goals.CoLinearGoal(startPositions.ToTriples(), weight);
-        }
-
-
-        /// <summary>
-        /// Modifies the CoLinearGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="coLinearGoal">A CoLinearGoal to modify with the given parameters</param>
-        /// <param name="weight">An optional new weight for the AngleGoal</param>
-        /// <returns name="CoLinearGoal">The modified CoLinearGoal goal</returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.CoLinearGoal Change(
-            DynaShape.Goals.CoLinearGoal coLinearGoal,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (weight >= 0.0) coLinearGoal.Weight = weight;
-            return coLinearGoal;
+          {
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.CoLinearGoal>();
+            goal.Initialize(startPositions.ToTriples(), weight);
+            return goal;
         }
     }
 }

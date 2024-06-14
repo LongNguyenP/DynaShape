@@ -22,7 +22,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="AngleGoal">A newly defined AngleGoal.</returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.AngleGoal ByPositionsTargetAngle(
+        public static DynaShape.Goals.AngleGoal ByPointsTargetAngle(
             Point a,
             Point b,
             Point c,
@@ -48,7 +48,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="AngleGoal">A newly defined AngleGoal</returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.AngleGoal ByPositions(
+        public static DynaShape.Goals.AngleGoal ByPoints(
             Point a,
             Point b,
             Point c,
