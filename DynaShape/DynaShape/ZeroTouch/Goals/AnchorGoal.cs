@@ -12,6 +12,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private AnchorGoal(){}
 
+
         /// <summary>
         /// Creates an AnchorGoal to attempt to keep a node on a specified point.
         /// By default the weight for this goal is set very high to ensure the node really "sticks" to the anchor.
@@ -27,12 +28,10 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("1000.0")] float weight)
         {
             DynaShape.Goals.AnchorGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.AnchorGoal>();
-
             goal.Initialize(
                 startPosition.ToTriple(),
                 anchor?.ToTriple() ?? startPosition.ToTriple(),
                 weight);
-
             return goal;
         }
     }
