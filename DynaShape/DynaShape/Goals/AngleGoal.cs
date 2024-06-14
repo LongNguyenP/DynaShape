@@ -16,18 +16,29 @@ namespace DynaShape.Goals
         }
 
 
+        public AngleGoal(Triple A, Triple B, Triple C, float weight = 1f)
+        {
+            Initialize(A, B, C, weight);
+        }
+
+
         public AngleGoal(Triple A, Triple B, Triple C, float targetAngle, float weight = 1f)
         {
             Initialize(A, B, C, targetAngle, weight);
         }
 
 
-        public AngleGoal(Triple A, Triple B, Triple C, float weight = 1f)
+        public void Initialize(Triple A, Triple B, Triple C, float weight = 1f)
         {
+            Weight = weight;
+            StartingPositions = new[] { A, B, C };
+            Moves = new Triple[3];
+            Moves[1] = Triple.Zero;
+            Weights = new float[3];
+
             Triple BA = A - B;
             Triple BC = C - B;
-            float targetAngle = (float)Math.Acos(BA.Dot(BC) / (BA.Length * BC.Length));
-            Initialize(A, B, C, targetAngle, weight);
+            TargetAngle = (float)Math.Acos(BA.Dot(BC) / (BA.Length * BC.Length));
         }
 
 

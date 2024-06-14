@@ -11,6 +11,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private AngleGoal(){}
 
+
         /// <summary>
         /// Creates an Angle Goal that attempts to keep the angle formed by three nodes at a target value.
         /// </summary>
@@ -28,12 +29,13 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("0.0")] float targetAngle,
             [DefaultArgument("1.0")] float weight)
         {
-            return new DynaShape.Goals.AngleGoal(
-                a.ToTriple(),
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.AngleGoal>();
+            goal.Initialize(a.ToTriple(),
                 b.ToTriple(),
                 c.ToTriple(),
                 targetAngle.ToRadian(),
                 weight);
+            return goal;
         }
 
 
@@ -52,29 +54,12 @@ namespace DynaShape.ZeroTouch.Goals
             Point c,
             [DefaultArgument("1.0")] float weight)
         {
-            return new DynaShape.Goals.AngleGoal(
-                a.ToTriple(),
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.AngleGoal>();
+            goal.Initialize(a.ToTriple(),
                 b.ToTriple(),
                 c.ToTriple(),
                 weight);
-        }
-
-        /// <summary>
-        /// Modifies the AngleGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="angleGoal">An AngleGoal to modify with the given parameters.</param>
-        /// <param name="targetAngle">The new target angle for the AngleGoal.</param>
-        /// <param name="weight">An optional new weight for the AngleGoal.</param>
-        /// <returns name="angleGoal">The modified AngleGoal.</returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.AngleGoal Change(
-            DynaShape.Goals.AngleGoal angleGoal,
-            float targetAngle,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            angleGoal.TargetAngle = targetAngle.ToRadian();
-            if (weight >= 0.0) angleGoal.Weight = weight;
-            return angleGoal;
+            return goal;
         }
     }
 }
