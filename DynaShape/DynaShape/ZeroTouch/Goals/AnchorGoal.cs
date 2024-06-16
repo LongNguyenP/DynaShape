@@ -20,7 +20,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPosition">The starting position for this AnchorGoal</param>
         /// <param name="anchor">The resting position for this anchor goal</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
-        /// <returns name="AnchorGoal">A newly defined AnchorGoal.</returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.AnchorGoal ByPoint(
             Point startPosition,

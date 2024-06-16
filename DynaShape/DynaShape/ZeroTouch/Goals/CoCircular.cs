@@ -17,7 +17,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// </summary>
         /// <param name="startPositions">The starting points for the CoCircularGoal</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
-        /// <returns name="CoCircularGoal">A newly defined CoCircularGoal</returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.CoCircularGoal ByPoints(
             List<Point> startPositions,
