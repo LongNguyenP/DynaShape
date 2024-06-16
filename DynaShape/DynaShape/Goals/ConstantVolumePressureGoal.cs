@@ -27,7 +27,8 @@ namespace DynaShape.Goals
             Initialize(mesh, volumePressureConstant, weight);
         }
 
-        private void Initialize(Mesh mesh, float volumePressureConstant, float weight)
+
+        public void Initialize(Mesh mesh, float volumePressureConstant, float weight)
         {
             try
             {

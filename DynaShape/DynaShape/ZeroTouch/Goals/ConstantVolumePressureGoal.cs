@@ -11,6 +11,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private ConstantVolumePressureGoal(){}
 
+
         /// <summary>
         /// Creates a ConstantVolumePressureGoal that simulates pressure trapped inside a closed volume. The pressure decreases as the volume expands (Boyle's law).
         /// </summary>
@@ -19,32 +20,14 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ConstantVolumePressureGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.ConstantVolumePressureGoal Create(
+        public static DynaShape.Goals.ConstantVolumePressureGoal ByMesh(
             Mesh mesh,
             [DefaultArgument("0.0")] float volumePressureConstant,
             [DefaultArgument("1.0")] float weight)
         {
-            return new
-            DynaShape.Goals.ConstantVolumePressureGoal(mesh, volumePressureConstant, weight);
-        }
-
-
-        /// <summary>
-        /// Modifies the ConstantVolumePressureGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="constantVolumePressureGoal">A ConstantVolumePressureGoal to modify.</param>
-        /// <param name="volumePressureConstant">An optional new constant for the ConstantVolumePressureGoal.</param>
-        /// <param name="weight">An optional new weight for the ConstantVolumePressureGoal.</param>
-        /// <returns name="ConstantVolumePressureGoal"></returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.ConstantVolumePressureGoal Change(
-            DynaShape.Goals.ConstantVolumePressureGoal constantVolumePressureGoal,
-            [DefaultArgument("-1.0")] float volumePressureConstant,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (volumePressureConstant >= 0.0) constantVolumePressureGoal.VolumePressureConstant = volumePressureConstant;
-            if (weight >= 0.0) constantVolumePressureGoal.Weight = weight;
-            return constantVolumePressureGoal;
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantVolumePressureGoal>();
+            goal.Initialize(mesh, volumePressureConstant, weight);
+            return goal;
         }
     }
 }
