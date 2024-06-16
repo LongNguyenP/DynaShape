@@ -15,8 +15,8 @@ namespace DynaShape.ZeroTouch.Goals
         /// <summary>
         /// Creates an EqualLengthsGoal to force a sequence of nodes to maintain equal distances.
         /// </summary>
-        /// <param name="startPositions">The start positions of the nodes.</param>
-        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <param name="startPositions">The starting positions of the sequence of nodes</param>
+        /// <param name="weight">The goal's weight/impact on the solver</param>
         /// <returns name="EqualLengthsGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal ByStartPositions(
@@ -43,9 +43,9 @@ namespace DynaShape.ZeroTouch.Goals
         /// <summary>
         /// Creates an EqualLengthsGoal to force a set of line segments to maintain equal lengths.
         /// </summary>
-        /// <param name="startPositions">The start positions of the nodes.</param>
-        /// <param name="endPositions">The end positions of the nodes.</param>
-        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <param name="startPositions">The starts of the line segments</param>
+        /// <param name="endPositions">The ends of the line segments</param>
+        /// <param name="weight">The goal's weight/impact on the solver</param>
         /// <returns name="EqualLengthsGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal ByStartEndPositions(
