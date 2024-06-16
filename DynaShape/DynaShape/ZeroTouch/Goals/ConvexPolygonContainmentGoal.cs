@@ -21,7 +21,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight"></param>
         /// <returns></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.ConvexPolygonContainmentGoal Create(
+        public static DynaShape.Goals.ConvexPolygonContainmentGoal ByPointsRadii(
             List<Point> centers,
             List<float> radii,
             [DefaultArgument("null")] List<Point> polygonVertices,
