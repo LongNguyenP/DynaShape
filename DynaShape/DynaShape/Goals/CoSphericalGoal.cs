@@ -18,7 +18,7 @@ namespace DynaShape.Goals
             Initialize(nodeStartingPositions, weight);
         }
 
-        private void Initialize(List<Triple> nodeStartingPositions, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, float weight)
         {
             if (nodeStartingPositions.Count <= 4) throw new Exception("CoSpherical Goal: Node count must be at least 5");
             Weight = weight;
