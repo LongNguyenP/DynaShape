@@ -27,7 +27,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(Triple firstNodePosition, Triple secondNodePosition, Triple targetDirection, float weight)
+        public void Initialize(Triple firstNodePosition, Triple secondNodePosition, Triple targetDirection, float weight)
         {
             TargetDirection = targetDirection.Normalise();
             Weight = weight;
