@@ -24,7 +24,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="end">The end point of the line.</param>
         /// <param name="targetDirection">The direction to remain parallel to.</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
-        /// <returns name="DirectionGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.DirectionGoal ByPoints(
             Point start,

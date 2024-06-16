@@ -19,7 +19,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="radii"></param>
         /// <param name="polygonVertices"></param>
         /// <param name="weight"></param>
-        /// <returns></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.ConvexPolygonContainmentGoal ByPointsRadii(
             List<Point> centers,

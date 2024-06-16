@@ -21,7 +21,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(Triple nodePosition1, Triple nodePosition2, Triple nodePosition3, Triple windVector, float weight)
+        public void Initialize(Triple nodePosition1, Triple nodePosition2, Triple nodePosition3, Triple windVector, float weight)
         {
             Weight = weight;
             WindVector = windVector;

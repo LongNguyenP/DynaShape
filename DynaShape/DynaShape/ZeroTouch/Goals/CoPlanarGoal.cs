@@ -19,7 +19,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// </summary>
         /// <param name="startPositions">The start positions of the nodes.</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
-        /// <returns name="CoPlanarGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.CoPlanarGoal ByPoints(
             List<Point> startPositions,

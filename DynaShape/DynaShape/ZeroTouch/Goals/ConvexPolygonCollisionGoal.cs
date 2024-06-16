@@ -19,7 +19,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="radii">The radii of a circle circumscribed about the given Polygon.</param>
         /// <param name="polygonVertices">The vertices of the given Polygon.</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
-        /// <returns name="ConvexPolygonCollisionGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.ConvexPolygonCollisionGoal ByPointsRadii(
             List<Point> centers,

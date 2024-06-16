@@ -8,10 +8,12 @@ namespace DynaShape.Goals
     public class ConstantPressureGoal : Goal
     {
         public float Pressure;
-
+        private int id;
+        private static Random rand = new Random();
 
         public ConstantPressureGoal()
         {
+            id = rand.Next(9999);
         }
 
 
@@ -38,6 +40,12 @@ namespace DynaShape.Goals
 
             Moves[0] = Moves[1] = Moves[2] = n * Pressure * 0.16666666666666666666666f;
             Weights[0] = Weights[1] = Weights[2] = Weight;
+        }
+
+
+        public override string ToString()
+        {
+            return "ConstantPressureGoal " + id;
         }
     }
 }

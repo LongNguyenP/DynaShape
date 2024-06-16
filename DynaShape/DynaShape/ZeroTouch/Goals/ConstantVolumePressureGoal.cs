@@ -18,7 +18,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="mesh">A closed mesh to apply the ConstantVolumePressureGoal to.</param>
         /// <param name="volumePressureConstant">The constant that is the product of the pressure and volume. Meaning, the pressure will automatically decrease as the mesh volume increases (and vice versa).</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
-        /// <returns name="ConstantVolumePressureGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.ConstantVolumePressureGoal ByMesh(
             Mesh mesh,
