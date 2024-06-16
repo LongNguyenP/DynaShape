@@ -19,7 +19,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> nodeStartingPositions, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, float weight)
         {
             if (nodeStartingPositions.Count < 4) throw new Exception("CoPlanar Goal: Node count must be at least 4");
             Weight = weight;
