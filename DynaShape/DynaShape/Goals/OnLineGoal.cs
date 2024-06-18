@@ -33,7 +33,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> nodeStartingPositions, Triple lineOrigin, Triple lineDirection, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, Triple lineOrigin, Triple lineDirection, float weight)
         {
             TargetLineOrigin = lineOrigin;
             TargetLineDirection = lineDirection;
