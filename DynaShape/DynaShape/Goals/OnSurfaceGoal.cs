@@ -23,7 +23,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> nodeStartingPositions, Surface surface, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, Surface surface, float weight)
         {
             TargetSurface = surface;
 
