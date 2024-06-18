@@ -23,7 +23,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> centers, List<float> radii, List<Triple> lineStarts, List<Triple> lineEnds, float weight)
+        public void Initialize(List<Triple> centers, List<float> radii, List<Triple> lineStarts, List<Triple> lineEnds, float weight)
         {
             Weight = weight;
             Radii = radii.ToArray();
