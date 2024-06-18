@@ -9,6 +9,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// </summary>
     public  class LengthGoal
     {
+        private LengthGoal() {}
+
+
         /// <summary>
         /// Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.
         /// </summary>
@@ -16,7 +19,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="endPoint"></param>
         /// <param name="targetLength">The length to maintain. If unspecified, the length will default to the length between the two nodes.</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
-        /// <returns name="LengthGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.LengthGoal ByStartPointEndPoint(
             Point startPoint,
@@ -47,7 +49,6 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="line">A line to extract the start and end points from.</param>
         /// <param name="targetLength">The length to maintain. If unspecified, the length will default to the length between the two nodes.</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
-        /// <returns name="LengthGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.LengthGoal ByLine(
             Line line,
