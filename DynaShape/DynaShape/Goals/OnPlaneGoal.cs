@@ -35,7 +35,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> nodeStartingPositions, Triple planeOrigin, Triple planeNormal, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, Triple planeOrigin, Triple planeNormal, float weight)
         {
             TargetPlaneOrigin = planeOrigin;
             TargetPlaneNormal = planeNormal;
