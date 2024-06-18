@@ -18,7 +18,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> nodeStartingPositions, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, float weight)
         {
             Weight = weight;
             StartingPositions = nodeStartingPositions.ToArray();
