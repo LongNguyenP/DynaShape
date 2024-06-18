@@ -58,23 +58,27 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("Vector.ByCoordinates(1.0, 0, 0)")] Vector windVector,
             [DefaultArgument("1.0")] float weight)
         {
-            List<DynaShape.Goals.DirectionalWindGoal> goals = new List<DynaShape.Goals.DirectionalWindGoal>();
+            var goals = TracingUtils.GetObjectFromTrace<List<DynaShape.Goals.DirectionalWindGoal>>();
 
             List<double> vertices = mesh.TrianglesAsNineNumbers.ToList();
-
             int faceCount = vertices.Count / 9;
+
+            if (goals.Count != faceCount)
+            {
+                goals.Clear();
+                for (int i = 0; i < faceCount; i++)
+                    goals.Add(new DynaShape.Goals.DirectionalWindGoal());
+            }
 
             for (int i = 0; i < faceCount; i++)
             {
                 int j = i * 9;
-                var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.DirectionalWindGoal>();
-                goal.Initialize(
+                goals[i].Initialize(
                     new Triple(vertices[j + 0], vertices[j + 1], vertices[j + 2]),
                     new Triple(vertices[j + 3], vertices[j + 4], vertices[j + 5]),
                     new Triple(vertices[j + 6], vertices[j + 7], vertices[j + 8]),
                     windVector.ToTriple(),
                     weight);
-                goals.Add(goal);
             }
 
             return goals;
