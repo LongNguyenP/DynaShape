@@ -18,7 +18,7 @@ namespace DynaShape.Goals
 
         }
 
-        private void Initialize(List<Triple> pointPairs, float weight)
+        public void Initialize(List<Triple> pointPairs, float weight)
         {
             Weight = weight;
             StartingPositions = pointPairs.ToArray();

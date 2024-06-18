@@ -11,6 +11,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private ParallelLinesGoal(){}
 
+
         /// <summary>
         /// Creates a ParallelLinesGoal to force a set of lines to be parallel.
         /// </summary>
@@ -35,7 +36,9 @@ namespace DynaShape.ZeroTouch.Goals
                 pointPairs.Add(endPoints[i].ToTriple());
             }
 
-            return new DynaShape.Goals.ParallelLinesGoal(pointPairs, weight);
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ParallelLinesGoal>();
+            goal.Initialize(pointPairs, weight);
+            return goal;
         }
 
 
@@ -56,23 +59,10 @@ namespace DynaShape.ZeroTouch.Goals
                 startPositions.Add(line.StartPoint.ToTriple());
                 startPositions.Add(line.EndPoint.ToTriple());
             }
-            return new DynaShape.Goals.ParallelLinesGoal(startPositions, weight);
-        }
 
-
-        /// <summary>
-        /// Modifies the ParallelLinesGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="parallelLinesGoal">The ParallelLinesGoal to modify.</param>
-        /// <param name="weight">An optional new weight for the ParallelLinesGoal.</param>
-        /// <returns name="ParallelLinesGoal"></returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.ParallelLinesGoal Change(
-            DynaShape.Goals.ParallelLinesGoal parallelLinesGoal,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (weight >= 0.0) parallelLinesGoal.Weight = weight;
-            return parallelLinesGoal;
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ParallelLinesGoal>();
+            goal.Initialize(startPositions, weight);
+            return goal;
         }
     }
 }
