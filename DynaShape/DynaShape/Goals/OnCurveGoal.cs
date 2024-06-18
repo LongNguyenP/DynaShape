@@ -23,7 +23,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> nodeStartingPositions, Curve curve, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, Curve curve, float weight)
         {
             TargetCurve = curve;
 
