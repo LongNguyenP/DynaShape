@@ -47,23 +47,27 @@ namespace DynaShape.ZeroTouch.Goals
             [DefaultArgument("0.1")] float pressure,
             [DefaultArgument("1.0")] float weight)
         {
-            List<DynaShape.Goals.ConstantPressureGoal> goals = new List<DynaShape.Goals.ConstantPressureGoal>();
+            var goals = TracingUtils.GetObjectFromTrace<List<DynaShape.Goals.ConstantPressureGoal>>();
 
             List<double> vertices = mesh.TrianglesAsNineNumbers.ToList();
-
             int faceCount = vertices.Count / 9;
+
+            if (goals.Count != faceCount)
+            {
+                goals.Clear();
+                for (int i = 0; i < faceCount; i++)
+                    goals.Add(new DynaShape.Goals.ConstantPressureGoal());
+            }
 
             for (int i = 0; i < faceCount; i++)
             {
                 int j = i * 9;
-                var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantPressureGoal>();
-                goal.Initialize(
+                goals[i].Initialize(
                     new Triple(vertices[j + 0], vertices[j + 1], vertices[j + 2]),
                     new Triple(vertices[j + 3], vertices[j + 4], vertices[j + 5]),
                     new Triple(vertices[j + 6], vertices[j + 7], vertices[j + 8]),
                     pressure,
                     weight);
-                goals.Add(goal);
             }
 
             return goals;
