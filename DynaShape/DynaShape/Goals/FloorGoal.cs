@@ -21,7 +21,7 @@ namespace DynaShape.Goals
         }
 
 
-        private void Initialize(List<Triple> nodeStartingPositions, float floorHeight, float weight)
+        public void Initialize(List<Triple> nodeStartingPositions, float floorHeight, float weight)
         {
             Weight = weight;
             FloorHeight = floorHeight;
