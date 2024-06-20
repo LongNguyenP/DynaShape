@@ -8,7 +8,18 @@ namespace DynaShape.Goals
     [IsVisibleInDynamoLibrary(false)]
     public class CoLinearGoal : Goal
     {
+        public CoLinearGoal()
+        {
+        }
+
+
         public CoLinearGoal(List<Triple> nodeStartingPositions, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, weight);
+        }
+
+
+        public void Initialize(List<Triple> nodeStartingPositions, float weight = 1f)
         {
             if (nodeStartingPositions.Count < 3) throw new Exception("CoLinear Goal: Node count must be at least 3");
             Weight = weight;
@@ -16,6 +27,7 @@ namespace DynaShape.Goals
             Moves = new Triple[StartingPositions.Length];
             Weights = new float[StartingPositions.Length];
         }
+
 
         internal override void Compute(List<Node> allNodes)
         {

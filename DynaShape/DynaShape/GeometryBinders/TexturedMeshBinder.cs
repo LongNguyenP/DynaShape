@@ -5,6 +5,7 @@ using Autodesk.DesignScript.Runtime;
 using HelixToolkit.SharpDX.Core;
 using HelixToolkit.Wpf.SharpDX;
 using SharpDX;
+using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace DynaShape.GeometryBinders;
@@ -19,13 +20,37 @@ public class TexturedMeshBinder : GeometryBinder
     private BitmapImage diffuseMap;
     private Vector2Collection textureCoordinates;
 
-    public TexturedMeshBinder(Autodesk.Dynamo.MeshToolkit.Mesh mesh, Color4 color, string textureFileName, Vector2Collection textureCoordinates)
+
+    public TexturedMeshBinder()
+    {
+    }
+
+
+    public TexturedMeshBinder(Mesh mesh, Color4 color, string textureFileName, Vector2Collection textureCoordinates)
+    {
+        Initialize(mesh, color, textureFileName, textureCoordinates);
+    }
+
+
+    public TexturedMeshBinder(Mesh mesh, string textureFileName, Vector2Collection textureCoordinates)
+        : this(mesh, DynaShapeDisplay.DefaultMeshFaceColor, textureFileName, textureCoordinates)
+    {
+    }
+
+
+    public void Initialize(Mesh mesh, Color4 color, string textureFileName, Vector2Collection textureCoordinates)
     {
         StartingPositions = mesh.Vertices().ToTriples().ToArray();
         Color = color;
 
-        try { diffuseMap = new BitmapImage(new Uri(textureFileName)); }
-        catch (FileNotFoundException) { throw new Exception("Could not locate the texture file"); }
+        try
+        {
+            diffuseMap = new BitmapImage(new Uri(textureFileName));
+        }
+        catch (FileNotFoundException)
+        {
+            throw new Exception("Could not locate the texture file");
+        }
 
         this.textureCoordinates = textureCoordinates;
 
@@ -51,19 +76,13 @@ public class TexturedMeshBinder : GeometryBinder
     }
 
 
-    public TexturedMeshBinder(Autodesk.Dynamo.MeshToolkit.Mesh mesh, string textureFileName, Vector2Collection textureCoordinates)
-        : this(mesh, DynaShapeDisplay.DefaultMeshFaceColor, textureFileName, textureCoordinates)
-    {
-    }
-
-
     public override List<object> CreateGeometryObjects(List<Node> allNodes)
     {
         List<Point> vertices = new List<Point>(NodeCount);
         for (int i = 0; i < NodeCount; i++)
             vertices.Add(allNodes[NodeIndices[i]].Position.ToPoint());
 
-        return new List<object> { Autodesk.Dynamo.MeshToolkit.Mesh.ByVerticesAndIndices(vertices, faceIndices) };
+        return new List<object> { Mesh.ByVerticesAndIndices(vertices, faceIndices) };
     }
 
 

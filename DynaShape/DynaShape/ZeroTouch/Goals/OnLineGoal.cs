@@ -11,6 +11,7 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private OnLineGoal(){}
 
+
         /// <summary>
         /// Creates an OnLineGoal to force a set of nodes to lie on the specified line.
         /// This differs from the CoLinear goal, where the target line is computed based on the current node positions rather than being defined and fixed in advance.
@@ -22,16 +23,18 @@ namespace DynaShape.ZeroTouch.Goals
         /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnLineGoal ByStartPositionOriginDirection(
-            List<Point> startPosition,
+            List<Point> startPositions,
             [DefaultArgument("Point.Origin()")] Point targetLineOrigin,
             [DefaultArgument("Vector.XAxis()")] Vector targetLineDirection,
             [DefaultArgument("1.0")] float weight)
         {
-            return new DynaShape.Goals.OnLineGoal(
-                startPosition.ToTriples(),
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.OnLineGoal>();
+            goal.Initialize(
+                startPositions.ToTriples(),
                 targetLineOrigin.ToTriple(),
                 targetLineDirection.ToTriple().Normalise(),
                 weight);
+            return goal;
         }
 
 
@@ -50,54 +53,18 @@ namespace DynaShape.ZeroTouch.Goals
                 targetLine,
             [DefaultArgument("1.0")] float weight)
         {
-            return new DynaShape.Goals.OnLineGoal(startPositions.ToTriples(), targetLine, weight);
-        }
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.OnLineGoal>();
 
+            Triple targetLineOrigin = targetLine.StartPoint.ToTriple();
+            Triple targetLineDirection = (targetLine.EndPoint.ToTriple() - targetLineOrigin).Normalise();
 
-        /// <summary>
-        /// Modifies the OnLineGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="onLineGoal">The OnLineGoal to modify.</param>
-        /// <param name="targetLineOrigin">An optional new origin to use.</param>
-        /// <param name="targetLineDirection">An optional new direction to use.</param>
-        /// <param name="weight">An optional new weight for the OnLineGoal.</param>
-        /// <returns name="OnLineGoal"></returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.OnLineGoal ChangeWithOriginAndDirection(
-            DynaShape.Goals.OnLineGoal onLineGoal,
-            [DefaultArgument("null")] Point targetLineOrigin,
-            [DefaultArgument("null")] Vector targetLineDirection,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (targetLineOrigin != null) onLineGoal.TargetLineOrigin = targetLineOrigin.ToTriple();
-            if (targetLineDirection != null) onLineGoal.TargetLineDirection = targetLineDirection.ToTriple();
-            if (weight >= 0.0) onLineGoal.Weight = weight;
-            return onLineGoal;
-        }
+            goal.Initialize(
+                startPositions.ToTriples(),
+                targetLineOrigin,
+                targetLineDirection,
+                weight);
 
-
-        /// <summary>
-        /// Modifies the OnLineGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="onLineGoal">The OnLineGoal to modify.</param>
-        /// <param name="targetLine">An optional new target line to use.</param>
-        /// <param name="weight">An optional new weight for the OnLineGoal.</param>
-        /// <returns name="OnLineGoal"></returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.OnLineGoal ChangeWithLine(
-            DynaShape.Goals.OnLineGoal onLineGoal,
-            [DefaultArgument("null")] Line targetLine,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (targetLine != null)
-            {
-                onLineGoal.TargetLineOrigin = targetLine.StartPoint.ToTriple();
-                onLineGoal.TargetLineDirection =
-                    (targetLine.EndPoint.ToTriple() - targetLine.StartPoint.ToTriple()).Normalise();
-            }
-
-            if (weight >= 0.0) onLineGoal.Weight = weight;
-            return onLineGoal;
+            return goal;
         }
     }
 }

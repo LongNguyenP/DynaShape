@@ -8,7 +8,18 @@ namespace DynaShape.Goals
     [IsVisibleInDynamoLibrary(false)]
     public class CoCircularGoal : Goal
     {
+        public CoCircularGoal()
+        {
+        }
+
+
         public CoCircularGoal(List<Triple> nodeStartingPositions, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, weight);
+        }
+
+
+        public void Initialize(List<Triple> nodeStartingPositions, float weight = 1f)
         {
             if (nodeStartingPositions.Count < 4) throw new Exception("CoCircular Goal: Node count must be at least 4");
             Weight = weight;

@@ -12,8 +12,9 @@ public class CircleBinder
 {
     private CircleBinder() { }
 
+
     /// <summary>
-    /// Create a CircleBinder to preview circle geometry.
+    /// Create a CircleBinder.
     /// </summary>
     /// <param name="center">The center of the circle.</param>
     /// <param name="radius">The radius of the circle.</param>
@@ -27,10 +28,14 @@ public class CircleBinder
         [DefaultArgument("Vector.ZAxis()")] Vector planeNormal,
         [DefaultArgument("null")] Color color)
     {
-        return new DynaShape.GeometryBinders.CircleBinder(
+        var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.CircleBinder>();
+
+        binder.Initialize(
             center.ToTriple(),
             radius,
             planeNormal.ToTriple(),
             color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+
+        return binder;
     }
 }

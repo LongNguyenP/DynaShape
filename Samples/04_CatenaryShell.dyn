@@ -100,7 +100,7 @@
       "Name": "Reset",
       "Type": "boolean",
       "Type2": "boolean",
-      "Value": "false",
+      "Value": "true",
       "Description": "Enables selection between True and False"
     },
     {
@@ -1039,7 +1039,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Enables selection between True and False",
-      "InputValue": false
+      "InputValue": true
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1893,8 +1893,8 @@
         "HasNestedGroups": false,
         "Left": 230.60815865971836,
         "Top": -131.63026712534952,
-        "Width": 1141.942857142857,
-        "Height": 479.8,
+        "Width": 1141.142857142857,
+        "Height": 481.2857142857143,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -65.63026712534952,
@@ -1916,12 +1916,12 @@
         "HasNestedGroups": false,
         "Left": 541.3713437897412,
         "Top": 364.3873656504706,
-        "Width": 741.8330660287767,
-        "Height": 263.40000000000003,
+        "Width": 741.2616374573482,
+        "Height": 263.2857142857143,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 430.3873656504706,
-        "InitialHeight": 145.0,
+        "InitialHeight": 154.90685464240875,
         "TextblockHeight": 56.0,
         "Background": "#FFC1D676"
       },
@@ -1937,14 +1937,14 @@
         ],
         "HasNestedGroups": false,
         "Left": 605.7051480047757,
-        "Top": 671.011431205976,
-        "Width": 336.80000000000007,
-        "Height": 344.19999999999993,
+        "Top": 671.2400026345474,
+        "Width": 336.57142857142856,
+        "Height": 343.8571428571429,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 817.811431205976,
         "InitialHeight": 145.0,
-        "TextblockHeight": 136.79999999999998,
+        "TextblockHeight": 136.57142857142858,
         "Background": "#FFC1D676"
       },
       {
@@ -1967,8 +1967,8 @@
         "HasNestedGroups": false,
         "Left": -205.00982124739596,
         "Top": 1048.3810759410062,
-        "Width": 1404.0,
-        "Height": 690.5999999999999,
+        "Width": 1403.4285714285716,
+        "Height": 690.1428571428571,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 1114.3810759410062,
@@ -1998,8 +1998,8 @@
         "HasNestedGroups": false,
         "Left": 1543.682891483997,
         "Top": -335.9909550225685,
-        "Width": 802.9714285714285,
-        "Height": 1742.2285714285717,
+        "Width": 802.8571428571427,
+        "Height": 1743.7142857142858,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -269.9909550225685,
@@ -2028,8 +2028,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -111.76433135836805,
-    "Y": -47.81262335605726,
-    "Zoom": 0.6668676784150874
+    "X": -741.3000828653774,
+    "Y": 146.0450531068858,
+    "Zoom": 0.5315492102324493
   }
 }

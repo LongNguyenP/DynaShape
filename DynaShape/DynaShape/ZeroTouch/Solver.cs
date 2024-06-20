@@ -8,17 +8,11 @@ namespace DynaShape.ZeroTouch;
 
 public static class Solver
 {
-    /// <summary>
-    /// Create a DynaShape solver, which will be input into the Solver.Execute node
-    /// </summary>
-    /// <returns></returns>
     public static DynaShape.Solver Create() => new DynaShape.Solver();
-
 
     /// <summary>
     /// Execute the solver to iteratively solve the input goals/constraints
     /// </summary>
-    /// <param name="solver">The solver, which can be obtained from the Solver.Create node</param>
     /// <param name="goals">The goals/constraints that the solver will solve</param>
     /// <param name="geometryBinders">The geometry binders</param>
     /// <param name="nodeMergeThreshold">Before the solver starts to run, nodes that have identical positions (within this threshold) will be merged into one node</param>
@@ -31,9 +25,7 @@ public static class Solver
     /// <param name="dampingFactor">When momentum mode is enabled, this value will determine how much the node's velocity is damped at each iteration</param>
     /// <returns></returns>
     [MultiReturn("nodePositions", "goalOutputs", "geometries")]
-    [CanUpdatePeriodically(true)]
     public static Dictionary<string, object> Execute(
-        DynaShape.Solver solver,
         List<Goal> goals,
         [DefaultArgument("null")] List<GeometryBinder> geometryBinders,
         [DefaultArgument("0.001")] float nodeMergeThreshold,
@@ -47,6 +39,8 @@ public static class Solver
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
+
+        DynaShape.Solver solver = TracingUtils.GetObjectFromTrace<DynaShape.Solver>();
 
         if (reset)
         {
@@ -141,5 +135,60 @@ public static class Solver
                 "\nLargest Movement Sqr.    : " + solver.GetKineticEnergy())
             }
         };
+    }
+
+
+    [MultiReturn("nodePositions", "goalOutputs", "geometries")]
+    public static Dictionary<string, object> Execute2(
+        List<Goal> goals,
+        [DefaultArgument("null")] List<GeometryBinder> geometryBinders,
+        [DefaultArgument("0.001")] float nodeMergeThreshold,
+        [DefaultArgument("0")] int iterations,
+        [DefaultArgument("true")] bool reset,
+        [DefaultArgument("true")] bool execute,
+        [DefaultArgument("true")] bool enableMomentum,
+        [DefaultArgument("true")] bool enableFastDisplay,
+        [DefaultArgument("false")] bool enableManipulation,
+        [DefaultArgument("0.98")] float dampingFactor,
+        DynaShape.Solver solver)
+    {
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+
+        if (reset)
+        {
+            solver.StopBackgroundExecution();
+            solver.Clear();
+            solver.RegisterGoals(goals);
+            if (geometryBinders != null)
+                solver.RegisterGeometryBinders(geometryBinders, nodeMergeThreshold);
+            solver.Render();
+        }
+        else
+        {
+            solver.EnableMouseInteraction = enableManipulation;
+            solver.EnableMomentum = enableMomentum;
+            solver.EnableFastDisplay = enableFastDisplay;
+            solver.IterationCount = iterations;
+            solver.DampingFactor = dampingFactor;
+
+            if (execute) solver.StartBackgroundExecution();
+            else
+            {
+                solver.StopBackgroundExecution();
+                if (!enableFastDisplay) solver.ClearRender();
+                if (!enableFastDisplay) solver.Iterate();
+            }
+        }
+
+        return execute || enableFastDisplay
+            ? new Dictionary<string, object> {
+                { "nodePositions", null },
+                { "goalOutputs", null },
+                { "geometries", null } }
+            : new Dictionary<string, object> {
+                { "nodePositions", solver.GetNodePositionsAsPoints() },
+                { "goalOutputs", solver.GetGoalOutputs() },
+                { "geometries", solver.GetGeometries() } };
     }
 }

@@ -11,12 +11,12 @@ namespace DynaShape.ZeroTouch.Goals
     {
         private EqualLengthsGoal(){}
 
+
         /// <summary>
         /// Creates an EqualLengthsGoal to force a sequence of nodes to maintain equal distances.
         /// </summary>
-        /// <param name="startPositions">The start positions of the nodes.</param>
-        /// <param name="weight">The goal's weight/impact on the solver.</param>
-        /// <returns name="EqualLengthsGoal"></returns>
+        /// <param name="startPositions">The starting positions of the sequence of nodes</param>
+        /// <param name="weight">The goal's weight/impact on the solver</param>
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal ByStartPositions(
             List<Point> startPositions,
@@ -32,16 +32,19 @@ namespace DynaShape.ZeroTouch.Goals
 
             triples.Add(startPositions[startPositions.Count - 1].ToTriple());
 
-            return new DynaShape.Goals.EqualLengthsGoal(triples, weight);
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.EqualLengthsGoal>();
+            goal.Initialize(triples, weight);
+
+            return goal;
         }
 
 
         /// <summary>
         /// Creates an EqualLengthsGoal to force a set of line segments to maintain equal lengths.
         /// </summary>
-        /// <param name="startPositions">The start positions of the nodes.</param>
-        /// <param name="endPositions">The end positions of the nodes.</param>
-        /// <param name="weight">The goal's weight/impact on the solver.</param>
+        /// <param name="startPositions">The starts of the line segments</param>
+        /// <param name="endPositions">The ends of the line segments</param>
+        /// <param name="weight">The goal's weight/impact on the solver</param>
         /// <returns name="EqualLengthsGoal"></returns>
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal ByStartEndPositions(
@@ -59,7 +62,12 @@ namespace DynaShape.ZeroTouch.Goals
                 triples.Add(endPositions[i].ToTriple());
             }
 
-            return new DynaShape.Goals.EqualLengthsGoal(triples, weight);
+            triples.Add(startPositions[startPositions.Count - 1].ToTriple());
+
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.EqualLengthsGoal>();
+            goal.Initialize(triples, weight);
+
+            return goal;
         }
 
 
@@ -80,23 +88,11 @@ namespace DynaShape.ZeroTouch.Goals
                 startPositions.Add(line.StartPoint.ToTriple());
                 startPositions.Add(line.EndPoint.ToTriple());
             }
-            return new DynaShape.Goals.EqualLengthsGoal(startPositions, weight);
-        }
 
+            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.EqualLengthsGoal>();
+            goal.Initialize(startPositions, weight);
 
-        /// <summary>
-        /// Modifies the EqualLengthsGoal's parameters while the solver is running.
-        /// </summary>
-        /// <param name="equalLengthsGoal">The equalLengthsGoal to modify.</param>
-        /// <param name="weight">An optional new weight for the EqualLengthsGoal.</param>
-        /// <returns name="EqualLengthsGoal"></returns>
-        [NodeCategory("Actions")]
-        public static DynaShape.Goals.EqualLengthsGoal Change(
-            DynaShape.Goals.EqualLengthsGoal equalLengthsGoal,
-            [DefaultArgument("-1.0")] float weight)
-        {
-            if (weight >= 1.0) equalLengthsGoal.Weight = weight;
-            return equalLengthsGoal;
+            return goal;
         }
     }
 }

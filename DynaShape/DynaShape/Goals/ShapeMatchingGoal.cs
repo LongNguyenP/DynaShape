@@ -12,7 +12,36 @@ namespace DynaShape.Goals
         private float sigmaInversed;
         public bool AllowScaling;
 
+
+        public ShapeMatchingGoal()
+        {
+        }
+
+
+        public ShapeMatchingGoal(List<Triple> nodeStartingPositions, bool allowScaling = false, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, allowScaling, weight);
+        }
+
+
         public ShapeMatchingGoal(List<Triple> nodeStartingPositions, List<Triple> targetShapePositions, bool allowScaling = false, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, targetShapePositions, allowScaling, weight);
+        }
+
+
+        public void Initialize(List<Triple> nodeStartingPositions, bool allowScaling, float weight)
+        {
+            Weight = weight;
+            StartingPositions = nodeStartingPositions.ToArray();
+            Moves = new Triple[StartingPositions.Length];
+            Weights = new float[StartingPositions.Length];
+            AllowScaling = allowScaling;
+            SetTargetShapePoints(nodeStartingPositions);
+        }
+
+
+        public void Initialize(List<Triple> nodeStartingPositions, List<Triple> targetShapePositions, bool allowScaling, float weight)
         {
             Weight = weight;
             StartingPositions = nodeStartingPositions.ToArray();
@@ -22,10 +51,6 @@ namespace DynaShape.Goals
             SetTargetShapePoints(targetShapePositions);
         }
 
-        public ShapeMatchingGoal(List<Triple> nodeStartingPositions, bool allowScaling = false, float weight = 1f)
-           : this(nodeStartingPositions, nodeStartingPositions, allowScaling, weight)
-        {
-        }
 
         internal override void Compute(List<Node> allNodes)
         {

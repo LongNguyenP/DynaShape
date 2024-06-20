@@ -8,14 +8,28 @@ namespace DynaShape.Goals
     public class AnchorGoal : Goal
     {
         public Triple Anchor;
+        public string Id;
 
-        public AnchorGoal(Triple nodeStartingPosition, Triple anchor, float weight = 1000f)
+        public AnchorGoal()
+        {
+            Moves = new Triple[1];
+            Weights = new float[1];
+            Random rand = new Random();
+            Id = rand.Next().ToString();
+        }
+
+
+        public void Initialize(Triple nodeStartingPosition, Triple anchor, float weight = 1000f)
         {
             Anchor = anchor;
             StartingPositions = new[] { nodeStartingPosition };
             Weight = weight;
-            Moves = new Triple[1];
-            Weights = new float[1];
+        }
+
+
+        public AnchorGoal(Triple nodeStartingPosition, Triple anchor, float weight = 1000f)
+        {
+            Initialize(nodeStartingPosition, anchor, weight);
         }
 
 

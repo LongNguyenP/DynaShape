@@ -13,17 +13,29 @@ namespace DynaShape.GeometryBinders
     {
         public bool Loop;
 
+
+        public PolylineBinder()
+        {
+        }
+
+
         public PolylineBinder(List<Triple> vertices, Color4 color, bool loop = false)
         {
-            StartingPositions = vertices.ToArray();
-            Color = color;
-            Loop = loop;
+            Initialize(vertices, color, loop);
         }
 
 
         public PolylineBinder(List<Triple> vertices, bool loop = false)
             : this(vertices, DynaShapeDisplay.DefaultLineColor, loop)
         {
+        }
+
+
+        public void Initialize(List<Triple> vertices, Color4 color, bool loop)
+        {
+            StartingPositions = vertices.ToArray();
+            Color = color;
+            Loop = loop;
         }
 
 

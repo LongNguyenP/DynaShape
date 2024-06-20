@@ -12,7 +12,7 @@ public class TextBinder
 {
     private TextBinder(){}
     /// <summary>
-    /// Create a TextBinder to preview text.
+    /// Create a TextBinder.
     /// </summary>
     /// <param name="position">The location of the text.</param>
     /// <param name="text">The string value of the text.</param>
@@ -24,6 +24,10 @@ public class TextBinder
         string text,
         [DefaultArgument("null")] Color color)
     {
-        return new DynaShape.GeometryBinders.TextBinder(position.ToTriple(), text, color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+        var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.TextBinder>();
+
+        binder.Initialize(position.ToTriple(), text, color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+
+        return binder;
     }
 }

@@ -9,7 +9,19 @@ namespace DynaShape.Goals
     {
         public Triple Move;
 
+
+        public ConstantGoal()
+        {
+        }
+
+
         public ConstantGoal(List<Triple> nodeStartingPositions, Triple move, float weight = 1f)
+        {
+            Initialize(nodeStartingPositions, move, weight);
+        }
+
+
+        public void Initialize(List<Triple> nodeStartingPositions, Triple move, float weight = 1f)
         {
             Move = move;
             Weight = weight;
@@ -17,6 +29,7 @@ namespace DynaShape.Goals
             Moves = new Triple[StartingPositions.Length];
             Weights = new float[StartingPositions.Length];
         }
+
 
         internal override void Compute(List<Node> allNodes)
         {

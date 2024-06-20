@@ -31,6 +31,12 @@ namespace DynaShape.GeometryBinders
 
         public float Radius;
 
+
+        public CircleBinder()
+        {
+        }
+
+
         public Triple PlaneNormal
         {
             get => zAxis;
@@ -42,20 +48,28 @@ namespace DynaShape.GeometryBinders
             }
         }
 
+
         private Triple xAxis, yAxis, zAxis;
+
 
         public CircleBinder(Triple center, float radius, Triple planeNormal, Color4 color)
         {
-            StartingPositions = new[] { center };
-            Radius = radius;
-            PlaneNormal = planeNormal;
-            Color = color;
+            Initialize(center, radius, planeNormal, color);
         }
 
 
         public CircleBinder(Triple center, float radius, Triple planeNormal)
             : this(center, radius, planeNormal, DynaShapeDisplay.DefaultLineColor)
         {
+        }
+
+
+        public void Initialize(Triple center, float radius, Triple planeNormal, Color4 color)
+        {
+            StartingPositions = new[] { center };
+            Radius = radius;
+            PlaneNormal = planeNormal;
+            Color = color;
         }
 
 

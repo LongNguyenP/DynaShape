@@ -15,6 +15,6 @@ namespace DynaShape.Goals
 
         public int NodeCount => StartingPositions.Length;
         internal abstract void Compute(List<Node> allNodes);
-        public virtual List<object> GetOutput(List<Node> allNodes) => null;
+        public virtual List<object> GetOutputs(List<Node> allNodes) => null;
     }
 }
