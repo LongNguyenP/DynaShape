@@ -12,8 +12,6 @@ namespace DynaShape.Goals
 
         public LengthGoal()
         {
-            Moves = new Triple[2];
-            Weights = new float[2];
         }
 
         public LengthGoal(Triple firstNodePosition, Triple secondNodePosition, float targetLength, float weight = 1000f)
@@ -33,6 +31,8 @@ namespace DynaShape.Goals
             Weight = weight;
             TargetLength = targetLength;
             StartingPositions = new[] { firstNodePosition, secondNodePosition };
+            Moves = new Triple[2];
+            Weights = new float[2];
         }
 
 

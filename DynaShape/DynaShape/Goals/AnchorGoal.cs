@@ -10,20 +10,9 @@ namespace DynaShape.Goals
         public Triple Anchor;
         public string Id;
 
+
         public AnchorGoal()
         {
-            Moves = new Triple[1];
-            Weights = new float[1];
-            Random rand = new Random();
-            Id = rand.Next().ToString();
-        }
-
-
-        public void Initialize(Triple nodeStartingPosition, Triple anchor, float weight = 1000f)
-        {
-            Anchor = anchor;
-            StartingPositions = new[] { nodeStartingPosition };
-            Weight = weight;
         }
 
 
@@ -36,6 +25,16 @@ namespace DynaShape.Goals
         public AnchorGoal(Triple nodeStartingPosition, float weight = 1000f)
             : this(nodeStartingPosition, nodeStartingPosition, weight)
         {
+        }
+
+
+        public void Initialize(Triple nodeStartingPosition, Triple anchor, float weight = 1000f)
+        {
+            Anchor = anchor;
+            StartingPositions = new[] { nodeStartingPosition };
+            Weight = weight;
+            Moves = new Triple[1];
+            Weights = new float[1];
         }
 
 
