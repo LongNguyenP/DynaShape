@@ -547,45 +547,6 @@
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "Id": "a7630b1b8c41471aa2142819ecac7ece",
-      "NodeType": "FunctionNode",
-      "Inputs": [
-        {
-          "Id": "06d64180613b40d3a8eed5b642127d2d",
-          "Name": "startPositions",
-          "Description": "The starting points for the CoCircularGoal\n\nPoint[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "ca496289db024b0a88d17434f5348878",
-          "Name": "weight",
-          "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "353e13a3806540bcadc0ceb719ada355",
-          "Name": "CoCircularGoal",
-          "Description": "A newly defined CoCircularGoal",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.CoCircularGoal.Create@Autodesk.DesignScript.Geometry.Point[],double",
-      "Replication": "Auto",
-      "Description": "Creates a CoCircularGoal that attempts to force a set of nodes to lie on a common circular arc.\n\nCoCircularGoal.Create (startPositions: Point[], weight: double = 1): CoCircularGoal"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "Id": "6d2cfb7f889349dc8e938a17d6887390",
       "NodeType": "FunctionNode",
       "Inputs": [
@@ -669,7 +630,7 @@
         {
           "Id": "270daaccde7a4bd6882a3ea258fa39c9",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -688,7 +649,7 @@
         {
           "Id": "b7ef3a694e3d452999fbc78433eaaed2",
           "Name": "startPositions",
-          "Description": "The start positions of the nodes.\n\nPoint[]",
+          "Description": "The starting positions of the sequence of nodes\n\nPoint[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -697,7 +658,7 @@
         {
           "Id": "bc2845f896b14c6698a267fec857c4cb",
           "Name": "weight",
-          "Description": "The goal's weight/impact on the solver.\n\ndouble\nDefault value : 1",
+          "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -718,6 +679,45 @@
       "FunctionSignature": "DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartPositions@Autodesk.DesignScript.Geometry.Point[],double",
       "Replication": "Auto",
       "Description": "Creates an EqualLengthsGoal to force a sequence of nodes to maintain equal distances.\n\nEqualLengthsGoal.ByStartPositions (startPositions: Point[], weight: double = 1): EqualLengthsGoal"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "61454c2419c643bda4c5b64f147a0bc0",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "0f469792712445689861e2d62516d169",
+          "Name": "startPositions",
+          "Description": "The starting points for the CoCircularGoal\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5d899587672245d8a12e7ce895284f1c",
+          "Name": "weight",
+          "Description": "The goal's weight/impact on the solver\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cd2414a1bfa84b6189b5ead661db1ab9",
+          "Name": "CoCircularGoal",
+          "Description": "CoCircularGoal",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.CoCircularGoal.ByPoints@Autodesk.DesignScript.Geometry.Point[],double",
+      "Replication": "Auto",
+      "Description": "Creates a CoCircularGoal that attempts to force a set of nodes to lie on a common circular arc.\n\nCoCircularGoal.ByPoints (startPositions: Point[], weight: double = 1): CoCircularGoal"
     }
   ],
   "Connectors": [
@@ -753,8 +753,8 @@
     },
     {
       "Start": "95ffadfc8e4f493ebc799181232445bb",
-      "End": "06d64180613b40d3a8eed5b642127d2d",
-      "Id": "fdea3624427d4dc5ad516d502b7965a5",
+      "End": "0f469792712445689861e2d62516d169",
+      "Id": "e68375036ebb4331a456a73a097b156c",
       "IsHidden": "False"
     },
     {
@@ -824,12 +824,6 @@
       "IsHidden": "False"
     },
     {
-      "Start": "353e13a3806540bcadc0ceb719ada355",
-      "End": "542c54d0ba8741a99f276b3a3a671daa",
-      "Id": "f433bdab32a94044a09e619b47630230",
-      "IsHidden": "False"
-    },
-    {
       "Start": "439ef24b6354475385acabf9f839f722",
       "End": "7279f613a1df43e8926801d6cd0732eb",
       "Id": "20c62dc72bda489a83ca94d773ea8a43",
@@ -846,6 +840,12 @@
       "End": "6f167cbbe87942faa2b0d0251a4d9537",
       "Id": "ce28da06987b46b48b598f963f944d70",
       "IsHidden": "False"
+    },
+    {
+      "Start": "cd2414a1bfa84b6189b5ead661db1ab9",
+      "End": "542c54d0ba8741a99f276b3a3a671daa",
+      "Id": "da825555101240d29a6c70af4d9e4639",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
@@ -857,10 +857,10 @@
       "Nodes": [
         "17df6f015f734f2c8c73d588dfe82c09",
         "0b77baf294664b2e9f1d1b1258eb1078",
-        "a7630b1b8c41471aa2142819ecac7ece",
         "6d2cfb7f889349dc8e938a17d6887390",
         "5c2f293954764b6eab41f9ab591569f8",
-        "0c58395c21994f67920d0918cc89ccb5"
+        "0c58395c21994f67920d0918cc89ccb5",
+        "61454c2419c643bda4c5b64f147a0bc0"
       ]
     }
   ],
@@ -892,7 +892,7 @@
     {
       "NodeId": "0b77baf2-9466-4b2e-9f1d-1b1258eb1078",
       "Binding": {
-        "Execute_InClassDecl-1_InFunctionScope-1_Instance0_0b77baf2-9466-4b2e-9f1d-1b1258eb1078": "H4sIAAAAAAAACouuVkpJLElUslIyN7BMTk4xMtE1tbRI1DWxNEzWTTRKBLKSE1MMDEySjEySzJVqYwFf+8USMQAAAA=="
+        "Execute_InClassDecl-1_InFunctionScope-1_Instance0_0b77baf2-9466-4b2e-9f1d-1b1258eb1078": "H4sIAAAAAAAACouuVkpJLElUslKyNDVKskhKNNY1M7W00DVJNDLQtTA1SdU1Mjc2SU4ytTQzMU1Wqo0FAKddQHcxAAAA"
       }
     },
     {
@@ -905,6 +905,18 @@
       "NodeId": "5c2f2939-5476-4b6e-ab41-f9ab591569f8",
       "Binding": {
         "ByPoint_InClassDecl-1_InFunctionScope-1_Instance0_5c2f2939-5476-4b6e-ab41-f9ab591569f8": "H4sIAAAAAAAACk3MPQ7CMAxA4btkxlIcOz9m5haog53YIwvdqt4dxIC6veHTex7p5e/d10N3TffnkdYvEo0u2n1CLm0B1+VgRRWqVpRQt9w1nbe/j4wYywrQQAYWmqBiARhEhE4Lp11983Dx1aEXzt+/IYgqAmrX7LPo8HH1xC2ktArMJsDWGqjPCRF1RI5wI07ndm4fU9ej2NIAAAA="
+      }
+    },
+    {
+      "NodeId": "0c58395c-2199-4f67-920d-0918cc89ccb5",
+      "Binding": {
+        "ByStartPositions_InClassDecl-1_InFunctionScope-1_Instance0_0c58395c-2199-4f67-920d-0918cc89ccb5": "H4sIAAAAAAAAClVWu45lNw78l4lNQKJIidp4/8JwIPEROllnhv9968wCi1HS6MZl65LFevD3v3/8mf/5K+Pf56/z41+///0jfv7yw6rJ6tVoVxaJyaU7bpHz6ePuLWPZj39++3/9OnlC3ShuMxJnI1vRyN3wEae2m7/W9xmyLSZ5nUmyRuGbeNLq5rW59Wn713q2cpu1qPkZJMmLrpjRGjObHpdx/df6mBsfoOumE/WDO+2taKp7l9pzl65f68++XoUql5YkUUbXO/7cnLOO9JR66tl6ejFZdeDjwnT6FTrn5L53lt/xzMt6tp+k8oZ6HUZn2aWdKiNUpq3n/auL9+b9jaokpzU6Y27S4cP68mx2nn5uvy2NiWU58NRB5wbGN62ZcufKB3+LPid2CXy8Y7/OdG8yRV8zDEvQvM9+TVawCW1rQQII6fYmtHJVAVITe953Hpt9FxpW9J/n0EbTlBpHR7a27Xn/yGxL7iHZiaHHxap4TZr7hFSbV05/+CAzwEygWF8/M8CHTKM5tp6pvlXbr/U1J1pcRXcCFVn4z23zUkljv7l8x4P/iDwSl6l2Bz+7A/+cndTaaBklMR/+gwGtNUHDMcCfhGjuyEvqesOwDo9nX9ftskbSXA3zFr5kt92JFcs9zhV3/lrfNMWOJHEDiwXyo6Nzfcgaj2Ez45l3lw0bAsGujnnrLlAtDzHP0W7du4c8/LTcAxwh7fcn/kp3Qw5jjQbsRq/+7LfWglQvqHMU9a0zAfKiLNemVan89NNPZog04n7AT2jk6wf6bV32vAG6P/sdHOc0cQj8NJBiJe2L32L5PNdHs/3gs7sG+gliH2gqu5J9Pzr3uYF17BkPf6Itj+ZgZQOKwthX6iUIH1oH/r0e/4nZu8UAiyXB5+YT+tVJPZk5T+ur8cP/y3bCBymDZTIhshsFE1pD1j0LhHr4E5Fatg3+JuhfIRpIGsy7YzVPmGI9eMJsGCMFjcI/SWXQ7rZhXzyDG4aQB08DcMNQj1YE8x4h2+WUDHfuq7j41ftYHAX/aSwQ5Rh4/+xJF0Z+Rgeo/PAB1gBlgPXWCu+zgD8N84LMgAh2N+eDp8H0XKAqZlingO7oR516a+GmctfV5/0ddvWzQjPwB7uAP8DulD+WZCVc+uGnJESniwyGADxdaY8ZGAfuNm2s++LTT2n7WADXhX4hcjoGvfOUDu4XPPepd5Qpw/r3F0Xg50HewV4KuZWzAdX+zOuAv/c4336BZ+0NJhniQK6AcB2yfvBsc932qXDBED98MAmSl5aiHMZ3hj7vL4sccEm65/MHpC2iqG+aZ5gJ/HHko3eDC1+F/3cI7JsX+DhMUSU8FQMgrB5+yqmciJabHe9nFZ0JU2mWkEVb7O2tN8Ry1waBK0gXoOYeB34LkWLmkTDHxw8FuXkWGu4NrJ+fsxvgcjvFMGOv9vBhQO5Dztfwx+fRgT8oAJH5QE5lXH321RD8sAzk3ScaKUTv5aXfn7AfD3D04Y8vReSH0DSD/ySi6Cr25XNidyuG+tP/hMF3OAi1PdG/f8wQ2LvV2NPnsMpHvzlNcYN03EsM/jeMegWmiBtEYxW2a8++NmIU9tCo20+94BK6hjjoubMhKGF/Dx8Ud4M36LEZQJVYwFNwrugZ4jdw4OznfR5nV8HQcLjAfwY6QyIA2RO8NmbQ/tQHjjccbYMS/Pr0jtPni3tE8idUBRWfeRXHl+NQ+wwT+sWpgjz94uZ2XTePQgFPnq44uHKcyr58xCxkF/cDO86o6D3hig+fV83z0wrxLfAHhIA54hhUXmn7wOLe/TKvcIYLrvjyAqRAlRBcY+GMDUDx8A1ecjoD9WMIJcE5R7h3gU+ZYzeb73sfggzFOKGh3++I04X3z8B5thbO6MRp+u53tEDigZCwftyH9b/7Fv48sTYf0s+Hzx///PFfcIqX4rILAAA="
+      }
+    },
+    {
+      "NodeId": "61454c24-19c6-43bd-a4c5-b64f147a0bc0",
+      "Binding": {
+        "ByPoints_InClassDecl-1_InFunctionScope-1_Instance0_61454c24-19c6-43bd-a4c5-b64f147a0bc0": "H4sIAAAAAAAACl1WPW62uQ28y1eHAClSopQ6t1hsQVFimSbbLXL3zLNFYC1g2IbNV6KG88Pf/vz17/ufP+75V/wRv/7525+/zl+//DIedW5fxGsk2XChaMeoWyzvd8928td///H/+laFrzzktpWMW9L063RcwiNT5nrqzaOiuCgCR9uZTHvUpsG+zqx1j7af9SudT1+XuC7OFz40w5L2WY139bnm/Vl/dhujN6G7cap5Mc1dh1LOcpWsbuepHy2v7U03LpNVXVplQtsye8877pw/66u7a6qQ+kL9xCVoBTdd7X6b7fLnvaNVpO2g6xfvje20hJOiUttlPrX57d+lJrpGJzjVDpDqmaShWcOn8Hrqexvt6m2E53Xg2RttLZw/9sAMWk6pn/U5ju0cgzbrwbwiaCWeP++Oc5rubE//m8/wZLyy3fj6HzStgtqtE8Lc1/Kf9XPjTz2NrNcgUyA1A781Zlv9xNEuz/mBofw11RP4UDalYGcSkeaGx82yn/V6fHIBz7ka8FkDnS1TDG2nmbQ7bP+sF21dLqgcDVO1ruBb35PWkpWXAZg888WFzt0aRTL6z8a09mi0WG9aAopcP+v5SDOQCyw+qF/nG+02yIEFlMrKF//tp9fcmJIAGrCmaEU3Eu2d28zM/fBZAIFuhR4D32w0dLZjAn/d3Y8wTnv4k6upiBN4hXkdVQL9oRfIIvXyBrg/68OAqOvFlA74UNdox0rqM9ttNSX3My8+l8/iS3c56jUnlBwYmuiM2bjh59P/4qwISOV+/J+OeWl28OFmNk9Q8dF7Q8cq1fDeNcl2R2cqkCfgKbY7YurDh6Vg+S0YzmxfP/CroYMcOh9negt/8GcBS9wvhU3MC7Snya1oxBh7rWKW/rP+zmUlF/y8Cb6NZDw1oDTgVhNXqT5+Ip4nP3+wweDzgWhW8iT5zOcez/BHL2LjdjNU+f7LH3CTnEZj6vLE3Tniea8cDwHrcTTq2zigcgxS6dyh+Gj86FdN7sJgyPcGf7oazeyYLziyeEDd73zdQ3nAyhPMAv/xob2jyLk5pA066qMvGLCDACDkPEBljwtmAy4rryVgUO8Pnk07zvtUXviQLVjn3JBDUy6bLBXnee/ZJb2gx8YHj66PqXAt4o7ZOo8JMj7z7eWtQbpIJeTFGh81bdJpEPSyCKnnvb3gz21fggwwL0EeIfgG1Tg7k0+M13/6xH/hAciL6cgXD0gLpptbz0J0AqaHD+1sGMEogit++EuHExX0boVm4t77ziuAwrkQrHdYg52/nAVOjUi+t8uCLz79mAT0xHA11y+FPifFE+nTRJedCm69ehxI+IH86hf4w8OBP+JYBDaPMDkpTz1sIRhQ04X8gKd80Qg8xwD/9t4CMj35gnndC5ean7SAJ/ICxCHBnsA5KrQevV/XsQRWsnx++YVHb3gPHSRfwMIKafW893LMji0Dof3tDwo/RCuEvUGDrUOWDx8G+BCpSfyFMEx5gA8fqZc0JJoC1cdPbML4mJVODfABVKVYMEXLw8F74I6/+Rvcb4BqWwClDfmsFqEt5o1XD+vt0budZv1i9RF4JfSO0FgoIQn1gT9te+s95TImT4UgQBcd+8NMx3X73n33QSQ9emEfCp6jFQU/z+efAX2VLF+C2zHtZ5+Zu9eX12eDxaaw/jV9Qe8LK4fMoy8+jsXiOKLi1AGf1bAvZWBTxKZU4bDPl/9jYYfExkAt0Lp90l0qMCEIOOER2MgeP8HZi499UfrNq7BKTsW+51lqNQIr5eMnlViU+pwwNJiKyehwanTGc2Ot2asNe/Ac2hgQf/h08E3Bh2WYr1c/ktFXe/3EF3JRAc2EueKVSNbZQSccPq/OAf979BiMHDzYMs7FVE3gt8vvJYDcXLB+jPob/p8/94nU/fTuMJW1UglOUvAfzWjA5/f//v4/fqPxWrILAAA="
       }
     }
   ],
@@ -1042,16 +1054,6 @@
         "Y": 1188.8501849019622
       },
       {
-        "Id": "a7630b1b8c41471aa2142819ecac7ece",
-        "Name": "CoCircularGoal.Create",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 663.9125032226121,
-        "Y": 45.03741838532966
-      },
-      {
         "Id": "6d2cfb7f889349dc8e938a17d6887390",
         "Name": "PolylineBinder.ByPoints",
         "IsSetAsInput": false,
@@ -1080,6 +1082,16 @@
         "ShowGeometry": true,
         "X": 657.8310357403731,
         "Y": 219.43180092973185
+      },
+      {
+        "Id": "61454c2419c643bda4c5b64f147a0bc0",
+        "Name": "CoCircularGoal.ByPoints",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 667.5909893216963,
+        "Y": 40.03911377390233
       }
     ],
     "Annotations": [
@@ -1098,8 +1110,8 @@
           "ee9cd04f591a420a953de65b750bb8b7",
           "0b77baf294664b2e9f1d1b1258eb1078",
           "a93611865e154677b50159e83d7e4023",
-          "6954c7c57f8c4d8c80a64f6882b3f4c7",
-          "30b022559de64dab9126bfe766aa1a7a"
+          "30b022559de64dab9126bfe766aa1a7a",
+          "6954c7c57f8c4d8c80a64f6882b3f4c7"
         ],
         "HasNestedGroups": false,
         "Left": 1085.828508849224,
@@ -1109,7 +1121,7 @@
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": 135.4216134733905,
-        "InitialHeight": 1476.4285714285716,
+        "InitialHeight": 1198.4285714285716,
         "TextblockHeight": 56.0,
         "Background": "#FF48B9FF"
       },
@@ -1134,8 +1146,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -465.4882561630558,
-    "Y": 196.55979883290735,
-    "Zoom": 0.4603994503732801
+    "X": -489.70199087878143,
+    "Y": 184.56144490002157,
+    "Zoom": 0.48725859469940275
   }
 }

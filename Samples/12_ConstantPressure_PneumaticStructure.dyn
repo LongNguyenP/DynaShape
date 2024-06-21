@@ -26,7 +26,7 @@
       "Name": "Reset",
       "Type": "boolean",
       "Type2": "boolean",
-      "Value": "true",
+      "Value": "false",
       "Description": "Enables selection between True and False"
     },
     {
@@ -430,7 +430,7 @@
       ],
       "Replication": "Disabled",
       "Description": "Enables selection between True and False",
-      "InputValue": true
+      "InputValue": false
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
@@ -1279,7 +1279,7 @@
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
-      "HasRunWithoutCrash": true,
+      "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
       "Version": "3.0.4.7905",
       "RunType": "Automatic",
@@ -1538,7 +1538,7 @@
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
         "InitialTop": -354.04351537830905,
-        "InitialHeight": 1377.5493113712787,
+        "InitialHeight": 1282.0,
         "TextblockHeight": 56.0,
         "Background": "#FF48B9FF"
       },
@@ -1655,8 +1655,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -1071.4257893305157,
-    "Y": 338.1553654618897,
-    "Zoom": 0.5838579506830296
+    "X": -988.6182115888389,
+    "Y": 372.2621158952736,
+    "Zoom": 0.5323273301693355
   }
 }

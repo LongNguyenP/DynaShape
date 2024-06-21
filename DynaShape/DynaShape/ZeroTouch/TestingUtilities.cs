@@ -497,7 +497,7 @@ public static class TestingUtilities
             lineBinders.Add(new LineBinder(v[1], v[2]));
             lineBinders.Add(new LineBinder(v[2], v[0]));
 
-            mergeGoals.Add(new MergeGoal(v, 0.1f));
+            mergeGoals.Add(new MergeGoal(v, 0.01f));
         }
 
         for (int j = 0; j <= yCount; j++)

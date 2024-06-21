@@ -21,14 +21,6 @@
   },
   "Inputs": [
     {
-      "Id": "b644acfd596d42b6aef200471ae7b703",
-      "Name": "Reset",
-      "Type": "boolean",
-      "Type2": "boolean",
-      "Value": "true",
-      "Description": "Enables selection between True and False"
-    },
-    {
       "Id": "11366c4ec4ec47ef8c5a74d000c0543f",
       "Name": "Iterations",
       "Type": "number",
@@ -296,26 +288,6 @@
   ],
   "Outputs": [],
   "Nodes": [
-    {
-      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
-      "Id": "b644acfd596d42b6aef200471ae7b703",
-      "NodeType": "BooleanInputNode",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "c19db5743a764291bb73634d8a773049",
-          "Name": "",
-          "Description": "Boolean",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "Enables selection between True and False",
-      "InputValue": true
-    },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
       "NumberType": "Double",
@@ -1114,7 +1086,7 @@
         {
           "Id": "92f10da8653f4915b83db4bafdb66228",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1306,7 +1278,7 @@
         {
           "Id": "ddd8bc7cc75f4a49801069f2cba85d9d",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1709,7 +1681,7 @@
         {
           "Id": "a89cdb99ed6b42d8b10dd2089f43eb57",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2112,7 +2084,7 @@
         {
           "Id": "7aabc1fefbb141439d16a19ae87bb1a3",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2515,7 +2487,7 @@
         {
           "Id": "05e0365122e44c40a9b1442019a7173c",
           "Name": "AnchorGoal",
-          "Description": "A newly defined AnchorGoal.",
+          "Description": "AnchorGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2683,7 +2655,7 @@
         {
           "Id": "c2e8e803fc3642e3b93c1de5a03145c3",
           "Name": "ConstantGoal",
-          "Description": "A newly defined ConstantGoal.",
+          "Description": "ConstantGoal",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -3563,24 +3535,14 @@
     "ConnectorPins": [],
     "NodeViews": [
       {
-        "Id": "b644acfd596d42b6aef200471ae7b703",
-        "Name": "Reset",
-        "IsSetAsInput": true,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "ShowGeometry": true,
-        "X": 4255.826460014946,
-        "Y": 3280.859336081398
-      },
-      {
         "Id": "11366c4ec4ec47ef8c5a74d000c0543f",
         "Name": "Iterations",
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 4255.826460014946,
-        "Y": 3131.859336081398
+        "X": 4248.281847367506,
+        "Y": 3132.697902054202
       },
       {
         "Id": "454b731e484b46fc908c494bf73dc853",
@@ -3589,8 +3551,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 4255.826460014946,
-        "Y": 3429.859336081398
+        "X": 4248.281847367506,
+        "Y": 3281.697902054202
       },
       {
         "Id": "34f0b6cba16346069042edf3dae66d6c",
@@ -3599,8 +3561,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 4255.826460014946,
-        "Y": 3578.859336081398
+        "X": 4248.281847367506,
+        "Y": 3430.697902054202
       },
       {
         "Id": "6a5cc8b0f91a48a287714961c552c6fd",
@@ -3619,8 +3581,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 4255.826460014946,
-        "Y": 2497.859336081398
+        "X": 4248.281847367506,
+        "Y": 2497.697902054202
       },
       {
         "Id": "fe41be58e95e43c9b211865ae2527721",
@@ -3669,8 +3631,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 4255.826460014946,
-        "Y": 2849.859336081398
+        "X": 4248.281847367506,
+        "Y": 2850.697902054202
       },
       {
         "Id": "cc8a5230072d4b468284103a11fdde2f",
@@ -4239,8 +4201,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 4663.261787679721,
-        "Y": 3086.0523069092746
+        "X": 4696.8532759389345,
+        "Y": 2936.697902054202
       },
       {
         "Id": "9d974fb251b844249014ea2fb8c60605",
@@ -4249,41 +4211,11 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 5127.439003625252,
-        "Y": 3187.837122435274
+        "X": 5133.424704510363,
+        "Y": 3038.697902054202
       }
     ],
     "Annotations": [
-      {
-        "Id": "38c38f8acd8242d5bcbda66fa4f54a66",
-        "Title": "DynaShape Solver (Silent Mode)",
-        "DescriptionText": "",
-        "IsExpanded": true,
-        "WidthAdjustment": 0.0,
-        "HeightAdjustment": 0.0,
-        "Nodes": [
-          "b644acfd596d42b6aef200471ae7b703",
-          "11366c4ec4ec47ef8c5a74d000c0543f",
-          "454b731e484b46fc908c494bf73dc853",
-          "34f0b6cba16346069042edf3dae66d6c",
-          "ceceb405da414735a8981bcf1b0ee857",
-          "65a4478e9f314682a39680203c8a88fc",
-          "9c6ee9efcfab4f2db16097629c3a0a37",
-          "9d974fb251b844249014ea2fb8c60605",
-          "eea3dbb8619148d2a3c939dc95b50f82"
-        ],
-        "HasNestedGroups": false,
-        "Left": 4245.826460014946,
-        "Top": 2431.859336081398,
-        "Width": 1389.8982578960204,
-        "Height": 1280.2857142857142,
-        "FontSize": 30.0,
-        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": 2497.859336081398,
-        "InitialHeight": 1226.0,
-        "TextblockHeight": 56.0,
-        "Background": "#FF48B9FF"
-      },
       {
         "Id": "70165b4433dc41bd93f401d32418a8f8",
         "Title": "Create 4 anchor goals to fix the 4 corners of the grid",
@@ -4510,6 +4442,35 @@
         "Background": "#FFC1D676"
       },
       {
+        "Id": "21ce56fc05ff4702be78d8c5028e79bb",
+        "Title": "DynaShape Solver",
+        "DescriptionText": "",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "11366c4ec4ec47ef8c5a74d000c0543f",
+          "454b731e484b46fc908c494bf73dc853",
+          "34f0b6cba16346069042edf3dae66d6c",
+          "ceceb405da414735a8981bcf1b0ee857",
+          "65a4478e9f314682a39680203c8a88fc",
+          "9c6ee9efcfab4f2db16097629c3a0a37",
+          "9d974fb251b844249014ea2fb8c60605",
+          "eea3dbb8619148d2a3c939dc95b50f82"
+        ],
+        "HasNestedGroups": false,
+        "Left": 4238.281847367506,
+        "Top": 2424.2693306256306,
+        "Width": 1403.4285714285716,
+        "Height": 1139.7142857142858,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 2497.697902054202,
+        "InitialHeight": 1097.669978823978,
+        "TextblockHeight": 63.42857142857143,
+        "Background": "#FF48B9FF"
+      },
+      {
         "Id": "eea3dbb8619148d2a3c939dc95b50f82",
         "Title": "SILENT MODE\n\nThe Solver.ExecuteSilently node will execute the solver until all vertices have (almost) stopped moving (according to the termination threshold) or when the given maximum number of iterations have been reached, and THEN output the result. (This is useful when you do not need live interaction with the vertices and constraints, and only care about the final result)",
         "DescriptionText": null,
@@ -4518,8 +4479,8 @@
         "HeightAdjustment": 0.0,
         "Nodes": [],
         "HasNestedGroups": false,
-        "Left": 4679.939280164404,
-        "Top": 2886.621653363372,
+        "Left": 4696.8532759389345,
+        "Top": 2767.697902054202,
         "Width": 0.0,
         "Height": 0.0,
         "FontSize": 36.0,
@@ -4530,8 +4491,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -1709.217905651245,
-    "Y": -853.9474365410044,
-    "Zoom": 0.42013690141693427
+    "X": -2025.754755176542,
+    "Y": -949.7403261136978,
+    "Zoom": 0.48921722094632797
   }
 }
