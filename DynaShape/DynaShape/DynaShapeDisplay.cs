@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
 using Autodesk.DesignScript.Runtime;
+using Dynamo.Visualization;
 using Dynamo.Wpf.ViewModels.Watch3D;
 using DynaShape.GeometryBinders;
 using HelixToolkit.SharpDX.Core;
@@ -9,7 +10,6 @@ using SharpDX;
 using Color = System.Windows.Media.Color;
 
 namespace DynaShape;
-
 
 [IsVisibleInDynamoLibrary(false)]
 public class DynaShapeDisplay : IDisposable
@@ -131,7 +131,7 @@ public class DynaShapeDisplay : IDisposable
                         RenderAction, DispatcherPriority.Send);
             }
         }
-        else DynaShapeViewExtension.DynamoWindow.Dispatcher.Invoke(RenderAction, DispatcherPriority.Send);
+        else DynaShapeViewExtension.DynamoWindow.Dispatcher.Invoke(RenderAction, DispatcherPriority.Render);
     }
 
 
