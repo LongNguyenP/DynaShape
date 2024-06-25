@@ -8,8 +8,6 @@ namespace DynaShape.ZeroTouch;
 
 public static class Solver
 {
-    public static DynaShape.Solver Create() => new DynaShape.Solver();
-
     /// <summary>
     /// Execute the solver to iteratively solve the input goals/constraints
     /// </summary>
@@ -135,60 +133,5 @@ public static class Solver
                 "\nLargest Movement Sqr.    : " + solver.GetKineticEnergy())
             }
         };
-    }
-
-
-    [MultiReturn("nodePositions", "goalOutputs", "geometries")]
-    public static Dictionary<string, object> Execute2(
-        List<Goal> goals,
-        [DefaultArgument("null")] List<GeometryBinder> geometryBinders,
-        [DefaultArgument("0.001")] float nodeMergeThreshold,
-        [DefaultArgument("0")] int iterations,
-        [DefaultArgument("true")] bool reset,
-        [DefaultArgument("true")] bool execute,
-        [DefaultArgument("true")] bool enableMomentum,
-        [DefaultArgument("true")] bool enableFastDisplay,
-        [DefaultArgument("false")] bool enableManipulation,
-        [DefaultArgument("0.98")] float dampingFactor,
-        DynaShape.Solver solver)
-    {
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
-
-        if (reset)
-        {
-            solver.StopBackgroundExecution();
-            solver.Clear();
-            solver.RegisterGoals(goals);
-            if (geometryBinders != null)
-                solver.RegisterGeometryBinders(geometryBinders, nodeMergeThreshold);
-            solver.Render();
-        }
-        else
-        {
-            solver.EnableMouseInteraction = enableManipulation;
-            solver.EnableMomentum = enableMomentum;
-            solver.EnableFastDisplay = enableFastDisplay;
-            solver.IterationCount = iterations;
-            solver.DampingFactor = dampingFactor;
-
-            if (execute) solver.StartBackgroundExecution();
-            else
-            {
-                solver.StopBackgroundExecution();
-                if (!enableFastDisplay) solver.ClearRender();
-                if (!enableFastDisplay) solver.Iterate();
-            }
-        }
-
-        return execute || enableFastDisplay
-            ? new Dictionary<string, object> {
-                { "nodePositions", null },
-                { "goalOutputs", null },
-                { "geometries", null } }
-            : new Dictionary<string, object> {
-                { "nodePositions", solver.GetNodePositionsAsPoints() },
-                { "goalOutputs", solver.GetGoalOutputs() },
-                { "geometries", solver.GetGeometries() } };
     }
 }

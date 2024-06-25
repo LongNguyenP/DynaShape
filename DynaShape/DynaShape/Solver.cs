@@ -16,23 +16,46 @@ namespace DynaShape;
 [IsVisibleInDynamoLibrary(false)]
 public class Solver : IDisposable
 {
+    /// <summary>
+    ///
+    /// </summary>
     public bool EnableMouseInteraction = true;
+
+    /// <summary>
+    ///
+    /// </summary>
     public bool EnableMomentum = true;
+
+    /// <summary>
+    ///
+    /// </summary>
     public bool EnableFastDisplay = true;
+
+    /// <summary>
+    ///
+    /// </summary>
     public float DampingFactor = 0.98f;
 
-    public List<Node> Nodes = new List<Node>();
-    public List<Goal> Goals = new List<Goal>();
-    public List<GeometryBinder> GeometryBinders = new List<GeometryBinder>();
+    /// <summary>
+    ///
+    /// </summary>
+    public int IterationCount = 0;
 
+    /// <summary>
+    ///
+    /// </summary>
+    public int CurrentIteration { get; private set; } = 0;
+
+    internal List<Node> Nodes = new List<Node>();
+    internal List<Goal> Goals = new List<Goal>();
+    internal List<GeometryBinder> GeometryBinders = new List<GeometryBinder>();
+
+    internal DynaShapeDisplay Display;
     internal int HandleNodeIndex = -1;
     internal int NearestNodeIndex = -1;
 
     private Task backgroundExecutionTask;
-
-    public int IterationCount = 0;
-
-    public int CurrentIteration { get; private set; } = 0;
+    private CancellationTokenSource ctSource;
 
 
     public Solver()
@@ -374,9 +397,6 @@ public class Solver : IDisposable
     }
 
 
-    CancellationTokenSource ctSource;
-    internal DynaShapeDisplay Display;
-
     public void ClearRender() { Display?.ClearRender(); }
 
     public void Render() { Display.Render(); }
@@ -489,7 +509,7 @@ public class Solver : IDisposable
     }
 
 
-    private void ParametersOnCurrentWorkspaceCleared(IWorkspaceModel obj)
+    private void CurrentWorkspaceClearedHandler(IWorkspaceModel obj)
     {
         Dispose();
     }
@@ -510,6 +530,6 @@ public class Solver : IDisposable
             Display.Dispose();
         }
 
-        DynaShapeViewExtension.Parameters.CurrentWorkspaceCleared -= ParametersOnCurrentWorkspaceCleared;
+        DynaShapeViewExtension.Parameters.CurrentWorkspaceCleared -= CurrentWorkspaceClearedHandler;
     }
 }
