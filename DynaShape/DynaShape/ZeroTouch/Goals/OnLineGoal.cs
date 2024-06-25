@@ -16,7 +16,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// Creates an OnLineGoal to force a set of nodes to lie on the specified line.
         /// This differs from the CoLinear goal, where the target line is computed based on the current node positions rather than being defined and fixed in advance.
         /// </summary>
-        /// <param name="startPosition">The start position of the node.</param>
+        /// <param name="startPositions">The start position of the node.</param>
         /// <param name="targetLineOrigin">The target line's origin.</param>
         /// <param name="targetLineDirection">The target line's direction.</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
