@@ -128,10 +128,11 @@ public class DynaShapeDisplay : IDisposable
             {
                 DispatcherOperation =
                     DynaShapeViewExtension.DynamoWindow.Dispatcher.InvokeAsync(
-                        RenderAction, DispatcherPriority.Send);
+                        RenderAction, DispatcherPriority.Render);
             }
         }
-        else DynaShapeViewExtension.DynamoWindow.Dispatcher.Invoke(RenderAction, DispatcherPriority.Render);
+        else
+            DynaShapeViewExtension.DynamoWindow.Dispatcher.Invoke(RenderAction, DispatcherPriority.Render);
     }
 
 
