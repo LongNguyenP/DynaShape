@@ -39,6 +39,7 @@ public static class Solver
         stopwatch.Start();
 
         DynaShape.Solver solver = TracingUtils.GetObjectFromTrace<DynaShape.Solver>();
+        solver.SetUpDisplayAndUserInteraction();
 
         if (reset)
         {
