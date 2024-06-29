@@ -46,9 +46,20 @@ public class Solver : IDisposable
     /// </summary>
     public int CurrentIteration { get; private set; } = 0;
 
-    internal List<Node> Nodes = new List<Node>();
-    internal List<Goal> Goals = new List<Goal>();
-    internal List<GeometryBinder> GeometryBinders = new List<GeometryBinder>();
+    /// <summary>
+    ///
+    /// </summary>
+    public List<Goal> Goals = new List<Goal>();
+
+    /// <summary>
+    ///
+    /// </summary>
+    public List<GeometryBinder> GeometryBinders = new List<GeometryBinder>();
+
+    /// <summary>
+    ///
+    /// </summary>
+    public List<Node> Nodes = new List<Node>();
 
     internal DynaShapeDisplay Display;
     internal int HandleNodeIndex = -1;
@@ -60,10 +71,16 @@ public class Solver : IDisposable
 
     public Solver()
     {
-        if (DynaShapeViewExtension.ViewModel != null) // This check is important in case ViewModel is null (e.g. in Refinery mode)
+        SetUpDisplayAndUserInteraction();
+    }
+
+
+    internal void SetUpDisplayAndUserInteraction()
+    {
+        if (Display == null &&DynaShapeViewExtension.ViewModel != null) // This check is important in case ViewModel is null (e.g. in Refinery mode)
         {
             Display = new DynaShapeDisplay(this);
-            DynaShapeViewExtension.Parameters.CurrentWorkspaceCleared += ParametersOnCurrentWorkspaceCleared;
+            DynaShapeViewExtension.Parameters.CurrentWorkspaceCleared += CurrentWorkspaceClearedHandler;
             DynaShapeViewExtension.ViewModel.ViewMouseDown += ViewportMouseDownHandler;
             DynaShapeViewExtension.ViewModel.ViewMouseUp += ViewportMouseUpHandler;
             DynaShapeViewExtension.ViewModel.ViewMouseMove += ViewportMouseMoveHandler;
@@ -402,18 +419,6 @@ public class Solver : IDisposable
     public void Render() { Display.Render(); }
 
 
-    private void BackgroundExecutionAction()
-    {
-        while (!ctSource.Token.IsCancellationRequested)
-        {
-            if (IterationCount > 0) Iterate(IterationCount);
-            else Iterate(25f);
-
-            if (EnableFastDisplay) Display.Render();
-        }
-    }
-
-
     public void StartBackgroundExecution()
     {
         if (backgroundExecutionTask != null && backgroundExecutionTask.Status == TaskStatus.Running) return;
@@ -428,6 +433,21 @@ public class Solver : IDisposable
         ctSource?.Cancel();
         backgroundExecutionTask?.Wait(300);
         Display.DispatcherOperation?.Task.Wait(300);
+    }
+
+
+    private void BackgroundExecutionAction()
+    {
+        while (!ctSource.Token.IsCancellationRequested)
+        {
+            if (IterationCount > 0)
+                Iterate(IterationCount);
+            else
+                Iterate(25f);
+
+            if (EnableFastDisplay)
+                Display.Render(true);
+        }
     }
 
 
@@ -528,6 +548,7 @@ public class Solver : IDisposable
             DynaShapeViewExtension.ViewModel.ViewCameraChanged -= ViewportCameraChangedHandler;
             DynaShapeViewExtension.ViewModel.CanNavigateBackgroundPropertyChanged -= ViewportCanNavigateBackgroundPropertyChangedHandler;
             Display.Dispose();
+            Display = null;
         }
 
         DynaShapeViewExtension.Parameters.CurrentWorkspaceCleared -= CurrentWorkspaceClearedHandler;
