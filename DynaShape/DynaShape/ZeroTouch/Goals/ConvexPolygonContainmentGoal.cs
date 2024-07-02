@@ -13,12 +13,12 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Creates a ConvexPolygonContainmentGoal to contain polygons within another polygon.
+        /// Creates a ConvexPolygonCollisionGoal to keep a group circles inside a convex polygon.
         /// </summary>
-        /// <param name="centers"></param>
-        /// <param name="radii"></param>
-        /// <param name="polygonVertices"></param>
-        /// <param name="weight"></param>
+        /// <param name="centers">The centers of the circles.</param>
+        /// <param name="radii">The radii of the circles.</param>
+        /// <param name="polygonVertices">The vertices of the convex polygon.</param>
+        /// <param name="weight">The goal's weight/impact on the solver.</param>
         [NodeCategory("Create")]
         public static DynaShape.Goals.ConvexPolygonContainmentGoal ByPointsRadii(
             List<Point> centers,
