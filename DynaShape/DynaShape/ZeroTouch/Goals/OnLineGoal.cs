@@ -22,7 +22,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.OnLineGoal ByStartPositionOriginDirection(
+        public static DynaShape.Goals.OnLineGoal ByPointsOriginDirection(
             List<Point> startPositions,
             [DefaultArgument("Point.Origin()")] Point targetLineOrigin,
             [DefaultArgument("Vector.XAxis()")] Vector targetLineDirection,
@@ -47,7 +47,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="OnLineGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.OnLineGoal ByStartPositionsLine(
+        public static DynaShape.Goals.OnLineGoal ByPointsLine(
             List<Point> startPositions,
             [DefaultArgument("Line.ByStartPointEndPoint(Point.Origin(), Point.ByCoordinates(1.0, 0.0, 0.0))")] Line
                 targetLine,

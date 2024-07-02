@@ -20,7 +20,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="SphereCollisionGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.SphereCollisionGoal ByCentersRadii(
+        public static DynaShape.Goals.SphereCollisionGoal ByPointsRadii(
             List<Point> centers,
             List<float> radii,
             [DefaultArgument("1.0")] float weight)

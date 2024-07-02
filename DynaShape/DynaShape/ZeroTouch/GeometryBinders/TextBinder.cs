@@ -19,7 +19,7 @@ public class TextBinder
     /// <param name="color">An optional color to preview the circle geometry.</param>
     /// <returns name="textBinder"></returns>
     [NodeCategory("Create")]
-    public static DynaShape.GeometryBinders.TextBinder ByPositionText(
+    public static DynaShape.GeometryBinders.TextBinder ByPointText(
         Point position,
         string text,
         [DefaultArgument("null")] Color color)

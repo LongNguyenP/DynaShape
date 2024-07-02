@@ -20,7 +20,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="ParallelLinesGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.ParallelLinesGoal ByStartEndPositions(
+        public static DynaShape.Goals.ParallelLinesGoal ByStartEndPoints(
             List<Point> startPoints,
             List<Point> endPoints,
             [DefaultArgument("1.0")] float weight)

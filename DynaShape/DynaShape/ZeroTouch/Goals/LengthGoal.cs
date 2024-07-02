@@ -20,7 +20,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="targetLength">The length to maintain. If unspecified, the length will default to the length between the two nodes.</param>
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.LengthGoal ByStartPointEndPoint(
+        public static DynaShape.Goals.LengthGoal ByPoints(
             Point startPoint,
             Point endPoint,
             [DefaultArgument("-1.0")] float targetLength,

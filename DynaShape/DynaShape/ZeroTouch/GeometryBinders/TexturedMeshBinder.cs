@@ -21,7 +21,7 @@ public class TexturedMeshBinder
     /// <param name="textureCoordinates">The coordinates to extract from the texture file.</param>
     /// <returns name="texturedMeshBinder"></returns>
     [NodeCategory("Create")]
-    public static DynaShape.GeometryBinders.TexturedMeshBinder ByMeshAndTexture(
+    public static DynaShape.GeometryBinders.TexturedMeshBinder ByMeshTexture(
         Autodesk.Dynamo.MeshToolkit.Mesh mesh,
         [DefaultArgument("null")] Color color,
         string textureFileName,

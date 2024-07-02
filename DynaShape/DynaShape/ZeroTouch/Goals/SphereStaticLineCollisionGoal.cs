@@ -22,7 +22,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="SphereStaticLineCollisionGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.SphereStaticLineCollisionGoal Create(
+        public static DynaShape.Goals.SphereStaticLineCollisionGoal ByPointsRadii(
             List<Point> centers,
             List<float> radii,
             [DefaultArgument("null")] List<Line> lines,

@@ -18,7 +18,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="startPositions">The starting positions of the sequence of nodes</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.EqualLengthsGoal ByStartPositions(
+        public static DynaShape.Goals.EqualLengthsGoal ByStartPoints(
             List<Point> startPositions,
             [DefaultArgument("1.0")] float weight)
         {
@@ -47,7 +47,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver</param>
         /// <returns name="EqualLengthsGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.EqualLengthsGoal ByStartEndPositions(
+        public static DynaShape.Goals.EqualLengthsGoal ByStartEndPoints(
             List<Point> startPositions,
             List<Point> endPositions,
             [DefaultArgument("1.0")] float weight)

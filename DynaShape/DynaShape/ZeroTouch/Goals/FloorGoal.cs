@@ -19,7 +19,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="floorHeight">The floor height</param>
         /// <param name="weight">The goal's weight/impact on the solver</param>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.FloorGoal Create(
+        public static DynaShape.Goals.FloorGoal ByPoints(
             List<Point> startPositions,
             [DefaultArgument("0.0")] float floorHeight,
             [DefaultArgument("1000.0")] float weight)

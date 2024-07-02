@@ -43,7 +43,7 @@ public class LineBinder
     /// <param name="color">An optional color to preview the circle geometry.</param>
     /// <returns name="lineBinder"></returns>
     [NodeCategory("Create")]
-    public static DynaShape.GeometryBinders.LineBinder ByStartPointEndPoint(
+    public static DynaShape.GeometryBinders.LineBinder ByPoints(
         Point startPoint,
         Point endPoint,
         [DefaultArgument("null")] Color color)

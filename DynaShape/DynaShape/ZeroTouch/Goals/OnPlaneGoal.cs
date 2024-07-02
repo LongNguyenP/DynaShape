@@ -22,7 +22,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="OnPlaneGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.OnPlaneGoal ByStartPositionsOriginNormal(
+        public static DynaShape.Goals.OnPlaneGoal ByPointsOriginNormal(
             List<Point> startPositions,
             [DefaultArgument("Point.Origin()")] Point targetPlaneOrigin,
             [DefaultArgument("Vector.ZAxis()")] Vector targetPlaneNormal,
@@ -46,7 +46,7 @@ namespace DynaShape.ZeroTouch.Goals
         /// <param name="weight">The goal's weight/impact on the solver.</param>
         /// <returns name="OnPlaneGoal"></returns>
         [NodeCategory("Create")]
-        public static DynaShape.Goals.OnPlaneGoal ByStartPositionsPlane(
+        public static DynaShape.Goals.OnPlaneGoal ByPointsPlane(
             List<Point> startPositions,
             [DefaultArgument("Plane.ByOriginNormal(Point.Origin(), Vector.ZAxis())")] Plane targetPlane,
             [DefaultArgument("1.0")] float weight)
