@@ -13,7 +13,7 @@ namespace DynaShape.ZeroTouch.Goals
 
 
         /// <summary>
-        /// Creates a ConvexPolygonCollisionGoal to keep a group circles inside a convex polygon.
+        /// Creates a ConvexPolygonCollisionGoal to keep a group of circles inside a convex polygon.
         /// </summary>
         /// <param name="centers">The centers of the circles.</param>
         /// <param name="radii">The radii of the circles.</param>
