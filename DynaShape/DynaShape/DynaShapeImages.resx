@@ -1013,7 +1013,7 @@
         wdIID0x7PVEh3GzR8z45he8HbvJeBp1P2QMi/wLyeb2yDqdw0QAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="DynaShape.ZeroTouch.GeometryBinders.Circle  Binder.ByCenterRadius.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="DynaShape.ZeroTouch.GeometryBinders.CircleBinder.ByCenterRadius.Large" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
