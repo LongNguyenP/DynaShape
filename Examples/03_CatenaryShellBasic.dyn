@@ -1284,8 +1284,8 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "ShowGeometry": true,
-        "X": 2307.933023755466,
-        "Y": 195.86860413755096
+        "X": 2303.8741337715514,
+        "Y": 289.2230737675894
       },
       {
         "Id": "c8a93a5e6d99440f93f58303e43e328d",
@@ -1482,7 +1482,7 @@
       {
         "Id": "2d3aad33866641339e56ef604f2191af",
         "Title": "DynaShape Solver",
-        "DescriptionText": "Description <Double click here to edit group description>",
+        "DescriptionText": "",
         "IsExpanded": true,
         "WidthAdjustment": 0.0,
         "HeightAdjustment": 0.0,
@@ -1499,12 +1499,12 @@
         ],
         "HasNestedGroups": false,
         "Left": 1849.3615951840375,
-        "Top": -648.5599672910205,
-        "Width": 802.8571428571427,
-        "Height": 1594.7142857142858,
+        "Top": -218.3176289960615,
+        "Width": 798.7982528732282,
+        "Height": 1164.4719474193269,
         "FontSize": 30.0,
         "GroupStyleId": "00000000-0000-0000-0000-000000000000",
-        "InitialTop": -582.5599672910205,
+        "InitialTop": -152.3176289960615,
         "InitialHeight": 1540.4285714285716,
         "TextblockHeight": 56.0,
         "Background": "#FF48B9FF"
@@ -1591,8 +1591,8 @@
         "HeightAdjustment": 0.0,
         "Nodes": [],
         "HasNestedGroups": false,
-        "Left": 1859.3615951840375,
-        "Top": -574.5599672910205,
+        "Left": 2326.133943334228,
+        "Top": -144.3176289960615,
         "Width": 0.0,
         "Height": 0.0,
         "FontSize": 36.0,
