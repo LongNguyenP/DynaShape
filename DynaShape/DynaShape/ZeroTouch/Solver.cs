@@ -22,7 +22,7 @@ public static class Solver
     /// <param name="enableManipulation">Enable manipulation of the nodes in the background view with mouse</param>
     /// <param name="dampingFactor">When momentum mode is enabled, this value will determine how much the node's velocity is damped at each iteration</param>
     /// <returns></returns>
-    [MultiReturn("nodePositions", "goalOutputs", "geometries")]
+    [MultiReturn("nodePositions", "goalOutputs", "geometries", "info")]
     public static Dictionary<string, object> Execute(
         List<Goal> goals,
         [DefaultArgument("null")] List<GeometryBinder> geometryBinders,
@@ -33,21 +33,38 @@ public static class Solver
         [DefaultArgument("true")] bool enableMomentum,
         [DefaultArgument("true")] bool enableFastDisplay,
         [DefaultArgument("false")] bool enableManipulation,
-        [DefaultArgument("0.98")] float dampingFactor)
+        [DefaultArgument("0.98")] float dampingFactor,
+        [DefaultArgument("false")] bool KdTree)
     {
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
 
         DynaShape.Solver solver = TracingUtils.GetObjectFromTrace<DynaShape.Solver>();
         solver.SetUpDisplayAndUserInteraction();
+
+
+        string time = "";
 
         if (reset)
         {
             solver.StopBackgroundExecution();
             solver.Clear();
-            solver.RegisterGoals(goals);
-            if (geometryBinders != null)
-                solver.RegisterGeometryBinders(geometryBinders, nodeMergeThreshold);
+
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            if (KdTree)
+            {
+                if (geometryBinders == null)
+                    geometryBinders = new List<GeometryBinder>();
+
+                solver.RegisterGoalsAndGeometryBindersUsingKdTree(goals, geometryBinders, nodeMergeThreshold);
+            }
+            else
+            {
+                solver.RegisterGoals(goals);
+                if (geometryBinders != null)
+                    solver.RegisterGeometryBinders(geometryBinders, nodeMergeThreshold);
+            }
+
+            time = "     " + stopwatch.ElapsedMilliseconds.ToString();
+
             solver.Render();
         }
         else
@@ -71,11 +88,15 @@ public static class Solver
             ? new Dictionary<string, object> {
                 { "nodePositions", null },
                 { "goalOutputs", null },
-                { "geometries", null } }
+                { "geometries", null },
+                { "info", time }
+            }
             : new Dictionary<string, object> {
                 { "nodePositions", solver.GetNodePositionsAsPoints() },
                 { "goalOutputs", solver.GetGoalOutputs() },
-                { "geometries", solver.GetGeometries() } };
+                { "geometries", solver.GetGeometries() },
+                { "info", time }
+            };
     }
 
 
