@@ -90,7 +90,7 @@ public class Solver : IDisposable
     }
 
 
-    public void RegisterGoals(IEnumerable<Goal> goals, double nodeMergeThreshold = 0.0001, bool keepExistingNodeIndices = false)
+    public void RegisterGoals(IEnumerable<Goal> goals, float nodeMergeThreshold = 0.0001f, bool keepExistingNodeIndices = false)
     {
         foreach (Goal goal in goals)
             RegisterGoal(goal, nodeMergeThreshold, keepExistingNodeIndices);
@@ -103,7 +103,7 @@ public class Solver : IDisposable
     }
 
 
-    public void RegisterGeometryBinders(IEnumerable<GeometryBinder> geometryBinders, double nodeMergeThreshold = 0.0001, bool keepExistingNodeIndices = false)
+    public void RegisterGeometryBinders(IEnumerable<GeometryBinder> geometryBinders, float nodeMergeThreshold = 0.0001f, bool keepExistingNodeIndices = false)
     {
         foreach (GeometryBinder geometryBinder in geometryBinders)
             RegisterGeometryBinder(geometryBinder, nodeMergeThreshold, keepExistingNodeIndices);
@@ -142,7 +142,118 @@ public class Solver : IDisposable
     }
 
 
-    public void RegisterGeometryBinder(GeometryBinder geometryBinder, double nodeMergeThreshold = 0.0001, bool keepExistingNodeIndices = false)
+    public void RegisterGoalsAndGeometryBindersUsingKdTree(List<Goal> goals, List<GeometryBinder> geometryBinders, float nodeMergeThreshold = 0.0001f)
+    {
+        List<float> xs = new List<float>();
+        List<float> ys = new List<float>();
+        List<float> zs = new List<float>();
+        List<int> ids = new List<int>();
+        List<int> nodeIndices = new List<int>();
+
+        foreach (Goal goal in goals)
+        {
+            Goals.Add(goal);
+            foreach (Triple position in goal.StartingPositions)
+            {
+                xs.Add(position.X);
+                ys.Add(position.Y);
+                zs.Add(position.Z);
+                ids.Add(ids.Count);
+                nodeIndices.Add(-1);
+            }
+        }
+
+        // foreach (GeometryBinder geometryBinder in geometryBinders)
+        // {
+        //     GeometryBinders.Add(geometryBinder);
+        //     foreach (Triple position in geometryBinder.StartingPositions)
+        //     {
+        //         xs.Add(position.X);
+        //         ys.Add(position.Y);
+        //         zs.Add(position.Z);
+        //         ids.Add(ids.Count);
+        //     }
+        // }
+
+        // Build the Kd-Tree ===============================================================
+
+        KdTree kdTree = new KdTree(xs.ToArray(), ys.ToArray(), zs.ToArray(), ids.ToArray());
+
+
+        // =================================================================================
+
+        for (int i = 0; i < nodeIndices.Count; i++)
+        {
+            if (nodeIndices[i] != -1) continue;
+
+            List<int> hitIds = kdTree.Search(xs[i], ys[i], zs[i], nodeMergeThreshold);
+
+            if (hitIds.Count > 0)
+            {
+                foreach (int hitId in hitIds)
+                    if (hitId != i && nodeIndices[i] != - 1)
+                    {
+                        nodeIndices[i] = nodeIndices[hitId];
+                        break;
+                    }
+            }
+
+            if (nodeIndices[i] == -1)
+            {
+                Nodes.Add(new Node(new Triple(xs[i], ys[i], zs[i])));
+                nodeIndices[i] = Nodes.Count - 1;
+            }
+
+            foreach (int hitId in hitIds)
+                nodeIndices[hitId] = nodeIndices[i];
+        }
+
+
+        int n = 0;
+
+        foreach (Goal goal in goals)
+        {
+            goal.NodeIndices = new int[goal.NodeCount];
+            for (int j = 0; j < goal.NodeCount; j++)
+            {
+                goal.NodeIndices[j] = nodeIndices[n];
+                n++;
+            }
+        }
+
+
+        // foreach (GeometryBinder geometryBinder in geometryBinders)
+        // {
+        //     geometryBinder.NodeIndices = new int[geometryBinder.NodeCount];
+        //
+        //     for (int i = 0; i < geometryBinder.NodeCount; i++)
+        //     {
+        //         List<int> hitIds = kdTree.Search(
+        //             geometryBinder.StartingPositions[i].X,
+        //             geometryBinder.StartingPositions[i].Y,
+        //             geometryBinder.StartingPositions[i].Z,
+        //             nodeMergeThreshold,
+        //             true);
+        //
+        //         if (hitIds.Count > 0 && hitIds[0] < allNodeIndices.Count)
+        //         {
+        //             int newNodeIndex = allNodeIndices[hitIds[0]];
+        //             geometryBinder.NodeIndices[i] = newNodeIndex;
+        //             allNodeIndices.Add(newNodeIndex);
+        //         }
+        //         else
+        //         {
+        //             Nodes.Add(new Node(geometryBinder.StartingPositions[i]));
+        //             int newNodeIndex = Nodes.Count - 1;
+        //             geometryBinder.NodeIndices[i] = newNodeIndex;
+        //             allNodeIndices.Add(newNodeIndex);
+        //         }
+        //     }
+        // }
+    }
+
+
+    public void RegisterGeometryBinder(GeometryBinder geometryBinder, float nodeMergeThreshold = 0.0001f, bool keepExistingNodeIndices = false)
     {
         if (geometryBinder == null) return;
 
