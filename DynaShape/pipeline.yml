@@ -1,0 +1,58 @@
+version: 3.1.0
+env:
+  - JENKINS_NODE_WIN: "DynamoWinBuild"
+  - SLACK_QUANTUM_BUILD_CHANNEL: "#dynamo-jenkinsbuild"
+  - SLACK_QUANTUM_BUILD_CREDENTIAL_ID: "slack-notify-token"
+  - MAIL_QUANTUM_BUILD_RECIPIENT: "long.nguyen@autodesk.com"
+
+check_changelog_updated_on_pr: false
+pipeline_os: "Windows"
+force_slack_notification: true
+language: csharp
+
+schedule:
+  cron_schedule: once_a_week
+
+build:
+  - scripts:
+      - "dotnet build --configuration Release DynaShape\DynaShape.sln"
+
+ci_test:
+  tests:
+    - scripts:
+        - dotnet coverage collect "dotnet test --no-build --configuration Release DynaShape\DynaShape.sln --filter \"TestCategory!=Failure\" --logger:junit  --logger:trx" -f xml -o "coverage.xml"
+  test_report_dir: "DynaShapeTests/TestResults"
+  test_report_pattern:
+    format: "junit"
+    pattern: "*.xml"
+
+code_analysis:
+  sonarqube:
+    useDotnetSonarScanner: true
+    scanOnAnyBranch: true
+    coverage_reports:
+      - coverage.xml
+
+soc2:
+  harmony:
+    allow_branches:
+      - master
+    hidden_email_list: dynamo_ws_access
+    fail_on_audit_failure: false
+    third_party_lib_paths:
+      - package_output
+
+deployment:
+  - type: sign
+    files_to_sign:
+      - package_output\DynaShape\bin\DynaShape.dll
+      - package_output\DynaShape\bin\DynaSpace.dll
+
+  - type: artifacts
+    allow_branches: master
+    publish_to_artifactory: false
+    publish_to_jenkins: true
+    scripts:
+      - "pwsh.exe -ExecutionPolicy ByPass -Command Compress-Archive -Path .\\package_output\\DynaShape -DestinationPath .\\DynaShapePackage.zip"
+    outputs:
+      - "DynaShape.zip"
