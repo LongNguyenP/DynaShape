@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DynaShape</id>
+    <version>$Version$</version>
+    <authors>Long Nguyen</authors>
+    <description>Open-source Dynamo package for geometric constraint solving, optimization, physics simulation,</description>
+    <license type="expression">MIT</license>
+    <copyright>Copyright Long Nguyen</copyright>
+    <projectUrl>https://github.com/LongNguyenP/DynaShape</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+      <group targetFramework="$TargetFramework$">
+        <dependency id="DynamoVisualProgramming.WpfUILibrary" version="3.0.3.7597" exclude="Build,Analyzers" />
+        <dependency id="DynamoVisualProgramming.ZeroTouchLibrary" version="3.0.3.7597" exclude="Build,Analyzers" />
+        <dependency id="HelixToolkit.SharpDX.Core.Wpf" version="2.24.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\..\dist\DynaShape\pkg.json" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\bin\DynaShape.customization.dll" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\bin\DynaShape.dll" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\bin\DynaShape.xml" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\bin\DynaShape_DynamoCustomization.xml" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\bin\DynaSpace.dll" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\bin\DynaSpace.xml" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\bin\DynaSpace_DynamoCustomization.xml" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\dyf\DynaShapeMeshToolkitDummy.dyf" target="lib\$TargetFramework$"/>
+    <file src="..\..\dist\DynaShape\extra\DynaShape_ViewExtensionDefinition.xml" target="lib\$TargetFramework$"/>
+  </files>
+</package>
