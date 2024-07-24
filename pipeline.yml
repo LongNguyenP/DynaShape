@@ -15,7 +15,7 @@ schedule:
 
 build:
   - scripts:
-      - "dotnet build --configuration Release DynaShape\\DynaShape.sln"
+      - "msbuild /p:Configuration=Release DynaShape\\DynaShape.sln"
 
 code_analysis:
   sonarqube:
