@@ -21,8 +21,6 @@ code_analysis:
   sonarqube:
     useDotnetSonarScanner: true
     scanOnAnyBranch: true
-    coverage_reports:
-      - coverage.xml
 
 soc2:
   harmony:
