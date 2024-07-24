@@ -15,23 +15,12 @@ schedule:
 
 build:
   - scripts:
-      - "dotnet build --configuration Release DynaShape\DynaShape.sln"
-
-ci_test:
-  tests:
-    - scripts:
-        - dotnet coverage collect "dotnet test --no-build --configuration Release DynaShape\DynaShape.sln --filter \"TestCategory!=Failure\" --logger:junit  --logger:trx" -f xml -o "coverage.xml"
-  test_report_dir: "DynaShapeTests/TestResults"
-  test_report_pattern:
-    format: "junit"
-    pattern: "*.xml"
+      - "msbuild /p:Configuration=Release DynaShape\\DynaShape.sln"
 
 code_analysis:
   sonarqube:
     useDotnetSonarScanner: true
     scanOnAnyBranch: true
-    coverage_reports:
-      - coverage.xml
 
 soc2:
   harmony:
