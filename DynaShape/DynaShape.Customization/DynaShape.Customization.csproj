@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <AssemblyName>DynaShape.customization</AssemblyName>
+    <Version>0.9.2</Version>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="10.0.8" />
+    <PackageReference Include="System.Resources.Extensions" Version="10.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\DynaShape\DynaShapeImages.resx" Link="DynaShapeImages.resx">
+      <LogicalName>DynaShapeImages.resources</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

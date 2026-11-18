@@ -1,5 +1,5 @@
 ﻿using Autodesk.DesignScript.Runtime;
-using Autodesk.Dynamo.MeshToolkit;
+using Mesh = Autodesk.DesignScript.Geometry.Mesh;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
