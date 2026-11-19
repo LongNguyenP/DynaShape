@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Reflection;
+using System.Resources;
 using DynaShape;
 using DynaShape.Goals;
 
@@ -27,6 +29,18 @@ public class BasicTests
         Assert.AreEqual(nodePositions[0].X, 1f);
     }
 
+    [Test]
+    public void CustomizationIconResourceIsAvailable()
+    {
+        var customizationAssembly = Assembly.Load("DynaShape.customization");
+        Assert.That(customizationAssembly.GetManifestResourceNames(), Does.Contain("DynaShapeImages.resources"));
+
+        var resources = new ResourceManager("DynaShapeImages", customizationAssembly);
+        var icon = resources.GetObject("DynaShape.ZeroTouch.GeometryBinders.CircleBinder.ByCenterRadius.Small");
+
+        Assert.That(icon, Is.Not.Null);
+        Assert.That(icon!.GetType().FullName, Is.EqualTo("System.Drawing.Bitmap"));
+    }
 
     [Test]
     public void HangingChainTest()

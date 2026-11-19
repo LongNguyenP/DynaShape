@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
-using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
+using Mesh = Autodesk.DesignScript.Geometry.Mesh;
 
 
 namespace DynaShape.Goals
@@ -43,7 +43,7 @@ namespace DynaShape.Goals
             faces = Mesh.VertexIndicesByTri();
             Weight = weight;
             VolumePressureConstant = volumePressureConstant;
-            List<Point> vertices = mesh.Vertices();
+            List<Point> vertices = mesh.VertexPositions.ToList();
             StartingPositions = new Triple[mesh.VertexCount];
             for (int i = 0; i < mesh.VertexCount; i++)
                 StartingPositions[i] = vertices[i].ToTriple();

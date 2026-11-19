@@ -325,7 +325,7 @@
         {
           "Id": "40ba965e90464b07b55b5259401f0ca4",
           "Name": "mesh",
-          "Description": "Autodesk.Dynamo.MeshToolkit.Mesh",
+          "Description": "Autodesk.DesignScript.Geometry.Mesh",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -343,7 +343,7 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Edges",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Mesh.Edges",
       "Replication": "Auto",
       "Description": "Converts the Mesh edges to Lines, and returns them\n\nMesh.Edges ( ): Line[]"
     },
@@ -663,7 +663,7 @@
         {
           "Id": "b1e22aae5fc04db18d6a5592c2cb24af",
           "Name": "mesh",
-          "Description": "Autodesk.Dynamo.MeshToolkit.Mesh",
+          "Description": "Autodesk.DesignScript.Geometry.Mesh",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -681,9 +681,9 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Vertices",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Mesh.VertexPositions",
       "Replication": "Auto",
-      "Description": "Converts the Mesh vertices to Points, and returns them\n\nMesh.Vertices ( ): Point[]"
+      "Description": "Converts the Mesh vertices to Points, and returns them\n\nMesh.VertexPositions: Point[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
@@ -1606,7 +1606,7 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.DirectionalWindGoal.ByMesh@Autodesk.Dynamo.MeshToolkit.Mesh,Autodesk.DesignScript.Geometry.Vector,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.DirectionalWindGoal.ByMesh@Autodesk.DesignScript.Geometry.Mesh,Autodesk.DesignScript.Geometry.Vector,double",
       "Replication": "Auto",
       "Description": "Creates a DirectionalWindGoal to simulate wind blowing along a specified direction, by applying a force on the three vertices of a triangle, The force magnitude is additionally scaled by the cosine of the angle between the wind vector and the triangle's normal. With this implementation, the wind has full effect when it hits the triangle head-on, and zero effect if it blows parallel to the triangle.\n\nDirectionalWindGoal.ByMesh (mesh: Mesh, windVector: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0), weight: double = 1): DirectionalWindGoal[]"
     },
@@ -2146,15 +2146,6 @@
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [
-    {
-      "Name": "MeshToolkit",
-      "Version": "5.0.0",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "3a88a39a1b004dddb5253aa1adbdaca1",
-        "91312ec838de429bbd63c0d801ade8c1"
-      ]
-    },
     {
       "Name": "DynaShape",
       "Version": "0.9.2",

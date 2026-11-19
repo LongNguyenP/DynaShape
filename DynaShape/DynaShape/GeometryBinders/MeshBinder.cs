@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
-using Autodesk.Dynamo.MeshToolkit;
 using HelixToolkit.SharpDX.Core;
 using HelixToolkit.Wpf.SharpDX;
 using SharpDX;
-using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
+using Mesh = Autodesk.DesignScript.Geometry.Mesh;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 
@@ -38,7 +37,7 @@ namespace DynaShape.GeometryBinders
 
         public void Initialize(Mesh mesh, Color4 color)
         {
-            StartingPositions = mesh.Vertices().ToTriples().ToArray();
+            StartingPositions = mesh.VertexPositions.ToTriples().ToArray();
             Color = color;
 
             faceIndices = mesh.VertexIndicesByTri();

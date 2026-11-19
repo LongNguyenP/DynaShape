@@ -181,7 +181,7 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Cuboid@Autodesk.DesignScript.Geometry.Point,double,double,double,int,int,int",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Mesh.Cuboid@Autodesk.DesignScript.Geometry.Point,double,double,double,int,int,int",
       "Replication": "Auto",
       "Description": "Create a mesh cuboid based on the current settings.\n\nMesh.Cuboid (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), length: double = 1, width: double = 1, height: double = 1, xDivisions: int = 0, yDivisions: int = 0, zDivisions: int = 0): Mesh"
     },
@@ -235,7 +235,7 @@
         {
           "Id": "2464ee22ea8c431eb386265a267fb8af",
           "Name": "mesh",
-          "Description": "Autodesk.Dynamo.MeshToolkit.Mesh",
+          "Description": "Autodesk.DesignScript.Geometry.Mesh",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -253,7 +253,7 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Edges",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Mesh.Edges",
       "Replication": "Auto",
       "Description": "Converts the Mesh edges to Lines, and returns them\n\nMesh.Edges ( ): Line[]"
     },
@@ -705,7 +705,7 @@
           "KeepListStructure": false
         }
       ],
-      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantVolumePressureGoal.ByMesh@Autodesk.Dynamo.MeshToolkit.Mesh,double,double",
+      "FunctionSignature": "DynaShape.ZeroTouch.Goals.ConstantVolumePressureGoal.ByMesh@Autodesk.DesignScript.Geometry.Mesh,double,double",
       "Replication": "Auto",
       "Description": "Creates a ConstantVolumePressureGoal that simulates pressure trapped inside a closed volume. The pressure decreases as the volume expands (Boyle's law).\n\nConstantVolumePressureGoal.ByMesh (mesh: Mesh, volumePressureConstant: double = 0, weight: double = 1): ConstantVolumePressureGoal"
     }
@@ -840,15 +840,6 @@
   ],
   "Dependencies": [],
   "NodeLibraryDependencies": [
-    {
-      "Name": "MeshToolkit",
-      "Version": "5.0.0",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "c6579ac25db24e5abfe95f745eae61fa",
-        "c754cf64968843dca4ca67072321c833"
-      ]
-    },
     {
       "Name": "DynaShape",
       "Version": "0.9.2",
