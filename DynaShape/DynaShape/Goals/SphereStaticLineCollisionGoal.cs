@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
@@ -11,19 +9,26 @@ namespace DynaShape.Goals
         public List<Triple> LineStarts;
         public List<Triple> LineEnds;
 
+        public SphereStaticLineCollisionGoal() { }
 
-        public SphereStaticLineCollisionGoal()
-        {
-        }
-
-
-        public SphereStaticLineCollisionGoal(List<Triple> centers, List<float> radii, List<Triple> lineStarts, List<Triple> lineEnds, float weight = 1000f)
+        public SphereStaticLineCollisionGoal(
+            List<Triple> centers,
+            List<float> radii,
+            List<Triple> lineStarts,
+            List<Triple> lineEnds,
+            float weight = 1000f
+        )
         {
             Initialize(centers, radii, lineStarts, lineEnds, weight);
         }
 
-
-        public void Initialize(List<Triple> centers, List<float> radii, List<Triple> lineStarts, List<Triple> lineEnds, float weight)
+        public void Initialize(
+            List<Triple> centers,
+            List<float> radii,
+            List<Triple> lineStarts,
+            List<Triple> lineEnds,
+            float weight
+        )
         {
             Weight = weight;
             Radii = radii.ToArray();
@@ -34,10 +39,10 @@ namespace DynaShape.Goals
             Weights = new float[centers.Count];
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
-            if (LineStarts == null) return;
+            if (LineStarts == null)
+                return;
 
             Moves.FillArray(Triple.Zero);
             Weights.FillArray(Weight);
@@ -70,7 +75,8 @@ namespace DynaShape.Goals
                     }
                     else
                     {
-                        if (shadow >= lineLength) v = c - e;
+                        if (shadow >= lineLength)
+                            v = c - e;
                         float vLength = v.Length;
                         if (vLength < r)
                         {
@@ -82,7 +88,8 @@ namespace DynaShape.Goals
             }
 
             for (int i = 0; i < NodeIndices.Length; i++)
-                if (moveCounts[i] != 0) Moves[i] /= moveCounts[i];
+                if (moveCounts[i] != 0)
+                    Moves[i] /= moveCounts[i];
         }
     }
 }

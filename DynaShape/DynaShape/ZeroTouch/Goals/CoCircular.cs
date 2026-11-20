@@ -1,5 +1,5 @@
-﻿using Autodesk.DesignScript.Runtime;
-using Autodesk.DesignScript.Geometry;
+﻿using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -9,8 +9,7 @@ namespace DynaShape.ZeroTouch.Goals
     /// </summary>
     public class CoCircularGoal
     {
-        private CoCircularGoal(){}
-
+        private CoCircularGoal() { }
 
         /// <summary>
         /// Creates a CoCircularGoal that attempts to force a set of nodes to lie on a common circular arc.
@@ -20,7 +19,8 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.CoCircularGoal ByPoints(
             List<Point> startPositions,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.CoCircularGoal>();
             goal.Initialize(startPositions.ToTriples(), weight);

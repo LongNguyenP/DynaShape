@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
@@ -12,23 +10,26 @@ namespace DynaShape.Goals
         private float sigmaInversed;
         public bool AllowScaling;
 
+        public ShapeMatchingGoal() { }
 
-        public ShapeMatchingGoal()
-        {
-        }
-
-
-        public ShapeMatchingGoal(List<Triple> nodeStartingPositions, bool allowScaling = false, float weight = 1f)
+        public ShapeMatchingGoal(
+            List<Triple> nodeStartingPositions,
+            bool allowScaling = false,
+            float weight = 1f
+        )
         {
             Initialize(nodeStartingPositions, allowScaling, weight);
         }
 
-
-        public ShapeMatchingGoal(List<Triple> nodeStartingPositions, List<Triple> targetShapePositions, bool allowScaling = false, float weight = 1f)
+        public ShapeMatchingGoal(
+            List<Triple> nodeStartingPositions,
+            List<Triple> targetShapePositions,
+            bool allowScaling = false,
+            float weight = 1f
+        )
         {
             Initialize(nodeStartingPositions, targetShapePositions, allowScaling, weight);
         }
-
 
         public void Initialize(List<Triple> nodeStartingPositions, bool allowScaling, float weight)
         {
@@ -40,8 +41,12 @@ namespace DynaShape.Goals
             SetTargetShapePoints(nodeStartingPositions);
         }
 
-
-        public void Initialize(List<Triple> nodeStartingPositions, List<Triple> targetShapePositions, bool allowScaling, float weight)
+        public void Initialize(
+            List<Triple> nodeStartingPositions,
+            List<Triple> targetShapePositions,
+            bool allowScaling,
+            float weight
+        )
         {
             Weight = weight;
             StartingPositions = nodeStartingPositions.ToArray();
@@ -51,18 +56,19 @@ namespace DynaShape.Goals
             SetTargetShapePoints(targetShapePositions);
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
             Triple[] positions = new Triple[NodeCount];
-            for (int i = 0; i < NodeCount; i++) positions[i] = allNodes[NodeIndices[i]].Position;
+            for (int i = 0; i < NodeCount; i++)
+                positions[i] = allNodes[NodeIndices[i]].Position;
             ShapeMatch(positions);
         }
 
         public void SetTargetShapePoints(List<Triple> points)
         {
             Triple center = Triple.Zero;
-            for (int i = 0; i < NodeCount; i++) center += points[i];
+            for (int i = 0; i < NodeCount; i++)
+                center += points[i];
             center /= NodeCount;
 
             targetShapePoints = new Triple[NodeCount];
@@ -79,9 +85,15 @@ namespace DynaShape.Goals
             // Determine if the target shape is 2D, as this case required special handling when doing shape matching operator
             //===================================================================================================================
 
-            float p00 = 0f, p01 = 0f, p02 = 0f;
-            float p10 = 0f, p11 = 0f, p12 = 0f;
-            float p20 = 0f, p21 = 0f, p22 = 0f;
+            float p00 = 0f,
+                p01 = 0f,
+                p02 = 0f;
+            float p10 = 0f,
+                p11 = 0f,
+                p12 = 0f;
+            float p20 = 0f,
+                p21 = 0f,
+                p22 = 0f;
 
             for (int i = 0; i < NodeCount; i++)
             {
@@ -96,9 +108,10 @@ namespace DynaShape.Goals
                 p22 += targetShapePoints[i].Z * targetShapePoints[i].Z;
             }
 
-            float determinant = p00 * (p11 * p22 - p21 * p12) -
-                                p01 * (p10 * p22 - p20 * p12) +
-                                p02 * (p10 * p21 - p20 * p11);
+            float determinant =
+                p00 * (p11 * p22 - p21 * p12)
+                - p01 * (p10 * p22 - p20 * p12)
+                + p02 * (p10 * p21 - p20 * p11);
 
             is2D = determinant.IsAlmostZero();
         }
@@ -113,7 +126,8 @@ namespace DynaShape.Goals
             //=====================================================
 
             Triple center = Triple.Zero;
-            for (int i = 0; i < NodeCount; i++) center += positions[i];
+            for (int i = 0; i < NodeCount; i++)
+                center += positions[i];
             center /= NodeCount;
 
             //=====================================================================
@@ -122,15 +136,22 @@ namespace DynaShape.Goals
             //=====================================================================
 
             Triple[] positionsCentered = new Triple[NodeCount];
-            for (int i = 0; i < NodeCount; i++) positionsCentered[i] = positions[i] - center;
+            for (int i = 0; i < NodeCount; i++)
+                positionsCentered[i] = positions[i] - center;
 
             //=====================================================================================================================
             // Compute the rotation matrix that bring the original rest positions to the current positions as close as possible
             //=====================================================================================================================
 
-            float a00 = 0f, a01 = 0f, a02 = 0f;
-            float a10 = 0f, a11 = 0f, a12 = 0f;
-            float a20 = 0f, a21 = 0f, a22 = 0f;
+            float a00 = 0f,
+                a01 = 0f,
+                a02 = 0f;
+            float a10 = 0f,
+                a11 = 0f,
+                a12 = 0f;
+            float a20 = 0f,
+                a21 = 0f,
+                a22 = 0f;
 
             for (int i = 0; i < NodeCount; i++)
             {
@@ -146,16 +167,37 @@ namespace DynaShape.Goals
             }
 
             FastSvd3x3.Compute(
-                a00, a01, a02,
-                a10, a11, a12,
-                a20, a21, a22,
-                out float u00, out float u01, out float u02,
-                out float u10, out float u11, out float u12,
-                out float u20, out float u21, out float u22,
-                out float s00, out float s11, out float s22,
-                out float v00, out float v01, out float v02,
-                out float v10, out float v11, out float v12,
-                out float v20, out float v21, out float v22);
+                a00,
+                a01,
+                a02,
+                a10,
+                a11,
+                a12,
+                a20,
+                a21,
+                a22,
+                out float u00,
+                out float u01,
+                out float u02,
+                out float u10,
+                out float u11,
+                out float u12,
+                out float u20,
+                out float u21,
+                out float u22,
+                out float s00,
+                out float s11,
+                out float s22,
+                out float v00,
+                out float v01,
+                out float v02,
+                out float v10,
+                out float v11,
+                out float v12,
+                out float v20,
+                out float v21,
+                out float v22
+            );
 
             // Compute the rotation matrix r, defined as u * transpose(v)
             float r00 = u00 * v00 + u01 * v01 + u02 * v02;
@@ -168,9 +210,10 @@ namespace DynaShape.Goals
             float r21 = u20 * v10 + u21 * v11 + u22 * v12;
             float r22 = u20 * v20 + u21 * v21 + u22 * v22;
 
-            float determinant = r00 * (r11 * r22 - r21 * r12) -
-                                r01 * (r10 * r22 - r20 * r12) +
-                                r02 * (r10 * r21 - r20 * r11);
+            float determinant =
+                r00 * (r11 * r22 - r21 * r12)
+                - r01 * (r10 * r22 - r20 * r12)
+                + r02 * (r10 * r21 - r20 * r11);
 
             //Handle the special case where the rotation matrix happens to give a reflected version of target shape
             if (determinant < 0f && !is2D)
@@ -184,9 +227,15 @@ namespace DynaShape.Goals
             if (AllowScaling)
             {
                 float temp = sigmaInversed * ((determinant > 0 ? s00 : -s00) + s11 + s22);
-                r00 *= temp; r01 *= temp; r02 *= temp;
-                r10 *= temp; r11 *= temp; r12 *= temp;
-                r20 *= temp; r21 *= temp; r22 *= temp;
+                r00 *= temp;
+                r01 *= temp;
+                r02 *= temp;
+                r10 *= temp;
+                r11 *= temp;
+                r12 *= temp;
+                r20 *= temp;
+                r21 *= temp;
+                r22 *= temp;
             }
 
             //=================================================================================================
@@ -195,9 +244,24 @@ namespace DynaShape.Goals
 
             for (int i = 0; i < NodeCount; i++)
             {
-                Moves[i].X = r00 * targetShapePoints[i].X + r01 * targetShapePoints[i].Y + r02 * targetShapePoints[i].Z + center.X - positions[i].X;
-                Moves[i].Y = r10 * targetShapePoints[i].X + r11 * targetShapePoints[i].Y + r12 * targetShapePoints[i].Z + center.Y - positions[i].Y;
-                Moves[i].Z = r20 * targetShapePoints[i].X + r21 * targetShapePoints[i].Y + r22 * targetShapePoints[i].Z + center.Z - positions[i].Z;
+                Moves[i].X =
+                    r00 * targetShapePoints[i].X
+                    + r01 * targetShapePoints[i].Y
+                    + r02 * targetShapePoints[i].Z
+                    + center.X
+                    - positions[i].X;
+                Moves[i].Y =
+                    r10 * targetShapePoints[i].X
+                    + r11 * targetShapePoints[i].Y
+                    + r12 * targetShapePoints[i].Z
+                    + center.Y
+                    - positions[i].Y;
+                Moves[i].Z =
+                    r20 * targetShapePoints[i].X
+                    + r21 * targetShapePoints[i].Y
+                    + r22 * targetShapePoints[i].Z
+                    + center.Z
+                    - positions[i].Z;
                 Weights[i] = Weight;
             }
         }

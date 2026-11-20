@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// ShapeMatchingGoal
     /// </summary>
-    public  class ShapeMatchingGoal
+    public class ShapeMatchingGoal
     {
-        private ShapeMatchingGoal(){}
-
+        private ShapeMatchingGoal() { }
 
         /// <summary>
         /// Creates a ShapeMatchingGoal to move a set of nodes to positions that resemble a given target shape.
@@ -26,16 +25,14 @@ namespace DynaShape.ZeroTouch.Goals
             List<Point> startPositions,
             [DefaultArgument("null")] List<Point> targetShapePoints,
             [DefaultArgument("false")] bool allowScaling,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ShapeMatchingGoal>();
 
             if (targetShapePoints == null)
             {
-                goal.Initialize(
-                    startPositions.ToTriples(),
-                    allowScaling,
-                    weight);
+                goal.Initialize(startPositions.ToTriples(), allowScaling, weight);
             }
             else
             {
@@ -43,7 +40,8 @@ namespace DynaShape.ZeroTouch.Goals
                     startPositions.ToTriples(),
                     targetShapePoints.ToTriples(),
                     allowScaling,
-                    weight);
+                    weight
+                );
             }
 
             return goal;

@@ -10,8 +10,7 @@ namespace DynaShape.ZeroTouch.GeometryBinders;
 /// </summary>
 public class LineBinder
 {
-    private LineBinder(){}
-
+    private LineBinder() { }
 
     /// <summary>
     /// Create a LineBinder.
@@ -22,18 +21,19 @@ public class LineBinder
     [NodeCategory("Create")]
     public static DynaShape.GeometryBinders.LineBinder ByLine(
         Line line,
-        [DefaultArgument("null")] Color color)
+        [DefaultArgument("null")] Color color
+    )
     {
         var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.LineBinder>();
 
         binder.Initialize(
             line.StartPoint.ToTriple(),
             line.EndPoint.ToTriple(),
-            color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+            color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor
+        );
 
         return binder;
     }
-
 
     /// <summary>
     /// Create a LineBinder.\\
@@ -46,14 +46,16 @@ public class LineBinder
     public static DynaShape.GeometryBinders.LineBinder ByPoints(
         Point startPoint,
         Point endPoint,
-        [DefaultArgument("null")] Color color)
+        [DefaultArgument("null")] Color color
+    )
     {
         var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.LineBinder>();
 
         binder.Initialize(
             startPoint.ToTriple(),
             endPoint.ToTriple(),
-            color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+            color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor
+        );
 
         return binder;
     }

@@ -1,7 +1,4 @@
-﻿using System;
-
-namespace DynaShape;
-
+﻿namespace DynaShape;
 
 // REFERENCE:
 // This fast algorithm to compute the singular value decomposition of a 3x3 matrix is based on the technical report:
@@ -20,69 +17,183 @@ public static class FastSvd3x3
 
     public static void Compute(
         // input A
-        float a00, float a01, float a02,
-        float a10, float a11, float a12,
-        float a20, float a21, float a22,
+        float a00,
+        float a01,
+        float a02,
+        float a10,
+        float a11,
+        float a12,
+        float a20,
+        float a21,
+        float a22,
         // output U
-        out float u00, out float u01, out float u02,
-        out float u10, out float u11, out float u12,
-        out float u20, out float u21, out float u22,
+        out float u00,
+        out float u01,
+        out float u02,
+        out float u10,
+        out float u11,
+        out float u12,
+        out float u20,
+        out float u21,
+        out float u22,
         // output S
-        out float s00, out float s11, out float s22,
+        out float s00,
+        out float s11,
+        out float s22,
         // output V
-        out float v00, out float v01, out float v02,
-        out float v10, out float v11, out float v12,
-        out float v20, out float v21, out float v22)
+        out float v00,
+        out float v01,
+        out float v02,
+        out float v10,
+        out float v11,
+        out float v12,
+        out float v20,
+        out float v21,
+        out float v22
+    )
     {
         // normal equations matrix
-        MultAtB(a00, a01, a02,
-            a10, a11, a12,
-            a20, a21, a22,
-            a00, a01, a02,
-            a10, a11, a12,
-            a20, a21, a22,
-            out float ata00, out _          , out _          ,
-            out float ata10, out float ata11, out _          ,
-            out float ata20, out float ata21, out float ata22);
+        MultAtB(
+            a00,
+            a01,
+            a02,
+            a10,
+            a11,
+            a12,
+            a20,
+            a21,
+            a22,
+            a00,
+            a01,
+            a02,
+            a10,
+            a11,
+            a12,
+            a20,
+            a21,
+            a22,
+            out float ata00,
+            out _,
+            out _,
+            out float ata10,
+            out float ata11,
+            out _,
+            out float ata20,
+            out float ata21,
+            out float ata22
+        );
 
-        JacobiEigenAnalysis(ref ata00,
-            ref ata10, ref ata11,
-            ref ata20, ref ata21, ref ata22,
-            out float x, out float y, out float z, out float w);
+        JacobiEigenAnalysis(
+            ref ata00,
+            ref ata10,
+            ref ata11,
+            ref ata20,
+            ref ata21,
+            ref ata22,
+            out float x,
+            out float y,
+            out float z,
+            out float w
+        );
 
-        QuatToMatrix(x, y, z, w,
-            out v00, out v01, out v02,
-            out v10, out v11, out v12,
-            out v20, out v21, out v22);
+        QuatToMatrix(
+            x,
+            y,
+            z,
+            w,
+            out v00,
+            out v01,
+            out v02,
+            out v10,
+            out v11,
+            out v12,
+            out v20,
+            out v21,
+            out v22
+        );
 
-        MultAB(a00, a01, a02,
-            a10, a11, a12,
-            a20, a21, a22,
-            v00, v01, v02,
-            v10, v11, v12,
-            v20, v21, v22,
-            out float b00, out float b01, out float b02,
-            out float b10, out float b11, out float b12,
-            out float b20, out float b21, out float b22);
+        MultAB(
+            a00,
+            a01,
+            a02,
+            a10,
+            a11,
+            a12,
+            a20,
+            a21,
+            a22,
+            v00,
+            v01,
+            v02,
+            v10,
+            v11,
+            v12,
+            v20,
+            v21,
+            v22,
+            out float b00,
+            out float b01,
+            out float b02,
+            out float b10,
+            out float b11,
+            out float b12,
+            out float b20,
+            out float b21,
+            out float b22
+        );
 
         // sort singular values and find V
-        SortSingularValues(ref b00, ref b01, ref b02,
-            ref b10, ref b11, ref b12,
-            ref b20, ref b21, ref b22,
-            ref v00, ref v01, ref v02,
-            ref v10, ref v11, ref v12,
-            ref v20, ref v21, ref v22);
+        SortSingularValues(
+            ref b00,
+            ref b01,
+            ref b02,
+            ref b10,
+            ref b11,
+            ref b12,
+            ref b20,
+            ref b21,
+            ref b22,
+            ref v00,
+            ref v01,
+            ref v02,
+            ref v10,
+            ref v11,
+            ref v12,
+            ref v20,
+            ref v21,
+            ref v22
+        );
 
         // QR decomposition
-        QRDecomposition(b00, b01, b02,
-            b10, b11, b12,
-            b20, b21, b22,
-            out u00, out u01, out u02,
-            out u10, out u11, out u12,
-            out u20, out u21, out u22,
-            out s00, out _  , out _  ,
-            out _  , out s11, out _  ,
-            out _  , out _  , out s22);
+        QRDecomposition(
+            b00,
+            b01,
+            b02,
+            b10,
+            b11,
+            b12,
+            b20,
+            b21,
+            b22,
+            out u00,
+            out u01,
+            out u02,
+            out u10,
+            out u11,
+            out u12,
+            out u20,
+            out u21,
+            out u22,
+            out s00,
+            out _,
+            out _,
+            out _,
+            out s11,
+            out _,
+            out _,
+            out _,
+            out s22
+        );
     }
 
     private static float InvSqrt(float a) => (float)(1.0 / Math.Sqrt(a));
@@ -105,17 +216,35 @@ public static class FastSvd3x3
 
     // matrix multiplication M = A * B
     private static void MultAB(
-        float a00, float a01, float a02,
-        float a10, float a11, float a12,
-        float a20, float a21, float a22,
-        float b00, float b01, float b02,
-        float b10, float b11, float b12,
-        float b20, float b21, float b22,
-        out float m00, out float m01, out float m02,
-        out float m10, out float m11, out float m12,
-        out float m20, out float m21, out float m22)
+        float a00,
+        float a01,
+        float a02,
+        float a10,
+        float a11,
+        float a12,
+        float a20,
+        float a21,
+        float a22,
+        float b00,
+        float b01,
+        float b02,
+        float b10,
+        float b11,
+        float b12,
+        float b20,
+        float b21,
+        float b22,
+        out float m00,
+        out float m01,
+        out float m02,
+        out float m10,
+        out float m11,
+        out float m12,
+        out float m20,
+        out float m21,
+        out float m22
+    )
     {
-
         m00 = a00 * b00 + a01 * b10 + a02 * b20;
         m01 = a00 * b01 + a01 * b11 + a02 * b21;
         m02 = a00 * b02 + a01 * b12 + a02 * b22;
@@ -129,15 +258,34 @@ public static class FastSvd3x3
 
     // matrix multiplication M = Transpose[A] * B
     private static void MultAtB(
-        float a00, float a01, float a02,
-        float a10, float a11, float a12,
-        float a20, float a21, float a22,
-        float b00, float b01, float b02,
-        float b10, float b11, float b12,
-        float b20, float b21, float b22,
-        out float m00, out float m01, out float m02,
-        out float m10, out float m11, out float m12,
-        out float m20, out float m21, out float m22)
+        float a00,
+        float a01,
+        float a02,
+        float a10,
+        float a11,
+        float a12,
+        float a20,
+        float a21,
+        float a22,
+        float b00,
+        float b01,
+        float b02,
+        float b10,
+        float b11,
+        float b12,
+        float b20,
+        float b21,
+        float b22,
+        out float m00,
+        out float m01,
+        out float m02,
+        out float m10,
+        out float m11,
+        out float m12,
+        out float m20,
+        out float m21,
+        out float m22
+    )
     {
         m00 = a00 * b00 + a10 * b10 + a20 * b20;
         m01 = a00 * b01 + a10 * b11 + a20 * b21;
@@ -150,12 +298,21 @@ public static class FastSvd3x3
         m22 = a02 * b02 + a12 * b12 + a22 * b22;
     }
 
-
     private static void QuatToMatrix(
-        float x, float y, float z, float w,
-        out float m00, out float m01, out float m02,
-        out float m10, out float m11, out float m12,
-        out float m20, out float m21, out float m22)
+        float x,
+        float y,
+        float z,
+        float w,
+        out float m00,
+        out float m01,
+        out float m02,
+        out float m10,
+        out float m11,
+        out float m12,
+        out float m20,
+        out float m21,
+        out float m22
+    )
     {
         float qxx = x * x;
         float qyy = y * y;
@@ -167,18 +324,23 @@ public static class FastSvd3x3
         float qwy = w * y;
         float qwz = w * z;
         m00 = 1f - 2f * (qyy + qzz);
-        m01 =      2f * (qxy - qwz);
-        m02 =      2f * (qxz + qwy);
-        m10 =      2f * (qxy + qwz);
+        m01 = 2f * (qxy - qwz);
+        m02 = 2f * (qxz + qwy);
+        m10 = 2f * (qxy + qwz);
         m11 = 1f - 2f * (qxx + qzz);
-        m12 =      2f * (qyz - qwx);
-        m20 =      2f * (qxz - qwy);
-        m21 =      2f * (qyz + qwx);
+        m12 = 2f * (qyz - qwx);
+        m20 = 2f * (qxz - qwy);
+        m21 = 2f * (qyz + qwx);
         m22 = 1f - 2f * (qxx + qyy);
     }
 
-
-    private static void ApproximateGivensQuaternion(float a00, float a01, float a11, out float ch, out float sh)
+    private static void ApproximateGivensQuaternion(
+        float a00,
+        float a01,
+        float a11,
+        out float ch,
+        out float sh
+    )
     {
         //Given givens angle computed by approximateGivensAngles, compute the corresponding rotation quaternion.
         ch = 2 * (a00 - a11);
@@ -190,11 +352,17 @@ public static class FastSvd3x3
     }
 
     private static void JacobiConjugation(
-        int x, int y, int z,
+        int x,
+        int y,
+        int z,
         ref float s00,
-        ref float s10, ref float s11,
-        ref float s20, ref float s21, ref float s22,
-        float[] qV)
+        ref float s10,
+        ref float s11,
+        ref float s20,
+        ref float s21,
+        ref float s22,
+        float[] qV
+    )
     {
         ApproximateGivensQuaternion(s00, s10, s11, out float ch, out float sh);
 
@@ -212,10 +380,10 @@ public static class FastSvd3x3
 
         // perform conjugation S = Q'*S*Q
         // Q already implicitly solved from a, b
-        s00 =  a * ( a * _s00 + b * _s10) + b * ( a * _s10 + b * _s11);
-        s10 =  a * (-b * _s00 + a * _s10) + b * (-b * _s10 + a * _s11);
+        s00 = a * (a * _s00 + b * _s10) + b * (a * _s10 + b * _s11);
+        s10 = a * (-b * _s00 + a * _s10) + b * (-b * _s10 + a * _s11);
         s11 = -b * (-b * _s00 + a * _s10) + a * (-b * _s10 + a * _s11);
-        s20 =  a * _s20 + b * _s21;
+        s20 = a * _s20 + b * _s21;
         s21 = -b * _s20 + a * _s21;
         s22 = _s22;
 
@@ -256,12 +424,19 @@ public static class FastSvd3x3
     // finds transformation that diagonalizes a symmetric matrix
     private static void JacobiEigenAnalysis(
         ref float s00,
-        ref float s10, ref float s11,
-        ref float s20, ref float s21, ref float s22,
-        out float q0, out float q1, out float q2, out float q3)
+        ref float s10,
+        ref float s11,
+        ref float s20,
+        ref float s21,
+        ref float s22,
+        out float q0,
+        out float q1,
+        out float q2,
+        out float q3
+    )
     {
         // follow same indexing convention as GLM
-        float[] qV = {0f, 0f, 0f, 1f};
+        float[] qV = { 0f, 0f, 0f, 1f };
 
         for (int i = 0; i < 4; i++)
         {
@@ -280,13 +455,26 @@ public static class FastSvd3x3
 
     private static void SortSingularValues(
         // matrix that we want to decompose
-        ref float b00, ref float b01, ref float b02,
-        ref float b10, ref float b11, ref float b12,
-        ref float b20, ref float b21, ref float b22,
+        ref float b00,
+        ref float b01,
+        ref float b02,
+        ref float b10,
+        ref float b11,
+        ref float b12,
+        ref float b20,
+        ref float b21,
+        ref float b22,
         // sort V simultaneously
-        ref float v00, ref float v01, ref float v02,
-        ref float v10, ref float v11, ref float v12,
-        ref float v20, ref float v21, ref float v22)
+        ref float v00,
+        ref float v01,
+        ref float v02,
+        ref float v10,
+        ref float v11,
+        ref float v12,
+        ref float v20,
+        ref float v21,
+        ref float v22
+    )
     {
         float rho1 = NormSquared(b00, b10, b20);
         float rho2 = NormSquared(b01, b11, b21);
@@ -333,44 +521,63 @@ public static class FastSvd3x3
 
     private static void QRDecomposition(
         // matrix that we want to decompose
-        float b00, float b01, float b02,
-        float b10, float b11, float b12,
-        float b20, float b21, float b22,
+        float b00,
+        float b01,
+        float b02,
+        float b10,
+        float b11,
+        float b12,
+        float b20,
+        float b21,
+        float b22,
         // output Q
-        out float q00, out float q01, out float q02,
-        out float q10, out float q11, out float q12,
-        out float q20, out float q21, out float q22,
+        out float q00,
+        out float q01,
+        out float q02,
+        out float q10,
+        out float q11,
+        out float q12,
+        out float q20,
+        out float q21,
+        out float q22,
         // output R
-        out float r00, out float r01, out float r02,
-        out float r10, out float r11, out float r12,
-        out float r20, out float r21, out float r22)
+        out float r00,
+        out float r01,
+        out float r02,
+        out float r10,
+        out float r11,
+        out float r12,
+        out float r20,
+        out float r21,
+        out float r22
+    )
     {
         // first givens rotation (ch,0,0,sh)
         QRGivensQuaternion(b00, b10, out float ch1, out float sh1);
         float a = 1f - 2f * sh1 * sh1;
         float c = 2f * ch1 * sh1;
         // apply B = Q' * B
-        r00 =  a * b00 + c * b10;
-        r01 =  a * b01 + c * b11;
-        r02 =  a * b02 + c * b12;
+        r00 = a * b00 + c * b10;
+        r01 = a * b01 + c * b11;
+        r02 = a * b02 + c * b12;
         r10 = -c * b00 + a * b10;
         r11 = -c * b01 + a * b11;
         r12 = -c * b02 + a * b12;
-        r20 =  b20;
-        r21 =  b21;
-        r22 =  b22;
+        r20 = b20;
+        r21 = b21;
+        r22 = b22;
 
         // second givens rotation (ch,0,-sh,0)
         QRGivensQuaternion(r00, r20, out float ch2, out float sh2);
         a = 1f - 2f * sh2 * sh2;
         c = 2f * ch2 * sh2;
         // apply B = Q' * B;
-        b00 =  a * r00 + c * r20;
-        b01 =  a * r01 + c * r21;
-        b02 =  a * r02 + c * r22;
-        b10 =  r10;
-        b11 =  r11;
-        b12 =  r12;
+        b00 = a * r00 + c * r20;
+        b01 = a * r01 + c * r21;
+        b02 = a * r02 + c * r22;
+        b10 = r10;
+        b11 = r11;
+        b12 = r12;
         b20 = -c * r00 + a * r20;
         b21 = -c * r01 + a * r21;
         b22 = -c * r02 + a * r22;
@@ -380,12 +587,12 @@ public static class FastSvd3x3
         a = 1f - 2f * sh3 * sh3;
         c = 2f * ch3 * sh3;
         // R is now set to desired value
-        r00 =  b00;
-        r01 =  b01;
-        r02 =  b02;
-        r10 =  a * b10 + c * b20;
-        r11 =  a * b11 + c * b21;
-        r12 =  a * b12 + c * b22;
+        r00 = b00;
+        r01 = b01;
+        r02 = b02;
+        r10 = a * b10 + c * b20;
+        r11 = a * b11 + c * b21;
+        r12 = a * b12 + c * b22;
         r20 = -c * b10 + a * b20;
         r21 = -c * b11 + a * b21;
         r22 = -c * b12 + a * b22;

@@ -1,4 +1,6 @@
-using System.Diagnostics;
+using System.Globalization;
+using System.Reflection;
+using System.Resources;
 using DynaShape;
 using DynaShape.Goals;
 
@@ -14,12 +16,16 @@ public class BasicTests
         solver = new Solver();
     }
 
-
     [Test]
     public void LengthGoalTest()
     {
         solver.Clear();
-        LengthGoal lengthGoal = new LengthGoal(new Triple(0f, 0f, 0f), new Triple(2f, 0f, 0f), 0f, 1000f);
+        LengthGoal lengthGoal = new LengthGoal(
+            new Triple(0f, 0f, 0f),
+            new Triple(2f, 0f, 0f),
+            0f,
+            1000f
+        );
         solver.RegisterGoal(lengthGoal);
         solver.EnableMomentum = false;
         solver.Iterate();
@@ -27,6 +33,54 @@ public class BasicTests
         Assert.AreEqual(nodePositions[0].X, 1f);
     }
 
+    [Test]
+    public void CustomizationIconResourceIsAvailable()
+    {
+        var customizationAssembly = Assembly.Load("DynaShape.customization");
+        Assert.That(
+            customizationAssembly.GetManifestResourceNames(),
+            Does.Contain("DynaShapeImages.resources")
+        );
+
+        var resources = new ResourceManager("DynaShapeImages", customizationAssembly);
+        var icon = resources.GetObject(
+            "DynaShape.ZeroTouch.GeometryBinders.CircleBinder.ByCenterRadius.Small"
+        );
+
+        Assert.That(icon, Is.Not.Null);
+        Assert.That(icon, Is.TypeOf<byte[]>());
+    }
+
+    [Test]
+    public void CustomizationIconResourcesHaveSmallAndLargeVariants()
+    {
+        var customizationAssembly = Assembly.Load("DynaShape.customization");
+        var resources = new ResourceManager("DynaShapeImages", customizationAssembly);
+        var resourceSet = resources.GetResourceSet(CultureInfo.InvariantCulture, true, true);
+        Assert.That(resourceSet, Is.Not.Null);
+
+        var smallIcons = new HashSet<string>(StringComparer.Ordinal);
+        var largeIcons = new HashSet<string>(StringComparer.Ordinal);
+        var resourceEnumerator = resourceSet!.GetEnumerator();
+
+        while (resourceEnumerator.MoveNext())
+        {
+            if (resourceEnumerator.Key is not string key)
+                continue;
+
+            var isSmall = key.EndsWith(".Small", StringComparison.Ordinal);
+            var isLarge = key.EndsWith(".Large", StringComparison.Ordinal);
+            if (!isSmall && !isLarge)
+                continue;
+
+            Assert.That(resourceEnumerator.Value, Is.TypeOf<byte[]>(), key);
+            var iconName = key[..^(isSmall ? ".Small".Length : ".Large".Length)];
+            (isSmall ? smallIcons : largeIcons).Add(iconName);
+        }
+
+        Assert.That(smallIcons, Is.Not.Empty);
+        Assert.That(largeIcons, Is.EquivalentTo(smallIcons));
+    }
 
     [Test]
     public void HangingChainTest()
@@ -60,13 +114,11 @@ public class BasicTests
         AreAlmostEqual(nodePositions[5], new Triple(5.361444, 0, -23.461422));
     }
 
-
     [TearDownAttribute]
     public void Dispose()
     {
         solver.Dispose();
     }
-
 
     private void AreAlmostEqual(Triple value, Triple truth, float tolerance = 0.001f)
     {

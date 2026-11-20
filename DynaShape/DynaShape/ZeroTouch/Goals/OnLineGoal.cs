@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// OnLineGoal
     /// </summary>
-    public  class OnLineGoal
+    public class OnLineGoal
     {
-        private OnLineGoal(){}
-
+        private OnLineGoal() { }
 
         /// <summary>
         /// Creates an OnLineGoal to force a set of nodes to lie on the specified line.
@@ -26,17 +25,18 @@ namespace DynaShape.ZeroTouch.Goals
             List<Point> startPositions,
             [DefaultArgument("Point.Origin()")] Point targetLineOrigin,
             [DefaultArgument("Vector.XAxis()")] Vector targetLineDirection,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.OnLineGoal>();
             goal.Initialize(
                 startPositions.ToTriples(),
                 targetLineOrigin.ToTriple(),
                 targetLineDirection.ToTriple().Normalise(),
-                weight);
+                weight
+            );
             return goal;
         }
-
 
         /// <summary>
         /// Creates an OnLineGoal to force a set of nodes to lie on the specified line.
@@ -49,20 +49,26 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnLineGoal ByPointsLine(
             List<Point> startPositions,
-            [DefaultArgument("Line.ByStartPointEndPoint(Point.Origin(), Point.ByCoordinates(1.0, 0.0, 0.0))")] Line
-                targetLine,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument(
+                "Line.ByStartPointEndPoint(Point.Origin(), Point.ByCoordinates(1.0, 0.0, 0.0))"
+            )]
+                Line targetLine,
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.OnLineGoal>();
 
             Triple targetLineOrigin = targetLine.StartPoint.ToTriple();
-            Triple targetLineDirection = (targetLine.EndPoint.ToTriple() - targetLineOrigin).Normalise();
+            Triple targetLineDirection = (
+                targetLine.EndPoint.ToTriple() - targetLineOrigin
+            ).Normalise();
 
             goal.Initialize(
                 startPositions.ToTriples(),
                 targetLineOrigin,
                 targetLineDirection,
-                weight);
+                weight
+            );
 
             return goal;
         }

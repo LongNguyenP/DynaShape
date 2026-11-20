@@ -1,5 +1,5 @@
-﻿using Autodesk.DesignScript.Runtime;
-using Autodesk.DesignScript.Geometry;
+﻿using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -9,8 +9,7 @@ namespace DynaShape.ZeroTouch.Goals
     /// </summary>
     public class ConstantGoal
     {
-        private ConstantGoal(){}
-
+        private ConstantGoal() { }
 
         /// <summary>
         /// Creates a ConstantGoal that applies a constant directional offset to the specified nodes. This goal is useful for simulating gravity.
@@ -22,13 +21,12 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.ConstantGoal ByPoints(
             List<Point> startPositions,
             [DefaultArgument("Vector.ByCoordinates(0, 0, -0.1)")] Vector constant,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
-            DynaShape.Goals.ConstantGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantGoal>();
-            goal.Initialize(
-                startPositions.ToTriples(),
-                constant.ToTriple(),
-                weight);
+            DynaShape.Goals.ConstantGoal goal =
+                TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantGoal>();
+            goal.Initialize(startPositions.ToTriples(), constant.ToTriple(), weight);
             return goal;
         }
     }

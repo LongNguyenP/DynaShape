@@ -1,17 +1,16 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
-using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
+using Mesh = Autodesk.DesignScript.Geometry.Mesh;
 
 namespace DynaShape.ZeroTouch.Goals
 {
     /// <summary>
     /// DirectionalWindGoal
     /// </summary>
-    public  class DirectionalWindGoal
+    public class DirectionalWindGoal
     {
-        private DirectionalWindGoal(){}
-
+        private DirectionalWindGoal() { }
 
         /// <summary>
         /// Creates a DirectionalWindGoal to simulate wind by applying a constant force on the three vertices of a triangle,
@@ -30,7 +29,8 @@ namespace DynaShape.ZeroTouch.Goals
             Point startPosition2,
             Point startPosition3,
             [DefaultArgument("Vector.ByCoordinates(1.0, 0, 0)")] Vector windVector,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.DirectionalWindGoal>();
             goal.Initialize(
@@ -38,10 +38,10 @@ namespace DynaShape.ZeroTouch.Goals
                 startPosition2.ToTriple(),
                 startPosition3.ToTriple(),
                 windVector.ToTriple(),
-                weight);
+                weight
+            );
             return goal;
         }
-
 
         /// <summary>
         /// Creates a DirectionalWindGoal to simulate wind blowing along a specified direction, by applying a force on the three vertices of a triangle,
@@ -56,9 +56,12 @@ namespace DynaShape.ZeroTouch.Goals
         public static List<DynaShape.Goals.DirectionalWindGoal> ByMesh(
             Mesh mesh,
             [DefaultArgument("Vector.ByCoordinates(1.0, 0, 0)")] Vector windVector,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
-            var goals = TracingUtils.GetObjectFromTrace<List<DynaShape.Goals.DirectionalWindGoal>>();
+            var goals = TracingUtils.GetObjectFromTrace<
+                List<DynaShape.Goals.DirectionalWindGoal>
+            >();
 
             List<double> vertices = mesh.TrianglesAsNineNumbers.ToList();
             int faceCount = vertices.Count / 9;
@@ -73,12 +76,14 @@ namespace DynaShape.ZeroTouch.Goals
             for (int i = 0; i < faceCount; i++)
             {
                 int j = i * 9;
-                goals[i].Initialize(
-                    new Triple(vertices[j + 0], vertices[j + 1], vertices[j + 2]),
-                    new Triple(vertices[j + 3], vertices[j + 4], vertices[j + 5]),
-                    new Triple(vertices[j + 6], vertices[j + 7], vertices[j + 8]),
-                    windVector.ToTriple(),
-                    weight);
+                goals[i]
+                    .Initialize(
+                        new Triple(vertices[j + 0], vertices[j + 1], vertices[j + 2]),
+                        new Triple(vertices[j + 3], vertices[j + 4], vertices[j + 5]),
+                        new Triple(vertices[j + 6], vertices[j + 7], vertices[j + 8]),
+                        windVector.ToTriple(),
+                        weight
+                    );
             }
 
             return goals;

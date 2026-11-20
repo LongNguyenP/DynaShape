@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// OnCurveGoal
     /// </summary>
-    public  class OnCurveGoal
+    public class OnCurveGoal
     {
-        private OnCurveGoal(){}
-
+        private OnCurveGoal() { }
 
         /// <summary>
         /// Creates an OnCurveGoal to force a set of nodes to lie on the specified curve.
@@ -23,7 +22,8 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.OnCurveGoal ByPoints(
             List<Point> startPositions,
             Curve targetCurve,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.OnCurveGoal>();
             goal.Initialize(startPositions.ToTriples(), targetCurve, weight);

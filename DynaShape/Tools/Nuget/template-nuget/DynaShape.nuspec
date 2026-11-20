@@ -13,20 +13,20 @@
     <copyright>Copyright Long Nguyen 2024</copyright>
     <dependencies>
       <group targetFramework="$TargetFramework$">
-        <dependency id="DynamoVisualProgramming.ZeroTouchLibrary" version="$Version$"/>
+        <dependency id="DynamoVisualProgramming.ZeroTouchLibrary" version="4.0.0.3277"/>
       </group>
     </dependencies>
   </metadata>
 
   <files>
-    <file src="bin\DynaShape.dll" target="lib\net8.0"/>
-    <file src="bin\DynaShape.xml" target="lib\net8.0"/>
-    <file src="bin\DynaShape.customization.dll" target="lib\net8.0"/>
-    <file src="bin\DynaSpace.dll" target="lib\net8.0"/>
-    <file src="bin\DynaSpace.xml" target="lib\net8.0"/>
-    <file src="bin\DynaSpace.customization.xml" target="lib\net8.0"/>
-    <file src="bin\DynaShape_DynamoCustomization.xml" target="lib\net8.0"/>
-    <file src="extra\DynaShape_ViewExtensionDefinition.xml" target="lib\net8.0"/>
-    <file src="pkg.json" target="lib\net8.0"/>
+    <file src="bin\DynaShape.dll" target="lib\net10.0-windows"/>
+    <file src="bin\DynaShape.xml" target="lib\net10.0-windows"/>
+    <file src="bin\DynaShape.customization.dll" target="lib\net10.0-windows"/>
+    <file src="bin\DynaSpace.dll" target="lib\net10.0-windows"/>
+    <file src="bin\DynaSpace.xml" target="lib\net10.0-windows"/>
+    <file src="bin\DynaSpace.customization.xml" target="lib\net10.0-windows"/>
+    <file src="bin\DynaShape_DynamoCustomization.xml" target="lib\net10.0-windows"/>
+    <file src="extra\DynaShape_ViewExtensionDefinition.xml" target="lib\net10.0-windows"/>
+    <file src="pkg.json" target="lib\net10.0-windows"/>
   </files>
 </package>

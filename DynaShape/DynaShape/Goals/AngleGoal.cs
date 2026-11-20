@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Autodesk.DesignScript.Runtime;
 
-
 namespace DynaShape.Goals
 {
     [IsVisibleInDynamoLibrary(false)]
@@ -10,23 +9,17 @@ namespace DynaShape.Goals
     {
         public float TargetAngle = 0f;
 
-
-        public AngleGoal()
-        {
-        }
-
+        public AngleGoal() { }
 
         public AngleGoal(Triple A, Triple B, Triple C, float weight = 1f)
         {
             Initialize(A, B, C, weight);
         }
 
-
         public AngleGoal(Triple A, Triple B, Triple C, float targetAngle, float weight = 1f)
         {
             Initialize(A, B, C, targetAngle, weight);
         }
-
 
         public void Initialize(Triple A, Triple B, Triple C, float weight = 1f)
         {
@@ -41,7 +34,6 @@ namespace DynaShape.Goals
             TargetAngle = (float)Math.Acos(BA.Dot(BC) / (BA.Length * BC.Length));
         }
 
-
         public void Initialize(Triple A, Triple B, Triple C, float targetAngle, float weight = 1f)
         {
             Weight = weight;
@@ -51,7 +43,6 @@ namespace DynaShape.Goals
             Moves[1] = Triple.Zero;
             Weights = new float[3];
         }
-
 
         internal override void Compute(List<Node> allNodes)
         {
@@ -66,11 +57,11 @@ namespace DynaShape.Goals
 
             Triple N = BA.Cross(BC);
 
-            if (N.IsAlmostZero()) N = Triple.BasisX;
+            if (N.IsAlmostZero())
+                N = Triple.BasisX;
 
             Triple mA = m.Rotate(Triple.Zero, N, -0.5f * TargetAngle);
             Triple mB = m.Rotate(Triple.Zero, N, +0.5f * TargetAngle);
-
 
             Moves[0] = B + m * mA.Dot(BA) - A;
             Moves[2] = B + m * mB.Dot(BC) - C;

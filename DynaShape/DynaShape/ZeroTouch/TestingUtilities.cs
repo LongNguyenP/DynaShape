@@ -3,11 +3,10 @@ using Autodesk.DesignScript.Runtime;
 using DynaShape.GeometryBinders;
 using DynaShape.Goals;
 using SharpDX;
-using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
+using Mesh = Autodesk.DesignScript.Geometry.Mesh;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace DynaShape.ZeroTouch;
-
 
 public static class TestingUtilities
 {
@@ -20,7 +19,12 @@ public static class TestingUtilities
     /// <param name="allowScaling"></param>
     /// <returns>The ShapeMatching goals, Anchor goals, and polyline binders</returns>
     [MultiReturn("goals", "geometryBinders", "anchorGoals", "points")]
-    public static Dictionary<string, object> WonkyCubes(int X = 21, int Y = 21, int Z = 21, bool allowScaling = false)
+    public static Dictionary<string, object> WonkyCubes(
+        int X = 21,
+        int Y = 21,
+        int Z = 21,
+        bool allowScaling = false
+    )
     {
         Triple[,,] points = new Triple[X, Y, Z];
         List<Point> pointsLinear = new List<Point>();
@@ -141,16 +145,26 @@ public static class TestingUtilities
 
         return new Dictionary<string, object>
         {
-            {"goals", goals},
-            {"geometryBinders", geometryBinders},
-            {"anchorGoals", anchorGoals},
-            {"points", pointsLinear}
+            { "goals", goals },
+            { "geometryBinders", geometryBinders },
+            { "anchorGoals", anchorGoals },
+            { "points", pointsLinear },
         };
     }
 
-
-    [MultiReturn("shapeMatchingGoals", "lengthGoals", "meshBinders", "lineBinders", "onSurfaceGoal")]
-    public static Dictionary<string, object> AuxeticRotatingSquares(int xCount = 5, int yCount = 5, double thickness = 0.0, Surface targetSurface = null)
+    [MultiReturn(
+        "shapeMatchingGoals",
+        "lengthGoals",
+        "meshBinders",
+        "lineBinders",
+        "onSurfaceGoal"
+    )]
+    public static Dictionary<string, object> AuxeticRotatingSquares(
+        int xCount = 5,
+        int yCount = 5,
+        double thickness = 0.0,
+        Surface targetSurface = null
+    )
     {
         List<Goal> shapeMatchingGoals = new List<Goal>();
         List<GeometryBinder> meshBinders = new List<GeometryBinder>();
@@ -161,7 +175,6 @@ public static class TestingUtilities
         List<int> indices = new List<int>();
 
         double offset = 0.001;
-
 
         List<Triple> targetShape = new List<Triple>()
         {
@@ -203,10 +216,10 @@ public static class TestingUtilities
             bottomVertices.AddRange(tileVertices);
 
             if (thickness > 0.0)
-                for (int ii = 0; ii < 4; ii++) tileVertices.Add(tileVertices[ii] + thickness * Triple.BasisZ);
+                for (int ii = 0; ii < 4; ii++)
+                    tileVertices.Add(tileVertices[ii] + thickness * Triple.BasisZ);
 
             shapeMatchingGoals.Add(new ShapeMatchingGoal(tileVertices, targetShape));
-
 
             vertices.Add(tileVertices[0].ToPoint());
             vertices.Add(tileVertices[1].ToPoint());
@@ -215,7 +228,7 @@ public static class TestingUtilities
 
             int n = vertices.Count - 4;
 
-            indices.AddRange(new [] {n, n + 1, n + 2, n, n + 2, n + 3});
+            indices.AddRange(new[] { n, n + 1, n + 2, n, n + 2, n + 3 });
         }
 
         List<Goal> lengthGoals = new List<Goal>();
@@ -224,42 +237,52 @@ public static class TestingUtilities
         for (int j = 0; j <= yCount; j++)
             if ((i + j) % 2 == 1)
             {
-                lengthGoals.Add(new LengthGoal(
-                    new Triple(i - offset, j, 0),
-                    new Triple(i + offset, j, 0)));
-                lineBinders.Add(new LineBinder(
-                    new Triple(i - offset, j, 0),
-                    new Triple(i + offset, j, 0)));
+                lengthGoals.Add(
+                    new LengthGoal(new Triple(i - offset, j, 0), new Triple(i + offset, j, 0))
+                );
+                lineBinders.Add(
+                    new LineBinder(new Triple(i - offset, j, 0), new Triple(i + offset, j, 0))
+                );
             }
 
         for (int i = 0; i <= xCount; i++)
         for (int j = 1; j < yCount; j++)
             if ((i + j) % 2 == 0)
             {
-                lengthGoals.Add(new LengthGoal(
-                    new Triple(i, j - offset, 0),
-                    new Triple(i, j + offset, 0)));
-                lineBinders.Add(new LineBinder(
-                    new Triple(i, j - offset, 0),
-                    new Triple(i, j + offset, 0)));
+                lengthGoals.Add(
+                    new LengthGoal(new Triple(i, j - offset, 0), new Triple(i, j + offset, 0))
+                );
+                lineBinders.Add(
+                    new LineBinder(new Triple(i, j - offset, 0), new Triple(i, j + offset, 0))
+                );
             }
 
-        meshBinders.Add(new MeshBinder(Mesh.ByVerticesAndIndices(vertices, indices), new Color(.3f, .6f, .8f, 1f)));
+        meshBinders.Add(
+            new MeshBinder(
+                Mesh.ByVerticesAndIndices(vertices, indices),
+                new Color(.3f, .6f, .8f, 1f)
+            )
+        );
 
         return new Dictionary<string, object>
         {
-            {"shapeMatchingGoals", shapeMatchingGoals},
-            {"lengthGoals", lengthGoals},
-            {"onSurfaceGoal", targetSurface == null ? null : new OnSurfaceGoal(bottomVertices, targetSurface, 1f)},
-            {"meshBinders", meshBinders},
-            {"lineBinders", lineBinders},
+            { "shapeMatchingGoals", shapeMatchingGoals },
+            { "lengthGoals", lengthGoals },
+            {
+                "onSurfaceGoal",
+                targetSurface == null ? null : new OnSurfaceGoal(bottomVertices, targetSurface, 1f)
+            },
+            { "meshBinders", meshBinders },
+            { "lineBinders", lineBinders },
         };
     }
 
-
-
     [MultiReturn("shapeMatchingGoals", "lengthGoals", "meshBinders", "lineBinders")]
-    public static Dictionary<string, object> AuxeticRotatingSquares(int xCount = 5, int yCount = 5, double thickness = 0.0)
+    public static Dictionary<string, object> AuxeticRotatingSquares(
+        int xCount = 5,
+        int yCount = 5,
+        double thickness = 0.0
+    )
     {
         List<Goal> shapeMatchingGoals = new List<Goal>();
         List<GeometryBinder> meshBinders = new List<GeometryBinder>();
@@ -269,7 +292,6 @@ public static class TestingUtilities
         List<int> indices = new List<int>();
 
         double offset = 0.001;
-
 
         List<Triple> targetShape = new List<Triple>()
         {
@@ -308,9 +330,9 @@ public static class TestingUtilities
                 };
             }
 
-
             if (thickness > 0.0)
-                for (int ii = 0; ii < 4; ii++) tileVertices.Add(tileVertices[ii] + thickness * Triple.BasisZ);
+                for (int ii = 0; ii < 4; ii++)
+                    tileVertices.Add(tileVertices[ii] + thickness * Triple.BasisZ);
 
             shapeMatchingGoals.Add(new ShapeMatchingGoal(tileVertices, targetShape));
 
@@ -321,7 +343,7 @@ public static class TestingUtilities
 
             int n = vertices.Count - 4;
 
-            indices.AddRange(new [] {n, n + 1, n + 2, n, n + 2, n + 3});
+            indices.AddRange(new[] { n, n + 1, n + 2, n, n + 2, n + 3 });
         }
 
         List<Goal> lengthGoals = new List<Goal>();
@@ -330,38 +352,41 @@ public static class TestingUtilities
         for (int j = 0; j <= yCount; j++)
             if ((i + j) % 2 == 1)
             {
-                lengthGoals.Add(new LengthGoal(
-                    new Triple(i - offset, j, 0),
-                    new Triple(i + offset, j, 0)));
-                lineBinders.Add(new LineBinder(
-                    new Triple(i - offset, j, 0),
-                    new Triple(i + offset, j, 0)));
+                lengthGoals.Add(
+                    new LengthGoal(new Triple(i - offset, j, 0), new Triple(i + offset, j, 0))
+                );
+                lineBinders.Add(
+                    new LineBinder(new Triple(i - offset, j, 0), new Triple(i + offset, j, 0))
+                );
             }
 
         for (int i = 0; i <= xCount; i++)
         for (int j = 1; j < yCount; j++)
             if ((i + j) % 2 == 0)
             {
-                lengthGoals.Add(new LengthGoal(
-                    new Triple(i, j - offset, 0),
-                    new Triple(i, j + offset, 0)));
-                lineBinders.Add(new LineBinder(
-                    new Triple(i, j - offset, 0),
-                    new Triple(i, j + offset, 0)));
+                lengthGoals.Add(
+                    new LengthGoal(new Triple(i, j - offset, 0), new Triple(i, j + offset, 0))
+                );
+                lineBinders.Add(
+                    new LineBinder(new Triple(i, j - offset, 0), new Triple(i, j + offset, 0))
+                );
             }
 
-        meshBinders.Add(new MeshBinder(Mesh.ByVerticesAndIndices(vertices, indices), new Color(.3f, .6f, .8f, 1f)));
+        meshBinders.Add(
+            new MeshBinder(
+                Mesh.ByVerticesAndIndices(vertices, indices),
+                new Color(.3f, .6f, .8f, 1f)
+            )
+        );
 
         return new Dictionary<string, object>
         {
-            {"shapeMatchingGoals", shapeMatchingGoals},
-            {"lengthGoals", lengthGoals},
-            {"meshBinders", meshBinders},
-            {"lineBinders", lineBinders},
+            { "shapeMatchingGoals", shapeMatchingGoals },
+            { "lengthGoals", lengthGoals },
+            { "meshBinders", meshBinders },
+            { "lineBinders", lineBinders },
         };
     }
-
-
 
     //[MultiReturn("shapeMatchingGoals", "lengthGoals", "meshBinders", "lineBinders")]
     //public static Dictionary<string, object> AuxeticRotatingCubes(int xCount = 5, int yCount = 5, int zCount = 5)
@@ -422,9 +447,12 @@ public static class TestingUtilities
     //    };
     //}
 
-
     [MultiReturn("shapeMatchingGoals", "mergeGoals", "meshBinders", "lineBinders")]
-    public static Dictionary<string, object> AuxeticRotatingTriangles(int xCount = 5, int yCount = 5, double thickness = 0.0)
+    public static Dictionary<string, object> AuxeticRotatingTriangles(
+        int xCount = 5,
+        int yCount = 5,
+        double thickness = 0.0
+    )
     {
         List<Goal> shapeMatchingGoals = new List<Goal>();
         List<Goal> mergeGoals = new List<Goal>();
@@ -449,32 +477,70 @@ public static class TestingUtilities
             List<Triple> v = new List<Triple>();
 
             for (int k = 0; k < 6; k++)
-                v.Add(new Triple(xOffset + Math.Cos(k * Math.PI / 3.0), yOffset + Math.Sin(k * Math.PI / 3.0), 0.0));
+                v.Add(
+                    new Triple(
+                        xOffset + Math.Cos(k * Math.PI / 3.0),
+                        yOffset + Math.Sin(k * Math.PI / 3.0),
+                        0.0
+                    )
+                );
 
             for (int k = 0; k < 5; k++)
-                shapeMatchingGoals.Add(ProcessTriangle(M, v[k], v[k + 1], k % 2 == 0, offset,  thickness, vertices, indices));
+                shapeMatchingGoals.Add(
+                    ProcessTriangle(
+                        M,
+                        v[k],
+                        v[k + 1],
+                        k % 2 == 0,
+                        offset,
+                        thickness,
+                        vertices,
+                        indices
+                    )
+                );
 
-            shapeMatchingGoals.Add(ProcessTriangle(M, v[5], v[0], false, offset, thickness, vertices, indices));
+            shapeMatchingGoals.Add(
+                ProcessTriangle(M, v[5], v[0], false, offset, thickness, vertices, indices)
+            );
 
             M = new Triple(xOffset + 1, yOffset, 0.0);
 
             if (i < xCount - 1)
             {
-                shapeMatchingGoals.Add(ProcessTriangle(
-                    M,
-                    new Triple(xOffset + 1.5, yOffset + cos30, 0.0),
-                    new Triple(xOffset + 0.5, yOffset + cos30, 0.0),
-                    false, offset, thickness, vertices, indices));
+                shapeMatchingGoals.Add(
+                    ProcessTriangle(
+                        M,
+                        new Triple(xOffset + 1.5, yOffset + cos30, 0.0),
+                        new Triple(xOffset + 0.5, yOffset + cos30, 0.0),
+                        false,
+                        offset,
+                        thickness,
+                        vertices,
+                        indices
+                    )
+                );
 
-                shapeMatchingGoals.Add(ProcessTriangle(
-                    M,
-                    new Triple(xOffset + 0.5, yOffset - cos30, 0.0),
-                    new Triple(xOffset + 1.5, yOffset - cos30, 0.0),
-                    true, offset, thickness, vertices, indices));
+                shapeMatchingGoals.Add(
+                    ProcessTriangle(
+                        M,
+                        new Triple(xOffset + 0.5, yOffset - cos30, 0.0),
+                        new Triple(xOffset + 1.5, yOffset - cos30, 0.0),
+                        true,
+                        offset,
+                        thickness,
+                        vertices,
+                        indices
+                    )
+                );
             }
         }
 
-        meshBinders.Add(new MeshBinder(Mesh.ByVerticesAndIndices(vertices, indices), new Color(.3f, .6f, .8f, 1f)));
+        meshBinders.Add(
+            new MeshBinder(
+                Mesh.ByVerticesAndIndices(vertices, indices),
+                new Color(.3f, .6f, .8f, 1f)
+            )
+        );
 
         //=======================================================================================
         // Line Binders
@@ -490,8 +556,14 @@ public static class TestingUtilities
 
             List<Triple> v = new List<Triple>();
 
-            for (int k = 1; k < 6; k+=2)
-                v.Add(new Triple(xOffset + offset * Math.Cos(k * Math.PI / 3.0), yOffset + offset * Math.Sin(k * Math.PI / 3.0), 0.0));
+            for (int k = 1; k < 6; k += 2)
+                v.Add(
+                    new Triple(
+                        xOffset + offset * Math.Cos(k * Math.PI / 3.0),
+                        yOffset + offset * Math.Sin(k * Math.PI / 3.0),
+                        0.0
+                    )
+                );
 
             lineBinders.Add(new LineBinder(v[0], v[1]));
             lineBinders.Add(new LineBinder(v[1], v[2]));
@@ -511,7 +583,13 @@ public static class TestingUtilities
             List<Triple> v = new List<Triple>();
 
             for (int k = 1; k < 6; k += 2)
-                v.Add(new Triple(xOffset + offset * Math.Cos(k * Math.PI / 3.0), yOffset + offset * Math.Sin(k * Math.PI / 3.0), 0.0));
+                v.Add(
+                    new Triple(
+                        xOffset + offset * Math.Cos(k * Math.PI / 3.0),
+                        yOffset + offset * Math.Sin(k * Math.PI / 3.0),
+                        0.0
+                    )
+                );
 
             lineBinders.Add(new LineBinder(v[0], v[1]));
             lineBinders.Add(new LineBinder(v[1], v[2]));
@@ -520,19 +598,23 @@ public static class TestingUtilities
             mergeGoals.Add(new MergeGoal(v, 0.1f));
         }
 
-
-
         return new Dictionary<string, object>
         {
-            {"shapeMatchingGoals", shapeMatchingGoals},
-            {"mergeGoals", mergeGoals},
-            {"meshBinders", meshBinders},
-            {"lineBinders", lineBinders},
+            { "shapeMatchingGoals", shapeMatchingGoals },
+            { "mergeGoals", mergeGoals },
+            { "meshBinders", meshBinders },
+            { "lineBinders", lineBinders },
         };
     }
 
-
-    private static ShapeMatchingGoal ProcessQuad(Triple A, Triple B, Triple C, Triple D, List<Point> vertices, List<int> indices)
+    private static ShapeMatchingGoal ProcessQuad(
+        Triple A,
+        Triple B,
+        Triple C,
+        Triple D,
+        List<Point> vertices,
+        List<int> indices
+    )
     {
         List<Triple> triples = new List<Triple> { A, B, C, D };
         vertices.Add(A.ToPoint());
@@ -544,13 +626,24 @@ public static class TestingUtilities
         return new ShapeMatchingGoal(triples, triples);
     }
 
-    private static ShapeMatchingGoal ProcessTriangle(Triple A, Triple B, Triple C, bool complementary, double offset, double thickness, List<Point> vertices, List<int> indices)
+    private static ShapeMatchingGoal ProcessTriangle(
+        Triple A,
+        Triple B,
+        Triple C,
+        bool complementary,
+        double offset,
+        double thickness,
+        List<Point> vertices,
+        List<int> indices
+    )
     {
         Triple AB = B - A;
         Triple BC = C - B;
         Triple CA = A - C;
 
-        Triple M, N, Q;
+        Triple M,
+            N,
+            Q;
 
         if (!complementary)
         {

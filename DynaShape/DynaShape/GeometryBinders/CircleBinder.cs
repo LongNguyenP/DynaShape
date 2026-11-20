@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Autodesk.DesignScript.Geometry;
-using Autodesk.DesignScript.Interfaces;
+﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
 using SharpDX;
-
 
 namespace DynaShape.GeometryBinders
 {
@@ -31,11 +27,7 @@ namespace DynaShape.GeometryBinders
 
         public float Radius;
 
-
-        public CircleBinder()
-        {
-        }
-
+        public CircleBinder() { }
 
         public Triple PlaneNormal
         {
@@ -48,21 +40,17 @@ namespace DynaShape.GeometryBinders
             }
         }
 
-
-        private Triple xAxis, yAxis, zAxis;
-
+        private Triple xAxis,
+            yAxis,
+            zAxis;
 
         public CircleBinder(Triple center, float radius, Triple planeNormal, Color4 color)
         {
             Initialize(center, radius, planeNormal, color);
         }
 
-
         public CircleBinder(Triple center, float radius, Triple planeNormal)
-            : this(center, radius, planeNormal, DynaShapeDisplay.DefaultLineColor)
-        {
-        }
-
+            : this(center, radius, planeNormal, DynaShapeDisplay.DefaultLineColor) { }
 
         public void Initialize(Triple center, float radius, Triple planeNormal, Color4 color)
         {
@@ -72,24 +60,31 @@ namespace DynaShape.GeometryBinders
             Color = color;
         }
 
-
         public override List<object> CreateGeometryObjects(List<Node> allNodes)
         {
             return new List<object>
             {
-                Circle.ByCenterPointRadiusNormal(allNodes[NodeIndices[0]].Position.ToPoint(), Radius, zAxis.ToVector())
+                Circle.ByCenterPointRadiusNormal(
+                    allNodes[NodeIndices[0]].Position.ToPoint(),
+                    Radius,
+                    zAxis.ToVector()
+                ),
             };
         }
 
-
-        public override void CreateDisplayedGeometries(DynaShapeDisplay display, List<Node> allNodes)
+        public override void CreateDisplayedGeometries(
+            DynaShapeDisplay display,
+            List<Node> allNodes
+        )
         {
             Triple center = allNodes[NodeIndices[0]].Position;
 
             List<Triple> vertices = new List<Triple>(segmentCount);
 
             for (int i = 0; i < segmentCount; i++)
-                vertices.Add(center + xAxis * Radius * cosValues[i] + yAxis * Radius * sinValues[i]);
+                vertices.Add(
+                    center + xAxis * Radius * cosValues[i] + yAxis * Radius * sinValues[i]
+                );
 
             display.DrawPolyline(vertices, Color, true);
         }

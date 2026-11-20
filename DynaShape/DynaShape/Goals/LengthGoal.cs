@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
@@ -9,24 +7,32 @@ namespace DynaShape.Goals
     {
         public float TargetLength;
 
+        public LengthGoal() { }
 
-        public LengthGoal()
-        {
-        }
-
-        public LengthGoal(Triple firstNodePosition, Triple secondNodePosition, float targetLength, float weight = 1000f)
+        public LengthGoal(
+            Triple firstNodePosition,
+            Triple secondNodePosition,
+            float targetLength,
+            float weight = 1000f
+        )
         {
             Initialize(firstNodePosition, secondNodePosition, targetLength, weight);
         }
 
-
         public LengthGoal(Triple firstNodePosition, Triple secondNodePosition, float weight = 1000f)
-            : this(firstNodePosition, secondNodePosition, firstNodePosition.DistanceTo(secondNodePosition), weight)
-        {
-        }
+            : this(
+                firstNodePosition,
+                secondNodePosition,
+                firstNodePosition.DistanceTo(secondNodePosition),
+                weight
+            ) { }
 
-
-        internal void Initialize(Triple firstNodePosition, Triple secondNodePosition, float targetLength, float weight = 1000f)
+        internal void Initialize(
+            Triple firstNodePosition,
+            Triple secondNodePosition,
+            float targetLength,
+            float weight = 1000f
+        )
         {
             Weight = weight;
             TargetLength = targetLength;
@@ -35,11 +41,11 @@ namespace DynaShape.Goals
             Weights = new float[2];
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
             Triple move = allNodes[NodeIndices[1]].Position - allNodes[NodeIndices[0]].Position;
-            if (move.IsAlmostZero(1E-5f)) move = new Triple(0.01f);
+            if (move.IsAlmostZero(1E-5f))
+                move = new Triple(0.01f);
             move *= 0.5f * (move.Length - TargetLength) / move.Length;
 
             Moves[0] = move;
@@ -49,7 +55,10 @@ namespace DynaShape.Goals
 
         public override List<object> GetOutputs(List<Node> allNodes)
         {
-            return new List<object> {allNodes[NodeIndices[1]].Position.DistanceTo(allNodes[NodeIndices[0]].Position)};
+            return new List<object>
+            {
+                allNodes[NodeIndices[1]].Position.DistanceTo(allNodes[NodeIndices[0]].Position),
+            };
         }
     }
 }

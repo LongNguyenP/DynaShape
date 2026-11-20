@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Geometry;
+﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
-
 
 namespace DynaShape.Goals
 {
@@ -12,30 +10,33 @@ namespace DynaShape.Goals
         public Triple TargetPlaneNormal
         {
             get => targetPlaneNormal;
-            set { targetPlaneNormal = value.Normalise();  }
+            set { targetPlaneNormal = value.Normalise(); }
         }
 
         public Triple targetPlaneNormal;
 
+        public OnPlaneGoal() { }
 
-        public OnPlaneGoal()
-        {
-        }
-
-
-        public OnPlaneGoal(List<Triple> nodeStartingPositions, Triple planeOrigin, Triple planeNormal, float weight = 1f)
+        public OnPlaneGoal(
+            List<Triple> nodeStartingPositions,
+            Triple planeOrigin,
+            Triple planeNormal,
+            float weight = 1f
+        )
         {
             Initialize(nodeStartingPositions, planeOrigin, planeNormal, weight);
         }
 
-
         public OnPlaneGoal(List<Triple> nodeStartingPositions, Plane plane, float weight = 1f)
             : this(nodeStartingPositions, plane.Origin.ToTriple(), plane.Normal.ToTriple(), weight)
-        {
-        }
+        { }
 
-
-        public void Initialize(List<Triple> nodeStartingPositions, Triple planeOrigin, Triple planeNormal, float weight)
+        public void Initialize(
+            List<Triple> nodeStartingPositions,
+            Triple planeOrigin,
+            Triple planeNormal,
+            float weight
+        )
         {
             TargetPlaneOrigin = planeOrigin;
             TargetPlaneNormal = planeNormal;
@@ -45,12 +46,13 @@ namespace DynaShape.Goals
             Weights = new float[StartingPositions.Length];
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
             for (int i = 0; i < NodeCount; i++)
             {
-                Moves[i] = TargetPlaneNormal * TargetPlaneNormal.Dot(TargetPlaneOrigin - allNodes[NodeIndices[i]].Position);
+                Moves[i] =
+                    TargetPlaneNormal
+                    * TargetPlaneNormal.Dot(TargetPlaneOrigin - allNodes[NodeIndices[i]].Position);
                 Weights[i] = Weight;
             }
         }

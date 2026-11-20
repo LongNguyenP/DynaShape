@@ -1,33 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
     [IsVisibleInDynamoLibrary(false)]
     public class CoPlanarGoal : Goal
     {
-        public CoPlanarGoal()
-        {
-        }
-
+        public CoPlanarGoal() { }
 
         public CoPlanarGoal(List<Triple> nodeStartingPositions, float weight = 1f)
         {
             Initialize(nodeStartingPositions, weight);
         }
 
-
         public void Initialize(List<Triple> nodeStartingPositions, float weight)
         {
-            if (nodeStartingPositions.Count < 4) throw new Exception("CoPlanar Goal: Node count must be at least 4");
+            if (nodeStartingPositions.Count < 4)
+                throw new Exception("CoPlanar Goal: Node count must be at least 4");
             Weight = weight;
             StartingPositions = nodeStartingPositions.ToArray();
             Moves = new Triple[StartingPositions.Length];
             Weights = new float[StartingPositions.Length];
         }
-
 
         internal override void Compute(List<Node> allNodes)
         {
@@ -42,7 +35,9 @@ namespace DynaShape.Goals
 
             for (int i = 0; i < NodeCount; i++)
             {
-                Moves[i] = (planeOrigin - allNodes[NodeIndices[i]].Position).Dot(planeNormal) * planeNormal;
+                Moves[i] =
+                    (planeOrigin - allNodes[NodeIndices[i]].Position).Dot(planeNormal)
+                    * planeNormal;
                 Weights[i] = Weight;
             }
         }

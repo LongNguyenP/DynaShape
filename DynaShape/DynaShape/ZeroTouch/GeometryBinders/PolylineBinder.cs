@@ -10,7 +10,7 @@ namespace DynaShape.ZeroTouch.GeometryBinders;
 /// </summary>
 public class PolylineBinder
 {
-    private PolylineBinder(){}
+    private PolylineBinder() { }
 
     /// <summary>
     /// Create a PolylineBinder.
@@ -23,14 +23,16 @@ public class PolylineBinder
     public static DynaShape.GeometryBinders.PolylineBinder ByPoints(
         List<Point> vertices,
         [DefaultArgument("null")] Color color,
-        [DefaultArgument("false")] bool loop)
+        [DefaultArgument("false")] bool loop
+    )
     {
         var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.PolylineBinder>();
 
         binder.Initialize(
             vertices.ToTriples(),
             color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor,
-            loop);
+            loop
+        );
 
         return binder;
     }

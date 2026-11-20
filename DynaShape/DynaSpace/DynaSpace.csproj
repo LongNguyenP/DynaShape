@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Platforms>x64</Platforms>
@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.3.7597" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0.3277" />
   </ItemGroup>
 
   <ItemGroup>

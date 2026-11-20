@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// SphereCollisionGoal
     /// </summary>
-    public  class SphereCollisionGoal
+    public class SphereCollisionGoal
     {
-        private SphereCollisionGoal(){}
-
+        private SphereCollisionGoal() { }
 
         /// <summary>
         /// Creates a SphereCollisionGoal that maintains a minimum distance between the nodes.
@@ -23,7 +22,8 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.SphereCollisionGoal ByPointsRadii(
             List<Point> centers,
             List<float> radii,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             if (centers.Count != radii.Count)
                 throw new Exception("Error: centers count is not equal to radii count");

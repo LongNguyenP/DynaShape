@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// ConvexPolygonContainmentGoal
     /// </summary>
-    public  class ConvexPolygonContainmentGoal
+    public class ConvexPolygonContainmentGoal
     {
-        private ConvexPolygonContainmentGoal(){}
-
+        private ConvexPolygonContainmentGoal() { }
 
         /// <summary>
         /// Creates a ConvexPolygonCollisionGoal to keep a group of circles inside a convex polygon.
@@ -24,18 +23,21 @@ namespace DynaShape.ZeroTouch.Goals
             List<Point> centers,
             List<float> radii,
             [DefaultArgument("null")] List<Point> polygonVertices,
-            [DefaultArgument("1000.0")] float weight)
+            [DefaultArgument("1000.0")] float weight
+        )
         {
             if (centers.Count != radii.Count)
                 throw new Exception("Error: centers count is not equal to radii count");
 
-            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConvexPolygonContainmentGoal>();
+            var goal =
+                TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConvexPolygonContainmentGoal>();
 
             goal.Initialize(
                 centers.ToTriples(),
                 radii,
                 polygonVertices == null ? new List<Triple>() : polygonVertices.ToTriples(),
-                weight);
+                weight
+            );
 
             return goal;
         }

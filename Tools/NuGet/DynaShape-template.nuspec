@@ -11,8 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
       <group targetFramework="$TargetFramework$">
-        <dependency id="DynamoVisualProgramming.WpfUILibrary" version="3.0.3.7597" exclude="Build,Analyzers" />
-        <dependency id="DynamoVisualProgramming.ZeroTouchLibrary" version="3.0.3.7597" exclude="Build,Analyzers" />
+        <dependency id="DynamoVisualProgramming.WpfUILibrary" version="4.0.0.3277" exclude="Build,Analyzers" />
+        <dependency id="DynamoVisualProgramming.ZeroTouchLibrary" version="4.0.0.3277" exclude="Build,Analyzers" />
         <dependency id="HelixToolkit.SharpDX.Core.Wpf" version="2.24.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
@@ -26,7 +26,6 @@
     <file src="..\..\dist\DynaShape\bin\DynaSpace.dll" target="lib\$TargetFramework$"/>
     <file src="..\..\dist\DynaShape\bin\DynaSpace.xml" target="lib\$TargetFramework$"/>
     <file src="..\..\dist\DynaShape\bin\DynaSpace_DynamoCustomization.xml" target="lib\$TargetFramework$"/>
-    <file src="..\..\dist\DynaShape\dyf\DynaShapeMeshToolkitDummy.dyf" target="lib\$TargetFramework$"/>
     <file src="..\..\dist\DynaShape\extra\DynaShape_ViewExtensionDefinition.xml" target="lib\$TargetFramework$"/>
   </files>
 </package>

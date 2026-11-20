@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
@@ -9,17 +7,12 @@ namespace DynaShape.Goals
     {
         public float[] Radii;
 
-
-        public SphereCollisionGoal()
-        {
-        }
-
+        public SphereCollisionGoal() { }
 
         public SphereCollisionGoal(List<Triple> centers, List<float> radii, float weight = 1000f)
         {
             Initialize(centers, radii, weight);
         }
-
 
         public void Initialize(List<Triple> centers, List<float> radii, float weight)
         {
@@ -30,7 +23,6 @@ namespace DynaShape.Goals
             Weights = new float[centers.Count];
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
             Moves = new Triple[NodeCount];
@@ -40,23 +32,24 @@ namespace DynaShape.Goals
             int[] moveCounts = new int[NodeCount];
 
             for (int i = 0; i < NodeIndices.Length; i++)
-                for (int j = i + 1; j < NodeIndices.Length; j++)
-                {
-                    Triple move = allNodes[NodeIndices[i]].Position - allNodes[NodeIndices[j]].Position;
-                    float d = move.Length;
+            for (int j = i + 1; j < NodeIndices.Length; j++)
+            {
+                Triple move = allNodes[NodeIndices[i]].Position - allNodes[NodeIndices[j]].Position;
+                float d = move.Length;
 
-                    if (d < Radii[i] + Radii[j])
-                    {
-                        move *= 0.5f * (Radii[i] + Radii[j] - d) / d;
-                        Moves[i] += move;
-                        Moves[j] -= move;
-                        moveCounts[i]++;
-                        moveCounts[j]++;
-                    }
+                if (d < Radii[i] + Radii[j])
+                {
+                    move *= 0.5f * (Radii[i] + Radii[j] - d) / d;
+                    Moves[i] += move;
+                    Moves[j] -= move;
+                    moveCounts[i]++;
+                    moveCounts[j]++;
                 }
+            }
 
             for (int i = 0; i < NodeIndices.Length; i++)
-                if (moveCounts[i] != 0) Moves[i] /= moveCounts[i];
+                if (moveCounts[i] != 0)
+                    Moves[i] /= moveCounts[i];
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Autodesk.DesignScript.Runtime;
 
-
 namespace DynaShape.Goals
 {
     [IsVisibleInDynamoLibrary(false)]
@@ -10,23 +9,15 @@ namespace DynaShape.Goals
         public Triple Anchor;
         public string Id;
 
-
-        public AnchorGoal()
-        {
-        }
-
+        public AnchorGoal() { }
 
         public AnchorGoal(Triple nodeStartingPosition, Triple anchor, float weight = 1000f)
         {
             Initialize(nodeStartingPosition, anchor, weight);
         }
 
-
         public AnchorGoal(Triple nodeStartingPosition, float weight = 1000f)
-            : this(nodeStartingPosition, nodeStartingPosition, weight)
-        {
-        }
-
+            : this(nodeStartingPosition, nodeStartingPosition, weight) { }
 
         public void Initialize(Triple nodeStartingPosition, Triple anchor, float weight = 1000f)
         {
@@ -36,7 +27,6 @@ namespace DynaShape.Goals
             Moves = new Triple[1];
             Weights = new float[1];
         }
-
 
         internal override void Compute(List<Node> allNodes)
         {

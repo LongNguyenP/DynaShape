@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// LengthGoal
     /// </summary>
-    public  class LengthGoal
+    public class LengthGoal
     {
-        private LengthGoal() {}
-
+        private LengthGoal() { }
 
         /// <summary>
         /// Creates a LengthGoal to force a pair of nodes to maintain the specified distance/length.
@@ -24,9 +23,11 @@ namespace DynaShape.ZeroTouch.Goals
             Point startPoint,
             Point endPoint,
             [DefaultArgument("-1.0")] float targetLength,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
-            DynaShape.Goals.LengthGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.LengthGoal>();
+            DynaShape.Goals.LengthGoal goal =
+                TracingUtils.GetObjectFromTrace<DynaShape.Goals.LengthGoal>();
 
             Triple start = startPoint.ToTriple();
             Triple end = endPoint.ToTriple();
@@ -34,14 +35,12 @@ namespace DynaShape.ZeroTouch.Goals
             goal.Initialize(
                 start,
                 end,
-                targetLength >= 0.0
-                    ? targetLength
-                    : start.DistanceTo(end),
-                weight);
+                targetLength >= 0.0 ? targetLength : start.DistanceTo(end),
+                weight
+            );
 
             return goal;
         }
-
 
         /// <summary>
         /// Creates a LengthGoal to maintain the specified distance between two nodes located at the start and end of the given line.
@@ -53,9 +52,11 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.LengthGoal ByLine(
             Line line,
             [DefaultArgument("-1.0")] float targetLength,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
-            DynaShape.Goals.LengthGoal goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.LengthGoal>();
+            DynaShape.Goals.LengthGoal goal =
+                TracingUtils.GetObjectFromTrace<DynaShape.Goals.LengthGoal>();
 
             Triple start = line.StartPoint.ToTriple();
             Triple end = line.EndPoint.ToTriple();
@@ -63,10 +64,9 @@ namespace DynaShape.ZeroTouch.Goals
             goal.Initialize(
                 start,
                 end,
-                targetLength >= 0.0
-                    ? targetLength
-                    : start.DistanceTo(end),
-                weight);
+                targetLength >= 0.0 ? targetLength : start.DistanceTo(end),
+                weight
+            );
 
             return goal;
         }

@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -9,8 +9,7 @@ namespace DynaShape.ZeroTouch.Goals
     /// </summary>
     public class CoPlanarGoal
     {
-        private CoPlanarGoal(){}
-
+        private CoPlanarGoal() { }
 
         /// <summary>
         /// Create a CoPlanarGoal that forces a set of nodes to lie on a common plane.
@@ -22,7 +21,8 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.CoPlanarGoal ByPoints(
             List<Point> startPositions,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.CoPlanarGoal>();
             goal.Initialize(startPositions.ToTriples(), weight);

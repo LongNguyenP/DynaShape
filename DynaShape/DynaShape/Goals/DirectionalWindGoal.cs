@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
@@ -9,19 +7,26 @@ namespace DynaShape.Goals
     {
         public Triple WindVector;
 
+        public DirectionalWindGoal() { }
 
-        public DirectionalWindGoal()
-        {
-        }
-
-
-        public DirectionalWindGoal(Triple nodePosition1, Triple nodePosition2, Triple nodePosition3, Triple windVector, float weight = 1000f)
+        public DirectionalWindGoal(
+            Triple nodePosition1,
+            Triple nodePosition2,
+            Triple nodePosition3,
+            Triple windVector,
+            float weight = 1000f
+        )
         {
             Initialize(nodePosition1, nodePosition2, nodePosition3, windVector, weight);
         }
 
-
-        public void Initialize(Triple nodePosition1, Triple nodePosition2, Triple nodePosition3, Triple windVector, float weight)
+        public void Initialize(
+            Triple nodePosition1,
+            Triple nodePosition2,
+            Triple nodePosition3,
+            Triple windVector,
+            float weight
+        )
         {
             Weight = weight;
             WindVector = windVector;
@@ -30,13 +35,16 @@ namespace DynaShape.Goals
             Weights = new float[3];
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
-            Triple n = (allNodes[NodeIndices[1]].Position - allNodes[NodeIndices[0]].Position)
-                .Cross(allNodes[NodeIndices[2]].Position - allNodes[NodeIndices[0]].Position);
+            Triple n = (
+                allNodes[NodeIndices[1]].Position - allNodes[NodeIndices[0]].Position
+            ).Cross(allNodes[NodeIndices[2]].Position - allNodes[NodeIndices[0]].Position);
 
-            Moves[0] = Moves[1] = Moves[2] = WindVector * (WindVector.Dot(n) * 0.16666666666666666f);
+            Moves[0] =
+                Moves[1] =
+                Moves[2] =
+                    WindVector * (WindVector.Dot(n) * 0.16666666666666666f);
             Weights[0] = Weights[1] = Weights[2] = Weight;
         }
     }

@@ -1,7 +1,7 @@
-﻿using Autodesk.DesignScript.Runtime;
-using Autodesk.DesignScript.Geometry;
-using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
+﻿using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
+using Mesh = Autodesk.DesignScript.Geometry.Mesh;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -10,8 +10,7 @@ namespace DynaShape.ZeroTouch.Goals
     /// </summary>
     public class ConstantPressureGoal
     {
-        private ConstantPressureGoal(){}
-
+        private ConstantPressureGoal() { }
 
         /// <summary>
         /// Creates a ConstantPressureGoal which applies a force perpendicular to a triangular surface, with magnitude proportional to the surface area.
@@ -27,13 +26,19 @@ namespace DynaShape.ZeroTouch.Goals
             Point startPosition2,
             Point startPosition3,
             [DefaultArgument("0.1")] float pressure,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantPressureGoal>();
-            goal.Initialize(startPosition1.ToTriple(), startPosition2.ToTriple(), startPosition3.ToTriple(), pressure, weight);
+            goal.Initialize(
+                startPosition1.ToTriple(),
+                startPosition2.ToTriple(),
+                startPosition3.ToTriple(),
+                pressure,
+                weight
+            );
             return goal;
         }
-
 
         /// <summary>
         /// Creates a ConstantPressureGoal which applies a force perpendicular to a triangular surface, with magnitude proportional to the surface area.
@@ -45,9 +50,12 @@ namespace DynaShape.ZeroTouch.Goals
         public static List<DynaShape.Goals.ConstantPressureGoal> ByMesh(
             Mesh mesh,
             [DefaultArgument("0.1")] float pressure,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
-            var goals = TracingUtils.GetObjectFromTrace<List<DynaShape.Goals.ConstantPressureGoal>>();
+            var goals = TracingUtils.GetObjectFromTrace<
+                List<DynaShape.Goals.ConstantPressureGoal>
+            >();
 
             List<double> vertices = mesh.TrianglesAsNineNumbers.ToList();
             int faceCount = vertices.Count / 9;
@@ -62,12 +70,14 @@ namespace DynaShape.ZeroTouch.Goals
             for (int i = 0; i < faceCount; i++)
             {
                 int j = i * 9;
-                goals[i].Initialize(
-                    new Triple(vertices[j + 0], vertices[j + 1], vertices[j + 2]),
-                    new Triple(vertices[j + 3], vertices[j + 4], vertices[j + 5]),
-                    new Triple(vertices[j + 6], vertices[j + 7], vertices[j + 8]),
-                    pressure,
-                    weight);
+                goals[i]
+                    .Initialize(
+                        new Triple(vertices[j + 0], vertices[j + 1], vertices[j + 2]),
+                        new Triple(vertices[j + 3], vertices[j + 4], vertices[j + 5]),
+                        new Triple(vertices[j + 6], vertices[j + 7], vertices[j + 8]),
+                        pressure,
+                        weight
+                    );
             }
 
             return goals;

@@ -1,6 +1,6 @@
 ﻿using Autodesk.DesignScript.Runtime;
-using Autodesk.Dynamo.MeshToolkit;
 using Dynamo.Graph.Nodes;
+using Mesh = Autodesk.DesignScript.Geometry.Mesh;
 
 namespace DynaShape.ZeroTouch.Goals
 {
@@ -9,8 +9,7 @@ namespace DynaShape.ZeroTouch.Goals
     /// </summary>
     public class ConstantVolumePressureGoal
     {
-        private ConstantVolumePressureGoal(){}
-
+        private ConstantVolumePressureGoal() { }
 
         /// <summary>
         /// Creates a ConstantVolumePressureGoal that simulates pressure trapped inside a closed volume. The pressure decreases as the volume expands (Boyle's law).
@@ -22,9 +21,11 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.ConstantVolumePressureGoal ByMesh(
             Mesh mesh,
             [DefaultArgument("0.0")] float volumePressureConstant,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
-            var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantVolumePressureGoal>();
+            var goal =
+                TracingUtils.GetObjectFromTrace<DynaShape.Goals.ConstantVolumePressureGoal>();
             goal.Initialize(mesh, volumePressureConstant, weight);
             return goal;
         }

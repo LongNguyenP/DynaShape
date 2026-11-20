@@ -2,12 +2,10 @@
 using Autodesk.DesignScript.Runtime;
 using HelixToolkit.SharpDX.Core;
 using SharpDX;
-
-using Mesh = Autodesk.Dynamo.MeshToolkit.Mesh;
+using Mesh = Autodesk.DesignScript.Geometry.Mesh;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace DynaShape.ZeroTouch;
-
 
 /// <summary>
 /// </summary>
@@ -25,14 +23,19 @@ public static class Utilities
     /// <returns></returns>
     [MultiReturn("mesh", "quadFaceVertexIndices", "textureCoordinates")]
     public static Dictionary<string, object> PlaneMesh(
-        [DefaultArgument("CoordinateSystem.ByOriginVectors(Point.Origin(), Vector.XAxis(), Vector.YAxis())")] CoordinateSystem cs,
-        [DefaultArgument("20.0")]double lengthX,
-        [DefaultArgument("20.0")]double lengthY,
-        [DefaultArgument("20")]int divX,
-        [DefaultArgument("20")]int divY,
-        [DefaultArgument("true")]bool alternatingDiagons)
+        [DefaultArgument(
+            "CoordinateSystem.ByOriginVectors(Point.Origin(), Vector.XAxis(), Vector.YAxis())"
+        )]
+            CoordinateSystem cs,
+        [DefaultArgument("20.0")] double lengthX,
+        [DefaultArgument("20.0")] double lengthY,
+        [DefaultArgument("20")] int divX,
+        [DefaultArgument("20")] int divY,
+        [DefaultArgument("true")] bool alternatingDiagons
+    )
     {
-        if (divX < 1 || divY < 0) throw new Exception("divX and divY must be larger than 0");
+        if (divX < 1 || divY < 0)
+            throw new Exception("divX and divY must be larger than 0");
 
         List<Point> vertices = new List<Point>((divX + 1) * (divY + 1));
         Vector2Collection textureCoordinates = new Vector2Collection();
@@ -44,7 +47,9 @@ public static class Utilities
                 Point.ByCartesianCoordinates(
                     cs,
                     ((double)i / divX - 0.5f) * lengthX,
-                    ((double)j / divY - 0.5f) * lengthY));
+                    ((double)j / divY - 0.5f) * lengthY
+                )
+            );
 
             textureCoordinates.Add(new Vector2((float)i / divX, 1f - (float)j / divY));
         }
@@ -102,7 +107,6 @@ public static class Utilities
         };
     }
 
-
     /// <summary>
     /// Create a rectangular grid of points
     /// </summary>
@@ -114,13 +118,18 @@ public static class Utilities
     /// <returns></returns>
     [MultiReturn("all", "xRows", "yRows", "borders", "corners", "quads")]
     public static Dictionary<string, object> RectangularGrid(
-        [DefaultArgument("CoordinateSystem.ByOriginVectors(Point.Origin(), Vector.XAxis(), Vector.YAxis())")] CoordinateSystem cs,
+        [DefaultArgument(
+            "CoordinateSystem.ByOriginVectors(Point.Origin(), Vector.XAxis(), Vector.YAxis())"
+        )]
+            CoordinateSystem cs,
         [DefaultArgument("20.0")] double lengthX,
         [DefaultArgument("20.0")] double lengthY,
         [DefaultArgument("20")] int divX,
-        [DefaultArgument("20")] int divY)
+        [DefaultArgument("20")] int divY
+    )
     {
-        if (divX < 1 || divY < 0) throw new Exception("divX and divY must be larger than 0");
+        if (divX < 1 || divY < 0)
+            throw new Exception("divX and divY must be larger than 0");
 
         List<Point> all = new List<Point>((divX + 1) * (divY + 1));
         for (int j = 0; j <= divY; j++)
@@ -129,7 +138,9 @@ public static class Utilities
                 Point.ByCartesianCoordinates(
                     cs,
                     ((double)i / divX - 0.5f) * lengthX,
-                    ((double)j / divY - 0.5f) * lengthY));
+                    ((double)j / divY - 0.5f) * lengthY
+                )
+            );
 
         List<List<Point>> xRows = new List<List<Point>>();
         for (int j = 0; j <= divY; j++)
@@ -153,21 +164,37 @@ public static class Utilities
         for (int j = 0; j < divY; j++)
         for (int i = 0; i < divX; i++)
             quads.Add(
-                new List<Point> {
-                    all[i     + j       * (divX + 1)],
-                    all[i + 1 + j       * (divX + 1)],
+                new List<Point>
+                {
+                    all[i + j * (divX + 1)],
+                    all[i + 1 + j * (divX + 1)],
                     all[i + 1 + (j + 1) * (divX + 1)],
-                    all[i     + (j + 1) * (divX + 1)]});
+                    all[i + (j + 1) * (divX + 1)],
+                }
+            );
 
-        return new Dictionary<string, object> {
+        return new Dictionary<string, object>
+        {
             { "all", all },
             { "xRows", xRows },
             { "yRows", yRows },
-            { "borders", new List<List<Point>> { xRows[0], yRows[divX], xRows[divY], yRows[0]} },
-            { "corners", new List<Point> { all[0], all[divX], all[(divX + 1) * (divY + 1) - 1], all[(divX + 1) * divY] } },
-            { "quads", quads }};
+            {
+                "borders",
+                new List<List<Point>> { xRows[0], yRows[divX], xRows[divY], yRows[0] }
+            },
+            {
+                "corners",
+                new List<Point>
+                {
+                    all[0],
+                    all[divX],
+                    all[(divX + 1) * (divY + 1) - 1],
+                    all[(divX + 1) * divY],
+                }
+            },
+            { "quads", quads },
+        };
     }
-
 
     /// <summary>
     /// Create a sequence of lines from a sequence of input points
@@ -180,7 +207,8 @@ public static class Utilities
         List<Line> lines = new List<Line>();
         for (int i = 0; i < points.Count - 1; i++)
             lines.Add(Line.ByStartPointEndPoint(points[i], points[i + 1]));
-        if (loop) lines.Add(Line.ByStartPointEndPoint(points[points.Count - 1], points[0]));
+        if (loop)
+            lines.Add(Line.ByStartPointEndPoint(points[points.Count - 1], points[0]));
         return lines;
     }
 
