@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Globalization;
 using System.Reflection;
 using System.Resources;
 using DynaShape;
@@ -39,7 +40,38 @@ public class BasicTests
         var icon = resources.GetObject("DynaShape.ZeroTouch.GeometryBinders.CircleBinder.ByCenterRadius.Small");
 
         Assert.That(icon, Is.Not.Null);
-        Assert.That(icon!.GetType().FullName, Is.EqualTo("System.Drawing.Bitmap"));
+        Assert.That(icon, Is.TypeOf<byte[]>());
+    }
+
+    [Test]
+    public void CustomizationIconResourcesHaveSmallAndLargeVariants()
+    {
+        var customizationAssembly = Assembly.Load("DynaShape.customization");
+        var resources = new ResourceManager("DynaShapeImages", customizationAssembly);
+        var resourceSet = resources.GetResourceSet(CultureInfo.InvariantCulture, true, true);
+        Assert.That(resourceSet, Is.Not.Null);
+
+        var smallIcons = new HashSet<string>(StringComparer.Ordinal);
+        var largeIcons = new HashSet<string>(StringComparer.Ordinal);
+        var resourceEnumerator = resourceSet!.GetEnumerator();
+
+        while (resourceEnumerator.MoveNext())
+        {
+            if (resourceEnumerator.Key is not string key)
+                continue;
+
+            var isSmall = key.EndsWith(".Small", StringComparison.Ordinal);
+            var isLarge = key.EndsWith(".Large", StringComparison.Ordinal);
+            if (!isSmall && !isLarge)
+                continue;
+
+            Assert.That(resourceEnumerator.Value, Is.TypeOf<byte[]>(), key);
+            var iconName = key[..^(isSmall ? ".Small".Length : ".Large".Length)];
+            (isSmall ? smallIcons : largeIcons).Add(iconName);
+        }
+
+        Assert.That(smallIcons, Is.Not.Empty);
+        Assert.That(largeIcons, Is.EquivalentTo(smallIcons));
     }
 
     [Test]

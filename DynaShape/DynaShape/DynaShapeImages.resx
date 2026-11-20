@@ -328,8 +328,8 @@
   <data name="DynaShape.ZeroTouch.Goals.DirectionalWindGoal.ByMesh.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\DynaShape.ZeroTouch.Goals.DirectionalWindGoal.ByMesh.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DynaShape.ZeroTouch.Goals.DirectionalWindGoal.ByPositions.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\DynaShape.ZeroTouch.Goals.DirectionalWindGoal.ByPositions.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DynaShape.ZeroTouch.Goals.DirectionalWindGoal.ByPoints.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\DynaShape.ZeroTouch.Goals.DirectionalWindGoal.ByPoints.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DynaShape.ZeroTouch.Goals.DirectionGoal.ByPoints.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\DynaShape.ZeroTouch.Goals.DirectionGoal.ByPoints.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -337,11 +337,11 @@
   <data name="DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByLines.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByLines.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartEndPositions.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartEndPositions.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartEndPoints.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartEndPoints.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartPositions.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartPositions.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartPoints.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\DynaShape.ZeroTouch.Goals.EqualLengthsGoal.ByStartPoints.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DynaShape.ZeroTouch.Goals.EqualLengthsGoal.CreateByLines.Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\DynaShape.ZeroTouch.Goals.EqualLengthsGoal.CreateByLines.Large.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
