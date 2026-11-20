@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Autodesk.DesignScript.Geometry;
+﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
-
 
 namespace DynaShape.Goals
 {
@@ -11,17 +8,12 @@ namespace DynaShape.Goals
     {
         public Curve TargetCurve;
 
-
-        public OnCurveGoal()
-        {
-        }
-
+        public OnCurveGoal() { }
 
         public OnCurveGoal(List<Triple> nodeStartingPositions, Curve curve, float weight = 1f)
         {
             Initialize(nodeStartingPositions, curve, weight);
         }
-
 
         public void Initialize(List<Triple> nodeStartingPositions, Curve curve, float weight)
         {
@@ -33,14 +25,15 @@ namespace DynaShape.Goals
             Weights = new float[StartingPositions.Length];
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
-            if (TargetCurve == null) throw new Exception("OnCurveGoal: The target curve has not been set");
+            if (TargetCurve == null)
+                throw new Exception("OnCurveGoal: The target curve has not been set");
             for (int i = 0; i < NodeCount; i++)
             {
                 Triple nodePosition = allNodes[NodeIndices[i]].Position;
-                Moves[i] = TargetCurve.ClosestPointTo(nodePosition.ToPoint()).ToTriple() - nodePosition;
+                Moves[i] =
+                    TargetCurve.ClosestPointTo(nodePosition.ToPoint()).ToTriple() - nodePosition;
                 Weights[i] = Weight;
             }
         }

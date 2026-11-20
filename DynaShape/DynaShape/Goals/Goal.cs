@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
@@ -15,6 +13,7 @@ namespace DynaShape.Goals
 
         public int NodeCount => StartingPositions.Length;
         internal abstract void Compute(List<Node> allNodes);
+
         public virtual List<object> GetOutputs(List<Node> allNodes) => null;
     }
 }

@@ -1,5 +1,4 @@
-﻿using Autodesk.DesignScript.Geometry;
-using Autodesk.DesignScript.Runtime;
+﻿using Autodesk.DesignScript.Runtime;
 using DSCore;
 using Dynamo.Graph.Nodes;
 
@@ -10,8 +9,7 @@ namespace DynaShape.ZeroTouch.GeometryBinders;
 /// </summary>
 public class MeshBinder
 {
-    private MeshBinder(){}
-
+    private MeshBinder() { }
 
     /// <summary>
     /// Create a MeshBinder.
@@ -22,13 +20,12 @@ public class MeshBinder
     [NodeCategory("Create")]
     public static DynaShape.GeometryBinders.MeshBinder ByMesh(
         Autodesk.DesignScript.Geometry.Mesh mesh,
-        [DefaultArgument("null")] Color color)
+        [DefaultArgument("null")] Color color
+    )
     {
         var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.MeshBinder>();
 
-        binder.Initialize(
-            mesh,
-            color?.ToColor4() ?? DynaShapeDisplay.DefaultMeshFaceColor);
+        binder.Initialize(mesh, color?.ToColor4() ?? DynaShapeDisplay.DefaultMeshFaceColor);
 
         return binder;
     }

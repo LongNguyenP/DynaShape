@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// FloorGoal
     /// </summary>
-    public  class FloorGoal
+    public class FloorGoal
     {
-        private FloorGoal(){}
-
+        private FloorGoal() { }
 
         /// <summary>
         /// Creates a FloorGoal to force a set of nodes to stay above a horizontal floor plane.
@@ -22,7 +21,8 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.FloorGoal ByPoints(
             List<Point> startPositions,
             [DefaultArgument("0.0")] float floorHeight,
-            [DefaultArgument("1000.0")] float weight)
+            [DefaultArgument("1000.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.FloorGoal>();
             goal.Initialize(startPositions.ToTriples(), floorHeight, weight);

@@ -1,10 +1,5 @@
-using Autodesk.DesignScript.Runtime;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -12,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// OnSurfaceGoal
     /// </summary>
-    public  class OnSurfaceGoal
+    public class OnSurfaceGoal
     {
-        private OnSurfaceGoal(){}
-
+        private OnSurfaceGoal() { }
 
         /// <summary>
         /// Creates an OnSurfaceGoal to force a set of nodes to lie on the specified surface.
@@ -28,7 +22,8 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.OnSurfaceGoal ByPoints(
             List<Point> startPositions,
             Surface targetSurface,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.OnSurfaceGoal>();
             goal.Initialize(startPositions.ToTriples(), targetSurface, weight);

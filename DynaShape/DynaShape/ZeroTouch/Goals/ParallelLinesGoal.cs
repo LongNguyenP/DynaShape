@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// ParallelLinesGoal
     /// </summary>
-    public  class ParallelLinesGoal
+    public class ParallelLinesGoal
     {
-        private ParallelLinesGoal(){}
-
+        private ParallelLinesGoal() { }
 
         /// <summary>
         /// Creates a ParallelLinesGoal to force a set of lines to be parallel.
@@ -23,10 +22,13 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.ParallelLinesGoal ByStartEndPoints(
             List<Point> startPoints,
             List<Point> endPoints,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             if (startPoints.Count != endPoints.Count)
-                throw new Exception("Error: lineStartPoints count is not equal to lineEndPoints count");
+                throw new Exception(
+                    "Error: lineStartPoints count is not equal to lineEndPoints count"
+                );
 
             List<Triple> pointPairs = new List<Triple>();
 
@@ -41,7 +43,6 @@ namespace DynaShape.ZeroTouch.Goals
             return goal;
         }
 
-
         /// <summary>
         /// Creates a ParallelLinesGoal to force a set of lines to be parallel.
         /// </summary>
@@ -51,7 +52,8 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.ParallelLinesGoal ByLines(
             List<Line> lines,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             List<Triple> startPositions = new List<Triple>();
             foreach (Line line in lines)

@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using Autodesk.DesignScript.Runtime;
-
 
 namespace DynaShape.Goals
 {
@@ -23,7 +20,8 @@ namespace DynaShape.Goals
             {
                 polygonVertices = value;
 
-                if (polygonVertices == null || polygonVertices.Count < 3) return;
+                if (polygonVertices == null || polygonVertices.Count < 3)
+                    return;
 
                 //=====================================================
                 // Update the plane normal
@@ -34,9 +32,13 @@ namespace DynaShape.Goals
                 {
                     int j = i + 1;
                     int k = i + 2;
-                    if (j >= polygonVertices.Count) j -= polygonVertices.Count;
-                    if (k >= polygonVertices.Count) k -= polygonVertices.Count;
-                    planeNormal += (polygonVertices[j] - polygonVertices[i]).Cross(polygonVertices[k] - polygonVertices[j]);
+                    if (j >= polygonVertices.Count)
+                        j -= polygonVertices.Count;
+                    if (k >= polygonVertices.Count)
+                        k -= polygonVertices.Count;
+                    planeNormal += (polygonVertices[j] - polygonVertices[i]).Cross(
+                        polygonVertices[k] - polygonVertices[j]
+                    );
                 }
 
                 planeNormal.Normalise();
@@ -49,8 +51,11 @@ namespace DynaShape.Goals
                 for (int i = 0; i < polygonVertices.Count; i++)
                 {
                     int j = i + 1;
-                    if (j >= polygonVertices.Count) j -= polygonVertices.Count;
-                    normals.Add((polygonVertices[j] - polygonVertices[i]).Cross(planeNormal).Normalise());
+                    if (j >= polygonVertices.Count)
+                        j -= polygonVertices.Count;
+                    normals.Add(
+                        (polygonVertices[j] - polygonVertices[i]).Cross(planeNormal).Normalise()
+                    );
                 }
             }
         }
@@ -59,19 +64,24 @@ namespace DynaShape.Goals
         private List<Triple> normals; // The normal vectors of the polygon edges
         private Triple planeNormal; // The normal of the 2D plane that contains the polygon
 
+        public ConvexPolygonCollisionGoal() { }
 
-        public ConvexPolygonCollisionGoal()
-        {
-        }
-
-
-        public ConvexPolygonCollisionGoal(List<Triple> centers, List<float> radii, List<Triple> polygonVertices, float weight = 1000f)
+        public ConvexPolygonCollisionGoal(
+            List<Triple> centers,
+            List<float> radii,
+            List<Triple> polygonVertices,
+            float weight = 1000f
+        )
         {
             Initialize(centers, radii, polygonVertices, weight);
         }
 
-
-        public void Initialize(List<Triple> centers, List<float> radii, List<Triple> polygonVertices, float weight)
+        public void Initialize(
+            List<Triple> centers,
+            List<float> radii,
+            List<Triple> polygonVertices,
+            float weight
+        )
         {
             Weight = weight;
             Radii = radii.ToArray();
@@ -81,10 +91,10 @@ namespace DynaShape.Goals
             Weights = new float[centers.Count];
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
-            if (polygonVertices == null || polygonVertices.Count < 3) return;
+            if (polygonVertices == null || polygonVertices.Count < 3)
+                return;
 
             Moves = new Triple[NodeCount];
             Weights = new float[NodeCount];

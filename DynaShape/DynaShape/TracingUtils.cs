@@ -1,6 +1,5 @@
 using Autodesk.DesignScript.Runtime;
 using DynamoServices;
-using DynaShape.Goals;
 
 namespace DynaShape;
 
@@ -8,9 +7,11 @@ namespace DynaShape;
 internal class TracingUtils
 {
     private const string TraceID = "{0459D869-0C72-447F-96D8-08A7FB92214B}-REVIT";
-    private static Dictionary<Guid, object> traceableObjectDictionary = new Dictionary<Guid, object>();
+    private static Dictionary<Guid, object> traceableObjectDictionary =
+        new Dictionary<Guid, object>();
 
-    public static T GetObjectFromTrace<T>() where T : new()
+    public static T GetObjectFromTrace<T>()
+        where T : new()
     {
         T item;
         Guid traceId = TracingUtils.GetObjectIdFromTrace();

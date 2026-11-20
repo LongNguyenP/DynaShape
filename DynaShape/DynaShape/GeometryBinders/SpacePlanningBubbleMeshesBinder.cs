@@ -6,7 +6,6 @@ using SharpDX;
 
 namespace DynaShape.GeometryBinders;
 
-
 [IsVisibleInDynamoLibrary(false)]
 public class SpacePlanningBubbleMeshesBinder : GeometryBinder
 {
@@ -35,19 +34,24 @@ public class SpacePlanningBubbleMeshesBinder : GeometryBinder
     private List<Color> colors;
     private MeshGeometry3D meshGeometry;
 
-    public SpacePlanningBubbleMeshesBinder(List<Triple> centers, List<float> radii, List<Color> colors)
+    public SpacePlanningBubbleMeshesBinder(
+        List<Triple> centers,
+        List<float> radii,
+        List<Color> colors
+    )
     {
         StartingPositions = centers.ToArray();
         this.radii = radii;
         this.colors = colors;
     }
 
-
     public override List<object> CreateGeometryObjects(List<Node> allNodes)
     {
         List<object> circles = new List<object>(NodeCount);
         for (int i = 0; i < NodeCount; i++)
-            circles.Add(Circle.ByCenterPointRadius(allNodes[NodeIndices[i]].Position.ToPoint(), radii[i]));
+            circles.Add(
+                Circle.ByCenterPointRadius(allNodes[NodeIndices[i]].Position.ToPoint(), radii[i])
+            );
 
         return circles;
     }
@@ -72,7 +76,9 @@ public class SpacePlanningBubbleMeshesBinder : GeometryBinder
 
             for (int j = 0; j < segmentCount; j++)
             {
-                meshGeometry.Positions.Add(new Vector3(center.X + r * cosValues[j], center.Z, -center.Y + r * sinValues[j]));
+                meshGeometry.Positions.Add(
+                    new Vector3(center.X + r * cosValues[j], center.Z, -center.Y + r * sinValues[j])
+                );
                 meshGeometry.Normals.Add(new Vector3(0f, 1f, 0f));
                 //meshGeometry.Colors.Add(new Color4(1f, 0f, 0f, 0.5f));
             }
@@ -83,7 +89,6 @@ public class SpacePlanningBubbleMeshesBinder : GeometryBinder
                 meshGeometry.Indices.Add(baseIndex);
                 meshGeometry.Indices.Add(baseIndex + j + 1);
                 meshGeometry.Indices.Add(baseIndex + j + 2);
-
             }
 
             meshGeometry.Indices.Add(baseIndex);
@@ -94,8 +99,9 @@ public class SpacePlanningBubbleMeshesBinder : GeometryBinder
                 new MeshGeometryModel3D
                 {
                     Geometry = meshGeometry,
-                    Material = new PhongMaterial {DiffuseColor = new Color(1f, 1f, 1f, 0.8f)},
-                });
+                    Material = new PhongMaterial { DiffuseColor = new Color(1f, 1f, 1f, 0.8f) },
+                }
+            );
         }
     }
 }

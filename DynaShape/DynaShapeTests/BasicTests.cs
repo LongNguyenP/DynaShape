@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
 using System.Resources;
@@ -17,12 +16,16 @@ public class BasicTests
         solver = new Solver();
     }
 
-
     [Test]
     public void LengthGoalTest()
     {
         solver.Clear();
-        LengthGoal lengthGoal = new LengthGoal(new Triple(0f, 0f, 0f), new Triple(2f, 0f, 0f), 0f, 1000f);
+        LengthGoal lengthGoal = new LengthGoal(
+            new Triple(0f, 0f, 0f),
+            new Triple(2f, 0f, 0f),
+            0f,
+            1000f
+        );
         solver.RegisterGoal(lengthGoal);
         solver.EnableMomentum = false;
         solver.Iterate();
@@ -34,10 +37,15 @@ public class BasicTests
     public void CustomizationIconResourceIsAvailable()
     {
         var customizationAssembly = Assembly.Load("DynaShape.customization");
-        Assert.That(customizationAssembly.GetManifestResourceNames(), Does.Contain("DynaShapeImages.resources"));
+        Assert.That(
+            customizationAssembly.GetManifestResourceNames(),
+            Does.Contain("DynaShapeImages.resources")
+        );
 
         var resources = new ResourceManager("DynaShapeImages", customizationAssembly);
-        var icon = resources.GetObject("DynaShape.ZeroTouch.GeometryBinders.CircleBinder.ByCenterRadius.Small");
+        var icon = resources.GetObject(
+            "DynaShape.ZeroTouch.GeometryBinders.CircleBinder.ByCenterRadius.Small"
+        );
 
         Assert.That(icon, Is.Not.Null);
         Assert.That(icon, Is.TypeOf<byte[]>());
@@ -106,13 +114,11 @@ public class BasicTests
         AreAlmostEqual(nodePositions[5], new Triple(5.361444, 0, -23.461422));
     }
 
-
     [TearDownAttribute]
     public void Dispose()
     {
         solver.Dispose();
     }
-
 
     private void AreAlmostEqual(Triple value, Triple truth, float tolerance = 0.001f)
     {

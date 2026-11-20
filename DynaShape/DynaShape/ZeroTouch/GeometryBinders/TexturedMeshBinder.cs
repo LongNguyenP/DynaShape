@@ -10,7 +10,7 @@ namespace DynaShape.ZeroTouch.GeometryBinders;
 /// </summary>
 public class TexturedMeshBinder
 {
-    private TexturedMeshBinder(){}
+    private TexturedMeshBinder() { }
 
     /// <summary>
     /// Create a TexturedMeshBinder.
@@ -25,15 +25,18 @@ public class TexturedMeshBinder
         Autodesk.DesignScript.Geometry.Mesh mesh,
         [DefaultArgument("null")] Color color,
         string textureFileName,
-        Vector2Collection textureCoordinates)
+        Vector2Collection textureCoordinates
+    )
     {
-        var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.TexturedMeshBinder>();
+        var binder =
+            TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.TexturedMeshBinder>();
 
         binder.Initialize(
             mesh,
             color?.ToColor4() ?? DynaShapeDisplay.DefaultMeshFaceColor,
             textureFileName,
-            textureCoordinates);
+            textureCoordinates
+        );
 
         return binder;
     }

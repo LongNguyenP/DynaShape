@@ -1,5 +1,5 @@
-﻿using Autodesk.DesignScript.Runtime;
-using Autodesk.DesignScript.Geometry;
+﻿using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -9,8 +9,7 @@ namespace DynaShape.ZeroTouch.Goals
     /// </summary>
     public class AngleGoal
     {
-        private AngleGoal(){}
-
+        private AngleGoal() { }
 
         /// <summary>
         /// Creates an Angle Goal that attempts to keep the angle formed by three nodes at a target value.
@@ -26,17 +25,19 @@ namespace DynaShape.ZeroTouch.Goals
             Point startPositionB,
             Point startPositionC,
             [DefaultArgument("0.0")] float targetAngle,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.AngleGoal>();
-            goal.Initialize(startPositionA.ToTriple(),
+            goal.Initialize(
+                startPositionA.ToTriple(),
                 startPositionB.ToTriple(),
                 startPositionC.ToTriple(),
                 targetAngle.ToRadian(),
-                weight);
+                weight
+            );
             return goal;
         }
-
 
         /// <summary>
         /// Creates an Angle Goal that attempts to keep the angle formed by three nodes
@@ -50,13 +51,11 @@ namespace DynaShape.ZeroTouch.Goals
             Point a,
             Point b,
             Point c,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.AngleGoal>();
-            goal.Initialize(a.ToTriple(),
-                b.ToTriple(),
-                c.ToTriple(),
-                weight);
+            goal.Initialize(a.ToTriple(), b.ToTriple(), c.ToTriple(), weight);
             return goal;
         }
     }

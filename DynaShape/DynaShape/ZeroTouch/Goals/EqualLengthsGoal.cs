@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// EqualLengthsGoal
     /// </summary>
-    public  class EqualLengthsGoal
+    public class EqualLengthsGoal
     {
-        private EqualLengthsGoal(){}
-
+        private EqualLengthsGoal() { }
 
         /// <summary>
         /// Creates an EqualLengthsGoal to force a sequence of nodes to maintain equal distances.
@@ -20,7 +19,8 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal ByStartPoints(
             List<Point> startPositions,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             List<Triple> triples = new List<Triple> { startPositions[0].ToTriple() };
 
@@ -38,7 +38,6 @@ namespace DynaShape.ZeroTouch.Goals
             return goal;
         }
 
-
         /// <summary>
         /// Creates an EqualLengthsGoal to force a set of line segments to maintain equal lengths.
         /// </summary>
@@ -50,11 +49,15 @@ namespace DynaShape.ZeroTouch.Goals
         public static DynaShape.Goals.EqualLengthsGoal ByStartEndPoints(
             List<Point> startPositions,
             List<Point> endPositions,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             List<Triple> triples = new List<Triple>();
 
-            int n = startPositions.Count < endPositions.Count ? startPositions.Count : endPositions.Count;
+            int n =
+                startPositions.Count < endPositions.Count
+                    ? startPositions.Count
+                    : endPositions.Count;
 
             for (int i = 0; i < n; i++)
             {
@@ -70,7 +73,6 @@ namespace DynaShape.ZeroTouch.Goals
             return goal;
         }
 
-
         /// <summary>
         /// Creates a EqualLengthsGoal to force a set of line segments to maintain equal lengths.
         /// </summary>
@@ -80,7 +82,8 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.EqualLengthsGoal ByLines(
             List<Line> lines,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             List<Triple> startPositions = new List<Triple>();
             foreach (Line line in lines)

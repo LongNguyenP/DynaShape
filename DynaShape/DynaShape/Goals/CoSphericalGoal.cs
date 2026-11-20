@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
     [IsVisibleInDynamoLibrary(false)]
     public class CoSphericalGoal : Goal
     {
-        public CoSphericalGoal()
-        {
-        }
-
+        public CoSphericalGoal() { }
 
         public CoSphericalGoal(List<Triple> nodeStartingPositions, float weight = 1f)
         {
@@ -20,13 +14,13 @@ namespace DynaShape.Goals
 
         public void Initialize(List<Triple> nodeStartingPositions, float weight)
         {
-            if (nodeStartingPositions.Count <= 4) throw new Exception("CoSpherical Goal: Node count must be at least 5");
+            if (nodeStartingPositions.Count <= 4)
+                throw new Exception("CoSpherical Goal: Node count must be at least 5");
             Weight = weight;
             StartingPositions = nodeStartingPositions.ToArray();
             Moves = new Triple[StartingPositions.Length];
             Weights = new float[StartingPositions.Length];
         }
-
 
         internal override void Compute(List<Node> allNodes)
         {

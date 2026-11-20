@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// CoSphericalGoal
     /// </summary>
-    public  class CoSphericalGoal
+    public class CoSphericalGoal
     {
-        private CoSphericalGoal(){}
-
+        private CoSphericalGoal() { }
 
         /// <summary>
         /// Creates a CoSphericalGoal that forces a set of nodes to lie on a common spherical surface.
@@ -21,7 +20,8 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.CoSphericalGoal ByPoints(
             List<Point> startPositions,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.CoSphericalGoal>();
             goal.Initialize(startPositions.ToTriples(), weight);

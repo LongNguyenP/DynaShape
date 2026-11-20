@@ -1,34 +1,48 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using SharpDX;
+using Math = System.Math;
 using Point = Autodesk.DesignScript.Geometry.Point;
 using Vector = Autodesk.DesignScript.Geometry.Vector;
-using Math = System.Math;
 
 namespace DynaShape;
-
 
 [IsVisibleInDynamoLibrary(false)]
 public static class Util
 {
     private const float by255 = 1f / 255f;
 
-    public static SharpDX.Color ToColor4(this DSCore.Color color)
-        => new SharpDX.Color(color.Red * by255, color.Green * by255, color.Blue * by255, color.Alpha * by255);
+    public static SharpDX.Color ToColor4(this DSCore.Color color) =>
+        new SharpDX.Color(
+            color.Red * by255,
+            color.Green * by255,
+            color.Blue * by255,
+            color.Alpha * by255
+        );
 
-    public static Vector3 ToVector3(this Triple triple) => new Vector3(triple.X, triple.Z, -triple.Y);
+    public static Vector3 ToVector3(this Triple triple) =>
+        new Vector3(triple.X, triple.Z, -triple.Y);
 
     public static Point ToPoint(this Triple t) => Point.ByCoordinates(t.X, t.Y, t.Z);
+
     public static Vector ToVector(this Triple t) => Vector.ByCoordinates(t.X, t.Y, t.Z);
 
     public static Triple ToTriple(this Point point) => new Triple(point.X, point.Y, point.Z);
+
     public static Triple ToTriple(this Vector vector) => new Triple(vector.X, vector.Y, vector.Z);
 
     public static Vector ZeroVector => Vector.ByCoordinates(0.0, 0.0, 0.0);
-    public static Point Duplicate(this Point point) => Point.ByCoordinates(point.X, point.Y, point.Z);
-    public static Vector Duplicate(this Vector vector) => Vector.ByCoordinates(vector.X, vector.Y, vector.Z);
 
-    public static bool IsAlmostZero(this float number, float tolerance = 1E-10f) => -tolerance < number && number < tolerance;
-    public static bool IsAlmostZero(this double number, double tolerance = 1E-10) => -tolerance < number && number < tolerance;
+    public static Point Duplicate(this Point point) =>
+        Point.ByCoordinates(point.X, point.Y, point.Z);
+
+    public static Vector Duplicate(this Vector vector) =>
+        Vector.ByCoordinates(vector.X, vector.Y, vector.Z);
+
+    public static bool IsAlmostZero(this float number, float tolerance = 1E-10f) =>
+        -tolerance < number && number < tolerance;
+
+    public static bool IsAlmostZero(this double number, double tolerance = 1E-10) =>
+        -tolerance < number && number < tolerance;
 
     public static List<Triple> ToTriples(this IEnumerable<Point> points)
     {
@@ -49,19 +63,22 @@ public static class Util
     public static T[] InitializeArray<T>(int length, T value)
     {
         T[] array = new T[length];
-        for (int i = 0; i < length; i++) array[i] = value;
+        for (int i = 0; i < length; i++)
+            array[i] = value;
         return array;
     }
 
     public static void FillArray<T>(this T[] array, T value)
     {
-        for (int i = 0; i < array.Length; i++) array[i] = value;
+        for (int i = 0; i < array.Length; i++)
+            array[i] = value;
     }
 
     private const float toRadian = (float)Math.PI / 180f;
     private const float toDegree = 180f / (float)Math.PI;
 
     public static float ToRadian(this float Degree) => Degree * toRadian;
+
     public static float ToDegree(this float Radian) => Radian * toDegree;
 
     /// <summary>
@@ -72,10 +89,16 @@ public static class Util
     /// <param name="lineDirection">Direction of the best fit line</param>
     /// <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, or non-collinear</param>
     /// <returns>0 if the input points are coincidental; 1 if they are collinear; 2 otherwise</returns>
-    public static int ComputeBestFitLine(List<Triple> points, out Triple lineOrigin, out Triple lineDirection, float tolerance = 1E-10f)
+    public static int ComputeBestFitLine(
+        List<Triple> points,
+        out Triple lineOrigin,
+        out Triple lineDirection,
+        float tolerance = 1E-10f
+    )
     {
         Triple centroid = Triple.Zero;
-        for (int i = 0; i < points.Count; i++) centroid += points[i];
+        for (int i = 0; i < points.Count; i++)
+            centroid += points[i];
         centroid /= points.Count;
 
         float[,] P = new float[points.Count, 3];
@@ -87,9 +110,15 @@ public static class Util
             P[i, 2] = points[i].Z - centroid.Z;
         }
 
-        float c00 = 0f, c01 = 0f, c02 = 0f;
-        float c10 = 0f, c11 = 0f, c12 = 0f;
-        float c20 = 0f, c21 = 0f, c22 = 0f;
+        float c00 = 0f,
+            c01 = 0f,
+            c02 = 0f;
+        float c10 = 0f,
+            c11 = 0f,
+            c12 = 0f;
+        float c20 = 0f,
+            c21 = 0f,
+            c22 = 0f;
 
         for (int k = 0; k < points.Count; k++)
         {
@@ -105,16 +134,37 @@ public static class Util
         }
 
         FastSvd3x3.Compute(
-            c00, c01, c02,
-            c10, c11, c12,
-            c20, c21, c22,
-            out var u00, out _     , out _,
-            out var u10, out _     , out _,
-            out var u20, out _     , out _,
-            out var s00, out var s11, out _,
-            out _      , out _      , out _,
-            out _      , out _      , out _,
-            out _      , out _      , out _);
+            c00,
+            c01,
+            c02,
+            c10,
+            c11,
+            c12,
+            c20,
+            c21,
+            c22,
+            out var u00,
+            out _,
+            out _,
+            out var u10,
+            out _,
+            out _,
+            out var u20,
+            out _,
+            out _,
+            out var s00,
+            out var s11,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _
+        );
 
         lineOrigin = centroid;
 
@@ -140,10 +190,16 @@ public static class Util
     /// <param name="planeNormal">Normal of the best fit plane</param>
     /// <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, coplanar, or non-coplanar</param>
     /// <returns>0 if the input points are coincidental; 1 if they are collinear; 2 if they are coplanar; 3 otherwise</returns>
-    public static int ComputeBestFitPlane(List<Triple> points, out Triple planeOrigin, out Triple planeNormal, float tolerance = 1E-10f)
+    public static int ComputeBestFitPlane(
+        List<Triple> points,
+        out Triple planeOrigin,
+        out Triple planeNormal,
+        float tolerance = 1E-10f
+    )
     {
         Triple centroid = Triple.Zero;
-        for (int i = 0; i < points.Count; i++) centroid += points[i];
+        for (int i = 0; i < points.Count; i++)
+            centroid += points[i];
         centroid /= points.Count;
 
         float[,] P = new float[points.Count, 3];
@@ -155,9 +211,15 @@ public static class Util
             P[i, 2] = points[i].Z - centroid.Z;
         }
 
-        float c00 = 0f, c01 = 0f, c02 = 0f;
-        float c10 = 0f, c11 = 0f, c12 = 0f;
-        float c20 = 0f, c21 = 0f, c22 = 0f;
+        float c00 = 0f,
+            c01 = 0f,
+            c02 = 0f;
+        float c10 = 0f,
+            c11 = 0f,
+            c12 = 0f;
+        float c20 = 0f,
+            c21 = 0f,
+            c22 = 0f;
 
         for (int k = 0; k < points.Count; k++)
         {
@@ -173,19 +235,39 @@ public static class Util
         }
 
         FastSvd3x3.Compute(
-            c00, c01, c02,
-            c10, c11, c12,
-            c20, c21, c22,
-            out float u00, out float u01, out _        ,
-            out float u10, out float u11, out _        ,
-            out float u20, out float u21, out _        ,
-            out float s00, out float s11, out float s22,
-            out _        , out _        , out _        ,
-            out _        , out _        , out _        ,
-            out _        , out _        , out _         );
+            c00,
+            c01,
+            c02,
+            c10,
+            c11,
+            c12,
+            c20,
+            c21,
+            c22,
+            out float u00,
+            out float u01,
+            out _,
+            out float u10,
+            out float u11,
+            out _,
+            out float u20,
+            out float u21,
+            out _,
+            out float s00,
+            out float s11,
+            out float s22,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _,
+            out _
+        );
 
         planeOrigin = centroid;
-
 
         // Case 0: The input points are coincidental, so we just need to pick an arbitrary normal vector
         if (s00 < tolerance)
@@ -205,7 +287,7 @@ public static class Util
         planeNormal = new Triple(u00, u10, u20).Cross(new Triple(u01, u11, u21)).Normalise();
 
         return s22 < tolerance
-            ? 2  // The input points are coplanar
+            ? 2 // The input points are coplanar
             : 3; // The input points are NOT coplanar
     }
 
@@ -218,12 +300,23 @@ public static class Util
     /// <param name="circleRadius">Radius of the best fit circle</param>
     /// <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, or non-collinear</param>
     /// <returns>False if the input points are coincidental or collinear; True otherwise</returns>
-    public static bool ComputeBestFitCircle(List<Triple> points, out Triple circleCenter, out Triple circleNormal, out float circleRadius, float tolerance = 1E-10f)
+    public static bool ComputeBestFitCircle(
+        List<Triple> points,
+        out Triple circleCenter,
+        out Triple circleNormal,
+        out float circleRadius,
+        float tolerance = 1E-10f
+    )
     {
         // The core idea is to project the input points to the best fit plane, then fit a circle through these points via an analytical approach.
         // Reference: Thomas S & Chan Y: "A simple approach for the estimation of circular arc center and its radius
 
-        int planeFittingResult = ComputeBestFitPlane(points, out Triple planeOrigin, out Triple planeNormal, tolerance);
+        int planeFittingResult = ComputeBestFitPlane(
+            points,
+            out Triple planeOrigin,
+            out Triple planeNormal,
+            tolerance
+        );
 
         // Case 0: The input points are either coincidental or collinear
         if (planeFittingResult < 2)
@@ -247,7 +340,8 @@ public static class Util
         float sumX2Y = 0f;
         float sumXY2 = 0f;
 
-        float x, y;
+        float x,
+            y;
 
         for (int i = 0; i < points.Count; i++)
         {
@@ -279,7 +373,8 @@ public static class Util
         y = (a1 * c2 - a2 * c1) * temp;
 
         circleCenter = planeOrigin + (x * planeBasisX + y * planeBasisY);
-        circleRadius = (float) Math.Sqrt((sumX2 - 2f * sumX * x + n * x * x + sumY2 - 2f * sumY * y + n * y * y) / n);
+        circleRadius = (float)
+            Math.Sqrt((sumX2 - 2f * sumX * x + n * x * x + sumY2 - 2f * sumY * y + n * y * y) / n);
         circleNormal = planeNormal;
         return true;
     }
@@ -292,7 +387,12 @@ public static class Util
     /// <param name="sphereRadius">Radius of the best fit sphere</param>
     /// <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, coplanar, or non-coplanar</param>
     /// <returns>False if the input points are coincidental, collinear or coplanar; True otherwise</returns>
-    public static bool ComputeBestFitSphere(List<Triple> points, out Triple sphereCenter, out float sphereRadius, float tolerance = 1E-10f)
+    public static bool ComputeBestFitSphere(
+        List<Triple> points,
+        out Triple sphereCenter,
+        out float sphereRadius,
+        float tolerance = 1E-10f
+    )
     {
         // Reference: Sumith YD: Fast Geometric Fit Algorithm for Sphere Using Exact Solution
 
@@ -382,16 +482,19 @@ public static class Util
         float z0 = delta * (a * (f * m - h * k) - e * (b * m - d * k) + j * (b * h - d * f));
 
         sphereCenter = new Triple(x0, y0, z0);
-        sphereRadius = (float) Math.Sqrt(
-            x0 * x0 + y0 * y0 + z0 * z0 +
-            (temp - 2f * (x0 * sX + y0 * sY + z0 * sZ)) / N);
+        sphereRadius = (float)
+            Math.Sqrt(
+                x0 * x0 + y0 * y0 + z0 * z0 + (temp - 2f * (x0 * sX + y0 * sY + z0 * sZ)) / N
+            );
 
         return true;
     }
 
     public static SharpDX.Color4 ColorFromHSL(float h, float s, float l)
     {
-        float r = 0, g = 0, b = 0;
+        float r = 0,
+            g = 0,
+            b = 0;
         if (l != 0)
         {
             if (s == 0)

@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// OnPlaneGoal
     /// </summary>
-    public  class OnPlaneGoal
+    public class OnPlaneGoal
     {
-        private OnPlaneGoal(){}
-
+        private OnPlaneGoal() { }
 
         /// <summary>
         /// Creates an OnPlaneGoal to force a set of nodes to lie on the specified plane.
@@ -26,14 +25,16 @@ namespace DynaShape.ZeroTouch.Goals
             List<Point> startPositions,
             [DefaultArgument("Point.Origin()")] Point targetPlaneOrigin,
             [DefaultArgument("Vector.ZAxis()")] Vector targetPlaneNormal,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.OnPlaneGoal>();
             goal.Initialize(
                 startPositions.ToTriples(),
                 targetPlaneOrigin.ToTriple(),
                 targetPlaneNormal.ToTriple(),
-                weight);
+                weight
+            );
             return goal;
         }
 
@@ -48,15 +49,18 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.OnPlaneGoal ByPointsPlane(
             List<Point> startPositions,
-            [DefaultArgument("Plane.ByOriginNormal(Point.Origin(), Vector.ZAxis())")] Plane targetPlane,
-            [DefaultArgument("1.0")] float weight)
+            [DefaultArgument("Plane.ByOriginNormal(Point.Origin(), Vector.ZAxis())")]
+                Plane targetPlane,
+            [DefaultArgument("1.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.OnPlaneGoal>();
             goal.Initialize(
                 startPositions.ToTriples(),
                 targetPlane.Origin.ToTriple(),
                 targetPlane.Normal.ToTriple(),
-                weight);
+                weight
+            );
             return goal;
         }
     }

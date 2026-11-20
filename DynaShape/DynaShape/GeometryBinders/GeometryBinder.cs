@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.DesignScript.Geometry;
-using Autodesk.DesignScript.Interfaces;
-using Autodesk.DesignScript.Runtime;
+﻿using Autodesk.DesignScript.Runtime;
 using SharpDX;
-
 
 namespace DynaShape.GeometryBinders
 {
@@ -25,8 +17,9 @@ namespace DynaShape.GeometryBinders
 
         public virtual List<object> CreateGeometryObjects(List<Node> allNodes) => null;
 
-
-        public virtual void CreateDisplayedGeometries(DynaShapeDisplay display, List<Node> allNodes)
-        { }
+        public virtual void CreateDisplayedGeometries(
+            DynaShapeDisplay display,
+            List<Node> allNodes
+        ) { }
     }
 }

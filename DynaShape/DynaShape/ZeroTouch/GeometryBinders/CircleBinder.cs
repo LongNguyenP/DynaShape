@@ -12,7 +12,6 @@ public class CircleBinder
 {
     private CircleBinder() { }
 
-
     /// <summary>
     /// Create a CircleBinder.
     /// </summary>
@@ -26,7 +25,8 @@ public class CircleBinder
         Point center,
         float radius,
         [DefaultArgument("Vector.ZAxis()")] Vector planeNormal,
-        [DefaultArgument("null")] Color color)
+        [DefaultArgument("null")] Color color
+    )
     {
         var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.CircleBinder>();
 
@@ -34,7 +34,8 @@ public class CircleBinder
             center.ToTriple(),
             radius,
             planeNormal.ToTriple(),
-            color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+            color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor
+        );
 
         return binder;
     }

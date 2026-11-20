@@ -10,7 +10,8 @@ namespace DynaShape.ZeroTouch.GeometryBinders;
 /// </summary>
 public class TextBinder
 {
-    private TextBinder(){}
+    private TextBinder() { }
+
     /// <summary>
     /// Create a TextBinder.
     /// </summary>
@@ -22,11 +23,16 @@ public class TextBinder
     public static DynaShape.GeometryBinders.TextBinder ByPointText(
         Point position,
         string text,
-        [DefaultArgument("null")] Color color)
+        [DefaultArgument("null")] Color color
+    )
     {
         var binder = TracingUtils.GetObjectFromTrace<DynaShape.GeometryBinders.TextBinder>();
 
-        binder.Initialize(position.ToTriple(), text, color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor);
+        binder.Initialize(
+            position.ToTriple(),
+            text,
+            color?.ToColor4() ?? DynaShapeDisplay.DefaultLineColor
+        );
 
         return binder;
     }

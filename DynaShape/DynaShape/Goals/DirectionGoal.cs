@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
@@ -9,25 +7,32 @@ namespace DynaShape.Goals
     {
         public Triple TargetDirection;
 
+        public DirectionGoal() { }
 
-        public DirectionGoal()
-        {
-        }
-
-
-        public DirectionGoal(Triple firstNodePosition, Triple secondNodePosition, Triple targetDirection, float weight = 1f)
+        public DirectionGoal(
+            Triple firstNodePosition,
+            Triple secondNodePosition,
+            Triple targetDirection,
+            float weight = 1f
+        )
         {
             Initialize(firstNodePosition, secondNodePosition, targetDirection, weight);
         }
 
-
         public DirectionGoal(Triple firstNodePosition, Triple secondNodePosition, float weight = 1f)
-            : this(firstNodePosition, secondNodePosition, secondNodePosition - firstNodePosition, weight)
-        {
-        }
+            : this(
+                firstNodePosition,
+                secondNodePosition,
+                secondNodePosition - firstNodePosition,
+                weight
+            ) { }
 
-
-        public void Initialize(Triple firstNodePosition, Triple secondNodePosition, Triple targetDirection, float weight)
+        public void Initialize(
+            Triple firstNodePosition,
+            Triple secondNodePosition,
+            Triple targetDirection,
+            float weight
+        )
         {
             TargetDirection = targetDirection.Normalise();
             Weight = weight;
@@ -35,7 +40,6 @@ namespace DynaShape.Goals
             Moves = new Triple[2];
             Weights = new float[2];
         }
-
 
         internal override void Compute(List<Node> allNodes)
         {

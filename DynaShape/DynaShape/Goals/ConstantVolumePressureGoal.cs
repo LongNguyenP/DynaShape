@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Autodesk.DesignScript.Geometry;
+﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
 using Mesh = Autodesk.DesignScript.Geometry.Mesh;
-
 
 namespace DynaShape.Goals
 {
@@ -16,17 +13,16 @@ namespace DynaShape.Goals
         private List<int> faces;
         private float currentVolumeInversed;
 
+        public ConstantVolumePressureGoal() { }
 
-        public ConstantVolumePressureGoal()
-        {
-        }
-
-
-        public ConstantVolumePressureGoal(Mesh mesh, float volumePressureConstant, float weight = 1f)
+        public ConstantVolumePressureGoal(
+            Mesh mesh,
+            float volumePressureConstant,
+            float weight = 1f
+        )
         {
             Initialize(mesh, volumePressureConstant, weight);
         }
-
 
         public void Initialize(Mesh mesh, float volumePressureConstant, float weight)
         {
@@ -36,7 +32,9 @@ namespace DynaShape.Goals
             }
             catch (Exception)
             {
-                throw new Exception("The input mesh is not valid (It must be a closed mesh so that its volume is computable)");
+                throw new Exception(
+                    "The input mesh is not valid (It must be a closed mesh so that its volume is computable)"
+                );
             }
 
             Mesh = mesh;
@@ -52,7 +50,6 @@ namespace DynaShape.Goals
             Weights = new float[StartingPositions.Length];
         }
 
-
         internal override void Compute(List<Node> allNodes)
         {
             List<Point> vertices = new List<Point>();
@@ -66,7 +63,6 @@ namespace DynaShape.Goals
 
             int faceCount = faces.Count / 3;
 
-
             try
             {
                 float currentVolume = (float)Mesh.Volume;
@@ -76,7 +72,6 @@ namespace DynaShape.Goals
             {
                 // ignored
             }
-
 
             for (int i = 0; i < faceCount; i++)
             {
@@ -90,7 +85,8 @@ namespace DynaShape.Goals
 
                 Triple n = (B - A).Cross(C - A);
 
-                Triple force = VolumePressureConstant * currentVolumeInversed * n * 0.16666666666666f;
+                Triple force =
+                    VolumePressureConstant * currentVolumeInversed * n * 0.16666666666666f;
 
                 Moves[iA] += force;
                 Moves[iB] += force;

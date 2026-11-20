@@ -1,33 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using Autodesk.DesignScript.Runtime;
-
+﻿using Autodesk.DesignScript.Runtime;
 
 namespace DynaShape.Goals
 {
     [IsVisibleInDynamoLibrary(false)]
     public class CoLinearGoal : Goal
     {
-        public CoLinearGoal()
-        {
-        }
-
+        public CoLinearGoal() { }
 
         public CoLinearGoal(List<Triple> nodeStartingPositions, float weight = 1f)
         {
             Initialize(nodeStartingPositions, weight);
         }
 
-
         public void Initialize(List<Triple> nodeStartingPositions, float weight = 1f)
         {
-            if (nodeStartingPositions.Count < 3) throw new Exception("CoLinear Goal: Node count must be at least 3");
+            if (nodeStartingPositions.Count < 3)
+                throw new Exception("CoLinear Goal: Node count must be at least 3");
             Weight = weight;
             StartingPositions = nodeStartingPositions.ToArray();
             Moves = new Triple[StartingPositions.Length];
             Weights = new float[StartingPositions.Length];
         }
-
 
         internal override void Compute(List<Node> allNodes)
         {

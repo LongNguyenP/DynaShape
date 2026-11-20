@@ -10,7 +10,6 @@ using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace DynaShape.GeometryBinders;
 
-
 [IsVisibleInDynamoLibrary(false)]
 public class TexturedMeshBinder : GeometryBinder
 {
@@ -20,25 +19,31 @@ public class TexturedMeshBinder : GeometryBinder
     private BitmapImage diffuseMap;
     private Vector2Collection textureCoordinates;
 
+    public TexturedMeshBinder() { }
 
-    public TexturedMeshBinder()
-    {
-    }
-
-
-    public TexturedMeshBinder(Mesh mesh, Color4 color, string textureFileName, Vector2Collection textureCoordinates)
+    public TexturedMeshBinder(
+        Mesh mesh,
+        Color4 color,
+        string textureFileName,
+        Vector2Collection textureCoordinates
+    )
     {
         Initialize(mesh, color, textureFileName, textureCoordinates);
     }
 
+    public TexturedMeshBinder(
+        Mesh mesh,
+        string textureFileName,
+        Vector2Collection textureCoordinates
+    )
+        : this(mesh, DynaShapeDisplay.DefaultMeshFaceColor, textureFileName, textureCoordinates) { }
 
-    public TexturedMeshBinder(Mesh mesh, string textureFileName, Vector2Collection textureCoordinates)
-        : this(mesh, DynaShapeDisplay.DefaultMeshFaceColor, textureFileName, textureCoordinates)
-    {
-    }
-
-
-    public void Initialize(Mesh mesh, Color4 color, string textureFileName, Vector2Collection textureCoordinates)
+    public void Initialize(
+        Mesh mesh,
+        Color4 color,
+        string textureFileName,
+        Vector2Collection textureCoordinates
+    )
     {
         StartingPositions = mesh.VertexPositions.ToTriples().ToArray();
         Color = color;
@@ -63,7 +68,8 @@ public class TexturedMeshBinder : GeometryBinder
             faces[i] = IndexGroup.ByIndices(
                 (uint)faceIndices[i * 3],
                 (uint)faceIndices[i * 3 + 1],
-                (uint)faceIndices[i * 3 + 2]);
+                (uint)faceIndices[i * 3 + 2]
+            );
 
         meshFaceIndices = new IntCollection();
 
@@ -75,7 +81,6 @@ public class TexturedMeshBinder : GeometryBinder
         }
     }
 
-
     public override List<object> CreateGeometryObjects(List<Node> allNodes)
     {
         List<Point> vertices = new List<Point>(NodeCount);
@@ -84,7 +89,6 @@ public class TexturedMeshBinder : GeometryBinder
 
         return new List<object> { Mesh.ByVerticesAndIndices(vertices, faceIndices) };
     }
-
 
     public override void CreateDisplayedGeometries(DynaShapeDisplay display, List<Node> allNodes)
     {
@@ -106,7 +110,8 @@ public class TexturedMeshBinder : GeometryBinder
             vertexNormals[face.B] += n;
             vertexNormals[face.C] += n;
 
-            if (face.D == uint.MaxValue) continue;
+            if (face.D == uint.MaxValue)
+                continue;
 
             Triple D = allNodes[NodeIndices[face.D]].Position;
 
@@ -117,8 +122,8 @@ public class TexturedMeshBinder : GeometryBinder
             vertexNormals[face.D] += n;
         }
 
-        for (int i = 0; i < NodeCount; i++) vertexNormals[i] = vertexNormals[i].Normalise();
-
+        for (int i = 0; i < NodeCount; i++)
+            vertexNormals[i] = vertexNormals[i].Normalise();
 
         ////===============================================================
         //// Render mesh triangles, using vertex normals computed above
@@ -138,7 +143,6 @@ public class TexturedMeshBinder : GeometryBinder
             meshGeometry.Normals.Add(vertexNormals[i].ToVector3());
         }
 
-
         display.AddMeshModel(
             new MeshGeometryModel3D
             {
@@ -146,8 +150,9 @@ public class TexturedMeshBinder : GeometryBinder
                 Material = new PhongMaterial
                 {
                     DiffuseColor = new Color(1.0f, 1.0f, 1f, 1.0f),
-                    DiffuseMap = this.diffuseMap.StreamSource
-                }
-            });
+                    DiffuseMap = this.diffuseMap.StreamSource,
+                },
+            }
+        );
     }
 }

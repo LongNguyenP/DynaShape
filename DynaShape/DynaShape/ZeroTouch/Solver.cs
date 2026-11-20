@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics;
 using Autodesk.DesignScript.Runtime;
-using DynaShape.Goals;
 using DynaShape.GeometryBinders;
+using DynaShape.Goals;
 
 namespace DynaShape.ZeroTouch;
-
 
 public static class Solver
 {
@@ -33,7 +32,8 @@ public static class Solver
         [DefaultArgument("true")] bool enableMomentum,
         [DefaultArgument("true")] bool enableFastDisplay,
         [DefaultArgument("false")] bool enableManipulation,
-        [DefaultArgument("0.98")] float dampingFactor)
+        [DefaultArgument("0.98")] float dampingFactor
+    )
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
@@ -58,26 +58,32 @@ public static class Solver
             solver.IterationCount = iterations;
             solver.DampingFactor = dampingFactor;
 
-            if (execute) solver.StartBackgroundExecution();
+            if (execute)
+                solver.StartBackgroundExecution();
             else
             {
                 solver.StopBackgroundExecution();
-                if (!enableFastDisplay) solver.ClearRender();
-                if (!enableFastDisplay) solver.Iterate();
+                if (!enableFastDisplay)
+                    solver.ClearRender();
+                if (!enableFastDisplay)
+                    solver.Iterate();
             }
         }
 
         return execute || enableFastDisplay
-            ? new Dictionary<string, object> {
+            ? new Dictionary<string, object>
+            {
                 { "nodePositions", null },
                 { "goalOutputs", null },
-                { "geometries", null } }
-            : new Dictionary<string, object> {
+                { "geometries", null },
+            }
+            : new Dictionary<string, object>
+            {
                 { "nodePositions", solver.GetNodePositionsAsPoints() },
                 { "goalOutputs", solver.GetGoalOutputs() },
-                { "geometries", solver.GetGeometries() } };
+                { "geometries", solver.GetGeometries() },
+            };
     }
-
 
     /// <summary>
     /// Execute the solver silently and only display the final result.
@@ -101,21 +107,25 @@ public static class Solver
         [DefaultArgument("0.001")] float terminationThreshold,
         [DefaultArgument("true")] bool execute,
         [DefaultArgument("true")] bool enableMomentum,
-        [DefaultArgument("0.98")] float dampingFactor)
+        [DefaultArgument("0.98")] float dampingFactor
+    )
     {
         if (!execute)
-            return new Dictionary<string, object> {
+            return new Dictionary<string, object>
+            {
                 { "nodePositions", null },
                 { "goalOutputs", null },
                 { "geometries", null },
-                { "stats", null}};
+                { "stats", null },
+            };
 
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
 
         DynaShape.Solver solver = new DynaShape.Solver();
         solver.RegisterGoals(goals, nodeMergeThreshold);
-        if (geometryBinders != null) solver.RegisterGeometryBinders(geometryBinders, nodeMergeThreshold);
+        if (geometryBinders != null)
+            solver.RegisterGeometryBinders(geometryBinders, nodeMergeThreshold);
         solver.EnableMomentum = enableMomentum;
         solver.DampingFactor = dampingFactor;
         solver.Execute(iterations, terminationThreshold);
@@ -123,16 +133,20 @@ public static class Solver
         TimeSpan computationTime = stopwatch.Elapsed;
         stopwatch.Restart();
 
-        return new Dictionary<string, object> {
+        return new Dictionary<string, object>
+        {
             { "nodePositions", solver.GetNodePositionsAsPoints() },
             { "goalOutputs", solver.GetGoalOutputs() },
             { "geometries", solver.GetGeometries() },
-            { "stats", String.Concat(
-                "Computation Time         : " + computationTime,
-                "\nData Output Time         : " + stopwatch.Elapsed,
-                "\nNo. of Iterations Spent  : " + solver.CurrentIteration,
-                "\nLargest Movement Sqr.    : " + solver.GetKineticEnergy())
-            }
+            {
+                "stats",
+                String.Concat(
+                    "Computation Time         : " + computationTime,
+                    "\nData Output Time         : " + stopwatch.Elapsed,
+                    "\nNo. of Iterations Spent  : " + solver.CurrentIteration,
+                    "\nLargest Movement Sqr.    : " + solver.GetKineticEnergy()
+                )
+            },
         };
     }
 }

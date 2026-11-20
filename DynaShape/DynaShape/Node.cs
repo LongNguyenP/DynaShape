@@ -2,7 +2,6 @@
 
 namespace DynaShape;
 
-
 [IsVisibleInDynamoLibrary(false)]
 public class Node
 {

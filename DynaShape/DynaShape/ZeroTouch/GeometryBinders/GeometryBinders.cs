@@ -2,15 +2,12 @@
 
 namespace DynaShape.ZeroTouch.GeometryBinders;
 
-
 /// <summary>
 /// Wrapper class for GeometryBinders
 /// </summary>
 public class GeometryBinder
 {
-    private GeometryBinder()
-    {
-    }
+    private GeometryBinder() { }
 
     /// <summary>
     /// Modify a geometry binder's color.
@@ -18,7 +15,10 @@ public class GeometryBinder
     /// <param name="geometryBinder">The GeometryBinder to modify.</param>
     /// <param name="color">The new color to apply.</param>
     /// <returns></returns>
-    public static DynaShape.GeometryBinders.GeometryBinder ChangeColor(DynaShape.GeometryBinders.GeometryBinder geometryBinder, Color color)
+    public static DynaShape.GeometryBinders.GeometryBinder ChangeColor(
+        DynaShape.GeometryBinders.GeometryBinder geometryBinder,
+        Color color
+    )
     {
         geometryBinder.Color = color.ToColor4();
         return geometryBinder;
@@ -30,7 +30,10 @@ public class GeometryBinder
     /// <param name="geometryBinder">The GeometryBinder to modify.</param>
     /// <param name="isVisible">Is the binder visible?</param>
     /// <returns></returns>
-    public static DynaShape.GeometryBinders.GeometryBinder ToggleVisibility(DynaShape.GeometryBinders.GeometryBinder geometryBinder, bool isVisible)
+    public static DynaShape.GeometryBinders.GeometryBinder ToggleVisibility(
+        DynaShape.GeometryBinders.GeometryBinder geometryBinder,
+        bool isVisible
+    )
     {
         geometryBinder.Show = isVisible;
         return geometryBinder;

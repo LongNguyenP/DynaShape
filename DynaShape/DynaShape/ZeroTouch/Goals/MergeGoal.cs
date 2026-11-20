@@ -1,5 +1,5 @@
-using Autodesk.DesignScript.Runtime;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
 namespace DynaShape.ZeroTouch.Goals
@@ -7,10 +7,9 @@ namespace DynaShape.ZeroTouch.Goals
     /// <summary>
     /// MergeGoal
     /// </summary>
-    public  class MergeGoal
+    public class MergeGoal
     {
-        private MergeGoal(){}
-
+        private MergeGoal() { }
 
         /// <summary>
         /// Creates a MergeGoal to pull a set of nodes to their center of a given mass.
@@ -23,7 +22,8 @@ namespace DynaShape.ZeroTouch.Goals
         [NodeCategory("Create")]
         public static DynaShape.Goals.MergeGoal ByPoints(
             List<Point> startPositions,
-            [DefaultArgument("1000.0")] float weight)
+            [DefaultArgument("1000.0")] float weight
+        )
         {
             var goal = TracingUtils.GetObjectFromTrace<DynaShape.Goals.MergeGoal>();
             goal.Initialize(startPositions.ToTriples(), weight);

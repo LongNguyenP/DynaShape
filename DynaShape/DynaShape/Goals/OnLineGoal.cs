@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using Autodesk.DesignScript.Geometry;
+﻿using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
-
 
 namespace DynaShape.Goals
 {
@@ -11,29 +9,32 @@ namespace DynaShape.Goals
         public Triple TargetLineOrigin;
         public Triple TargetLineDirection;
 
+        public OnLineGoal() { }
 
-        public OnLineGoal()
-        {
-        }
-
-
-        public OnLineGoal(List<Triple> nodeStartingPositions, Triple lineOrigin, Triple lineDirection, float weight = 1f)
+        public OnLineGoal(
+            List<Triple> nodeStartingPositions,
+            Triple lineOrigin,
+            Triple lineDirection,
+            float weight = 1f
+        )
         {
             Initialize(nodeStartingPositions, lineOrigin, lineDirection, weight);
         }
 
-
         public OnLineGoal(List<Triple> nodeStartingPositions, Line line, float weight = 1f)
             : this(
-                  nodeStartingPositions,
-                  line.StartPoint.ToTriple(),
-                  (line.EndPoint.ToTriple() - line.StartPoint.ToTriple()).Normalise(),
-                  weight)
-        {
-        }
+                nodeStartingPositions,
+                line.StartPoint.ToTriple(),
+                (line.EndPoint.ToTriple() - line.StartPoint.ToTriple()).Normalise(),
+                weight
+            ) { }
 
-
-        public void Initialize(List<Triple> nodeStartingPositions, Triple lineOrigin, Triple lineDirection, float weight)
+        public void Initialize(
+            List<Triple> nodeStartingPositions,
+            Triple lineOrigin,
+            Triple lineDirection,
+            float weight
+        )
         {
             TargetLineOrigin = lineOrigin;
             TargetLineDirection = lineDirection;
@@ -42,7 +43,6 @@ namespace DynaShape.Goals
             Moves = new Triple[StartingPositions.Length];
             Weights = new float[StartingPositions.Length];
         }
-
 
         internal override void Compute(List<Node> allNodes)
         {
